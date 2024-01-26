@@ -11,7 +11,7 @@ function NavBar() {
                 <img src={Logo} alt="Logo" className=" w-20 " />
             </div>
             <div className=" md:hidden flex flex-col items-center justify-center mr-10">
-                <IoMenu className=" text-5xl text-primary text	" />
+                <IoMenu className=" text-5xl text-green text cursor-pointer" />
             </div>
             <div className="  hidden md:flex">
                 <div className=" flex gap-5">

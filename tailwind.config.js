@@ -9,9 +9,6 @@ export default {
                 green: "#078343",
                 blue: "#004172",
             },
-            fontSize: {
-                custom: "1.5rem",
-            },
         },
     },
     plugins: [],
