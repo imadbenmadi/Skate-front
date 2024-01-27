@@ -13,7 +13,7 @@ function NavBar() {
         <div className=" fixed z-40 w-full">
             <div className=" flex shadow-lg justify-between select-none ">
                 <div className=" p-2">
-                    <img src={Logo} alt="Logo" className=" w-20 " />
+                    <img src={Logo} alt="Logo" className=" w-14  ml-4" />
                 </div>
                 {/* Mobile */}
                 <div
