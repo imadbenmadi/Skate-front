@@ -71,15 +71,15 @@ function NavBar() {
             {/* Moblie nav bar */}
             <div
                 className={`md:hiddne ${
-                    open ? " translate-x-[29vw]" : " translate-x-[100vw] "
-                } absolute  transition-all select-none w-[70vw]  bg-white z-50`}
+                    open ? " translate-x-[30vw]" : " translate-x-[100vw] "
+                } absolute  transition-all select-none w-[70vw]  bg-white z-50 border-l-2 border-gray `}
             >
-                <div className=" flex flex-col items-start justify-start h-screen text-3xl gap-6 mt-8">
-                    <div className=" ">Servecis</div>
-                    <div>Formations</div>
-                    <div>Events</div>
-                    <div>Blogs</div>
-                    <div>Contact</div>
+                <div className=" flex flex-col items-start justify-start h-screen text-3xl gap-10 mt-8 pl-10">
+                    <div className=" cursor-pointer">Servecis</div>
+                    <div className=" cursor-pointer">Formations</div>
+                    <div className=" cursor-pointer">Events</div>
+                    <div className=" cursor-pointer">Blogs</div>
+                    <div className=" cursor-pointer">Contact</div>
                 </div>
             </div>
         </div>
