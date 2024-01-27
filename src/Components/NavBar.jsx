@@ -12,7 +12,7 @@ function NavBar() {
         setOpen(!open);
     }
     return (
-        <div className=" fixed z-40 w-full">
+        <div className=" fixed z-40 w-full bg-white ">
             <div className=" flex shadow-lg justify-between md:justify-around select-none ">
                 <div className=" p-2 ml-5 md:ml-0">
                     <img src={Logo} alt="Logo" className=" w-14 md:w-[80px] " />
