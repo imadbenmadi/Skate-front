@@ -4,6 +4,8 @@ import Setting from "../../public/setting.png";
 import { IoMenu } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
 import { useState } from "react";
+import { IoSettingsOutline } from "react-icons/io5";
+
 function NavBar() {
     const [open, setOpen] = useState(false);
     function Clicked() {
@@ -11,9 +13,9 @@ function NavBar() {
     }
     return (
         <div className=" fixed z-40 w-full">
-            <div className=" flex shadow-lg justify-between select-none ">
-                <div className=" p-2">
-                    <img src={Logo} alt="Logo" className=" w-14  ml-4" />
+            <div className=" flex shadow-lg justify-between md:justify-around select-none ">
+                <div className=" p-2 ml-5 md:ml-0">
+                    <img src={Logo} alt="Logo" className=" w-14 md:w-[80px] " />
                 </div>
                 {/* Mobile */}
                 <div
@@ -38,24 +40,37 @@ function NavBar() {
                 </div>
 
                 {/* Laptop */}
-                <div className="  hidden md:flex">
+                <div className="  hidden md:flex items-center justify-center gap-7 text-lg text-grayZ ">
                     <div className=" flex gap-5">
-                        <div className=" ">Servecis</div>
-                        <div>Formations</div>
-                        <div>Events</div>
-                        <div>Blogs</div>
-                        <div>Contact</div>
-                    </div>
-                    <div>
-                        <div>
-                            <img src={Setting} alt="" />
+                        <div className=" hover:text-green transition-colors cursor-pointer">
+                            Servecis
                         </div>
-                        <div></div>
+                        <div className=" hover:text-green transition-colors cursor-pointer">
+                            Formations
+                        </div>
+                        <div className=" hover:text-green transition-colors cursor-pointer">
+                            Events
+                        </div>
+                        <div className=" hover:text-green transition-colors cursor-pointer">
+                            Blogs
+                        </div>
+                        <div className=" hover:text-green transition-colors cursor-pointer">
+                            Contact
+                        </div>
+                    </div>
+
+                    <IoSettingsOutline className=" text-3xl text-gray cursor-pointer" />
+
+                    <div className=" ">
+                        <span className=" bg-green text-[#fff] px-3 py-2 rounded-lg cursor-pointer">
+                            Login
+                        </span>
                     </div>
                 </div>
             </div>
+            {/* Moblie nav bar */}
             <div
-                className={`${
+                className={`md:hiddne ${
                     open ? " translate-x-[29vw]" : " translate-x-[100vw] "
                 } absolute  transition-all select-none w-[70vw]  bg-white z-50`}
             >
@@ -67,7 +82,6 @@ function NavBar() {
                     <div>Contact</div>
                 </div>
             </div>
-            {/* <div>hello</div> */}
         </div>
     );
 }
