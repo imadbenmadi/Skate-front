@@ -72,14 +72,18 @@ function NavBar() {
             <div
                 className={`md:hiddne ${
                     open ? " translate-x-[30vw]" : " translate-x-[100vw] "
-                } absolute  transition-all select-none w-[70vw]  bg-white z-50 border-l-2 border-gray `}
+                } absolute  transition-all select-none w-[70vw]  z-50 border-l-4 border-blue text-blue font-semibold `}
             >
-                <div className=" flex flex-col items-start justify-start h-screen text-3xl gap-10 mt-8 pl-10">
-                    <div className=" cursor-pointer">Servecis</div>
-                    <div className=" cursor-pointer">Formations</div>
-                    <div className=" cursor-pointer">Events</div>
-                    <div className=" cursor-pointer">Blogs</div>
-                    <div className=" cursor-pointer">Contact</div>
+                <div className=" flex flex-col items-start justify-start h-screen text-4xl gap-10 mt-8 ">
+                    <div className=" cursor-pointer pl-10">Login</div>
+                    <div className=" cursor-pointer pl-10">Settings</div>
+                    <div className=" w-full h-1 bg-gray"></div>
+                    <div className=" cursor-pointer pl-10">Servecis</div>
+                    <div className=" cursor-pointer pl-10">Formations</div>
+                    <div className=" w-full h-1 bg-gray"></div>
+                    <div className=" cursor-pointer pl-10">Events</div>
+                    <div className=" cursor-pointer pl-10">Blogs</div>
+                    <div className=" cursor-pointer pl-10">Contact</div>
                 </div>
             </div>
         </div>
