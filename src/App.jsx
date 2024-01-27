@@ -6,7 +6,9 @@ function App() {
   return (
       <div className=" relative overflow-x-hidden ">
           <NavBar />
-          <Outlet />
+      <div className=" mt-[100px]">
+              <Outlet />
+          </div>
       </div>
   );
 }

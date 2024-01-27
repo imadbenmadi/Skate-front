@@ -1,6 +1,5 @@
 import React from 'react'
 import wallpaper from '../../../public/wallpaper.jpg'
-import wallpaper_mobile from "../../../public/wallpaper_mobile.png";
 function Home() {
   return (
       <>
