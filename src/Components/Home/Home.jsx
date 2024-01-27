@@ -7,7 +7,7 @@ function Home() {
               {/* <div>
                   <img src={wallpaper} alt="" className="scale-[1.3] mt-11" />
               </div> */}
-              <div className="flex justify-center items-center h-[30vh] overflow-hidden">
+              <div className="flex justify-center items-center h-[50vh] overflow-hidden">
                   {/* Set the image as a background */}
                   <div
                       className="w-full h-full bg-cover bg-center transform scale-[1.2]"

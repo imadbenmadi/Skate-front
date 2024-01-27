@@ -72,7 +72,7 @@ function NavBar() {
             <div
                 className={`md:hiddne ${
                     open ? " translate-x-[30vw]" : " translate-x-[100vw] "
-                } absolute  transition-all select-none w-[70vw]  z-50 border-l-4 border-blue text-blue font-semibold `}
+                } absolute  transition-all select-none w-[70vw]  z-50 bg-zinc-100 border-l-4 border-blue text-blue font-semibold `}
             >
                 <div className=" flex flex-col items-start justify-start h-screen text-4xl gap-10 mt-8 ">
                     <div className=" cursor-pointer pl-10">Login</div>

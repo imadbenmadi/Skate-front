@@ -6,8 +6,8 @@ function App() {
   return (
       <div className=" relative overflow-x-hidden ">
           <NavBar />
-      <div className=" mt-[70px]">
-              {/* <Outlet /> */}
+      <div className=" mt-[70px] md:mt-[92px]">
+              <Outlet />
           </div>
       </div>
   );
