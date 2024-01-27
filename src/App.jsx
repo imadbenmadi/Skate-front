@@ -3,10 +3,10 @@ import NavBar from "./Components/NavBar";
 import { Outlet } from "react-router-dom";
 function App() {
     return (
-        <>
-          <NavBar />
-          <Outlet />
-        </>
+        <div className=" relative overflow-x-hidden ">
+            <NavBar />
+            <Outlet />
+        </div>
     );
 }
 

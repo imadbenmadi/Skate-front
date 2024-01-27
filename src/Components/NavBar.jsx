@@ -10,7 +10,7 @@ function NavBar() {
         setOpen(!open);
     }
     return (
-        <div className="overflow-x-hidden relative">
+        <div className="">
             <div className=" flex shadow-lg justify-between select-none ">
                 <div className=" p-2">
                     <img src={Logo} alt="Logo" className=" w-20 " />
@@ -56,10 +56,10 @@ function NavBar() {
             </div>
             <div
                 className={`${
-                    open ? " translate-x-0" : " translate-x-[100vw] "
-                } absolute mt-8 transition-all select-none w-[100vw] `}
+                    open ? " translate-x-[29vw]" : " translate-x-[100vw] "
+                } absolute  transition-all select-none w-[70vw]  bg-white z-50`}
             >
-                <div className=" flex flex-col items-center justify-center bg-gray-800 ">
+                <div className=" flex flex-col items-start justify-start h-screen text-3xl gap-6 mt-8">
                     <div className=" ">Servecis</div>
                     <div>Formations</div>
                     <div>Events</div>
@@ -67,7 +67,7 @@ function NavBar() {
                     <div>Contact</div>
                 </div>
             </div>
-            <div>hello</div>
+            {/* <div>hello</div> */}
         </div>
     );
 }
