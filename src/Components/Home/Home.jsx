@@ -11,7 +11,7 @@ function Home() {
               <div className="flex justify-center items-center h-[30vh] overflow-hidden">
                   {/* Set the image as a background */}
                   <div
-                      className="w-full h-full bg-cover bg-center transform scale-110"
+                      className="w-full h-full bg-cover bg-center transform scale-[1.2]"
                       style={{ backgroundImage: `url(${wallpaper})` }}
                   ></div>
               </div>
