@@ -4,11 +4,10 @@ import { Outlet } from "react-router";
 
 function App() {
   return (
-      <Outlet />
-      // <div className=" relative overflow-x-hidden ">
-      //     {/* <NavBar /> */}
-
-      // </div>
+      <div className=" relative overflow-x-hidden ">
+          <NavBar />
+          <Outlet />
+      </div>
   );
 }
 
