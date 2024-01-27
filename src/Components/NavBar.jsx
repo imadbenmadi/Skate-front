@@ -40,7 +40,7 @@ function NavBar() {
                 </div>
 
                 {/* Laptop */}
-                <div className="  hidden md:flex items-center justify-center gap-7 text-lg text-grayZ ">
+                <div className="  hidden md:flex items-center justify-center gap-7 text-lg text-black_text ">
                     <div className=" flex gap-5">
                         <div className=" hover:text-green transition-colors cursor-pointer">
                             Servecis
