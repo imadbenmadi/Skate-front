@@ -5,6 +5,11 @@ import { IoMenu } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
 import { useState } from "react";
 import { IoSettingsOutline } from "react-icons/io5";
+import { FaRegHandshake } from "react-icons/fa";
+import { FaBookReader } from "react-icons/fa";
+import { MdEventAvailable } from "react-icons/md";
+import { RiArticleFill } from "react-icons/ri";
+import { IoCall } from "react-icons/io5";
 
 function NavBar() {
     const [open, setOpen] = useState(false);
@@ -63,27 +68,52 @@ function NavBar() {
 
                     <div className=" ">
                         <span className=" bg-green text-[#fff] px-3 py-2 rounded-lg cursor-pointer">
-                            Login
+                            Regester
                         </span>
                     </div>
                 </div>
             </div>
             {/* Moblie nav bar */}
             <div
-                className={`md:hiddne ${
+                className={` md:hidden ${
                     open ? " translate-x-[30vw]" : " translate-x-[100vw] "
-                } absolute  transition-all select-none w-[70vw]  z-50 bg-zinc-100 border-l-4 border-blue text-blue font-semibold `}
+                } absolute  transition-all select-none w-[70vw]  z-50 bg-zinc-100 border-l-4 border-blue text-black_text font-semibold `}
             >
-                <div className=" flex flex-col items-start justify-start h-screen text-4xl gap-10 mt-8 ">
-                    <div className=" cursor-pointer pl-10">Login</div>
-                    <div className=" cursor-pointer pl-10">Settings</div>
+                <div className=" flex flex-col items-center justify-start h-screen text-2xl gap-5 mt-8 ">
+                    <div className="flex gap-2 cursor-pointer ">
+                        <span className=" bg-green text-[#fff] px-3 py-2 rounded-lg cursor-pointer">
+                            Regester
+                        </span>
+                        <span className=" bg-gray_white text-black_text px-3 py-2 rounded-lg cursor-pointer">
+                            Login
+                        </span>
+                    </div>
+                    <div className="w-[155px] flex cursor-pointer gap-2  ">
+                        <IoSettingsOutline className=" text-3xl" />
+                        Settings
+                    </div>
                     <div className=" w-full h-1 bg-gray"></div>
-                    <div className=" cursor-pointer pl-10">Servecis</div>
-                    <div className=" cursor-pointer pl-10">Formations</div>
+                    <div className="w-[155px] flex cursor-pointer gap-2  ">
+                        <FaRegHandshake className=" text-3xl" />
+                        Servecis
+                    </div>
+                    <div className="w-[165px] flex cursor-pointer  gap-2 ">
+                        <FaBookReader className=" text-3xl" />
+                        Formations
+                    </div>
                     <div className=" w-full h-1 bg-gray"></div>
-                    <div className=" cursor-pointer pl-10">Events</div>
-                    <div className=" cursor-pointer pl-10">Blogs</div>
-                    <div className=" cursor-pointer pl-10">Contact</div>
+                    <div className="w-[155px] flex cursor-pointer  gap-2">
+                        <MdEventAvailable className=" text-3xl" />
+                        Events
+                    </div>
+                    <div className="w-[155px] flex cursor-pointer  gap-2">
+                        <RiArticleFill className=" text-3xl" />
+                        Blogs
+                    </div>
+                    <div className="w-[155px] flex cursor-pointer  gap-2">
+                        <IoCall className=" text-3xl" />
+                        Contact
+                    </div>
                 </div>
             </div>
         </div>
