@@ -74,45 +74,53 @@ function NavBar() {
                 </div>
             </div>
             {/* Moblie nav bar */}
-            <div
-                className={` md:hidden ${
-                    open ? " translate-x-[30vw]" : " translate-x-[100vw] "
-                } absolute  transition-all select-none w-[70vw]  z-50 bg-zinc-100 border-l-4 border-blue text-black_text font-semibold `}
-            >
-                <div className=" flex flex-col items-center justify-start h-screen text-2xl gap-5 mt-8 ">
-                    <div className="flex gap-2 cursor-pointer ">
-                        <span className=" bg-green text-[#fff] px-3 py-2 rounded-lg cursor-pointer">
-                            Regester
-                        </span>
-                        <span className=" bg-gray_white text-black_text px-3 py-2 rounded-lg cursor-pointer">
-                            Login
-                        </span>
-                    </div>
-                    <div className="w-[155px] flex cursor-pointer gap-2  ">
-                        <IoSettingsOutline className=" text-3xl" />
-                        Settings
-                    </div>
-                    <div className=" w-full h-1 bg-gray"></div>
-                    <div className="w-[155px] flex cursor-pointer gap-2  ">
-                        <FaRegHandshake className=" text-3xl" />
-                        Servecis
-                    </div>
-                    <div className="w-[165px] flex cursor-pointer  gap-2 ">
-                        <FaBookReader className=" text-3xl" />
-                        Formations
-                    </div>
-                    <div className=" w-full h-1 bg-gray"></div>
-                    <div className="w-[155px] flex cursor-pointer  gap-2">
-                        <MdEventAvailable className=" text-3xl" />
-                        Events
-                    </div>
-                    <div className="w-[155px] flex cursor-pointer  gap-2">
-                        <RiArticleFill className=" text-3xl" />
-                        Blogs
-                    </div>
-                    <div className="w-[155px] flex cursor-pointer  gap-2">
-                        <IoCall className=" text-3xl" />
-                        Contact
+            <div className="flex">
+                <div
+                    onClick={Clicked}
+                    className={` md:hidden ${
+                        open ? " block bg-gray_white " : "hidden"
+                    } absolute  transition-all select-none w-[30vw]  z-50 h-screen  opacity-[0.6] `}
+                ></div>
+                <div
+                    className={` md:hidden ${
+                        open ? " translate-x-[30vw]" : " translate-x-[100vw] "
+                    } absolute  transition-all select-none w-[70vw]  z-50 bg-zinc-100 border-l-4  text-black_text font-semibold `}
+                >
+                    <div className=" flex flex-col items-center justify-start h-screen text-2xl gap-5 mt-8 ">
+                        <div className="flex gap-2 cursor-pointer ">
+                            <span className=" bg-green text-[#fff] px-3 py-2 rounded-lg cursor-pointer">
+                                Regester
+                            </span>
+                            <span className=" bg-gray_white text-black_text px-3 py-2 rounded-lg cursor-pointer">
+                                Login
+                            </span>
+                        </div>
+                        <div className="w-[155px] flex cursor-pointer gap-2  ">
+                            <IoSettingsOutline className=" text-3xl" />
+                            Settings
+                        </div>
+                        <div className=" w-full h-1 bg-gray"></div>
+                        <div className="w-[155px] flex cursor-pointer gap-2  ">
+                            <FaRegHandshake className=" text-3xl" />
+                            Servecis
+                        </div>
+                        <div className="w-[165px] flex cursor-pointer  gap-2 ">
+                            <FaBookReader className=" text-3xl" />
+                            Formations
+                        </div>
+                        <div className=" w-full h-1 bg-gray"></div>
+                        <div className="w-[155px] flex cursor-pointer  gap-2">
+                            <MdEventAvailable className=" text-3xl" />
+                            Events
+                        </div>
+                        <div className="w-[155px] flex cursor-pointer  gap-2">
+                            <RiArticleFill className=" text-3xl" />
+                            Blogs
+                        </div>
+                        <div className="w-[155px] flex cursor-pointer  gap-2">
+                            <IoCall className=" text-3xl" />
+                            Contact
+                        </div>
                     </div>
                 </div>
             </div>
