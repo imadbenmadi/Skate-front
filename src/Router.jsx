@@ -5,7 +5,7 @@ import App from "./App";
 import Not_Finished from "./Components/Not_Finished";
 import Blogs from "./Components/Blogs/Blogs";
 import Login from "./Components/Login";
-import Regester from "./Components/Register";
+import Register from "./Components/Register";
 import Services from "./Components/Services/Services";
 import Formations from "./Components/Formations/Formations";
 import Events from "./Components/Events/Events";
@@ -37,8 +37,8 @@ const routes = createBrowserRouter([
         element: <Login />,
     },
     {
-        path: "/Regester",
-        element: <Regester />,
+        path: "/Register",
+        element: <Register />,
     },
     {
         path: "/Profile",

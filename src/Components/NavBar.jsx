@@ -10,7 +10,7 @@ import { FaBookReader } from "react-icons/fa";
 import { MdEventAvailable } from "react-icons/md";
 import { RiArticleFill } from "react-icons/ri";
 import { IoCall } from "react-icons/io5";
-
+import { Link } from "react-router-dom";
 function NavBar() {
     const [open, setOpen] = useState(false);
     function Clicked() {
@@ -68,7 +68,7 @@ function NavBar() {
 
                     <div className=" ">
                         <span className=" bg-green text-[#fff] px-3 py-2 rounded-lg cursor-pointer">
-                            Regester
+                            Register
                         </span>
                     </div>
                 </div>
@@ -88,12 +88,15 @@ function NavBar() {
                 >
                     <div className=" flex flex-col items-center justify-start h-screen text-2xl gap-5 mt-8 ">
                         <div className="flex gap-2 cursor-pointer ">
-                            <span className=" bg-green text-[#fff] px-3 py-2 rounded-lg cursor-pointer">
-                                Regester
-                            </span>
-                            <span className=" bg-gray_white text-black_text px-3 py-2 rounded-lg cursor-pointer">
+                            <Link
+                                to={"/Register"}
+                                className=" bg-green text-[#fff] px-3 py-2 rounded-lg cursor-pointer"
+                            >
+                                Register
+                            </Link>
+                            <Link to={"/Login"} className=" bg-gray_white text-black_text px-3 py-2 rounded-lg cursor-pointer">
                                 Login
-                            </span>
+                            </Link>
                         </div>
                         <div className="w-[155px] flex cursor-pointer gap-2  ">
                             <IoSettingsOutline className=" text-3xl" />
