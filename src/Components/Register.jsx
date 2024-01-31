@@ -3,13 +3,11 @@ import Logo from "../../public/Logo.png";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Link } from "react-router-dom";
 import Axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 function Register() {
-    const Navigate = useNavigate();
     async function handleRegistration(
         values,
-        { setSubmitting, setFieldValue }
+        { setSubmitting }
     ) {
         const formData = new FormData();
         formData.append("ProfilePic", values.profilePic);
@@ -17,8 +15,8 @@ function Register() {
         formData.append("LastName", values.lastName);
         formData.append("Email", values.email);
         formData.append("Password", values.password);
-        formData.append("age", values.age);
-        formData.append("gender", values.gender);
+        formData.append("Age", values.age);
+        formData.append("Gender", values.gender);
         try {
             let response = await Axios.post(
                 "http://localhost:3000/Register",
@@ -44,7 +42,6 @@ function Register() {
                     "Your account has been created Successfully",
                     "success"
                 );
-                Navigate("/Auth/Login");
             } else if (response.status === 400) {
                 Swal.fire(
                     "Error!",
