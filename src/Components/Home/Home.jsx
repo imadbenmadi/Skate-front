@@ -9,7 +9,7 @@ function Home() {
                 <div className=" h-[50vh] md:h-[90vh] overflow-hidden">
                     {/* Set the image as a background */}
                     <div
-                        className="w-full h-full bg-cover bg-center  flex  justify-center items-end gap-10 md:gap-48 pb-10"
+                        className="w-full h-full bg-cover bg-center  flex  justify-center items-end gap-10  md:gap-64 pb-10"
                         style={{
                             backgroundImage: `url(${wallpaper})`,
                             backgroundSize: "cover",
@@ -28,7 +28,7 @@ function Home() {
                             <div className="hidden md:block text-2xl mb-3 font-semibold text-black_text">
                                 Center of Training and Assistance
                             </div>
-                            <div className=" flex items-center text-[16px] bg-white text-black rounded-xl shadow-xl w-fit px-4 py-1 md:text-xl cursor-pointer">
+                            <div className=" flex items-center text-[16px] bg-white text-black rounded-xl shadow-xl w-fit px-4 py-1 md:text-xl cursor-pointer font-semibold">
                                 Owr Courses
                                 <GrFormNextLink />
                             </div>
