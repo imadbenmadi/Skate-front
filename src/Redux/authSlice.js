@@ -10,10 +10,10 @@ const authSlice = createSlice({
     },
     reducers: {
         setTokens: (state, action) => {
-            state.accessToken = action.payload.accessToken;
+            state.accessToken = action.payload.data.jwt;
         },
         setUserData: (state, action) => {
-            state.userData = action.payload;
+            state.userData = action.payload.data.userData;
         },
     },
 });

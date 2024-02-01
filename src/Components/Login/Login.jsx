@@ -6,17 +6,18 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { IoMdEye } from "react-icons/io";
 import { IoMdEyeOff } from "react-icons/io";
-import { UseDispatch } from "react-redux";
-import { setTokens, setUserData } from "../../Redux/authSlice";
+import { useDispatch, useSelector } from "react-redux";
+import { setTokens, setUserData, selectAuth } from "../../Redux/authSlice";
+import Axios from "axios";
+import Swal from "sweetalert2";
 function Login() {
-    const dispatch = UseDispatch();
+    const dispatch = useDispatch();
     const Navigate = useNavigate();
+    const { accessTokenbig, userData } = useSelector(selectAuth);
     const [showPassword, setShowPassword] = useState(false);
     function handleShowPassword() {
         setShowPassword(!showPassword);
     }
-    const [Succeed_Login, setSucceed_Login] = useState(false);
-
     async function handleLogin(values, { setSubmitting }) {
         try {
             let response = await Axios.post(
@@ -30,11 +31,17 @@ function Login() {
             );
 
             if (response.status === 200) {
-              Swal.fire("Done!", "Logged in Successfully", "success");
-              const accessToken = response.data.accessToken;
-              const userData = response.data.userData;
-                dispatch(setTokens({ accessToken }));
-                dispatch(setUserData(userData));
+                Swal.fire("Done!", "Logged in Successfully", "success");
+                const accessToken = response.data.jwt;
+                const userData = response.data.userData;
+                console.log(response);
+                dispatch(setTokens(response));
+                dispatch(setUserData(response));
+                
+
+                // const { token, data } = useSelector(selectAuth);
+                // console.log(token);
+                // console.log(data);
             } else if (response.status === 401) {
                 console.log(response.data.error);
                 Swal.fire(
@@ -119,9 +126,7 @@ function Login() {
                     }}
                     onSubmit={(values, { setSubmitting }) => {
                         // Call your registration logic here
-                        handleLogin(values, setSucceed_Login, {
-                            setSubmitting,
-                        });
+                        handleLogin(values, { setSubmitting });
                         // Succeed_Login ? Navigate("/") : null;
                     }}
                 >

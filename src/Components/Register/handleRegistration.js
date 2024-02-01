@@ -1,6 +1,5 @@
 import Axios from "axios";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
 export async function handleRegistration(values,setSucceed, { setSubmitting }) {
     setSucceed(false);
     try {
