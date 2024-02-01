@@ -6,14 +6,76 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { IoMdEye } from "react-icons/io";
 import { IoMdEyeOff } from "react-icons/io";
-import { handleLogin } from "./handleLogin";
+import { UseDispatch } from "react-redux";
+import { setTokens, setUserData } from "../../Redux/authSlice";
 function Login() {
+    const dispatch = UseDispatch();
     const Navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     function handleShowPassword() {
         setShowPassword(!showPassword);
-  }
-  const [Succeed_Login, setSucceed_Login] = useState(false);
+    }
+    const [Succeed_Login, setSucceed_Login] = useState(false);
+
+    async function handleLogin(values, { setSubmitting }) {
+        try {
+            let response = await Axios.post(
+                "http://localhost:3000/Login",
+                values,
+                {
+                    withCredentials: true,
+
+                    validateStatus: () => true,
+                }
+            );
+
+            if (response.status === 200) {
+              Swal.fire("Done!", "Logged in Successfully", "success");
+              const accessToken = response.data.accessToken;
+              const userData = response.data.userData;
+                dispatch(setTokens({ accessToken }));
+                dispatch(setUserData(userData));
+            } else if (response.status === 401) {
+                console.log(response.data.error);
+                Swal.fire(
+                    "Email already exists",
+                    `Please try to use another Email , ${response.data.error}`,
+                    "error"
+                );
+            } else if (response.status === 409) {
+                console.log(response.data.error);
+                Swal.fire(
+                    "Error!",
+                    `Missing Data ,  ${response.data.error}`,
+                    "error"
+                );
+            } else if (response.status === 500) {
+                console.log(response.data.error);
+                Swal.fire(
+                    "Error!",
+                    `Internal Server Error ,  ${response.data.error}`,
+                    "error"
+                );
+            } else {
+                console.log(response.data.error);
+                Swal.fire(
+                    "Error!",
+                    `Something Went Wrong ,${response.data.error}`,
+                    "error"
+                );
+            }
+        } catch (error) {
+            console.error("Error during registration:", error.message);
+            Swal.fire(
+                "Error!",
+                `Something Went Wrong ,${error.message}`,
+                "error"
+            );
+        }
+
+        setSubmitting(false);
+    }
+
     return (
         <div>
             <div>
