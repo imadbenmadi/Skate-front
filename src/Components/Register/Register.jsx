@@ -1,73 +1,20 @@
 import React from "react";
-import Logo from "../../public/Logo.png";
-import { Formik, Form, Field, ErrorMessage } from "formik";
+import Logo from "../../../public/Logo.png";
+import {
+    Formik, Form, Field, ErrorMessage
+} from "formik";
 import { Link } from "react-router-dom";
-import Axios from "axios";
-import Swal from "sweetalert2";
+
 import { useState } from "react";
 import { IoMdEye } from "react-icons/io";
 import { IoMdEyeOff } from "react-icons/io";
-
+import {handleRegistration} from "./handleRegistration";
 function Register() {
     const [showPassword, setShowPassword] = useState(false);
     function handleShowPassword() {
         setShowPassword(!showPassword);
     }
-    async function handleRegistration(values, { setSubmitting }) {
-        console.log("test");
-        try {
-            let response = await Axios.post(
-                "http://localhost:3000/Register",
-                values,
-                {
-                    withCredentials: true,
-                    // headers: {
-                    //     "Content-Type": "multipart/form-data",
-                    // },
-                    validateStatus: () => true,
-                }
-            );
-
-            if (response.status === 401) {
-                console.log(response);
-                Swal.fire(
-                    "Email already exists",
-                    "Please try to use another Email",
-                    "error"
-                );
-            } else if (response.status === 200) {
-                Swal.fire(
-                    "Done!",
-                    "Your account has been created Successfully",
-                    "success"
-                );
-            } else if (response.status === 400) {
-                Swal.fire(
-                    "Error!",
-                    "Internal server error. Please try again",
-                    "error"
-                );
-                console.log(response.data.error);
-            } else if (response.status === 409) {
-                Swal.fire("Error!", "Missing Data", "error");
-            } else {
-                Swal.fire(
-                    "Error!",
-                    "Something Went Wrong. Please try again",
-                    "error"
-                );
-            }
-        } catch (error) {
-            console.error("Error during registration:", error);
-            Swal.fire(
-                "Error!",
-                "Something Went Wrong. Please try again",
-                "error"
-            );
-        }
-        console.log("erztrfsdf");
-        setSubmitting(false);
-    }
+    
     return (
         <div>
             <div>
@@ -137,7 +84,12 @@ function Register() {
                         }
                         return errors;
                     }}
-                    onSubmit={handleRegistration}
+                    onSubmit={(values, { setSubmitting }) => {
+                        // Call your registration logic here
+                        handleRegistration(values, {
+                            setSubmitting,
+                        });
+                    }}
                 >
                     {({ isSubmitting }) => (
                         <Form className=" flex flex-col mx-5 gap-4">
@@ -277,7 +229,11 @@ function Register() {
                             </div>
                             <button
                                 type="submit"
-                                className=" bg-green w-fit m-auto px-4 py-2 rounded font-semibold text-white"
+                                className={` ${
+                                    isSubmitting
+                                        ? "bg-gray_white text-gray"
+                                        : " bg-green text-white"
+                                } w-fit m-auto px-4 py-2 rounded font-semibold `}
                                 disabled={isSubmitting}
                             >
                                 {isSubmitting ? <div>loading</div> : "Submit"}
