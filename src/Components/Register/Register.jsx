@@ -4,17 +4,18 @@ import {
     Formik, Form, Field, ErrorMessage
 } from "formik";
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { IoMdEye } from "react-icons/io";
 import { IoMdEyeOff } from "react-icons/io";
 import {handleRegistration} from "./handleRegistration";
 function Register() {
+    const Navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     function handleShowPassword() {
         setShowPassword(!showPassword);
     }
-    
+    const [succeed, setSucceed] = useState(false);
     return (
         <div>
             <div>
@@ -86,9 +87,10 @@ function Register() {
                     }}
                     onSubmit={(values, { setSubmitting }) => {
                         // Call your registration logic here
-                        handleRegistration(values, {
+                        handleRegistration(values, setSucceed, {
                             setSubmitting,
                         });
+                        succeed? Navigate("/Login"):null
                     }}
                 >
                     {({ isSubmitting }) => (
