@@ -6,48 +6,32 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { IoMdEye } from "react-icons/io";
 import { IoMdEyeOff } from "react-icons/io";
-import { handleRegistration } from "./handleRegistration";
-function Register() {
+import { handleLogin } from "./handleLogin";
+function Login() {
     const Navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     function handleShowPassword() {
         setShowPassword(!showPassword);
     }
-    const [succeed, setSucceed] = useState(false);
     return (
         <div>
             <div>
                 <img className=" w-20 m-auto pt-5 " src={Logo} alt="" />
             </div>
             <div className=" m-auto text-center pt-5 text-2xl font-semibold text-blue ">
-                Join to Skate Community
+                Login to your Skate Account
             </div>
             {/* input fields */}
             <div className=" border border-gray_white text-black_text shadow-md w-[80%] md:w-[50%] m-auto mt-3 p-5 rounded-lg  ">
-                <div className=" text-lg font-semibold mb-4 ">
-                    Create Your Account
-                </div>
+                <div className=" text-lg font-semibold mb-4 ">Login</div>
 
                 <Formik
                     initialValues={{
-                        FirstName: "",
-                        LastName: "",
                         Email: "",
                         Password: "",
-                        Age: "",
-                        Gender: "male",
                     }}
                     validate={(values) => {
                         const errors = {};
-                        // Validate First Name
-                        if (!values.FirstName) {
-                            errors.FirstName = "first name is Required ";
-                        }
-
-                        // Validate Last Name
-                        if (!values.LastName) {
-                            errors.LastName = "last name is Required";
-                        }
 
                         // Validate Email
                         if (!values.Email) {
@@ -68,19 +52,6 @@ function Register() {
                                 "Password must be at least 8 characters long";
                         }
 
-                        // Validate Age
-                        if (!values.Age) {
-                        } else if (
-                            !/^\d+$/.test(values.Age) ||
-                            values.Age <= 0
-                        ) {
-                            errors.Age = "Invalid Age";
-                        }
-
-                        // Validate Gender
-                        if (!values.Gender) {
-                            errors.Gender = "Required";
-                        }
                         return errors;
                     }}
                     onSubmit={(values, { setSubmitting }) => {
@@ -88,49 +59,11 @@ function Register() {
                         handleRegistration(values, setSucceed, {
                             setSubmitting,
                         });
-                        succeed ? Navigate("/Login") : null;
+                        // succeed ? Navigate("/Login") : null;
                     }}
                 >
                     {({ isSubmitting }) => (
-                        <Form className=" flex flex-col text-sm md:text-lg md:mx-5 gap-4">
-                            <div>
-                                <div>
-                                    First Name{" "}
-                                    <span className=" text-red-600 font-semibold">
-                                        *
-                                    </span>
-                                </div>
-                                <Field
-                                    type="text"
-                                    name="FirstName"
-                                    className="border border-gray_white px-2 py-1 rounded  shadow-sm w-full"
-                                    disabled={isSubmitting}
-                                />
-                                <ErrorMessage
-                                    name="FirstName"
-                                    component="div"
-                                    style={errorInputMessage}
-                                />
-                            </div>
-                            <div>
-                                <div>
-                                    Last Name{"  "}
-                                    <span className=" text-red-600 font-semibold">
-                                        *
-                                    </span>
-                                </div>
-                                <Field
-                                    type="text"
-                                    name="LastName"
-                                    disabled={isSubmitting}
-                                    className="border border-gray_white px-2 py-1 rounded  shadow-sm w-full"
-                                />
-                                <ErrorMessage
-                                    name="LastName"
-                                    component="div"
-                                    style={errorInputMessage}
-                                />
-                            </div>
+                        <Form className="  flex flex-col text-sm md:text-lg md:mx-5 gap-4">
                             <div>
                                 <div>
                                     Email{" "}
@@ -188,45 +121,7 @@ function Register() {
                                     style={errorInputMessage}
                                 />
                             </div>
-                            <div className=" flex gap-10">
-                                <div>
-                                    <div>
-                                        Gender{" "}
-                                        <span className=" text-red-600 font-semibold">
-                                            *
-                                        </span>
-                                    </div>
-                                    <Field
-                                        as="select"
-                                        name="Gender"
-                                        disabled={isSubmitting}
-                                        className="border border-gray_white px-2 py-1 rounded shadow-sm"
-                                    >
-                                        {/* Add your select options here */}
-                                        <option value="male">Male</option>
-                                        <option value="female">Female</option>
-                                    </Field>
-                                    <ErrorMessage
-                                        name="Gender"
-                                        component="div"
-                                    />
-                                </div>
-                                <div>
-                                    <div>Age </div>
-                                    <Field
-                                        type="number"
-                                        name="Age"
-                                        disabled={isSubmitting}
-                                        placeholder="0"
-                                        className=" w-[70px] border border-gray_white px-2 py-1 rounded  shadow-sm"
-                                    />
-                                    <ErrorMessage
-                                        name="Age"
-                                        component="div"
-                                        style={errorInputMessage}
-                                    />
-                                </div>
-                            </div>
+
                             <button
                                 type="submit"
                                 className={` ${
@@ -243,12 +138,12 @@ function Register() {
                 </Formik>
             </div>
             <div className=" text-center mt-4 text-black_text">
-                Already Have an Account ?{" "}
+                Don't Have an Account ?{" "}
                 <Link
-                    to={"/Login"}
+                    to={"/Register"}
                     className=" text-green font-semibold cursor-pointer"
                 >
-                    Login
+                    Register
                 </Link>
             </div>
         </div>
@@ -258,5 +153,4 @@ const errorInputMessage = {
     fontSize: "12px",
     color: "red",
 };
-
-export default Register;
+export default Login;
