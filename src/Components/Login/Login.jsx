@@ -12,7 +12,8 @@ function Login() {
     const [showPassword, setShowPassword] = useState(false);
     function handleShowPassword() {
         setShowPassword(!showPassword);
-    }
+  }
+  const [Succeed_Login, setSucceed_Login] = useState(false);
     return (
         <div>
             <div>
@@ -56,10 +57,10 @@ function Login() {
                     }}
                     onSubmit={(values, { setSubmitting }) => {
                         // Call your registration logic here
-                        handleRegistration(values, setSucceed, {
+                        handleLogin(values, setSucceed_Login, {
                             setSubmitting,
                         });
-                        // succeed ? Navigate("/Login") : null;
+                        // Succeed_Login ? Navigate("/") : null;
                     }}
                 >
                     {({ isSubmitting }) => (

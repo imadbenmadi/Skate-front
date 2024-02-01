@@ -1,6 +1,8 @@
 import Axios from "axios";
 import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 export async function handleRegistration(values,setSucceed, { setSubmitting }) {
+    setSucceed(false);
     try {
         let response = await Axios.post(
             "http://localhost:3000/Register",
@@ -25,7 +27,7 @@ export async function handleRegistration(values,setSucceed, { setSubmitting }) {
                 "Your account has been created Successfully",
                 "success"
             );
-            setSucceed(true);
+            // setSucceed(true);
         } else if (response.status === 400) {
             console.log(response.data.error);
             Swal.fire(

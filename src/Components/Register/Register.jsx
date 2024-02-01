@@ -7,13 +7,20 @@ import { useState } from "react";
 import { IoMdEye } from "react-icons/io";
 import { IoMdEyeOff } from "react-icons/io";
 import { handleRegistration } from "./handleRegistration";
+import { useEffect } from "react";
 function Register() {
     const Navigate = useNavigate();
+    const [succeed, setSucceed] = useState(false);
+    // setSucceed(false);
+    // useEffect(() => {
+    //     Navigate("/Login");
+    // }, [succeed]);
+
+
     const [showPassword, setShowPassword] = useState(false);
     function handleShowPassword() {
         setShowPassword(!showPassword);
     }
-    const [succeed, setSucceed] = useState(false);
     return (
         <div>
             <div>
@@ -88,7 +95,6 @@ function Register() {
                         handleRegistration(values, setSucceed, {
                             setSubmitting,
                         });
-                        succeed ? Navigate("/Login") : null;
                     }}
                 >
                     {({ isSubmitting }) => (
