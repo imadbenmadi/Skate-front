@@ -3,29 +3,23 @@ import Logo from "../../public/Logo.png";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Link } from "react-router-dom";
 import Axios from "axios";
-
+import Swal from "sweetalert2";
 function Register() {
     async function handleRegistration(
         values,
-        { setSubmitting }
+        { setSubmitting, setFieldValue }
     ) {
-        const formData = new FormData();
-        formData.append("ProfilePic", values.profilePic);
-        formData.append("FirstName", values.firstName);
-        formData.append("LastName", values.lastName);
-        formData.append("Email", values.email);
-        formData.append("Password", values.password);
-        formData.append("Age", values.age);
-        formData.append("Gender", values.gender);
+        
+        console.log("test");
         try {
             let response = await Axios.post(
                 "http://localhost:3000/Register",
-                formData,
+                values,
                 {
                     withCredentials: true,
-                    headers: {
-                        "Content-Type": "multipart/form-data",
-                    },
+                    // headers: {
+                    //     "Content-Type": "multipart/form-data",
+                    // },
                     validateStatus: () => true,
                 }
             );
@@ -65,7 +59,7 @@ function Register() {
                 "error"
             );
         }
-
+        console.log("erztrfsdf");
         setSubmitting(false);
     }
     return (
@@ -77,18 +71,18 @@ function Register() {
                 Join to Skate Community
             </div>
             {/* input fields */}
-            <div className=" border border-gray_white text-black_text shadow-md w-[80%] md:w-[60%] m-auto mt-5 p-5 rounded-lg  ">
+            <div className=" border border-gray_white text-black_text shadow-md w-[80%] md:w-[60%] m-auto mt-3 p-5 rounded-lg  ">
                 <div className=" text-lg font-semibold mb-4 ">
                     Create Your Account
                 </div>
+
                 <Formik
                     initialValues={{
-                        profilePic: "",
                         firstName: "",
                         lastName: "",
                         email: "",
                         password: "",
-                        age: "",
+                        age: 0,
                         gender: "",
                     }}
                     validate={(values) => {
@@ -140,20 +134,12 @@ function Register() {
                     {({ isSubmitting }) => (
                         <Form className=" flex flex-col ml-5 gap-4">
                             <div>
-                                <div>Profile pic</div>
-                                <Field
-                                    type="file"
-                                    name="ProfilePic"
-                                    accept=".png, .jpg, .jpeg"
-                                />
-                            </div>
-
-                            <div>
                                 <div>First Name</div>
                                 <Field
                                     type="text"
                                     name="firstName"
                                     className="border border-gray_white px-2 py-1 rounded  shadow-sm"
+                                    disabled={isSubmitting}
                                 />
                                 <ErrorMessage
                                     name="firstName"
@@ -165,6 +151,7 @@ function Register() {
                                 <Field
                                     type="text"
                                     name="lastName"
+                                    disabled={isSubmitting}
                                     className="border border-gray_white px-2 py-1 rounded  shadow-sm"
                                 />
                                 <ErrorMessage name="lastName" component="div" />
@@ -174,6 +161,7 @@ function Register() {
                                 <Field
                                     type="email"
                                     name="email"
+                                    disabled={isSubmitting}
                                     className="border border-gray_white px-2 py-1 rounded  shadow-sm"
                                 />
                                 <ErrorMessage name="email" component="div" />
@@ -183,6 +171,7 @@ function Register() {
                                 <Field
                                     type="password"
                                     name="password"
+                                    disabled={isSubmitting}
                                     className="border border-gray_white px-2 py-1 rounded  shadow-sm"
                                 />
                                 <ErrorMessage name="password" component="div" />
@@ -193,7 +182,11 @@ function Register() {
                                 className=" bg-green w-fit m-auto px-4 py-2 rounded font-semibold text-white"
                                 disabled={isSubmitting}
                             >
-                                Submit
+                                {isSubmitting ? (
+                                    <div >loading</div>
+                                ) : (
+                                    "Submit"
+                                )}
                             </button>
                         </Form>
                     )}
