@@ -1,12 +1,12 @@
 import React from "react";
-import Comming_Soon from "../../public/work-in-progress.png";
+import Comming_Soon from "../../public/Comming_Soon.png";
 
 function Not_Finished() {
     return (
-      <div className="flex items-center justify-center h-[80vh] 
-      text-gray font-bold text-4xl">
+      <div className="flex items-center justify-center 
+      text-gray font-bold ">
             <div className="p-8 bg-white rounded-md shadow-lg text-center">
-                <h1 className="text-5xl mb-4 text-gray-800">
+                <h1 className="text-3xl md:text-5xl mb-4 text-gray-800">
                     Oops! This Page is Not Finished Yet
                 </h1>
                 <p className="text-lg mb-8 text-gray-700">
@@ -16,7 +16,7 @@ function Not_Finished() {
                 <img
                     src={Comming_Soon}
                     alt="Under Construction"
-                    className="w-64 h-64 mx-auto mb-8"
+                    className=" w-32 h-32 md:w-64 md:h-64 mx-auto mb-8"
                 />
                 <p className="text-sm text-gray-600">
                     Thank you for your patience!

@@ -12,6 +12,7 @@ import Events from "./Components/Events/Events";
 import Contact from "./Components/Contact/Contact";
 import UserProfile from "./Components/UserProfile/UserProfile";
 import Settings from "./Components/Settings/Settings";
+import Not_Found from "./Components/Not_Found";
 const routes = createBrowserRouter([
     {
         path: "/",
@@ -28,7 +29,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: "*",
-                element: <Not_Finished />,
+                element: <Not_Found />,
             },
         ],
     },
@@ -50,7 +51,7 @@ const routes = createBrowserRouter([
     },
     {
         path: "*",
-        element: <Not_Finished />,
+        element: <Not_Found />,
     },
 ]);
 
