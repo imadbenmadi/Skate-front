@@ -1,6 +1,5 @@
 import React from "react";
-import Logo from "../../public/Logo.png";
-import Setting from "../../public/setting.png";
+import Logo from "../../../public/Logo.png";
 import { IoMenu } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
 import { useState, useEffect } from "react";
@@ -11,13 +10,19 @@ import { MdEventAvailable } from "react-icons/md";
 import { RiArticleFill } from "react-icons/ri";
 import { IoCall } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { FaUserTie } from "react-icons/fa";
+import { useAppContext } from "../../Context/AppContext";
+import { useLocation } from "react-router";
 
-function NavBar({ Active_nav, onNavClick }) {
+function NavBar({ Active_nav, setActive_nav }) {
+    const { isAuth } = useAppContext();
+    const location = useLocation();
+
     const [open, setOpen] = useState(false);
     function Toogle_Menu_Bar() {
         setOpen(!open);
     }
-   
+
     const [visible, setVisible] = useState(true);
     const [prevScrollPos, setPrevScrollPos] = useState(0);
 
@@ -26,7 +31,9 @@ function NavBar({ Active_nav, onNavClick }) {
         setVisible(currentScrollPos <= prevScrollPos || currentScrollPos === 0);
         setPrevScrollPos(currentScrollPos);
     };
-
+    useEffect(() => {
+        setActive_nav(location.pathname.substring(1));
+    }, [location.pathname]);
     useEffect(() => {
         window.addEventListener("scroll", handleScroll);
         return () => {
@@ -41,7 +48,10 @@ function NavBar({ Active_nav, onNavClick }) {
         >
             <div className=" flex shadow-lg justify-between md:justify-around select-none ">
                 <div className=" p-2 ml-5 md:ml-0">
-                    <Link to={"/"} onClick={() => onNavClick("Home")}>
+                    <Link
+                        to={"/"}
+                        // onClick={() => setActive_nav("Home")}
+                    >
                         <img
                             src={Logo}
                             alt="Logo"
@@ -82,7 +92,7 @@ function NavBar({ Active_nav, onNavClick }) {
                                         ? "text-green hover:text-green"
                                         : "text-black_text hover:text-green"
                                 }
-                                onClick={() => onNavClick("Services")}
+                                // onClick={() => setActive_nav("Services")}
                             >
                                 Services
                             </Link>
@@ -95,7 +105,7 @@ function NavBar({ Active_nav, onNavClick }) {
                                         ? "text-green hover:text-green"
                                         : "text-black_text hover:text-green"
                                 }
-                                onClick={() => onNavClick("Formations")}
+                                // onClick={() => setActive_nav("Formations")}
                             >
                                 Formations
                             </Link>
@@ -108,7 +118,7 @@ function NavBar({ Active_nav, onNavClick }) {
                                         ? "text-green hover:text-green"
                                         : "text-black_text hover:text-green"
                                 }
-                                onClick={() => onNavClick("Events")}
+                                // onClick={() => setActive_nav("Events")}
                             >
                                 Events
                             </Link>
@@ -121,7 +131,7 @@ function NavBar({ Active_nav, onNavClick }) {
                                         ? "text-green hover:text-green"
                                         : "text-black_text hover:text-green"
                                 }
-                                onClick={() => onNavClick("Blogs")}
+                                // onClick={() => setActive_nav("Blogs")}
                             >
                                 Blogs
                             </Link>
@@ -134,7 +144,7 @@ function NavBar({ Active_nav, onNavClick }) {
                                         ? "text-green hover:text-green"
                                         : "text-black_text hover:text-green"
                                 }`}
-                                onClick={() => onNavClick("Contact")}
+                                // onClick={() => setActive_nav("Contact")}
                             >
                                 Contact
                             </Link>
