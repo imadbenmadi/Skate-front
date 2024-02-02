@@ -11,12 +11,13 @@ import { MdEventAvailable } from "react-icons/md";
 import { RiArticleFill } from "react-icons/ri";
 import { IoCall } from "react-icons/io5";
 import { Link } from "react-router-dom";
-function NavBar() {
+
+function NavBar({ Active_nav, onNavClick }) {
     const [open, setOpen] = useState(false);
     function Toogle_Menu_Bar() {
         setOpen(!open);
     }
-    
+   
     const [visible, setVisible] = useState(true);
     const [prevScrollPos, setPrevScrollPos] = useState(0);
 
@@ -34,13 +35,13 @@ function NavBar() {
     }, [prevScrollPos]);
     return (
         <div
-            className={`fixed z-40 w-full bg-white transition-transform duration-300 ${
+            className={`fixed z-40 w-full bg-white transition-transform duration-200 ${
                 visible ? "translate-y-0" : "-translate-y-full"
             }`}
         >
             <div className=" flex shadow-lg justify-between md:justify-around select-none ">
                 <div className=" p-2 ml-5 md:ml-0">
-                    <Link to={"/"}>
+                    <Link to={"/"} onClick={() => onNavClick("Home")}>
                         <img
                             src={Logo}
                             alt="Logo"
@@ -74,27 +75,78 @@ function NavBar() {
                 <div className="  hidden md:flex items-center justify-center gap-7 text-lg text-black_text ">
                     <div className=" flex gap-5">
                         <div className=" hover:text-green transition-colors cursor-pointer">
-                            <Link to={"/Services"}>Servecis</Link>
+                            <Link
+                                to={"/Services"}
+                                className={
+                                    Active_nav === "Services"
+                                        ? "text-green hover:text-green"
+                                        : "text-black_text hover:text-green"
+                                }
+                                onClick={() => onNavClick("Services")}
+                            >
+                                Services
+                            </Link>
                         </div>
                         <div className=" hover:text-green transition-colors cursor-pointer">
-                            <Link to={"/Formations"}>Formations</Link>
+                            <Link
+                                to={"/Formations"}
+                                className={
+                                    Active_nav === "Formations"
+                                        ? "text-green hover:text-green"
+                                        : "text-black_text hover:text-green"
+                                }
+                                onClick={() => onNavClick("Formations")}
+                            >
+                                Formations
+                            </Link>
                         </div>
                         <div className=" hover:text-green transition-colors cursor-pointer">
-                            <Link to={"/Events"}>Events</Link>
+                            <Link
+                                to={"/Events"}
+                                className={
+                                    Active_nav === "Events"
+                                        ? "text-green hover:text-green"
+                                        : "text-black_text hover:text-green"
+                                }
+                                onClick={() => onNavClick("Events")}
+                            >
+                                Events
+                            </Link>
                         </div>
                         <div className=" hover:text-green transition-colors cursor-pointer">
-                            <Link to={"/Blogs"}>Blogs</Link>
+                            <Link
+                                to={"/Blogs"}
+                                className={
+                                    Active_nav === "Blogs"
+                                        ? "text-green hover:text-green"
+                                        : "text-black_text hover:text-green"
+                                }
+                                onClick={() => onNavClick("Blogs")}
+                            >
+                                Blogs
+                            </Link>
                         </div>
-                        <div className=" hover:text-green transition-colors cursor-pointer">
-                            <Link to={"/Contact"}>Contact</Link>
+                        <div className="  transition-colors cursor-pointer">
+                            <Link
+                                to={"/Contact"}
+                                className={`${
+                                    Active_nav === "Contact"
+                                        ? "text-green hover:text-green"
+                                        : "text-black_text hover:text-green"
+                                }`}
+                                onClick={() => onNavClick("Contact")}
+                            >
+                                Contact
+                            </Link>
                         </div>
                     </div>
                     <div className=" flex gap-3 items-center justify-center">
-                        <Link to={"/"}></Link>
-                        <IoSettingsOutline className=" text-3xl text-gray cursor-pointer" />
+                        <Link to={"/Settings"}>
+                            <IoSettingsOutline className=" text-3xl text-gray cursor-pointer" />
+                        </Link>
 
                         <span className=" bg-green text-[#fff] px-3 py-1 text-xl rounded-lg cursor-pointer">
-                            <Link to={"/Settings"}>Login</Link>
+                            <Link to={"/Loing"}>Login</Link>
                         </span>
                     </div>
                 </div>

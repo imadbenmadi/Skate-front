@@ -43,7 +43,17 @@ function Login() {
                 const _id = response.data.userData._id;
                 
                 
-                
+                <Link
+                    to={"/Events"}
+                    className={
+                        Active_nav === "Events"
+                            ? "text-green"
+                            : "text-black_text"
+                    }
+                    onClick={() => onNavClick("Events")}
+                >
+                    Events
+                </Link>;
                 console.log("accessToken: ", accessToken);
                 store_login(accessToken, FirstName, LastName, Email, Gender, Age, Courses, _id);
                 Navigate("/");
