@@ -146,7 +146,7 @@ function NavBar({ Active_nav, onNavClick }) {
                         </Link>
 
                         <span className=" bg-green text-[#fff] px-3 py-1 text-xl rounded-lg cursor-pointer">
-                            <Link to={"/Loing"}>Login</Link>
+                            <Link to={"/Login"}>Login</Link>
                         </span>
                     </div>
                 </div>

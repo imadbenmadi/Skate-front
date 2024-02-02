@@ -43,19 +43,10 @@ function Login() {
                 const _id = response.data.userData._id;
                 
                 
-                <Link
-                    to={"/Events"}
-                    className={
-                        Active_nav === "Events"
-                            ? "text-green"
-                            : "text-black_text"
-                    }
-                    onClick={() => onNavClick("Events")}
-                >
-                    Events
-                </Link>;
+                
                 console.log("accessToken: ", accessToken);
                 store_login(accessToken, FirstName, LastName, Email, Gender, Age, Courses, _id);
+                console.log("good");
                 Navigate("/");
             } else if (response.status === 401) {
                 console.log(response.data.error);
@@ -87,7 +78,7 @@ function Login() {
                 );
             }
         } catch (error) {
-            console.error("Error during registration:", error.message);
+            console.error("Error during Login:", error.message);
             Swal.fire(
                 "Error!",
                 `Something Went Wrong ,${error.message}`,
