@@ -8,15 +8,7 @@ export const useAppContext = () => {
 
 const initialState = {
     accessToken: null,
-    // userData: {
-    //     Age: null,
-    //     Courses: [],
-    //     FirstName: null,
-    //     Gender: null,
-    //     LastName: null,
-    //     _id: null,
-    // },
-    // userData: null,
+    isAuth: false,
     FirstName: "",
     LastName: "",
     Email: "",
@@ -31,6 +23,7 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 accessToken: action.payload.accessToken,
+                isAuth: true,
                 FirstName: action.payload.FirstName,
                 LastName: action.payload.LastName,
                 Email: action.payload.Email,
@@ -43,6 +36,7 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 accessToken: null,
+                isAuth: false,
                 FirstName: "",
                 LastName: "",
                 Email: "",
