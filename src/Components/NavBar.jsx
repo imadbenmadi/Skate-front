@@ -13,7 +13,7 @@ import { IoCall } from "react-icons/io5";
 import { Link } from "react-router-dom";
 function NavBar() {
     const [open, setOpen] = useState(false);
-    function Clicked() {
+    function Toogle_Menu_Bar() {
         setOpen(!open);
     }
     
@@ -48,7 +48,7 @@ function NavBar() {
                         />
                     </Link>
                 </div>
-                {/* Mobile */}
+                {/* Mobile menu Toogler */}
                 <div
                     className={`${
                         open ? "hidden" : "block"
@@ -56,7 +56,7 @@ function NavBar() {
                 >
                     <IoMenu
                         className=" text-5xl text-green text cursor-pointer"
-                        onClick={Clicked}
+                        onClick={Toogle_Menu_Bar}
                     />
                 </div>
                 <div
@@ -66,7 +66,7 @@ function NavBar() {
                 >
                     <IoClose
                         className=" text-5xl text-green text cursor-pointer"
-                        onClick={Clicked}
+                        onClick={Toogle_Menu_Bar}
                     />
                 </div>
 
@@ -102,7 +102,7 @@ function NavBar() {
             {/* Moblie nav bar */}
             <div className="flex">
                 <div
-                    onClick={Clicked}
+                    onClick={Toogle_Menu_Bar}
                     className={` md:hidden ${
                         open ? " block bg-gray_white " : "hidden"
                     } absolute  transition-all select-none w-[30vw]  z-50 h-screen  opacity-[0.6] `}
@@ -115,44 +115,67 @@ function NavBar() {
                     <div className=" flex flex-col items-center justify-start h-screen text-2xl gap-5 mt-8 ">
                         <div className="flex gap-2 cursor-pointer ">
                             <Link
-                                to={"/Register"}
-                                className=" bg-green text-[#fff] px-3 py-2 rounded-lg cursor-pointer"
-                            >
-                                Register
-                            </Link>
-                            <Link
                                 to={"/Login"}
-                                className=" bg-gray_white text-black_text px-3 py-2 rounded-lg cursor-pointer"
+                                className=" bg-green text-[#fff] px-3 py-2 rounded-lg cursor-pointer"
                             >
                                 Login
                             </Link>
+                            <Link
+                                to={"/Register"}
+                                className=" bg-gray_white text-black_text px-3 py-2 rounded-lg cursor-pointer"
+                            >
+                                Register
+                            </Link>
                         </div>
-                        <div className="w-[155px] flex cursor-pointer gap-2  ">
+                        <Link
+                            to={"/Settings"}
+                            className="w-[155px] flex cursor-pointer gap-2  "
+                        >
                             <IoSettingsOutline className=" text-3xl" />
                             Settings
-                        </div>
+                        </Link>
                         <div className=" w-full h-1 bg-gray"></div>
-                        <div className="w-[155px] flex cursor-pointer gap-2  ">
+                        <Link
+                            onClick={Toogle_Menu_Bar}
+                            to={"/Services"}
+                            className="w-[155px] flex cursor-pointer gap-2  "
+                        >
                             <FaRegHandshake className=" text-3xl" />
-                            Servecis
-                        </div>
-                        <div className="w-[165px] flex cursor-pointer  gap-2 ">
+                            Services
+                        </Link>
+                        <Link
+                            onClick={Toogle_Menu_Bar}
+                            to={"/Formations"}
+                            className="w-[165px] flex cursor-pointer  gap-2 "
+                        >
                             <FaBookReader className=" text-3xl" />
                             Formations
-                        </div>
+                        </Link>
                         <div className=" w-full h-1 bg-gray"></div>
-                        <div className="w-[155px] flex cursor-pointer  gap-2">
+                        <Link
+                            onClick={Toogle_Menu_Bar}
+                            to={"/Events"}
+                            className="w-[155px] flex cursor-pointer  gap-2"
+                        >
                             <MdEventAvailable className=" text-3xl" />
                             Events
-                        </div>
-                        <div className="w-[155px] flex cursor-pointer  gap-2">
+                        </Link>
+                        <Link
+                            onClick={Toogle_Menu_Bar}
+                            to={"/Blogs"}
+                            className="w-[155px] flex cursor-pointer  gap-2"
+                        >
                             <RiArticleFill className=" text-3xl" />
                             Blogs
-                        </div>
-                        <div className="w-[155px] flex cursor-pointer  gap-2">
+                        </Link>
+                        <Link
+                            onClick={Toogle_Menu_Bar}
+                            to={"/Contact"}
+                            className="w-[155px] flex cursor-pointer  gap-2"
+                        >
                             <IoCall className=" text-3xl" />
                             Contact
-                        </div>
+                        </Link>
                     </div>
                 </div>
             </div>
