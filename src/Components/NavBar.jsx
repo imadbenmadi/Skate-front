@@ -3,7 +3,7 @@ import Logo from "../../public/Logo.png";
 import Setting from "../../public/setting.png";
 import { IoMenu } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { IoSettingsOutline } from "react-icons/io5";
 import { FaRegHandshake } from "react-icons/fa";
 import { FaBookReader } from "react-icons/fa";
@@ -16,11 +16,37 @@ function NavBar() {
     function Clicked() {
         setOpen(!open);
     }
+    
+    const [visible, setVisible] = useState(true);
+    const [prevScrollPos, setPrevScrollPos] = useState(0);
+
+    const handleScroll = () => {
+        const currentScrollPos = window.scrollY;
+        setVisible(currentScrollPos <= prevScrollPos || currentScrollPos === 0);
+        setPrevScrollPos(currentScrollPos);
+    };
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, [prevScrollPos]);
     return (
-        <div className=" fixed z-40 w-full bg-white ">
+        <div
+            className={`fixed z-40 w-full bg-white transition-transform duration-300 ${
+                visible ? "translate-y-0" : "-translate-y-full"
+            }`}
+        >
             <div className=" flex shadow-lg justify-between md:justify-around select-none ">
                 <div className=" p-2 ml-5 md:ml-0">
-                    <img src={Logo} alt="Logo" className=" w-14 md:w-[80px] " />
+                    <Link to={"/"}>
+                        <img
+                            src={Logo}
+                            alt="Logo"
+                            className=" w-14 md:w-[50px] "
+                        />
+                    </Link>
                 </div>
                 {/* Mobile */}
                 <div
@@ -48,27 +74,27 @@ function NavBar() {
                 <div className="  hidden md:flex items-center justify-center gap-7 text-lg text-black_text ">
                     <div className=" flex gap-5">
                         <div className=" hover:text-green transition-colors cursor-pointer">
-                            Servecis
+                            <Link to={"/Services"}>Servecis</Link>
                         </div>
                         <div className=" hover:text-green transition-colors cursor-pointer">
-                            Formations
+                            <Link to={"/Formations"}>Formations</Link>
                         </div>
                         <div className=" hover:text-green transition-colors cursor-pointer">
-                            Events
+                            <Link to={"/Events"}>Events</Link>
                         </div>
                         <div className=" hover:text-green transition-colors cursor-pointer">
-                            Blogs
+                            <Link to={"/Blogs"}>Blogs</Link>
                         </div>
                         <div className=" hover:text-green transition-colors cursor-pointer">
-                            Contact
+                            <Link to={"/Contact"}>Contact</Link>
                         </div>
                     </div>
+                    <div className=" flex gap-3 items-center justify-center">
+                        <Link to={"/"}></Link>
+                        <IoSettingsOutline className=" text-3xl text-gray cursor-pointer" />
 
-                    <IoSettingsOutline className=" text-3xl text-gray cursor-pointer" />
-
-                    <div className=" ">
                         <span className=" bg-green text-[#fff] px-3 py-2 rounded-lg cursor-pointer">
-                            Register
+                            <Link to={"/Settings"}>Settings</Link>
                         </span>
                     </div>
                 </div>
@@ -94,7 +120,10 @@ function NavBar() {
                             >
                                 Register
                             </Link>
-                            <Link to={"/Login"} className=" bg-gray_white text-black_text px-3 py-2 rounded-lg cursor-pointer">
+                            <Link
+                                to={"/Login"}
+                                className=" bg-gray_white text-black_text px-3 py-2 rounded-lg cursor-pointer"
+                            >
                                 Login
                             </Link>
                         </div>

@@ -9,7 +9,7 @@ import Register from "./Components/Register/Register";
 import Services from "./Components/Services/Services";
 import Formations from "./Components/Formations/Formations";
 import Events from "./Components/Events/Events";
-// import Contact from "./Components/Contact/Contact";
+import Contact from "./Components/Contact/Contact";
 import UserProfile from "./Components/UserProfile/UserProfile";
 import Settings from "./Components/Settings/Settings";
 const routes = createBrowserRouter([
@@ -21,7 +21,7 @@ const routes = createBrowserRouter([
             { path: "/Services", element: <Services /> },
             { path: "/Formations", element: <Formations /> },
             { path: "/Events", element: <Events /> },
-            // { path: "/Contact", element: <Contact /> },
+            { path: "/Contact", element: <Contact /> },
             {
                 path: "/Blogs",
                 element: <Blogs />,
