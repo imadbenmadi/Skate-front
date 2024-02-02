@@ -93,8 +93,8 @@ function NavBar() {
                         <Link to={"/"}></Link>
                         <IoSettingsOutline className=" text-3xl text-gray cursor-pointer" />
 
-                        <span className=" bg-green text-[#fff] px-3 py-2 rounded-lg cursor-pointer">
-                            <Link to={"/Settings"}>Settings</Link>
+                        <span className=" bg-green text-[#fff] px-3 py-1 text-xl rounded-lg cursor-pointer">
+                            <Link to={"/Settings"}>Login</Link>
                         </span>
                     </div>
                 </div>
