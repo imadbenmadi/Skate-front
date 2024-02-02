@@ -12,7 +12,7 @@ import Swal from "sweetalert2";
 import { useAppContext } from "../../Context/AppContext";
 function Login() {
     const { store_login } = useAppContext();
-    
+
     const Navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     function handleShowPassword() {
@@ -33,12 +33,20 @@ function Login() {
             if (response.status === 200) {
                 Swal.fire("Done!", "Logged in Successfully", "success");
                 const accessToken = response.data.jwt;
-                const userData = response.data.userData;
-                console.log("User Data:", userData);
-                console.log("accessToken: ", accessToken);
-                store_login(accessToken, userData );
-                Navigate("/");
+                const FirstName = response.data.userData.FirstName;
+                const LastName = response.data.userData.LastName;
+                const Email = response.data.userData.Email;
+                const Gender = response.data.userData.Gender;
+
+                const Age = response.data.userData.Age;
+                const Courses = response.data.userData.Courses;
+                const _id = response.data.userData._id;
                 
+                
+                
+                console.log("accessToken: ", accessToken);
+                store_login(accessToken, FirstName, LastName, Email, Gender, Age, Courses, _id);
+                Navigate("/");
             } else if (response.status === 401) {
                 console.log(response.data.error);
                 Swal.fire(
@@ -79,7 +87,7 @@ function Login() {
 
         setSubmitting(false);
     }
-    
+
     return (
         <div>
             <div>
