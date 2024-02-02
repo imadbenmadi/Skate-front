@@ -6,14 +6,14 @@ import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { IoMdEye } from "react-icons/io";
 import { IoMdEyeOff } from "react-icons/io";
-import { useDispatch, useSelector } from "react-redux";
-import { setTokens, setUserData, selectAuth } from "../../Redux/authSlice";
 import Axios from "axios";
 import Swal from "sweetalert2";
+
+import { useAppContext } from "../../Context/AppContext";
 function Login() {
-    const dispatch = useDispatch();
+    const { store_login } = useAppContext();
+    
     const Navigate = useNavigate();
-    const { accessTokenbig, userData } = useSelector(selectAuth);
     const [showPassword, setShowPassword] = useState(false);
     function handleShowPassword() {
         setShowPassword(!showPassword);
@@ -34,14 +34,11 @@ function Login() {
                 Swal.fire("Done!", "Logged in Successfully", "success");
                 const accessToken = response.data.jwt;
                 const userData = response.data.userData;
-                console.log(response);
-                dispatch(setTokens(response));
-                dispatch(setUserData(response));
+                console.log("User Data:", userData);
+                console.log("accessToken: ", accessToken);
+                store_login(accessToken, userData );
+                Navigate("/");
                 
-
-                // const { token, data } = useSelector(selectAuth);
-                // console.log(token);
-                // console.log(data);
             } else if (response.status === 401) {
                 console.log(response.data.error);
                 Swal.fire(
@@ -82,7 +79,7 @@ function Login() {
 
         setSubmitting(false);
     }
-
+    
     return (
         <div>
             <div>
