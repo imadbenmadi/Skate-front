@@ -42,6 +42,11 @@ const reducer = (state, action) => {
                 Courses: [],
                 _id: null,
             };
+        case "SET_AUTH":
+            return {
+                ...state,
+                isAuth: action.payload,
+            };
         default:
             return state;
     }
@@ -49,7 +54,9 @@ const reducer = (state, action) => {
 
 export const AppProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
-
+    const set_Auth = (isAuth) => {
+        dispatch({ type: "SET_AUTH", payload: isAuth });
+    };
     const store_login = (
         FirstName,
         LastName,
@@ -81,6 +88,7 @@ export const AppProvider = ({ children }) => {
         ...state,
         store_login,
         store_logout,
+        set_Auth,
     };
 
     return (

@@ -16,8 +16,10 @@ import { useLocation } from "react-router";
 import { TbLogout } from "react-icons/tb";
 
 function NavBar({ Active_nav, setActive_nav }) {
-    const { accessToken, FirstName, LastName } = useAppContext();
-    console.log(accessToken);
+    const { isAuth, FirstName, LastName } = useAppContext();
+    useEffect(() => {
+        console.log(isAuth);
+    },[isAuth])
     const location = useLocation();
 
     const [MobileNav_Open, set_MobileNav_Open] = useState(false);
@@ -159,7 +161,7 @@ function NavBar({ Active_nav, setActive_nav }) {
                     <Link to={"/Settings"}>
                         <IoSettingsOutline className=" text-3xl text-gray cursor-pointer" />
                     </Link>
-                    {accessToken ? (
+                    {isAuth ? (
                         <div className=" relative">
                             <FaUserTie
                                 className=" text-gray text-2xl cursor-pointer"
