@@ -14,7 +14,7 @@ import { FaUserTie } from "react-icons/fa";
 import { useAppContext } from "../../Context/AppContext";
 import { useLocation } from "react-router";
 import { TbLogout } from "react-icons/tb";
-
+import Course from "../../../public/Course.png";
 function NavBar({ Active_nav, setActive_nav }) {
     const { isAuth, FirstName, LastName } = useAppContext();
     useEffect(() => {
@@ -169,12 +169,15 @@ function NavBar({ Active_nav, setActive_nav }) {
                             />
                             {/* Laptop user small menu */}
                             {user_Open ? (
-                                <div className=" absolute py-2 pl-4 top-[40px] -left-1/2 bg-white w-[140px] shadow-md rounded-b-xl  flex flex-col items-start gap-4">
-                                    <div className=" ">
+                                <div className=" absolute py-2 pl-4 top-[40px] -left-1/2 bg-white w-[160px] shadow-md rounded-b-xl  flex flex-col items-start gap-4">
+                                    <div className=" underline text-center m-auto">
                                         {FirstName + " " + LastName}
                                     </div>
-                                    <div className="  ">My Coursers</div>
-                                    <div className=" text-red-600 w-full rounded-b-xl ">
+                                    <div className=" flex items-center gap-2 text-green ">
+                                        <img src={Course} alt="" className=" w-5 h-5"/>
+                                        My Coursers
+                                    </div>
+                                    <div className=" text-red-600 w-full rounded-b-xl flex items-center gap-2 ">
                                         <TbLogout />
                                         Logout
                                     </div>
