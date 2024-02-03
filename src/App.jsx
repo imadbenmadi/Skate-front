@@ -4,22 +4,99 @@ import { Outlet } from "react-router";
 import { useState, useEffect } from "react";
 import { checkAuth } from "./checkAuth";
 import { useAppContext } from "./Context/AppContext";
-
+import axios from "axios";
 function App() {
-    const { set_Auth } = useAppContext();
+    const { set_Auth, store_login } = useAppContext();
     const [Active_nav, setActive_nav] = useState("Home");
-    useEffect(() => {
-        console.log("app");
-    }, []);
+
     useEffect(() => {
         const fetchData = async () => {
-            let response = await checkAuth();
-            response.status === "success" ? set_Auth(true) : set_Auth(false);
-            console.log("response", response.message);
+            try {
+                const response = await axios.get(
+                    "http://localhost:3000/check_Auth",
+                    {
+                        withCredentials: true,
+                        validateStatus: () => true,
+                    }
+                );
+                    console.log(response);
+
+                if (response.status === 200) {
+                    const FirstName = response.data.userData.FirstName;
+                    const LastName = response.data.userData.LastName;
+                    const Email = response.data.userData.Email;
+                    const Gender = response.data.userData.Gender;
+                    const Age = response.data.userData.Age;
+                    const Courses = response.data.userData.Courses;
+                    const _id = response.data.userData._id;
+                    console.log(FirstName, LastName, Email );
+                    store_login(
+                        FirstName,
+                        LastName,
+                        Email,
+                        Gender,
+                        Age,
+                        Courses,
+                        _id
+                    );
+                    set_Auth(true);
+                }
+                else if (response.status === 401) {
+                    // Access token expired, try refreshing it
+                    const refreshResponse = await axios.post(
+                        "http://localhost:3000/Refresh",
+                        {},
+                        {
+                            withCredentials: true,
+                            validateStatus: () => true,
+                        }
+                    );
+
+                    if (refreshResponse.status === 200) {
+                        if (
+                            refreshResponse.data &&
+                            refreshResponse.data.accessToken
+                        ) {
+                            // Update the access token in the cookies
+                            // Assuming you have a function to set access token in your context
+                            // set_AccessToken(refreshResponse.data.accessToken);
+
+                            const FirstName =
+                                refreshResponse.data.userData.FirstName;
+                            const LastName =
+                                refreshResponse.data.userData.LastName;
+                            const Email = refreshResponse.data.userData.Email;
+                            const Gender = refreshResponse.data.userData.Gender;
+                            const Age = refreshResponse.data.userData.Age;
+                            const Courses =
+                                refreshResponse.data.userData.Courses;
+                            const _id = refreshResponse.data.userData._id;
+
+                            store_login(
+                                FirstName,
+                                LastName,
+                                Email,
+                                Gender,
+                                Age,
+                                Courses,
+                                _id
+                            );
+                            set_Auth(true);
+                        }
+                    } else {
+                        set_Auth(false);
+                    }
+                } else {
+                    set_Auth(false);
+                }
+            } catch (error) {
+                set_Auth(false);
+            }
         };
 
         fetchData();
     }, []);
+
     return (
         <div className=" relative overflow-x-hidden ">
             <NavBar Active_nav={Active_nav} setActive_nav={setActive_nav} />
