@@ -32,7 +32,6 @@ function Login() {
 
             if (response.status === 200) {
                 Swal.fire("Done!", "Logged in Successfully", "success");
-                const accessToken = response.data.jwt;
                 const FirstName = response.data.userData.FirstName;
                 const LastName = response.data.userData.LastName;
                 const Email = response.data.userData.Email;
@@ -41,12 +40,17 @@ function Login() {
                 const Age = response.data.userData.Age;
                 const Courses = response.data.userData.Courses;
                 const _id = response.data.userData._id;
-                
-                
-                
-                console.log("accessToken: ", accessToken);
-                store_login(accessToken, FirstName, LastName, Email, Gender, Age, Courses, _id);
-                console.log("good");
+
+                store_login(
+                    FirstName,
+                    LastName,
+                    Email,
+                    Gender,
+                    Age,
+                    Courses,
+                    _id
+                );
+
                 Navigate("/");
             } else if (response.status === 401) {
                 console.log(response.data.error);

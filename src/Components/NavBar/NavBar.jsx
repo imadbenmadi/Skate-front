@@ -13,16 +13,21 @@ import { Link } from "react-router-dom";
 import { FaUserTie } from "react-icons/fa";
 import { useAppContext } from "../../Context/AppContext";
 import { useLocation } from "react-router";
+import { TbLogout } from "react-icons/tb";
 
 function NavBar({ Active_nav, setActive_nav }) {
-    const { isAuth } = useAppContext();
+    const { accessToken, FirstName, LastName } = useAppContext();
+    console.log(accessToken);
     const location = useLocation();
 
-    const [open, setOpen] = useState(false);
+    const [MobileNav_Open, set_MobileNav_Open] = useState(false);
     function Toogle_Menu_Bar() {
-        setOpen(!open);
+        set_MobileNav_Open(!MobileNav_Open);
     }
-
+    const [user_Open, set_User_Open] = useState(false);
+    function Toogle_User_Open() {
+        set_User_Open(!user_Open);
+    }
     const [visible, setVisible] = useState(true);
     const [prevScrollPos, setPrevScrollPos] = useState(0);
 
@@ -62,7 +67,7 @@ function NavBar({ Active_nav, setActive_nav }) {
                 {/* Mobile menu Toogler */}
                 <div
                     className={`${
-                        open ? "hidden" : "block"
+                        MobileNav_Open ? "hidden" : "block"
                     } md:hidden flex flex-col items-center justify-center mr-10`}
                 >
                     <IoMenu
@@ -72,7 +77,7 @@ function NavBar({ Active_nav, setActive_nav }) {
                 </div>
                 <div
                     className={` ${
-                        open ? "block" : "hidden"
+                        MobileNav_Open ? "block" : "hidden"
                     } md:hidden flex flex-col items-center justify-center mr-10`}
                 >
                     <IoClose
@@ -150,15 +155,35 @@ function NavBar({ Active_nav, setActive_nav }) {
                             </Link>
                         </div>
                     </div>
-                    <div className=" flex gap-3 items-center justify-center">
-                        <Link to={"/Settings"}>
-                            <IoSettingsOutline className=" text-3xl text-gray cursor-pointer" />
-                        </Link>
 
+                    <Link to={"/Settings"}>
+                        <IoSettingsOutline className=" text-3xl text-gray cursor-pointer" />
+                    </Link>
+                    {accessToken ? (
+                        <div className=" relative">
+                            <FaUserTie
+                                className=" text-gray text-2xl cursor-pointer"
+                                onClick={Toogle_User_Open}
+                            />
+                            {/* Laptop user small menu */}
+                            {user_Open ? (
+                                <div className=" absolute py-2 pl-4 top-[40px] -left-1/2 bg-white w-[140px] shadow-md rounded-b-xl  flex flex-col items-start gap-4">
+                                    <div className=" ">
+                                        {FirstName + " " + LastName}
+                                    </div>
+                                    <div className="  ">My Coursers</div>
+                                    <div className=" text-red-600 w-full rounded-b-xl ">
+                                        <TbLogout />
+                                        Logout
+                                    </div>
+                                </div>
+                            ) : null}
+                        </div>
+                    ) : (
                         <span className=" bg-green text-[#fff] px-3 py-1 text-xl rounded-lg cursor-pointer">
                             <Link to={"/Login"}>Login</Link>
                         </span>
-                    </div>
+                    )}
                 </div>
             </div>
             {/* Moblie nav bar */}
@@ -166,12 +191,14 @@ function NavBar({ Active_nav, setActive_nav }) {
                 <div
                     onClick={Toogle_Menu_Bar}
                     className={` md:hidden ${
-                        open ? " block bg-gray_white " : "hidden"
+                        MobileNav_Open ? " block bg-gray_white " : "hidden"
                     } absolute  transition-all select-none w-[30vw]  z-50 h-screen  opacity-[0.6] `}
                 ></div>
                 <div
                     className={` md:hidden ${
-                        open ? " translate-x-[30vw]" : " translate-x-[100vw] "
+                        MobileNav_Open
+                            ? " translate-x-[30vw]"
+                            : " translate-x-[100vw] "
                     } absolute  transition-all select-none w-[70vw]  z-50 bg-zinc-100 border-l-4  text-black_text font-semibold `}
                 >
                     <div className=" flex flex-col items-center justify-start h-screen text-2xl gap-5 mt-8 ">

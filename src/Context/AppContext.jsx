@@ -7,7 +7,6 @@ export const useAppContext = () => {
 };
 
 const initialState = {
-    accessToken: null,
     isAuth: false,
     FirstName: "",
     LastName: "",
@@ -22,7 +21,6 @@ const reducer = (state, action) => {
         case "LOGIN":
             return {
                 ...state,
-                accessToken: action.payload.accessToken,
                 isAuth: true,
                 FirstName: action.payload.FirstName,
                 LastName: action.payload.LastName,
@@ -35,7 +33,6 @@ const reducer = (state, action) => {
         case "LOGOUT":
             return {
                 ...state,
-                accessToken: null,
                 isAuth: false,
                 FirstName: "",
                 LastName: "",
@@ -54,7 +51,6 @@ export const AppProvider = ({ children }) => {
     const [state, dispatch] = useReducer(reducer, initialState);
 
     const store_login = (
-        accessToken,
         FirstName,
         LastName,
         Email,
@@ -66,7 +62,6 @@ export const AppProvider = ({ children }) => {
         dispatch({
             type: "LOGIN",
             payload: {
-                accessToken,
                 FirstName,
                 LastName,
                 Email,
