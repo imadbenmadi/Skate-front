@@ -169,15 +169,22 @@ function NavBar({ Active_nav, setActive_nav }) {
                             />
                             {/* Laptop user small menu */}
                             {user_Open ? (
-                                <div className=" absolute py-2 pl-4 top-[40px] -left-1/2 bg-white w-[160px] shadow-md rounded-b-xl  flex flex-col items-start gap-4">
-                                    <div className=" underline text-center m-auto">
-                                        {FirstName + " " + LastName}
+                                <div className=" absolute py-2 pl-4 top-[40px] -right-12 bg-white w-[160px] shadow-md rounded-b-xl  flex flex-col items-start gap-4">
+                                    <div className="   flex flex-col ">
+                                        <span className=" underline">
+                                            Profile
+                                        </span>
+                                        <span className=" text-sm">{FirstName + LastName}</span>
                                     </div>
                                     <div className=" flex items-center gap-2 text-green ">
-                                        <img src={Course} alt="" className=" w-5 h-5"/>
+                                        <img
+                                            src={Course}
+                                            alt=""
+                                            className=" w-5 h-5"
+                                        />
                                         My Coursers
                                     </div>
-                                    <div className=" text-red-600 w-full rounded-b-xl flex items-center gap-2 ">
+                                    <div className=" text-red-600 rounded-b-xl flex items-center gap-2 ">
                                         <TbLogout />
                                         Logout
                                     </div>

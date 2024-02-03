@@ -13,6 +13,7 @@ import Contact from "./Components/Contact/Contact";
 import UserProfile from "./Components/UserProfile/UserProfile";
 import Settings from "./Components/Settings/Settings";
 import Not_Found from "./Components/Not_Found";
+// import UserProfile from "./Components/UserProfile/UserProfile";
 const routes = createBrowserRouter([
     {
         path: "/",
@@ -23,6 +24,8 @@ const routes = createBrowserRouter([
             { path: "/Formations", element: <Formations /> },
             { path: "/Events", element: <Events /> },
             { path: "/Contact", element: <Contact /> },
+            { path: "/Profile/:id", element: <UserProfile /> },
+
             {
                 path: "/Blogs",
                 element: <Blogs />,

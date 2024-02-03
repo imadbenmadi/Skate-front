@@ -19,7 +19,7 @@ function App() {
                         validateStatus: () => true,
                     }
                 );
-                    console.log(response);
+                console.log(response);
 
                 if (response.status === 200) {
                     const FirstName = response.data.userData.FirstName;
@@ -29,7 +29,7 @@ function App() {
                     const Age = response.data.userData.Age;
                     const Courses = response.data.userData.Courses;
                     const _id = response.data.userData._id;
-                    console.log(FirstName, LastName, Email );
+                    console.log(FirstName, LastName, Email);
                     store_login(
                         FirstName,
                         LastName,
@@ -40,8 +40,7 @@ function App() {
                         _id
                     );
                     set_Auth(true);
-                }
-                else if (response.status === 401) {
+                } else if (response.status === 401) {
                     // Access token expired, try refreshing it
                     const refreshResponse = await axios.post(
                         "http://localhost:3000/Refresh",
@@ -85,12 +84,39 @@ function App() {
                         }
                     } else {
                         set_Auth(false);
+                        store_login({
+                            FirstName: "",
+                            LastName: "",
+                            Email: "",
+                            Gender: null,
+                            Age: null,
+                            Courses: [],
+                            _id: null,
+                        });
                     }
                 } else {
                     set_Auth(false);
+                    store_login({
+                        FirstName: "",
+                        LastName: "",
+                        Email: "",
+                        Gender: null,
+                        Age: null,
+                        Courses: [],
+                        _id: null,
+                    });
                 }
             } catch (error) {
                 set_Auth(false);
+                store_login({
+                    FirstName: "",
+                    LastName: "",
+                    Email: "",
+                    Gender: null,
+                    Age: null,
+                    Courses: [],
+                    _id: null,
+                });
             }
         };
 
