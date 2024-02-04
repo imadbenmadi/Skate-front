@@ -259,7 +259,7 @@ function App() {
         <div className=" relative overflow-x-hidden ">
             <NavBar Active_nav={Active_nav} setActive_nav={setActive_nav} />
 
-            <div className=" mt-[63px] ">
+            <div className="  ">
                 <Outlet />
             </div>
         </div>

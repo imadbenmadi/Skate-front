@@ -7,7 +7,7 @@ import Blogs from "./Components/Blogs/Blogs";
 import Login from "./Components/Login/Login";
 import Register from "./Components/Register/Register";
 import Services from "./Components/Services/Services";
-import Formations from "./Components/Formations/Formations";
+import Courses from "./Components/Courses/Courses";
 import Events from "./Components/Events/Events";
 import Contact from "./Components/Contact/Contact";
 import UserProfile from "./Components/UserProfile/UserProfile";
@@ -21,7 +21,7 @@ const routes = createBrowserRouter([
         children: [
             { index: true, element: <Home /> },
             { path: "/Services", element: <Services /> },
-            { path: "/Formations", element: <Formations /> },
+            { path: "/Courses", element: <Courses /> },
             { path: "/Events", element: <Events /> },
             { path: "/Contact", element: <Contact /> },
             { path: "/Profile/:id", element: <UserProfile /> },

@@ -7,6 +7,7 @@ function Home() {
         <div>
             <Hero />
             <Pages_Btns />
+            <div className=" h-[40vh] bg-gray_white w-full"></div>
         </div>
     );
 }

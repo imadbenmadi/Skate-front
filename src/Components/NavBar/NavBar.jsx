@@ -143,15 +143,14 @@ function NavBar({ Active_nav, setActive_nav }) {
                         </div>
                         <div className=" hover:text-green transition-colors cursor-pointer">
                             <Link
-                                to={"/Formations"}
+                                to={"/Courses"}
                                 className={
-                                    Active_nav === "Formations"
+                                    Active_nav === "Courses"
                                         ? "text-green hover:text-green"
                                         : "text-black_text hover:text-green"
                                 }
-                                // onClick={() => setActive_nav("Formations")}
                             >
-                                Formations
+                                Courses
                             </Link>
                         </div>
                         <div className=" hover:text-green transition-colors cursor-pointer">
@@ -232,11 +231,13 @@ function NavBar({ Active_nav, setActive_nav }) {
                                         />
                                         My Coursers
                                     </Link>
-                                    <div className=" text-red-600 rounded-b-xl flex items-center gap-2 " onClick={() => {
-                                        Logout();
-                                        Toogle_User_Open();
-                                    }
-                                    }>
+                                    <div
+                                        className=" text-red-600 rounded-b-xl flex items-center gap-2 "
+                                        onClick={() => {
+                                            Logout();
+                                            Toogle_User_Open();
+                                        }}
+                                    >
                                         <TbLogout />
                                         Logout
                                     </div>
@@ -298,11 +299,11 @@ function NavBar({ Active_nav, setActive_nav }) {
                         </Link>
                         <Link
                             onClick={Toogle_Menu_Bar}
-                            to={"/Formations"}
+                            to={"/Courses"}
                             className="w-[165px] flex cursor-pointer  gap-2 "
                         >
                             <FaBookReader className=" text-3xl" />
-                            Formations
+                            Courses
                         </Link>
                         <div className=" w-full h-1 bg-gray"></div>
                         <Link
