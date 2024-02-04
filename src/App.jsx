@@ -6,7 +6,7 @@ import { checkAuth } from "./checkAuth";
 import { useAppContext } from "./Context/AppContext";
 import axios from "axios";
 function App() {
-    const { set_Auth, store_login } = useAppContext();
+    const { set_Auth, store_login, isAuth } = useAppContext();
     const [Active_nav, setActive_nav] = useState("Home");
 
     useEffect(() => {
@@ -19,7 +19,6 @@ function App() {
                         validateStatus: () => true,
                     }
                 );
-                console.log(response);
 
                 if (response.status === 200) {
                     const FirstName = response.data.userData.FirstName;
@@ -40,6 +39,7 @@ function App() {
                         _id
                     );
                     set_Auth(true);
+                    // return;
                 } else if (response.status === 401) {
                     // Access token expired, try refreshing it
                     const refreshResponse = await axios.post(
@@ -50,7 +50,6 @@ function App() {
                             validateStatus: () => true,
                         }
                     );
-
                     if (refreshResponse.status === 200) {
                         if (
                             refreshResponse.data &&
@@ -81,9 +80,10 @@ function App() {
                                 _id
                             );
                             set_Auth(true);
+                            // return;
                         }
                     } else {
-                        set_Auth(false);
+                        
                         store_login({
                             FirstName: "",
                             LastName: "",
@@ -92,10 +92,12 @@ function App() {
                             Age: null,
                             Courses: [],
                             _id: null,
-                        });
+                        });set_Auth(false);
+                        console.log("we are here");
+
+                        // return;
                     }
                 } else {
-                    set_Auth(false);
                     store_login({
                         FirstName: "",
                         LastName: "",
@@ -105,9 +107,12 @@ function App() {
                         Courses: [],
                         _id: null,
                     });
+                    set_Auth(false);
+
+                    // return;
                 }
             } catch (error) {
-                set_Auth(false);
+                console.log("error in the front end : ", error);
                 store_login({
                     FirstName: "",
                     LastName: "",
@@ -117,12 +122,18 @@ function App() {
                     Courses: [],
                     _id: null,
                 });
+                set_Auth(false);
+
+                // return;
             }
         };
 
         fetchData();
+        console.log(isAuth);
     }, []);
-
+    useEffect(() => {
+        console.log(isAuth);
+    }, [isAuth]);
     return (
         <div className=" relative overflow-x-hidden ">
             <NavBar Active_nav={Active_nav} setActive_nav={setActive_nav} />

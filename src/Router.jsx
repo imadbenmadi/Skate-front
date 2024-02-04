@@ -13,7 +13,7 @@ import Contact from "./Components/Contact/Contact";
 import UserProfile from "./Components/UserProfile/UserProfile";
 import Settings from "./Components/Settings/Settings";
 import Not_Found from "./Components/Not_Found";
-// import UserProfile from "./Components/UserProfile/UserProfile";
+import userCourses from "./Components/userCourses/userCourses";
 const routes = createBrowserRouter([
     {
         path: "/",
@@ -25,6 +25,7 @@ const routes = createBrowserRouter([
             { path: "/Events", element: <Events /> },
             { path: "/Contact", element: <Contact /> },
             { path: "/Profile/:id", element: <UserProfile /> },
+            { path: "/Mycourses", element: <userCourses /> },
 
             {
                 path: "/Blogs",

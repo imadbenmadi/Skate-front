@@ -15,11 +15,12 @@ import { useAppContext } from "../../Context/AppContext";
 import { useLocation } from "react-router";
 import { TbLogout } from "react-icons/tb";
 import Course from "../../../public/Course.png";
+import axios from "axios";
 function NavBar({ Active_nav, setActive_nav }) {
-    const { isAuth, FirstName, LastName } = useAppContext();
-    useEffect(() => {
-        console.log(isAuth);
-    },[isAuth])
+    const { isAuth, FirstName, LastName, _id } = useAppContext();
+    const { set_Auth, store_login } = useAppContext();
+    
+    
     const location = useLocation();
 
     const [MobileNav_Open, set_MobileNav_Open] = useState(false);
@@ -47,6 +48,41 @@ function NavBar({ Active_nav, setActive_nav }) {
             window.removeEventListener("scroll", handleScroll);
         };
     }, [prevScrollPos]);
+    const Logout = async() => {
+        try {
+            // Send a request to the logout endpoint on the server
+            const response = await axios.post(
+                "http://localhost:3000/logout",
+                {},
+                {
+                    withCredentials: true,
+                    validateStatus: () => true,
+                }
+            );
+
+            if (response.status === 204) {
+                // Successfully logged out, you may want to redirect to the login page or update the UI accordingly
+                console.log("Logged out successfully");
+                set_Auth(false);
+                store_login({
+                    FirstName: "",
+                    LastName: "",
+                    Email: "",
+                    Gender: null,
+                    Age: null,
+                    Courses: [],
+                    _id: null,
+                });
+                // You can use state or context to handle the logout state in your application
+            } else {
+                console.error("Failed to log out");
+                // Handle the case where the server failed to log out the user
+            }
+        } catch (error) {
+            console.error("An unexpected error occurred during logout", error);
+            // Handle unexpected errors during logout
+        }
+    }
     return (
         <div
             className={`fixed z-40 w-full bg-white transition-transform duration-200 ${
@@ -170,21 +206,32 @@ function NavBar({ Active_nav, setActive_nav }) {
                             {/* Laptop user small menu */}
                             {user_Open ? (
                                 <div className=" absolute py-2 pl-4 top-[40px] -right-12 bg-white w-[160px] shadow-md rounded-b-xl  flex flex-col items-start gap-4">
-                                    <div className="   flex flex-col ">
-                                        <span className=" underline">
+                                    <Link
+                                        to={`/Profile/${_id}`}
+                                        className="   flex flex-col "
+                                        onClick={Toogle_User_Open}
+                                    >
+                                        <span className=" underline font-semibold text-gray text-2xl">
                                             Profile
                                         </span>
-                                        <span className=" text-sm">{FirstName + LastName}</span>
-                                    </div>
-                                    <div className=" flex items-center gap-2 text-green ">
+                                        <span className=" text-sm">
+                                            {FirstName + LastName}
+                                        </span>
+                                    </Link>
+
+                                    <Link
+                                        to={"/Mycourses"}
+                                        className=" flex items-center gap-2 text-green "
+                                        onClick={Toogle_User_Open}
+                                    >
                                         <img
                                             src={Course}
                                             alt=""
                                             className=" w-5 h-5"
                                         />
                                         My Coursers
-                                    </div>
-                                    <div className=" text-red-600 rounded-b-xl flex items-center gap-2 ">
+                                    </Link>
+                                    <div className=" text-red-600 rounded-b-xl flex items-center gap-2 " onClick={Logout}>
                                         <TbLogout />
                                         Logout
                                     </div>
