@@ -83,7 +83,6 @@ function App() {
                             // return;
                         }
                     } else {
-                        
                         store_login({
                             FirstName: "",
                             LastName: "",
@@ -92,7 +91,8 @@ function App() {
                             Age: null,
                             Courses: [],
                             _id: null,
-                        });set_Auth(false);
+                        });
+                        set_Auth(false);
                         console.log("we are here");
 
                         // return;
@@ -130,7 +130,7 @@ function App() {
 
         fetchData();
         console.log(isAuth);
-    }, []);
+    }, [isAuth]);
     useEffect(() => {
         console.log(isAuth);
     }, [isAuth]);

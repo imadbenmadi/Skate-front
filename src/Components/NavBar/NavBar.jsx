@@ -63,7 +63,6 @@ function NavBar({ Active_nav, setActive_nav }) {
             if (response.status === 204) {
                 // Successfully logged out, you may want to redirect to the login page or update the UI accordingly
                 console.log("Logged out successfully");
-                set_Auth(false);
                 store_login({
                     FirstName: "",
                     LastName: "",
@@ -73,6 +72,8 @@ function NavBar({ Active_nav, setActive_nav }) {
                     Courses: [],
                     _id: null,
                 });
+                set_Auth(false);
+
                 // You can use state or context to handle the logout state in your application
             } else {
                 console.error("Failed to log out");
@@ -231,7 +232,11 @@ function NavBar({ Active_nav, setActive_nav }) {
                                         />
                                         My Coursers
                                     </Link>
-                                    <div className=" text-red-600 rounded-b-xl flex items-center gap-2 " onClick={Logout}>
+                                    <div className=" text-red-600 rounded-b-xl flex items-center gap-2 " onClick={() => {
+                                        Logout();
+                                        Toogle_User_Open();
+                                    }
+                                    }>
                                         <TbLogout />
                                         Logout
                                     </div>
