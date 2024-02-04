@@ -2,7 +2,6 @@ import React from "react";
 import NavBar from "./Components/NavBar/NavBar";
 import { Outlet } from "react-router";
 import { useState, useEffect } from "react";
-import { checkAuth } from "./checkAuth";
 import { useAppContext } from "./Context/AppContext";
 import axios from "axios";
 function App() {
