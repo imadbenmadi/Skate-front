@@ -45,10 +45,7 @@ const routes = createBrowserRouter([
         path: "/Register",
         element: <Register />,
     },
-    {
-        path: "/Profile",
-        element: <UserProfile />,
-    },
+    
     {
         path: "/Settings",
         element: <Settings />,

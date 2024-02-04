@@ -4,6 +4,7 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useAppContext } from "../../Context/AppContext";
 import { useNavigate } from "react-router";
 import { handleContact } from "./handleContact";
+import Links from "./Links";
 function Contact() {
   const Navigate = useNavigate();
     const { isAuth, _id } = useAppContext();
@@ -69,8 +70,8 @@ function Contact() {
                         handleContact(updatedValues, {
                             setSubmitting,
                             onSuccess: () => {
-                              // Navigate("/");
-                              window.history.back();
+                                // Navigate("/");
+                                window.history.back();
                             },
                         });
                     }}
@@ -140,6 +141,7 @@ function Contact() {
                     )}
                 </Formik>
             </div>
+            <Links/>
         </div>
     );
 }

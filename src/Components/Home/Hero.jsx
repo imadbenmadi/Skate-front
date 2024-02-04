@@ -1,17 +1,18 @@
 import React from 'react'
-import wallpaper from "../../../public/wallpaper.jpg";
+import wallpaper1 from "../../../public/wallpaper.jpg";
+import wallpaper2 from "../../../public/wllpaper2.jpg";
 import { GrFormNextLink } from "react-icons/gr";
 export default function Hero() {
   return (
       <div>
-          <div className=" h-[50vh] md:h-[90vh] overflow-hidden">
+          <div className=" h-[60vh] md:h-[90vh] overflow-hidden">
               {/* Set the image as a background */}
               <div
-                  className="w-full h-full bg-cover bg-center  flex  justify-center items-end gap-10  md:gap-64 pb-10"
-                  style={{
-                      backgroundImage: `url(${wallpaper})`,
-                      backgroundSize: "cover",
-                  }}
+                  className={`w-full h-full bg-cover bg-center flex justify-center items-end gap-10 md:gap-64 pb-4 bg-[url('../../../public/wallpaper.jpg')] sm:bg-[url('../../../public/wllpaper2.jpg')]`}
+                  //   style={{
+                  //       backgroundImage: `url(${wallpaper1})`,
+                  //       backgroundSize: "cover",
+                  //   }}
               >
                   <div className="flex flex-col items-end md:items-start w-[200px]">
                       <div className="hidden md:block  text-2xl mb-3 font-semibold text-black_text">
