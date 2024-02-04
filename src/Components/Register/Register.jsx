@@ -10,12 +10,7 @@ import { handleRegistration } from "./handleRegistration";
 import { useEffect } from "react";
 function Register() {
     const Navigate = useNavigate();
-    const [succeed, setSucceed] = useState(false);
-    // setSucceed(false);
-    // useEffect(() => {
-    //     Navigate("/Login");
-    // }, [succeed]);
-
+    
     const [showPassword, setShowPassword] = useState(false);
     function handleShowPassword() {
         setShowPassword(!showPassword);
@@ -98,7 +93,7 @@ function Register() {
                     }}
                     onSubmit={(values, { setSubmitting }) => {
                         // Call your registration logic here
-                        handleRegistration(values, setSucceed, {
+                        handleRegistration(values,  {
                             setSubmitting,
                         });
                     }}

@@ -1,9 +1,11 @@
 import Axios from "axios";
 import Swal from "sweetalert2";
-export async function handleRegistration(values,{ setSubmitting }) {
+
+export async function handleContact(values, { setSubmitting, onSuccess }) {
+    console.log(values);
     try {
         let response = await Axios.post(
-            "http://localhost:3000/Register",
+            "http://localhost:3000/Contact",
             values,
             {
                 withCredentials: true,
@@ -11,21 +13,15 @@ export async function handleRegistration(values,{ setSubmitting }) {
             }
         );
 
-        if (response.status === 401) {
-            console.log(response.data.error);
-            Swal.fire(
-                "Email already exists",
-                `Please try to use another Email , ${response.data.error}`,
-                "error"
-            );
-        } else if (response.status === 200) {
+        if (response.status === 200) {
             Swal.fire(
                 "Done!",
-                "Your account has been created Successfully",
+                "Your Message has been Sended Successfully",
                 "success"
             );
+            onSuccess();
         } else if (response.status === 400) {
-            console.log(response.data.error);
+            console.log(response);
             Swal.fire(
                 "Error!",
                 `Internal server error.${response.data.error}`,
