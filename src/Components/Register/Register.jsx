@@ -99,43 +99,49 @@ function Register() {
                 >
                     {({ isSubmitting }) => (
                         <Form className=" flex flex-col text-sm md:text-lg md:mx-5 gap-4">
-                            <div>
+                            <div className=" flex justify-center gap-4 ">
                                 <div>
-                                    First Name{" "}
-                                    <span className=" text-red-600 font-semibold">
-                                        *
-                                    </span>
+                                    <div>
+                                        First Name
+                                        <span className=" text-red-600 font-semibold">
+                                            *
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <Field
+                                            type="text"
+                                            name="FirstName"
+                                            className="border border-gray_white px-2 py-1 rounded  shadow-sm "
+                                            disabled={isSubmitting}
+                                        />
+                                        <ErrorMessage
+                                            name="FirstName"
+                                            component="div"
+                                            style={errorInputMessage}
+                                        />
+                                    </div>
                                 </div>
-                                <Field
-                                    type="text"
-                                    name="FirstName"
-                                    className="border border-gray_white px-2 py-1 rounded  shadow-sm w-full"
-                                    disabled={isSubmitting}
-                                />
-                                <ErrorMessage
-                                    name="FirstName"
-                                    component="div"
-                                    style={errorInputMessage}
-                                />
-                            </div>
-                            <div>
                                 <div>
-                                    Last Name{"  "}
-                                    <span className=" text-red-600 font-semibold">
-                                        *
-                                    </span>
+                                    <div>
+                                        Last Name
+                                        <span className=" text-red-600 font-semibold">
+                                            *
+                                        </span>
+                                    </div>
+                                    <div>
+                                        <Field
+                                            type="text"
+                                            name="LastName"
+                                            disabled={isSubmitting}
+                                            className="border border-gray_white px-2 py-1 rounded  shadow-sm "
+                                        />
+                                        <ErrorMessage
+                                            name="LastName"
+                                            component="div"
+                                            style={errorInputMessage}
+                                        />
+                                    </div>
                                 </div>
-                                <Field
-                                    type="text"
-                                    name="LastName"
-                                    disabled={isSubmitting}
-                                    className="border border-gray_white px-2 py-1 rounded  shadow-sm w-full"
-                                />
-                                <ErrorMessage
-                                    name="LastName"
-                                    component="div"
-                                    style={errorInputMessage}
-                                />
                             </div>
                             <div>
                                 <div>

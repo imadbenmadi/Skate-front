@@ -8,7 +8,6 @@ export async function handleRegistration(values,setSucceed, { setSubmitting }) {
             values,
             {
                 withCredentials: true,
-
                 validateStatus: () => true,
             }
         );
