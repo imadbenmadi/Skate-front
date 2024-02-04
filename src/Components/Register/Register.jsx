@@ -16,7 +16,6 @@ function Register() {
     //     Navigate("/Login");
     // }, [succeed]);
 
-
     const [showPassword, setShowPassword] = useState(false);
     function handleShowPassword() {
         setShowPassword(!showPassword);
@@ -39,6 +38,7 @@ function Register() {
                     initialValues={{
                         FirstName: "",
                         LastName: "",
+                        // Phone: "",
                         Email: "",
                         Password: "",
                         Age: "",
@@ -55,7 +55,13 @@ function Register() {
                         if (!values.LastName) {
                             errors.LastName = "last name is Required";
                         }
-
+                        // if (!values.Phone) {
+                        //     errors.Phone = "Phone number is required";
+                        // } else if (
+                        //     !/^\d{4} \d{2} \d{2} \d{2}$/i.test(values.Phone)
+                        // ) {
+                        //     errors.Phone = "Invalid phone number";
+                        // }
                         // Validate Email
                         if (!values.Email) {
                             errors.Email = "email is Required";
@@ -143,6 +149,32 @@ function Register() {
                                     </div>
                                 </div>
                             </div>
+                            {/* <div>
+                                <div>
+                                    Phone Number
+                                    <span className=" text-red-600 font-semibold">
+                                        *
+                                    </span>
+                                </div>
+                                <Field
+                                    type="tel"
+                                    name="Phone"
+                                    disabled={isSubmitting}
+                                    inputMode="numeric"
+                                    onChange={(e, setFieldValue) => {
+                                        const numericValue =
+                                            e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
+                                        console.log(numericValue);
+                                        setFieldValue("Phone", numericValue);
+                                    }}
+                                    className="border border-gray_white px-2 py-1 rounded shadow-sm w-full"
+                                />
+                                <ErrorMessage
+                                    name="Phone"
+                                    component="div"
+                                    style={errorInputMessage}
+                                />
+                            </div> */}
                             <div>
                                 <div>
                                     Email{" "}
