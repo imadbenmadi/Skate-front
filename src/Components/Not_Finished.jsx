@@ -4,7 +4,7 @@ import Comming_Soon from "../../public/Comming_Soon.png";
 function Not_Finished() {
     return (
       <div className="flex items-center justify-center 
-      text-gray font-bold ">
+      text-gray font-bold pt-16 ">
             <div className="p-8 bg-white rounded-md shadow-lg text-center">
                 <h1 className="text-3xl md:text-5xl mb-4 text-gray-800">
                     Oops! This Page is Not Finished Yet

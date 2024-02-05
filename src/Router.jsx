@@ -13,6 +13,8 @@ import Contact from "./Components/Contact/Contact";
 import UserProfile from "./Components/UserProfile/UserProfile";
 import Not_Found from "./Components/Not_Found";
 import userCourses from "./Components/userCourses/userCourses";
+import Dashboard from "./Dashboard/Dashboard";
+import Dashboard_Login from "./Dashboard/Dashboard_Login";
 const routes = createBrowserRouter([
     {
         path: "/",
@@ -37,6 +39,11 @@ const routes = createBrowserRouter([
         ],
     },
     {
+        path: "/Dashboard",
+        element: <Dashboard />,
+        children: [{ path: "/Dashboard", element: <Dashboard_Login /> }],
+    },
+    {
         path: "/Login",
         element: <Login />,
     },
@@ -44,8 +51,7 @@ const routes = createBrowserRouter([
         path: "/Register",
         element: <Register />,
     },
-    
-   
+
     {
         path: "*",
         element: <Not_Found />,
