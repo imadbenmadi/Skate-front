@@ -4,40 +4,42 @@ import wallpaper2 from "../../../public/wllpaper2.jpg";
 import { Link } from "react-router-dom";
 import { GrFormNextLink } from "react-icons/gr";
 export default function Hero() {
-    return (
-        <div>
-            <div className=" h-[70vh] overflow-hidden">
-                {/* Set the image as a background */}
-                <div
-                    className={`relative w-full h-full bg-cover bg-center flex justify-center items-end gap-10  pb-4 bg-[url('../../../public/wllpaper2.jpg')] text-black_text`}
-                >
-                    {" "}
-                    <div className=" absolute font-semibold text-6xl top-24 text-gray font-serif">
-                        Skate
-                    </div>
-                    <div className="flex flex-col md:items-start w-[150px] md:w-[200px]">
-                        <div className="block  md:text-xl mb-3 font-semibold text-black_text">
-                            Center of Study Support & Consultation
-                        </div>
-                        <Link to={"Services"} className=" flex items-center text-[16px]  bg-green text-white rounded-xl shadow-xl w-fit px-4 py-1 md:text-xl cursor-pointer">
-                            Owr Services
-                            <GrFormNextLink />
-                        </Link>
-                    </div>
-                    <div className=" w-[150px] md:w-[200px]">
-                        <div className="block md:text-xl mb-3 font-semibold text-black_text">
-                            Center of Training and Assistance
-                        </div>
-                        <Link
-                            to={"/Courses"}
-                            className=" flex items-center text-[16px] bg-white text-black rounded-xl shadow-xl w-fit px-4 py-1 md:text-xl cursor-pointer font-semibold"
-                        >
-                            Owr Courses
-                            <GrFormNextLink />
-                        </Link>
-                    </div>
-                </div>
+  return (
+    <div className="max-h-screen h-screen mx-w-[1300px] ">
+      <div className=" h-[96%] max-h-screen translate-y-[5%]    ">
+        {/* Set the image as a background */}
+        <div
+          className={`relative  w-full h-full  bg-cover bg-center flex justify-center items-center gap-10   bg-[url('../../../public/wllpaper2.jpg')] text-black_text`}
+        >
+          <div className="bg-black z-10 opacity-70 absolute w-full h-full"></div>{" "}
+          <div className=" absolute  font-semibold text-6xl top-24 text-gray font-serif"></div>
+          <div className="flex z-50  flex-col md:items-start w-screen md:w-[600px]">
+            <div className="block max-md:text-4xl   z-50 md:text-5xl  text-center self-center  mb-16 font-semibold text-white">
+              Skate School
             </div>
+            <div className="block max-md:px-5     text-center z-50 md:text-2xl mb-3 font-semibold text-white">
+              Center of Study Support & Consultation and Center of Training and
+              Assistance
+            </div>
+            <div className=" max-md:flex-col max-md:gap-5 self-center mt-5 flex justify-around items-center z-50 md:w-[80%] w-[200px]">
+              <Link
+                to={"/Courses"}
+                className=" flex items-center text-[16px] bg-white text-black rounded-xl shadow-xl w-fit px-6 py-2 md:text-2xl cursor-pointer font-semibold"
+              >
+                Owr Courses
+                <GrFormNextLink />
+              </Link>
+              <Link
+                to={"Services"}
+                className=" flex items-center text-[16px]  bg-green text-white rounded-xl shadow-xl w-fit px-6 py-2 md:text-2xl cursor-pointer"
+              >
+                Owr Services
+                <GrFormNextLink />
+              </Link>
+            </div>
+          </div>
         </div>
-    );
+      </div>
+    </div>
+  );
 }
