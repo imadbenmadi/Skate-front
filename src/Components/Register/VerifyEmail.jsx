@@ -4,12 +4,19 @@ import Axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { Formate_Date } from "../../Logic/Formate_Date";
+
+
+
 function Verification({
     Verify_id,
     Verify_email,
     Verify_Password,
     rigester_Date,
 }) {
+    const [show_not_finished , setShow_not_finished] = useState(false)
+    function open_not_finished() { 
+        setShow_not_finished(true);
+    }
     const [code, setCode] = useState("");
     const Navigate = useNavigate();
     const handleChange = (e) => {
@@ -85,12 +92,19 @@ function Verification({
             <div className=" font-bold mb-4 text-xl text-green">
                 Skate Verification
             </div>
-
-            <div className="mb-4">
-                Enter the 6-digit code we sent to you in email
+            <div className=" mb-8">
+                <div className="mb-4">
+                    Enter the 6-digit code we sent to you in email
+                </div>
+                <div className=" text-gray text-sm">
+                    {" "}
+                    Message Sended at : {Sended_Date}{" "}
+                </div>
+                <div className=" text-gray text-sm">
+                    {" "}
+                    Email : {Verify_email}{" "}
+                </div>
             </div>
-            <div className=" text-gray text-sm"> Message Sended at : {Sended_Date} </div>
-            <div className=" text-gray text-sm"> Email : {Verify_email} </div>
 
             <input
                 type="text"
@@ -109,9 +123,17 @@ function Verification({
             <div className="mt-8 color-gray text-sm">
                 Didn’t receive verification code?
             </div>
-            <div className=" text-center text-gray underline cursor-pointer text-sm">
+            <div
+                className=" text-center text-gray underline cursor-pointer text-sm"
+                onClick={open_not_finished}
+            >
                 resend it
             </div>
+            {show_not_finished && (
+                <div className="mt-4 bg-red-500 opacity-70  p-4 rounded-2xl text-white">
+                    <div>Sorry we did not finished this part yet </div>
+                </div>
+            )}
         </div>
     );
 }
