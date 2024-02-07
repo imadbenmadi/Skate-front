@@ -8,8 +8,10 @@ import axios from "axios";
 function App() {
     const { set_Auth, store_login, isAuth } = useAppContext();
     const [Active_nav, setActive_nav] = useState("Home");
-    const [loading, setLoading] = useState(true);
+    const [loading, setLoading] = useState(false);
     const fetchData = async () => {
+        setLoading(true);
+
         try {
             const response = await axios.get(
                 "http://localhost:3000/check_Auth",
@@ -132,7 +134,7 @@ function App() {
     useEffect(() => {
         fetchData();
     }, []);
-    
+
     return (
         <div>
             {loading ? (
