@@ -15,10 +15,11 @@ const initialState = {
     Age: null,
     Courses: [],
     _id: null,
-    tmp_id: null,
-    tmp_email: "",
-    tmp_FirstName: "",
-    tmp_Last: "",
+    Verify_id: null,
+    Verify_email: "",
+    Verify_FirstName: "",
+    Verify_LastName: "",
+    Verify_Password: "",
     
 };
 const reducer = (state, action) => {
@@ -55,10 +56,11 @@ const reducer = (state, action) => {
         case "REGISTER":
             return {
                 ...state,
-                FirstName: action.payload.FirstName,
-                LastName: action.payload.LastName,
-                Email: action.payload.Email,
-                _id: action.payload._id,
+                Verify_FirstName: action.payload.FirstName,
+                Verify_LastName: action.payload.LastName,
+                Verify_email: action.payload.Email,
+                Verify_id: action.payload._id,
+                Verify_Password: action.payload.Password,
             };
         default:
             return state;
@@ -96,16 +98,25 @@ export const AppProvider = ({ children }) => {
     const store_logout = () => {
         dispatch({ type: "LOGOUT" });
     };
-    const Store_register = {
-        type: "REGISTER",
-        payload: {
-            FirstName: "",
-            LastName: "",
-            Email: "",
-            _id: "",
-        },
+    
+    const Store_register = ({
+        Verify_FirstName,
+        Verify_LastName,
+        Verify_email,
+        Verify_id,
+        Verify_Password,
+    }) => {
+        dispatch({
+            type: "REGISTER",
+            payload: {
+                Verify_FirstName,
+                Verify_LastName,
+                Verify_email,
+                Verify_id,
+                Verify_Password,
+            },
+        });
     };
-
     const AppContextValue = {
         ...state,
         store_login,

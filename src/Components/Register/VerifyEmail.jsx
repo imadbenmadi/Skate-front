@@ -23,7 +23,7 @@ function Verification() {
     return (
         <div className="flex flex-col items-center justify-center">
             <img src={Logo} alt="Skate Logo" className="mt-8 w-[140px]" />
-            <div className="text-lg font-bold mb-4 text-xl text-green">
+            <div className=" font-bold mb-4 text-xl text-green">
                 Skate Verification
             </div>
 
