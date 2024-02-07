@@ -3,7 +3,8 @@ import { Link } from "react-router-dom";
 import { TbLogout } from "react-icons/tb";
 import Course from "../../../../public/Course.png";
 import { FaUserTie } from "react-icons/fa";
-import { IoSettingsOutline } from "react-icons/io5";
+import { MdNotificationsNone } from "react-icons/md";
+import { TbSettings } from "react-icons/tb";
 
 function Laptop_Nav_Items({
     Active_nav,
@@ -83,58 +84,68 @@ function Laptop_Nav_Items({
                     </Link>
                 </div>
             </div>
-
-            <Link to={"/Settings"}>
-                <IoSettingsOutline className=" text-3xl text-gray cursor-pointer" />
-            </Link>
-            {isAuth ? (
-                <div className=" relative">
-                    <FaUserTie
-                        className=" text-gray text-2xl cursor-pointer"
-                        onClick={Toogle_User_Open}
-                    />
-                    {/* Laptop user small menu */}
-                    {user_Open ? (
-                        <div className=" absolute py-2 pl-4 top-[40px] -right-12 bg-white w-[160px] shadow-md rounded-b-xl  flex flex-col items-start gap-4">
-                            <Link
-                                to={`/Profile/${_id}`}
-                                className="   flex flex-col "
-                                onClick={Toogle_User_Open}
-                            >
-                                <span className=" underline font-semibold text-gray text-2xl">
-                                    Profile
-                                </span>
-                                <span className=" text-sm">
-                                    {FirstName + LastName}
-                                </span>
-                            </Link>
-
-                            <Link
-                                to={"/Mycourses"}
-                                className=" flex items-center gap-2 text-green "
-                                onClick={Toogle_User_Open}
-                            >
-                                <img src={Course} alt="" className=" w-5 h-5" />
-                                My Coursers
-                            </Link>
-                            <div
-                                className=" text-red-600 rounded-b-xl flex items-center gap-2 "
-                                onClick={() => {
-                                    Logout();
-                                    Toogle_User_Open();
-                                }}
-                            >
-                                <TbLogout />
-                                Logout
-                            </div>
+            <div className=" flex gap-4 justify-center items-center">
+                <Link to={"/Settings"}>
+                    <TbSettings className=" text-2xl  text-gray cursor-pointer" />
+                </Link>
+                {isAuth ? (
+                    <>
+                        <div>
+                            <MdNotificationsNone className="text-gray text-2xl cursor-pointer" />
                         </div>
-                    ) : null}
-                </div>
-            ) : (
-                <span className=" bg-green text-[#fff] px-3 py-1 text-xl rounded-lg cursor-pointer">
-                    <Link to={"/Login"}>Login</Link>
-                </span>
-            )}
+                        <div className=" relative">
+                            <FaUserTie
+                                className=" text-gray text-xl cursor-pointer"
+                                onClick={Toogle_User_Open}
+                            />
+                            {/* Laptop user small menu */}
+                            {user_Open ? (
+                                <div className=" absolute py-2 pl-4 top-[45px] -right-3 bg-white w-[160px] shadow-md rounded-xl  flex flex-col items-start gap-4">
+                                    <Link
+                                        to={`/Profile`}
+                                        className="   flex flex-col "
+                                        onClick={Toogle_User_Open}
+                                    >
+                                        <span className=" underline font-semibold text-gray text-2xl">
+                                            Profile
+                                        </span>
+                                        <span className=" text-sm">
+                                            {FirstName + LastName}
+                                        </span>
+                                    </Link>
+
+                                    <Link
+                                        to={"/Mycourses"}
+                                        className=" flex items-center gap-2 text-green "
+                                        onClick={Toogle_User_Open}
+                                    >
+                                        <img
+                                            src={Course}
+                                            alt=""
+                                            className=" w-5 h-5"
+                                        />
+                                        My Coursers
+                                    </Link>
+                                    <div
+                                        className=" text-red-600 rounded-b-xl flex items-center gap-2 "
+                                        onClick={() => {
+                                            Logout();
+                                            Toogle_User_Open();
+                                        }}
+                                    >
+                                        <TbLogout />
+                                        Logout
+                                    </div>
+                                </div>
+                            ) : null}
+                        </div>
+                    </>
+                ) : (
+                    <span className=" bg-green text-[#fff] px-3 py-1 text-xl rounded-lg cursor-pointer">
+                        <Link to={"/Login"}>Login</Link>
+                    </span>
+                )}
+            </div>
         </div>
     );
 }
