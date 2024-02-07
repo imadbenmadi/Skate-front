@@ -4,7 +4,7 @@ import Axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 
-function Verification({ Verify_id }) {
+function Verification({ Verify_id, Verify_email, Verify_Password }) {
     const [code, setCode] = useState("");
     const Navigate = useNavigate();
     const handleChange = (e) => {
@@ -33,6 +33,38 @@ function Verification({ Verify_id }) {
 
         if (response.status === 200) {
             Swal.fire("Done!", "Email Verified Successfully", "success");
+            try {
+                let response = await Axios.post(
+                    "http://localhost:3000/Login",
+                    {
+                        Email: Verify_email,
+                        Password : Verify_Password
+                    },
+                    {
+                        withCredentials: true,
+                        validateStatus: () => true,
+                    }
+                );
+                if (response.status === 200) {
+                    console.log("Done!", "Logged in Successfully", "success");
+                    Navigate("/");
+                } else if (response.status === 401) {
+                    console.log(response.data.error);
+                    Navigate("/Login");
+                } else if (response.status === 409) {
+                    console.log(response.data.error);
+                    Navigate("/Login");
+                } else if (response.status === 500) {
+                    console.log(response.data.error);
+                    Navigate("/Login");
+                } else {
+                    console.log(response.data.error);
+                    Navigate("/Login");
+                }
+            } catch (error) {
+                console.error("Error during Login:", error.message);
+            }
+
         } else if (response.status === 401) {
             Swal.fire("Error!", "Invalid Code", "error");
         } else if (response.status === 500) {
@@ -41,7 +73,7 @@ function Verification({ Verify_id }) {
         console.log(response);
         // Reset the code after submission (optional)
         setCode("");
-        Navigate("/Login");
+        
     };
 
     return (

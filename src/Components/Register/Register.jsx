@@ -13,27 +13,9 @@ function Register() {
     const [open_verify, setOpen_verify] = useState(false);
     const [Verify_id, setVerifyId] = useState(null);
     const [Verify_email, setVerifyEmail] = useState("");
-    const [Verify_FirstName, setVerifyFirstName] = useState("");
-    const [Verify_LastName, setVerifyLastName] = useState("");
     const [Verify_Password, setVerifyPassword] = useState("");
 
-    useEffect(() => {
-        console.log("Verify_id:", Verify_id);
-        console.log("Verify_email:", Verify_email);
-        console.log("Verify_FirstName:", Verify_FirstName);
-        console.log("Verify_LastName:", Verify_LastName);
-        console.log("Verify_Password:", Verify_Password);
-    }, [
-        Verify_id,
-        Verify_email,
-        Verify_FirstName,
-        Verify_LastName,
-        Verify_Password,
-    ]);
-
-    const Navigate = useNavigate();
-    const [success, setSuccess] = useState(false);
-
+    const [Succed_Register, setSucced_Register] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     function handleShowPassword() {
         setShowPassword(!showPassword);
@@ -124,15 +106,20 @@ function Register() {
                             onSubmit={async (values, { setSubmitting }) => {
                                 // Call your registration logic here
 
-                                await handleRegistration(values, {
-                                    setSubmitting,
-                                    setSuccess,
-                                    setVerifyId,
-                                });
+                                const success = await handleRegistration(
+                                    values,
+                                    {
+                                        setSubmitting,
+                                        setSucced_Register,
+                                        setVerifyId,
+                                    }
+                                );
                                 if (success) {
                                     setVerifyEmail(values.Email);
+                                    setVerifyPassword(values.Password);
                                     setOpen_verify(true);
                                 }
+                                setSubmitting(false);
                             }}
                         >
                             {({ isSubmitting }) => (
@@ -336,7 +323,11 @@ function Register() {
                     </div>
                 </div>
             ) : (
-                <VerifyEmail Verify_id={Verify_id} />
+                <VerifyEmail
+                    Verify_id={Verify_id}
+                    Verify_email={Verify_email}
+                    Verify_Password={Verify_Password}
+                />
             )}
         </div>
     );

@@ -38,7 +38,7 @@ function Login() {
                 console.log(response.data.error);
                 Swal.fire(
                     "Email already exists",
-                    `Please try to use another Email , ${response.data.error}`,
+                    `Username or Password isn't correct , ${response.data.error}`,
                     "error"
                 );
             } else if (response.status === 409) {
