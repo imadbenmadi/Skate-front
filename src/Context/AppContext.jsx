@@ -12,8 +12,10 @@ const initialState = {
     LastName: "",
     Email: "",
     Gender: null,
-    Age: null,
     Courses: [],
+    Services: [],
+    Notifications: [],
+    IsEmailVerified : null,
     _id: null,
 };
 const reducer = (state, action) => {
@@ -26,8 +28,10 @@ const reducer = (state, action) => {
                 LastName: action.payload.LastName,
                 Email: action.payload.Email,
                 Gender: action.payload.Gender,
-                Age: action.payload.Age,
                 Courses: action.payload.Courses,
+                Services: action.payload.Services,
+                Notifications: action.payload.Notifications,
+                IsEmailVerified: action.payload.IsEmailVerified,
                 _id: action.payload._id,
             };
         case "LOGOUT":
@@ -38,8 +42,10 @@ const reducer = (state, action) => {
                 LastName: "",
                 Email: "",
                 Gender: null,
-                Age: null,
                 Courses: [],
+                Services: [],
+                Notifications: [],
+                IsEmailVerified: null,
                 _id: null,
             };
         case "SET_AUTH":
@@ -63,8 +69,10 @@ export const AppProvider = ({ children }) => {
         LastName,
         Email,
         Gender,
-        Age,
         Courses,
+        Services,
+        Notifications,
+        IsEmailVerified,
         _id
     ) => {
         dispatch({
@@ -74,8 +82,10 @@ export const AppProvider = ({ children }) => {
                 LastName,
                 Email,
                 Gender,
-                Age,
                 Courses,
+                Services,
+                Notifications,
+                IsEmailVerified,
                 _id,
             },
         });

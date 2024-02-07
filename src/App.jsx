@@ -22,13 +22,15 @@ function App() {
             );
 
             if (response.status === 200) {
+                const _id = response.data.userData._id;
+                const Email = response.data.userData.Email;
                 const FirstName = response.data.userData.FirstName;
                 const LastName = response.data.userData.LastName;
-                const Email = response.data.userData.Email;
-                const Gender = response.data.userData.Gender;
-                const Age = response.data.userData.Age;
+                const Notifications = response.data.userData.Notifications;
                 const Courses = response.data.userData.Courses;
-                const _id = response.data.userData._id;
+                const Services = response.data.userData.Services;
+                const Gender = response.data.userData.Gender;
+                const IsEmailVerified = response.data.userData.IsEmailVerified;
                 console.log(FirstName, LastName, Email);
                 store_login(
                     FirstName,
@@ -61,22 +63,27 @@ function App() {
                         // Assuming you have a function to set access token in your context
                         // set_AccessToken(refreshResponse.data.accessToken);
 
-                        const FirstName =
-                            refreshResponse.data.userData.FirstName;
-                        const LastName = refreshResponse.data.userData.LastName;
-                        const Email = refreshResponse.data.userData.Email;
-                        const Gender = refreshResponse.data.userData.Gender;
-                        const Age = refreshResponse.data.userData.Age;
-                        const Courses = refreshResponse.data.userData.Courses;
-                        const _id = refreshResponse.data.userData._id;
+                        const _id = response.data.userData._id;
+                        const Email = response.data.userData.Email;
+                        const FirstName = response.data.userData.FirstName;
+                        const LastName = response.data.userData.LastName;
+                        const Notifications =
+                            response.data.userData.Notifications;
+                        const Courses = response.data.userData.Courses;
+                        const Services = response.data.userData.Services;
+                        const Gender = response.data.userData.Gender;
+                        const IsEmailVerified =
+                            response.data.userData.IsEmailVerified;
 
                         store_login(
                             FirstName,
                             LastName,
                             Email,
                             Gender,
-                            Age,
                             Courses,
+                            Services,
+                            Notifications,
+                            IsEmailVerified,
                             _id
                         );
                         set_Auth(true);
@@ -88,8 +95,10 @@ function App() {
                         LastName: "",
                         Email: "",
                         Gender: null,
-                        Age: null,
                         Courses: [],
+                        Services: [],
+                        Notifications: [],
+                        IsEmailVerified: null,
                         _id: null,
                     });
                     set_Auth(false);
@@ -102,8 +111,10 @@ function App() {
                     LastName: "",
                     Email: "",
                     Gender: null,
-                    Age: null,
                     Courses: [],
+                    Services: [],
+                    Notifications: [],
+                    IsEmailVerified: null,
                     _id: null,
                 });
                 set_Auth(false);
@@ -118,8 +129,10 @@ function App() {
                 LastName: "",
                 Email: "",
                 Gender: null,
-                Age: null,
                 Courses: [],
+                Services: [],
+                Notifications: [],
+                IsEmailVerified: null,
                 _id: null,
             });
             set_Auth(false);
