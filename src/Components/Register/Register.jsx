@@ -8,7 +8,10 @@ import { IoMdEye } from "react-icons/io";
 import { IoMdEyeOff } from "react-icons/io";
 import { handleRegistration } from "./handleRegistration";
 import { useEffect } from "react";
+import { useAppContext } from "../../Context/AppContext";
 function Register() {
+    const { Store_register } = useAppContext();
+    const [Verify_id,setVerify_id] = useState(null);
     const Navigate = useNavigate();
     const [success, setSuccess] = useState(false);
 
@@ -98,9 +101,16 @@ function Register() {
                         await handleRegistration(values, {
                             setSubmitting,
                             setSuccess,
+                            setVerify_id,
                         });
                         if (success) {
-                            // If registration is successful, navigate to "/Login"
+                            Store_register({
+                                Verify_FirstName: values.FirstName,
+                                Verify_LastName: values.LastName,
+                                Verify_email: values.Email,
+                                Verify_id: Verify_id,
+                                Verify_Password: values.Password,
+                            });
                             Navigate("/verifyEmail");
                         }
                     }}

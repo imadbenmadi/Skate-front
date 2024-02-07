@@ -1,9 +1,19 @@
 import React, { useState } from "react";
 import Logo from "../../../public/skate_circle.png";
+import { useAppContext } from "../../Context/AppContext";
+import Axios from "axios";
+
 
 function Verification() {
     const [code, setCode] = useState("");
 
+    const {
+        Verify_id,
+        Verify_email,
+        Verify_FirstName,
+        Verify_LastName,
+        Verify_Password,
+    } = useAppContext();
     const handleChange = (e) => {
         const { value } = e.target;
         // Ensure the entered value is only numeric and has a maximum length of 6
@@ -44,8 +54,12 @@ function Verification() {
             >
                 Submit
             </button>
-            <div className="mt-8 color-gray text-sm">Didn’t receive verification code?</div>
-            <div className=" text-center text-gray underline cursor-pointer text-sm">resend it</div>
+            <div className="mt-8 color-gray text-sm">
+                Didn’t receive verification code?
+            </div>
+            <div className=" text-center text-gray underline cursor-pointer text-sm">
+                resend it
+            </div>
         </div>
     );
 }
