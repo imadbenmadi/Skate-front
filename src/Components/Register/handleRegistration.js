@@ -2,7 +2,7 @@ import Axios from "axios";
 import Swal from "sweetalert2";
 export async function handleRegistration(
     values,
-    { setSubmitting, setSuccess, setVerify_id_state }
+    { setSubmitting, setSuccess, setVerifyId }
 ) {
     try {
         let response = await Axios.post(
@@ -28,7 +28,7 @@ export async function handleRegistration(
                 "success"
             );
             
-            setVerify_id_state(response.data._id);
+            setVerifyId(response.data._id);
             setSuccess(true);
         } else if (response.status === 400) {
             console.log(response.data.error);

@@ -15,12 +15,6 @@ const initialState = {
     Age: null,
     Courses: [],
     _id: null,
-    Verify_id: "",
-    Verify_email: "",
-    Verify_FirstName: "",
-    Verify_LastName: "",
-    Verify_Password: "",
-    
 };
 const reducer = (state, action) => {
     switch (action.type) {
@@ -53,15 +47,7 @@ const reducer = (state, action) => {
                 ...state,
                 isAuth: action.payload,
             };
-        case "REGISTER":
-            return {
-                ...state,
-                Verify_id: action.payload._id,
-                Verify_FirstName: action.payload.FirstName,
-                Verify_LastName: action.payload.LastName,
-                Verify_email: action.payload.Email,
-                Verify_Password: action.payload.Password,
-            };
+
         default:
             return state;
     }
@@ -98,31 +84,12 @@ export const AppProvider = ({ children }) => {
     const store_logout = () => {
         dispatch({ type: "LOGOUT" });
     };
-    
-    const Store_register = (
-        Verify_id,
-        Verify_FirstName,
-        Verify_LastName,
-        Verify_email,
-        Verify_Password,
-    ) => {
-        dispatch({
-            type: "REGISTER",
-            payload: {
-                Verify_id,
-                Verify_FirstName,
-                Verify_LastName,
-                Verify_email,
-                Verify_Password,
-            },
-        });
-    };
+
     const AppContextValue = {
         ...state,
         store_login,
         store_logout,
         set_Auth,
-        Store_register,
     };
 
     return (

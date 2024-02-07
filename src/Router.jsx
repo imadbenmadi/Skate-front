@@ -51,11 +51,12 @@ const routes = createBrowserRouter([
     {
         path: "/Register",
         element: <Register />,
+        // children: [{ path: "/Register/", element: <VerifyEmail /> }],
     },
-    {
-        path: "/verifyEmail",
-        element: <VerifyEmail />,
-    },
+    // {
+    //     path: "/verifyEmail",
+    //     element: <VerifyEmail />,
+    // },
     {
         path: "*",
         element: <Not_Found />,

@@ -1,19 +1,12 @@
 import React, { useState } from "react";
 import Logo from "../../../public/skate_circle.png";
-import { useAppContext } from "../../Context/AppContext";
 import Axios from "axios";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 
-
-function Verification() {
+function Verification({ Verify_id }) {
     const [code, setCode] = useState("");
-
-    const {
-        Verify_id,
-        Verify_email,
-        Verify_FirstName,
-        Verify_LastName,
-        Verify_Password,
-    } = useAppContext();
+    const Navigate = useNavigate();
     const handleChange = (e) => {
         const { value } = e.target;
         // Ensure the entered value is only numeric and has a maximum length of 6
@@ -24,11 +17,12 @@ function Verification() {
 
     const handleSubmit = async () => {
         // console.log("Sending code to server:", code);
-        // console.log("Sending user id to server:", Verify_id);
+        console.log("Sending user id to server:", Verify_id);
+        console.log("--------------");
         let response = await Axios.post(
             "http://localhost:3000/VerifyAccount",
             {
-                Code : code,
+                Code: code,
                 userId: Verify_id,
             },
             {
@@ -36,9 +30,18 @@ function Verification() {
                 validateStatus: () => true,
             }
         );
+
+        if (response.status === 200) {
+            Swal.fire("Done!", "Email Verified Successfully", "success");
+        } else if (response.status === 401) {
+            Swal.fire("Error!", "Invalid Code", "error");
+        } else if (response.status === 500) {
+            Swal.fire("Error!", "Internal Server Error", "error");
+        }
         console.log(response);
         // Reset the code after submission (optional)
         setCode("");
+        Navigate("/Login");
     };
 
     return (
