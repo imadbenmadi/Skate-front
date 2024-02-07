@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { TbLogout } from "react-icons/tb";
-import Course from "../../../public/Course.png";
+import Course from "../../../../public/Course.png";
 import { FaUserTie } from "react-icons/fa";
 import { IoSettingsOutline } from "react-icons/io5";
 

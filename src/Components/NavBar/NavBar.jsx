@@ -13,7 +13,7 @@ import { useLocation } from "react-router";
 
 import axios from "axios";
 import Menu_Toogler from "./Menu_Toogler";
-import Laptop_Nav_Items from "./Laptop_Nav_Items";
+import Laptop_Nav_Items from "./Laptop/Laptop_Nav_Items";
 function NavBar({ Active_nav, setActive_nav }) {
     const { isAuth, FirstName, LastName, _id } = useAppContext();
     const { set_Auth, store_login } = useAppContext();
