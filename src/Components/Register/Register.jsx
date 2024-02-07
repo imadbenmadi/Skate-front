@@ -14,7 +14,7 @@ function Register() {
     const [Verify_id, setVerifyId] = useState(null);
     const [Verify_email, setVerifyEmail] = useState("");
     const [Verify_Password, setVerifyPassword] = useState("");
-
+    const [rigester_Date , set_rigester_Date] = useState(null)
     const [Succed_Register, setSucced_Register] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     function handleShowPassword() {
@@ -108,15 +108,14 @@ function Register() {
 
                                 await handleRegistration(values, {
                                     setSubmitting,
-                                    setSucced_Register,//200 status
+                                    setSucced_Register,
                                     setVerifyId,
+                                    set_rigester_Date,
                                 });
                                 if (Succed_Register) {
-                                    console.log('secuss');
-                                    setOpen_verify(true);
                                     setVerifyEmail(values.Email);
                                     setVerifyPassword(values.Password);
-                                    
+                                    setOpen_verify(true);
                                 }
                             }}
                         >
@@ -325,6 +324,7 @@ function Register() {
                     Verify_id={Verify_id}
                     Verify_email={Verify_email}
                     Verify_Password={Verify_Password}
+                    rigester_Date={rigester_Date}
                 />
             )}
         </div>

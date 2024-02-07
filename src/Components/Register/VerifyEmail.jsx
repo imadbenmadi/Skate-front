@@ -3,8 +3,13 @@ import Logo from "../../../public/skate_circle.png";
 import Axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-
-function Verification({ Verify_id, Verify_email, Verify_Password }) {
+import { Formate_Date } from "../../Logic/Formate_Date";
+function Verification({
+    Verify_id,
+    Verify_email,
+    Verify_Password,
+    rigester_Date,
+}) {
     const [code, setCode] = useState("");
     const Navigate = useNavigate();
     const handleChange = (e) => {
@@ -38,7 +43,7 @@ function Verification({ Verify_id, Verify_email, Verify_Password }) {
                     "http://localhost:3000/Login",
                     {
                         Email: Verify_email,
-                        Password : Verify_Password
+                        Password: Verify_Password,
                     },
                     {
                         withCredentials: true,
@@ -64,7 +69,6 @@ function Verification({ Verify_id, Verify_email, Verify_Password }) {
             } catch (error) {
                 console.error("Error during Login:", error.message);
             }
-
         } else if (response.status === 401) {
             Swal.fire("Error!", "Invalid Code", "error");
         } else if (response.status === 500) {
@@ -73,9 +77,8 @@ function Verification({ Verify_id, Verify_email, Verify_Password }) {
         console.log(response);
         // Reset the code after submission (optional)
         setCode("");
-        
     };
-
+    const Sended_Date = Formate_Date(rigester_Date);
     return (
         <div className="flex flex-col items-center justify-center">
             <img src={Logo} alt="Skate Logo" className="mt-8 w-[140px]" />
@@ -86,6 +89,9 @@ function Verification({ Verify_id, Verify_email, Verify_Password }) {
             <div className="mb-4">
                 Enter the 6-digit code we sent to you in email
             </div>
+            <div className=" text-gray text-sm"> Message Sended at : {Sended_Date} </div>
+            <div className=" text-gray text-sm"> Email : {Verify_email} </div>
+
             <input
                 type="text"
                 value={code}

@@ -2,7 +2,7 @@ import Axios from "axios";
 import Swal from "sweetalert2";
 export async function handleRegistration(
     values,
-    { setSubmitting, setSucced_Register, setVerifyId }
+    { setSubmitting, setSucced_Register, setVerifyId, set_rigester_Date}
 ) {
     try {
         let response = await Axios.post(
@@ -23,6 +23,7 @@ export async function handleRegistration(
             );
         } else if (response.status === 200) {
             setVerifyId(response.data._id);
+            set_rigester_Date(response.data.Date);
             setSucced_Register(true);
             // Swal.fire(
             //     "Done!",

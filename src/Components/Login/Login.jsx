@@ -34,6 +34,7 @@ function Login() {
             if (response.status === 200) {
                 Swal.fire("Done!", "Logged in Successfully", "success");
                 Navigate("/");
+
             } else if (response.status === 401) {
                 console.log(response.data.error);
                 Swal.fire(

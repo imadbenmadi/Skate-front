@@ -14,12 +14,13 @@ export async function handleContact(values, { setSubmitting, onSuccess }) {
         );
 
         if (response.status === 200) {
-            Swal.fire(
-                "Done!",
-                "Your Message has been Sended Successfully",
-                "success"
-            );
+           
             onSuccess();
+             Swal.fire(
+                 "Done!",
+                 "Your Message has been Sended Successfully",
+                 "success"
+             );
         } else if (response.status === 400) {
             console.log(response);
             Swal.fire(
