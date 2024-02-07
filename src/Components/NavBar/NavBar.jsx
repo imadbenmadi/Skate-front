@@ -1,7 +1,5 @@
 import React from "react";
 import Logo from "../../../public/Logo.png";
-import { IoMenu } from "react-icons/io5";
-import { IoClose } from "react-icons/io5";
 import { useState, useEffect } from "react";
 import { IoSettingsOutline } from "react-icons/io5";
 import { FaRegHandshake } from "react-icons/fa";
@@ -10,16 +8,15 @@ import { MdEventAvailable } from "react-icons/md";
 import { RiArticleFill } from "react-icons/ri";
 import { IoCall } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import { FaUserTie } from "react-icons/fa";
 import { useAppContext } from "../../Context/AppContext";
 import { useLocation } from "react-router";
-import { TbLogout } from "react-icons/tb";
-import Course from "../../../public/Course.png";
+
 import axios from "axios";
+import Menu_Toogler from "./Menu_Toogler";
+import Laptop_Nav_Items from "./Laptop_Nav_Items";
 function NavBar({ Active_nav, setActive_nav }) {
     const { isAuth, FirstName, LastName, _id } = useAppContext();
     const { set_Auth, store_login } = useAppContext();
-
     const location = useLocation();
 
     const [MobileNav_Open, set_MobileNav_Open] = useState(false);
@@ -92,11 +89,7 @@ function NavBar({ Active_nav, setActive_nav }) {
     };
     return (
         <div
-            className={` fixed min-h-[10%] h-[10%] m-0  z-40 w-full  transition-transform duration-200
-     
-    
-      
-      `}
+            className={` fixed min-h-[10%] h-[10%] m-0  z-40 w-full  transition-transform duration-200`}
         >
             <div className=" h-full  flex shadow-lg bg-white justify-between md:justify-around select-none ">
                 <div className=" p-2 ml-5 md:ml-0">
@@ -112,152 +105,22 @@ function NavBar({ Active_nav, setActive_nav }) {
                     </Link>
                 </div>
                 {/* Mobile menu Toogler */}
-                <div
-                    className={`${
-                        MobileNav_Open ? "hidden" : "block"
-                    } md:hidden flex flex-col items-center justify-center mr-10`}
-                >
-                    <IoMenu
-                        className=" text-5xl text-green text cursor-pointer"
-                        onClick={Toogle_Menu_Bar}
-                    />
-                </div>
-                <div
-                    className={` ${
-                        MobileNav_Open ? "block" : "hidden"
-                    } md:hidden flex flex-col items-center justify-center mr-10`}
-                >
-                    <IoClose
-                        className=" text-5xl text-green text cursor-pointer"
-                        onClick={Toogle_Menu_Bar}
-                    />
-                </div>
-
+                <Menu_Toogler
+                    MobileNav_Open={MobileNav_Open}
+                    set_MobileNav_Open={set_MobileNav_Open}
+                    Toogle_Menu_Bar={Toogle_Menu_Bar}
+                />
                 {/* Laptop */}
-                <div className="  hidden md:flex items-center justify-center gap-7 text-lg text-black_text ">
-                    <div className=" flex gap-5">
-                        <div className=" hover:text-green transition-colors cursor-pointer">
-                            <Link
-                                to={"/Services"}
-                                className={
-                                    Active_nav === "Services"
-                                        ? "text-green hover:text-green"
-                                        : "text-black_text hover:text-green"
-                                }
-                                // onClick={() => setActive_nav("Services")}
-                            >
-                                Services
-                            </Link>
-                        </div>
-                        <div className=" hover:text-green transition-colors cursor-pointer">
-                            <Link
-                                to={"/Courses"}
-                                className={
-                                    Active_nav === "Courses"
-                                        ? "text-green hover:text-green"
-                                        : "text-black_text hover:text-green"
-                                }
-                            >
-                                Courses
-                            </Link>
-                        </div>
-                        <div className=" hover:text-green transition-colors cursor-pointer">
-                            <Link
-                                to={"/Events"}
-                                className={
-                                    Active_nav === "Events"
-                                        ? "text-green hover:text-green"
-                                        : "text-black_text hover:text-green"
-                                }
-                                // onClick={() => setActive_nav("Events")}
-                            >
-                                Events
-                            </Link>
-                        </div>
-                        <div className=" hover:text-green transition-colors cursor-pointer">
-                            <Link
-                                to={"/Blogs"}
-                                className={
-                                    Active_nav === "Blogs"
-                                        ? "text-green hover:text-green"
-                                        : "text-black_text hover:text-green"
-                                }
-                                // onClick={() => setActive_nav("Blogs")}
-                            >
-                                Blogs
-                            </Link>
-                        </div>
-                        <div className="  transition-colors cursor-pointer">
-                            <Link
-                                to={"/Contact"}
-                                className={`${
-                                    Active_nav === "Contact"
-                                        ? "text-green hover:text-green"
-                                        : "text-black_text hover:text-green"
-                                }`}
-                                // onClick={() => setActive_nav("Contact")}
-                            >
-                                Contact
-                            </Link>
-                        </div>
-                    </div>
-
-                    <Link to={"/Settings"}>
-                        <IoSettingsOutline className=" text-3xl text-gray cursor-pointer" />
-                    </Link>
-                    {isAuth ? (
-                        <div className=" relative">
-                            <FaUserTie
-                                className=" text-gray text-2xl cursor-pointer"
-                                onClick={Toogle_User_Open}
-                            />
-                            {/* Laptop user small menu */}
-                            {user_Open ? (
-                                <div className=" absolute py-2 pl-4 top-[40px] -right-12 bg-white w-[160px] shadow-md rounded-b-xl  flex flex-col items-start gap-4">
-                                    <Link
-                                        to={`/Profile/${_id}`}
-                                        className="   flex flex-col "
-                                        onClick={Toogle_User_Open}
-                                    >
-                                        <span className=" underline font-semibold text-gray text-2xl">
-                                            Profile
-                                        </span>
-                                        <span className=" text-sm">
-                                            {FirstName + LastName}
-                                        </span>
-                                    </Link>
-
-                                    <Link
-                                        to={"/Mycourses"}
-                                        className=" flex items-center gap-2 text-green "
-                                        onClick={Toogle_User_Open}
-                                    >
-                                        <img
-                                            src={Course}
-                                            alt=""
-                                            className=" w-5 h-5"
-                                        />
-                                        My Coursers
-                                    </Link>
-                                    <div
-                                        className=" text-red-600 rounded-b-xl flex items-center gap-2 "
-                                        onClick={() => {
-                                            Logout();
-                                            Toogle_User_Open();
-                                        }}
-                                    >
-                                        <TbLogout />
-                                        Logout
-                                    </div>
-                                </div>
-                            ) : null}
-                        </div>
-                    ) : (
-                        <span className=" bg-green text-[#fff] px-3 py-1 text-xl rounded-lg cursor-pointer">
-                            <Link to={"/Login"}>Login</Link>
-                        </span>
-                    )}
-                </div>
+                <Laptop_Nav_Items
+                    Active_nav={Active_nav}
+                    isAuth={isAuth}
+                    FirstName={FirstName}
+                    LastName={LastName}
+                    _id={_id}
+                    user_Open={user_Open}
+                    Toogle_User_Open={Toogle_User_Open}
+                    Logout={Logout}
+                />
             </div>
             {/* Moblie nav bar */}
             <div className="flex">
