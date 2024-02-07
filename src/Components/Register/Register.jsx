@@ -108,13 +108,15 @@ function Register() {
 
                                 await handleRegistration(values, {
                                     setSubmitting,
-                                    setSucced_Register,
+                                    setSucced_Register,//200 status
                                     setVerifyId,
                                 });
                                 if (Succed_Register) {
+                                    console.log('secuss');
+                                    setOpen_verify(true);
                                     setVerifyEmail(values.Email);
                                     setVerifyPassword(values.Password);
-                                    setOpen_verify(true);
+                                    
                                 }
                             }}
                         >

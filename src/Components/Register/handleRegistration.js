@@ -22,14 +22,15 @@ export async function handleRegistration(
                 "error"
             );
         } else if (response.status === 200) {
-            Swal.fire(
-                "Done!",
-                "Your account has been created Successfully",
-                "success"
-            );
-            
             setVerifyId(response.data._id);
             setSucced_Register(true);
+            // Swal.fire(
+            //     "Done!",
+            //     "Your account has been created Successfully",
+            //     "success"
+            // );
+            
+            
         } else if (response.status === 400) {
             console.log(response.data.error);
             Swal.fire(
