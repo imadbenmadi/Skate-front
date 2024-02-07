@@ -15,6 +15,11 @@ const initialState = {
     Age: null,
     Courses: [],
     _id: null,
+    tmp_id: null,
+    tmp_email: "",
+    tmp_FirstName: "",
+    tmp_Last: "",
+    
 };
 const reducer = (state, action) => {
     switch (action.type) {
@@ -46,6 +51,14 @@ const reducer = (state, action) => {
             return {
                 ...state,
                 isAuth: action.payload,
+            };
+        case "REGISTER":
+            return {
+                ...state,
+                FirstName: action.payload.FirstName,
+                LastName: action.payload.LastName,
+                Email: action.payload.Email,
+                _id: action.payload._id,
             };
         default:
             return state;
@@ -83,12 +96,22 @@ export const AppProvider = ({ children }) => {
     const store_logout = () => {
         dispatch({ type: "LOGOUT" });
     };
+    const Store_register = {
+        type: "REGISTER",
+        payload: {
+            FirstName: "",
+            LastName: "",
+            Email: "",
+            _id: "",
+        },
+    };
 
     const AppContextValue = {
         ...state,
         store_login,
         store_logout,
         set_Auth,
+        Store_register,
     };
 
     return (

@@ -10,7 +10,8 @@ import { handleRegistration } from "./handleRegistration";
 import { useEffect } from "react";
 function Register() {
     const Navigate = useNavigate();
-    
+    const [success, setSuccess] = useState(false);
+
     const [showPassword, setShowPassword] = useState(false);
     function handleShowPassword() {
         setShowPassword(!showPassword);
@@ -33,7 +34,7 @@ function Register() {
                     initialValues={{
                         FirstName: "",
                         LastName: "",
-                        // Phone: "",
+                        Telephone: "",
                         Email: "",
                         Password: "",
                         Age: "",
@@ -50,13 +51,13 @@ function Register() {
                         if (!values.LastName) {
                             errors.LastName = "last name is Required";
                         }
-                        // if (!values.Phone) {
-                        //     errors.Phone = "Phone number is required";
-                        // } else if (
-                        //     !/^\d{4} \d{2} \d{2} \d{2}$/i.test(values.Phone)
-                        // ) {
-                        //     errors.Phone = "Invalid phone number";
-                        // }
+                        if (!values.Telephone) {
+                            errors.Telephone = "Telephone number is required";
+                        } else if (
+                            !/^(0)(5|6|7)[0-9]{8}$/.test(values.Telephone)
+                        ) {
+                            errors.Telephone = "Invalid Telephone number";
+                        }
                         // Validate Email
                         if (!values.Email) {
                             errors.Email = "email is Required";
@@ -91,16 +92,22 @@ function Register() {
                         }
                         return errors;
                     }}
-                    onSubmit={(values, { setSubmitting }) => {
+                    onSubmit={async (values, { setSubmitting }) => {
                         // Call your registration logic here
-                        handleRegistration(values,  {
+
+                        await handleRegistration(values, {
                             setSubmitting,
+                            setSuccess,
                         });
+                        if (success) {
+                            // If registration is successful, navigate to "/Login"
+                            Navigate("/verifyEmail");
+                        }
                     }}
                 >
                     {({ isSubmitting }) => (
                         <Form className=" flex flex-col text-sm md:text-lg md:mx-5 gap-4">
-                            <div className=" flex justify-center gap-4 ">
+                            <div className=" flex justify-center gap-4 flex-wrap ">
                                 <div>
                                     <div>
                                         First Name
@@ -144,32 +151,25 @@ function Register() {
                                     </div>
                                 </div>
                             </div>
-                            {/* <div>
+                            <div>
                                 <div>
-                                    Phone Number
+                                    Telephone Number
                                     <span className=" text-red-600 font-semibold">
                                         *
                                     </span>
                                 </div>
                                 <Field
-                                    type="tel"
-                                    name="Phone"
+                                    type="text"
+                                    name="Telephone"
                                     disabled={isSubmitting}
-                                    inputMode="numeric"
-                                    onChange={(e, setFieldValue) => {
-                                        const numericValue =
-                                            e.target.value.replace(/\D/g, ""); // Remove non-numeric characters
-                                        console.log(numericValue);
-                                        setFieldValue("Phone", numericValue);
-                                    }}
                                     className="border border-gray_white px-2 py-1 rounded shadow-sm w-full"
                                 />
                                 <ErrorMessage
-                                    name="Phone"
+                                    name="Telephone"
                                     component="div"
                                     style={errorInputMessage}
                                 />
-                            </div> */}
+                            </div>
                             <div>
                                 <div>
                                     Email{" "}

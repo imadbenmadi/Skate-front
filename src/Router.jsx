@@ -15,6 +15,7 @@ import Not_Found from "./Components/Not_Found";
 import userCourses from "./Components/userCourses/userCourses";
 import Dashboard from "./Dashboard/Dashboard";
 import Dashboard_Login from "./Dashboard/Dashboard_Login";
+import VerifyEmail from "./Components/Register/VerifyEmail";
 const routes = createBrowserRouter([
     {
         path: "/",
@@ -51,7 +52,10 @@ const routes = createBrowserRouter([
         path: "/Register",
         element: <Register />,
     },
-
+    {
+        path: "/verifyEmail",
+        element: <VerifyEmail />,
+    },
     {
         path: "*",
         element: <Not_Found />,
