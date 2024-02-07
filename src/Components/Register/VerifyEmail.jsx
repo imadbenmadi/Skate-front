@@ -5,16 +5,14 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { Formate_Date } from "../../Logic/Formate_Date";
 
-
-
 function Verification({
     Verify_id,
     Verify_email,
     Verify_Password,
     rigester_Date,
 }) {
-    const [show_not_finished , setShow_not_finished] = useState(false)
-    function open_not_finished() { 
+    const [show_not_finished, setShow_not_finished] = useState(false);
+    function open_not_finished() {
         setShow_not_finished(true);
     }
     const [code, setCode] = useState("");
@@ -39,9 +37,7 @@ function Verification({
             },
             {
                 withCredentials: true,
-                validateStatus: function (status) {
-        return status !== 429; // Reject responses with status code 429
-    }
+                validateStatus: () => true,
             }
         );
 
@@ -56,9 +52,7 @@ function Verification({
                     },
                     {
                         withCredentials: true,
-                        validateStatus: function (status) {
-        return status !== 429; // Reject responses with status code 429
-    }
+                        validateStatus: () => true,
                     }
                 );
                 if (response.status === 200) {
@@ -73,6 +67,13 @@ function Verification({
                 } else if (response.status === 500) {
                     console.log(response.data.error);
                     Navigate("/Login");
+                } else if (response.status === 429) {
+                    console.log("Too many requests");
+                    Swal.fire(
+                        "Error!",
+                        `Too many requests ,try again latter\n  ${response.data.error}`,
+                        "error"
+                    );
                 } else {
                     console.log(response.data.error);
                     Navigate("/Login");
@@ -84,6 +85,15 @@ function Verification({
             Swal.fire("Error!", "Invalid Code", "error");
         } else if (response.status === 500) {
             Swal.fire("Error!", "Internal Server Error", "error");
+        } else if (response.status === 429) {
+            console.log("Too many requests");
+            Swal.fire(
+                "Error!",
+                `Too many requests ,try again latter\n  ${response.data.error}`,
+                "error"
+            );
+        } else {
+            Swal.fire("Error!", "Something Went Wrong", "error");
         }
         console.log(response);
         // Reset the code after submission (optional)

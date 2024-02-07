@@ -22,9 +22,7 @@ function Login() {
                 {
                     withCredentials: true,
 
-                    validateStatus: function (status) {
-                        return status !== 429; // Reject responses with status code 429
-                    },
+                    validateStatus: () => true,
                 }
             );
 
@@ -68,7 +66,7 @@ function Login() {
                 );
             }
         } catch (error) {
-            console.error("Error during Login:", error.message);
+            console.error("Error during Login:", error);
             Swal.fire(
                 "Error!",
                 `Something Went Wrong ,${error.message}`,

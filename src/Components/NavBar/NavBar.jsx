@@ -55,9 +55,7 @@ function NavBar({ Active_nav, setActive_nav }) {
                 {},
                 {
                     withCredentials: true,
-                    validateStatus: function (status) {
-                        return status !== 429; // Reject responses with status code 429
-                    },
+                    validateStatus: () => true,
                 }
             );
 
@@ -76,6 +74,13 @@ function NavBar({ Active_nav, setActive_nav }) {
                 set_Auth(false);
 
                 // You can use state or context to handle the logout state in your application
+            } else if (response.status === 429) {
+                console.log("Too many requests");
+                Swal.fire(
+                    "Error!",
+                    `Too many requests ,try again latter\n  ${response.data.error}`,
+                    "error"
+                );
             } else {
                 console.error("Failed to log out");
                 // Handle the case where the server failed to log out the user

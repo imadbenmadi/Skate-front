@@ -10,9 +10,7 @@ export async function handleRegistration(
             values,
             {
                 withCredentials: true,
-                validateStatus: function (status) {
-                    return status !== 429; // Reject responses with status code 429
-                },
+                validateStatus: () => true,
             }
         );
 

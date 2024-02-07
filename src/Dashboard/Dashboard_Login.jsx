@@ -26,9 +26,7 @@ function Dashboard_Login() {
                 {
                     withCredentials: true,
 
-                    validateStatus: function (status) {
-                        return status !== 429; // Reject responses with status code 429
-                    },
+                    validateStatus: () => true,
                 }
             );
 
@@ -73,6 +71,13 @@ function Dashboard_Login() {
                 Swal.fire(
                     "Error!",
                     `Internal Server Error ,  ${response.data.error}`,
+                    "error"
+                );
+            } else if (response.status === 429) {
+                console.log("Too many requests");
+                Swal.fire(
+                    "Error!",
+                    `Too many requests ,try again latter\n  ${response.data.error}`,
                     "error"
                 );
             } else {
