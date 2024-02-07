@@ -106,20 +106,16 @@ function Register() {
                             onSubmit={async (values, { setSubmitting }) => {
                                 // Call your registration logic here
 
-                                const success = await handleRegistration(
-                                    values,
-                                    {
-                                        setSubmitting,
-                                        setSucced_Register,
-                                        setVerifyId,
-                                    }
-                                );
-                                if (success) {
+                                await handleRegistration(values, {
+                                    setSubmitting,
+                                    setSucced_Register,
+                                    setVerifyId,
+                                });
+                                if (Succed_Register) {
                                     setVerifyEmail(values.Email);
                                     setVerifyPassword(values.Password);
                                     setOpen_verify(true);
                                 }
-                                setSubmitting(false);
                             }}
                         >
                             {({ isSubmitting }) => (
