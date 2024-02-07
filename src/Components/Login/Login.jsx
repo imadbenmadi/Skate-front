@@ -8,12 +8,7 @@ import { IoMdEye } from "react-icons/io";
 import { IoMdEyeOff } from "react-icons/io";
 import Axios from "axios";
 import Swal from "sweetalert2";
-
-import { useAppContext } from "../../Context/AppContext";
 function Login() {
-    const [counter , setCounter] = useState(5)
-    const { store_login } = useAppContext();
-
     const Navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     function handleShowPassword() {
@@ -56,7 +51,18 @@ function Login() {
                     `Internal Server Error ,  ${response.data.error}`,
                     "error"
                 );
-            } else {
+            } else if( response.status === 429)
+            {
+                console.log("Too many requests");
+                Swal.fire(
+                    "Error!",
+                    `Too many requests ,try again latter\n  ${response.data.error}`,
+                    "error"
+                );
+            }
+               
+            
+            else {
                 console.log(response.data.error);
                 Swal.fire(
                     "Error!",

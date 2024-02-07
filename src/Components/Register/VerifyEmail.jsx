@@ -102,7 +102,7 @@ function Verification({
                 </div>
                 <div className=" text-gray text-sm">
                     {" "}
-                    Email : {Verify_email}{" "}
+                    your Email : {Verify_email}{" "}
                 </div>
             </div>
 

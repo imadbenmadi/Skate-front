@@ -46,7 +46,24 @@ export async function handleRegistration(
                 `Missing Data ,  ${response.data.error}`,
                 "error"
             );
-        } else {
+        }
+        else if (response.status === 429) {
+            console.log(response.data.error);
+            Swal.fire(
+                "Error!",
+                `warning! you created lot of accounts in 3mins , ${response.data.error}`,
+                "error"
+            );
+        }
+        else if (response.status === 500) {
+            console.log(response.data.error);
+            Swal.fire(
+                "Error!",
+                `Internal server error.${response.data.error}`,
+                "error"
+            );
+        }
+        else {
             console.log(response.data.error);
             Swal.fire(
                 "Error!",
