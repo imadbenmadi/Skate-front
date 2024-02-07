@@ -100,24 +100,31 @@ function Laptop_Nav_Items({
                             />
                             {/* Laptop user small menu */}
                             {user_Open ? (
-                                <div className=" absolute py-2 pl-4 top-[45px] -right-3 bg-white w-[160px] shadow-md rounded-xl  flex flex-col items-start gap-4">
+                                <div className=" absolute py-2  top-[45px] -right-3 bg-white w-[160px] shadow-md rounded-xl  flex flex-col items-start ">
                                     <div className="triangle-up"></div>
                                     <Link
                                         to={`/Profile`}
-                                        className="   flex flex-col "
+                                        className="   flex items-center gap-3 pl-4 mb-1 "
                                         onClick={Toogle_User_Open}
                                     >
-                                        <span className=" underline font-semibold text-gray text-2xl">
-                                            Profile
-                                        </span>
-                                        <span className=" text-sm">
-                                            {FirstName + LastName}
-                                        </span>
+                                        <FaUserTie
+                                            className=" text-gray text-2xl cursor-pointer"
+                                            onClick={Toogle_User_Open}
+                                        />
+                                        <div className=" flex flex-col"> 
+                                            <span className=" underline font-semibold text-gray text-xl">
+                                                Profile
+                                            </span>
+                                            <span className=" text-sm">
+                                                {FirstName + LastName}
+                                            </span>
+                                        </div>
+                                        
                                     </Link>
-
-                                    <Link
+                                    <div className=" bg-gray w-full h-[1px]"></div>
+                                    {/* <Link
                                         to={"/Mycourses"}
-                                        className=" flex items-center gap-2 text-green "
+                                        className=" flex items-center gap-2 text-green pl-4 my-1 "
                                         onClick={Toogle_User_Open}
                                     >
                                         <img
@@ -126,9 +133,9 @@ function Laptop_Nav_Items({
                                             className=" w-5 h-5"
                                         />
                                         My Coursers
-                                    </Link>
+                                    </Link> */}
                                     <div
-                                        className=" text-red-600 rounded-b-xl flex items-center gap-2 "
+                                        className=" text-red-600 rounded-b-xl flex items-center gap-2 pl-4 mt-4"
                                         onClick={() => {
                                             Logout();
                                             Toogle_User_Open();
