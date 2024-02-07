@@ -11,10 +11,19 @@ import { useEffect } from "react";
 import { useAppContext } from "../../Context/AppContext";
 function Register() {
     const { Store_register } = useAppContext();
-    const [Verify_id,setVerify_id] = useState(null);
+    const {
+        Verify_id,
+        Verify_email,
+        Verify_FirstName,
+        Verify_LastName,
+        Verify_Password,
+    } = useAppContext();
+    const [Verify_id_state, setVerify_id_state] = useState(null);
     const Navigate = useNavigate();
     const [success, setSuccess] = useState(false);
-
+    useEffect(() => {
+        console.log("verifyid : ", Verify_id_state);
+    }, [Verify_id_state]);
     const [showPassword, setShowPassword] = useState(false);
     function handleShowPassword() {
         setShowPassword(!showPassword);
@@ -101,16 +110,32 @@ function Register() {
                         await handleRegistration(values, {
                             setSubmitting,
                             setSuccess,
-                            setVerify_id,
+                            setVerify_id_state,
                         });
                         if (success) {
+                            console.log(
+                                "data before dtoring  : ",
+                                Verify_id_state,
+                                values.FirstName,
+                                values.LastName,
+                                values.Email,
+                                values.Password
+                            );
                             Store_register({
                                 Verify_FirstName: values.FirstName,
                                 Verify_LastName: values.LastName,
                                 Verify_email: values.Email,
-                                Verify_id: Verify_id,
+                                Verify_id: Verify_id_state,
                                 Verify_Password: values.Password,
                             });
+                            console.log(
+                                "data after saving",
+                                Verify_id,
+                                Verify_FirstName,
+                                Verify_LastName,
+                                Verify_email,
+                                Verify_Password
+                            );
                             Navigate("/verifyEmail");
                         }
                     }}

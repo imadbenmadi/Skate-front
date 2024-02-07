@@ -23,9 +23,20 @@ function Verification() {
     };
 
     const handleSubmit = async () => {
-        // Send the code to the server
-        console.log("Sending code to server:", code);
-
+        // console.log("Sending code to server:", code);
+        // console.log("Sending user id to server:", Verify_id);
+        let response = await Axios.post(
+            "http://localhost:3000/VerifyAccount",
+            {
+                Code : code,
+                userId: Verify_id,
+            },
+            {
+                withCredentials: true,
+                validateStatus: () => true,
+            }
+        );
+        console.log(response);
         // Reset the code after submission (optional)
         setCode("");
     };
