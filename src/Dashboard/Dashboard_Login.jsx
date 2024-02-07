@@ -26,7 +26,9 @@ function Dashboard_Login() {
                 {
                     withCredentials: true,
 
-                    validateStatus: () => true,
+                    validateStatus: function (status) {
+                        return status !== 429; // Reject responses with status code 429
+                    },
                 }
             );
 
@@ -202,7 +204,6 @@ function Dashboard_Login() {
                     )}
                 </Formik>
             </div>
-            
         </div>
     );
 }

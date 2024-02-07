@@ -9,18 +9,19 @@ export async function handleContact(values, { setSubmitting, onSuccess }) {
             values,
             {
                 withCredentials: true,
-                validateStatus: () => true,
+                validateStatus: function (status) {
+                    return status !== 429; // Reject responses with status code 429
+                },
             }
         );
 
         if (response.status === 200) {
-           
             onSuccess();
-             Swal.fire(
-                 "Done!",
-                 "Your Message has been Sended Successfully",
-                 "success"
-             );
+            Swal.fire(
+                "Done!",
+                "Your Message has been Sended Successfully",
+                "success"
+            );
         } else if (response.status === 400) {
             console.log(response);
             Swal.fire(

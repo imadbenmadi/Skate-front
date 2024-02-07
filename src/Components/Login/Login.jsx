@@ -22,14 +22,15 @@ function Login() {
                 {
                     withCredentials: true,
 
-                    validateStatus: () => true,
+                    validateStatus: function (status) {
+                        return status !== 429; // Reject responses with status code 429
+                    },
                 }
             );
 
             if (response.status === 200) {
                 Swal.fire("Done!", "Logged in Successfully", "success");
                 Navigate("/");
-
             } else if (response.status === 401) {
                 console.log(response.data.error);
                 Swal.fire(
@@ -51,18 +52,14 @@ function Login() {
                     `Internal Server Error ,  ${response.data.error}`,
                     "error"
                 );
-            } else if( response.status === 429)
-            {
+            } else if (response.status === 429) {
                 console.log("Too many requests");
                 Swal.fire(
                     "Error!",
                     `Too many requests ,try again latter\n  ${response.data.error}`,
                     "error"
                 );
-            }
-               
-            
-            else {
+            } else {
                 console.log(response.data.error);
                 Swal.fire(
                     "Error!",

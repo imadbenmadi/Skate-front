@@ -2,7 +2,7 @@ import Axios from "axios";
 import Swal from "sweetalert2";
 export async function handleRegistration(
     values,
-    { setSubmitting, setSucced_Register, setVerifyId, set_rigester_Date}
+    { setSubmitting, setSucced_Register, setVerifyId, set_rigester_Date }
 ) {
     try {
         let response = await Axios.post(
@@ -10,7 +10,9 @@ export async function handleRegistration(
             values,
             {
                 withCredentials: true,
-                validateStatus: () => true,
+                validateStatus: function (status) {
+                    return status !== 429; // Reject responses with status code 429
+                },
             }
         );
 
@@ -30,8 +32,6 @@ export async function handleRegistration(
             //     "Your account has been created Successfully",
             //     "success"
             // );
-            
-            
         } else if (response.status === 400) {
             console.log(response.data.error);
             Swal.fire(
@@ -46,24 +46,21 @@ export async function handleRegistration(
                 `Missing Data ,  ${response.data.error}`,
                 "error"
             );
-        }
-        else if (response.status === 429) {
+        } else if (response.status === 429) {
             console.log(response.data.error);
             Swal.fire(
                 "Error!",
                 `warning! you created lot of accounts in 3mins , ${response.data.error}`,
                 "error"
             );
-        }
-        else if (response.status === 500) {
+        } else if (response.status === 500) {
             console.log(response.data.error);
             Swal.fire(
                 "Error!",
                 `Internal server error.${response.data.error}`,
                 "error"
             );
-        }
-        else {
+        } else {
             console.log(response.data.error);
             Swal.fire(
                 "Error!",

@@ -39,7 +39,9 @@ function Verification({
             },
             {
                 withCredentials: true,
-                validateStatus: () => true,
+                validateStatus: function (status) {
+        return status !== 429; // Reject responses with status code 429
+    }
             }
         );
 
@@ -54,7 +56,9 @@ function Verification({
                     },
                     {
                         withCredentials: true,
-                        validateStatus: () => true,
+                        validateStatus: function (status) {
+        return status !== 429; // Reject responses with status code 429
+    }
                     }
                 );
                 if (response.status === 200) {

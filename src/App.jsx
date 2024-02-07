@@ -4,6 +4,24 @@ import { Outlet } from "react-router";
 import { useState, useEffect } from "react";
 import { useAppContext } from "./Context/AppContext";
 import axios from "axios";
+// Add a response interceptor to handle 429 (Too Many Requests) errors
+axios.interceptors.response.use(
+    (response) => response, // Return the response for successful requests
+    (error) => {
+        // Check if the error is a 429 response (Too Many Requests)
+        if (error.response && error.response.status === 429) {
+            // Handle the rate limit error
+            Swal.fire({
+                title: "Error!",
+                text: "Too many requests, please try again later.",
+                icon: "error",
+            });
+        }
+
+        // Return the rejected promise to maintain the error chain
+        return Promise.reject(error);
+    }
+);
 function App() {
     const { set_Auth, store_login, isAuth } = useAppContext();
     const [Active_nav, setActive_nav] = useState("Home");
@@ -14,7 +32,9 @@ function App() {
                 "http://localhost:3000/check_Auth",
                 {
                     withCredentials: true,
-                    validateStatus: () => true,
+                    validateStatus: function (status) {
+                        return status !== 429; // Reject responses with status code 429
+                    },
                 }
             );
 
@@ -46,7 +66,9 @@ function App() {
                     {},
                     {
                         withCredentials: true,
-                        validateStatus: () => true,
+                        validateStatus: function (status) {
+                            return status !== 429; // Reject responses with status code 429
+                        },
                     }
                 );
                 if (refreshResponse.status === 200) {
