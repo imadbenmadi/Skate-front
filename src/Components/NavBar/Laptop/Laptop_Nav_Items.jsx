@@ -101,6 +101,7 @@ function Laptop_Nav_Items({
                             {/* Laptop user small menu */}
                             {user_Open ? (
                                 <div className=" absolute py-2 pl-4 top-[45px] -right-3 bg-white w-[160px] shadow-md rounded-xl  flex flex-col items-start gap-4">
+                                    <div className="triangle-up"></div>
                                     <Link
                                         to={`/Profile`}
                                         className="   flex flex-col "

@@ -21,23 +21,10 @@ function NavBar({ Active_nav, setActive_nav }) {
     function Toogle_User_Open() {
         set_User_Open(!user_Open);
     }
-    const [visible, setVisible] = useState(true);
-    const [prevScrollPos, setPrevScrollPos] = useState(0);
-
-    const handleScroll = () => {
-        const currentScrollPos = window.scrollY;
-        setVisible(currentScrollPos <= prevScrollPos || currentScrollPos === 0);
-        setPrevScrollPos(currentScrollPos);
-    };
     useEffect(() => {
         setActive_nav(location.pathname.substring(1));
     }, [location.pathname]);
-    useEffect(() => {
-        window.addEventListener("scroll", handleScroll);
-        return () => {
-            window.removeEventListener("scroll", handleScroll);
-        };
-    }, [prevScrollPos]);
+
     const Logout = async () => {
         try {
             // Send a request to the logout endpoint on the server
@@ -82,9 +69,7 @@ function NavBar({ Active_nav, setActive_nav }) {
         }
     };
     return (
-        <div
-            className={` fixed min-h-[10%] h-[10%] m-0  z-40 w-full `}
-        >
+        <div className={` fixed min-h-[10%] h-[10%] m-0  z-40 w-full `}>
             <div className=" h-full  flex shadow-lg bg-white justify-between items-center md:justify-around select-none ">
                 <div className=" p-2 ml-5 md:ml-0">
                     <Link
@@ -94,7 +79,7 @@ function NavBar({ Active_nav, setActive_nav }) {
                         <img
                             src={Logo}
                             alt="Logo"
-                            className=" w-14 md:w-[50px] "
+                            className=" w-14 md:w-[45px] "
                         />
                     </Link>
                 </div>

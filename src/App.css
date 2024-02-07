@@ -47,4 +47,13 @@ body {
     100% {
         transform: rotate(360deg);
     }
-    } 
+    } .triangle-up {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid gray; /* Adjust color as needed */
+    position: absolute;
+    top: -10px; /* Adjust position as needed */
+    right: 10px; /* Adjust position as needed */
+}
