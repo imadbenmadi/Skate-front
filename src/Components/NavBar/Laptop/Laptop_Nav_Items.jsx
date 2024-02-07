@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { TbLogout } from "react-icons/tb";
 import Course from "../../../../public/Course.png";
@@ -16,9 +16,12 @@ function Laptop_Nav_Items({
     Toogle_User_Open,
     Logout,
 }) {
+    const [User_menu_open, setUser_menu_open] = useState(false);
+    const [Notifications_open , setNotifications_open] = useState(false)
+
     return (
-        <div className="  hidden md:flex items-center justify-center gap-7 text-lg text-black_text ">
-            <div className=" flex gap-5">
+        <div className="hidden md:flex items-center justify-center gap-7 text-lg text-black_text h-full ">
+            <div className="flex gap-5">
                 <div className=" hover:text-green transition-colors cursor-pointer">
                     <Link
                         to={"/Services"}
@@ -84,72 +87,108 @@ function Laptop_Nav_Items({
                     </Link>
                 </div>
             </div>
-            <div className=" flex gap-4 justify-center items-center">
-                <Link to={"/Settings"}>
-                    <TbSettings className=" text-2xl  text-gray cursor-pointer" />
-                </Link>
+            <div className="flex gap-4 justify-center items-center h-full">
+                <div className=" ">
+                    <TbSettings className="text-2xl text-gray cursor-pointer " />
+                </div>
                 {isAuth ? (
                     <>
-                        <div>
-                            <MdNotificationsNone className="text-gray text-2xl cursor-pointer" />
-                        </div>
-                        <div className=" relative">
-                            <FaUserTie
-                                className=" text-gray text-xl cursor-pointer"
-                                onClick={Toogle_User_Open}
-                            />
-                            {/* Laptop user small menu */}
-                            {user_Open ? (
-                                <div className=" absolute py-2  top-[45px] -right-3 bg-white w-[160px] shadow-md rounded-xl  flex flex-col items-start ">
-                                    <div className="triangle-up"></div>
+                        <div
+                            className=" h-full"
+                            onMouseEnter={() => setNotifications_open(true)}
+                            onMouseLeave={() => setNotifications_open(false)}
+                        >
+                            <MdNotificationsNone className="text-gray text-2xl cursor-pointer h-full" />
+                            {Notifications_open && (
+                                <div
+                                    className="absolute py-2 top-full md:right-[2vw] lg:right-[4vw]  xl:right-[8vw] 2xl:right-[12vw] bg-white w-[160px] shadow-md rounded border border-gray flex flex-col items-start"
+                                    onMouseEnter={() =>
+                                        setNotifications_open(true)
+                                    }
+                                    onMouseLeave={() =>
+                                        setNotifications_open(false)
+                                    }
+                                >
+                                    {/* <div className="triangle-up"></div> */}
                                     <Link
                                         to={`/Profile`}
-                                        className="   flex items-center gap-3 pl-4 mb-1 "
-                                        onClick={Toogle_User_Open}
+                                        className="flex items-center gap-3 pl-4 mb-1 "
+                                        onClick={() =>
+                                            setNotifications_open(false)
+                                        }
                                     >
-                                        <FaUserTie
-                                            className=" text-gray text-2xl cursor-pointer"
-                                            onClick={Toogle_User_Open}
-                                        />
-                                        <div className=" flex flex-col"> 
-                                            <span className=" underline font-semibold text-gray text-xl">
+                                        <FaUserTie className="text-gray text-2xl cursor-pointer" />
+                                        <div className="flex flex-col">
+                                            <span className="underline font-semibold text-gray text-xl">
                                                 Profile
                                             </span>
-                                            <span className=" text-sm">
+                                            <span className="text-sm">
                                                 {FirstName + LastName}
                                             </span>
                                         </div>
-                                        
                                     </Link>
-                                    <div className=" bg-gray w-full h-[1px]"></div>
-                                    {/* <Link
-                                        to={"/Mycourses"}
-                                        className=" flex items-center gap-2 text-green pl-4 my-1 "
-                                        onClick={Toogle_User_Open}
-                                    >
-                                        <img
-                                            src={Course}
-                                            alt=""
-                                            className=" w-5 h-5"
-                                        />
-                                        My Coursers
-                                    </Link> */}
+                                    <div className="bg-gray w-full h-[1px]"></div>
                                     <div
-                                        className=" text-red-600 rounded-b-xl flex items-center gap-2 pl-4 mt-4"
+                                        className="text-red-600 rounded-b-xl flex items-center gap-2 pl-4 mt-4"
                                         onClick={() => {
                                             Logout();
-                                            Toogle_User_Open();
+                                            setNotifications_open(false);
                                         }}
                                     >
                                         <TbLogout />
                                         Logout
                                     </div>
                                 </div>
-                            ) : null}
+                            )}
+                        </div>
+                        <div
+                            className=" h-full"
+                            onMouseEnter={() => setUser_menu_open(true)}
+                            onMouseLeave={() => setUser_menu_open(false)}
+                        >
+                            <FaUserTie className="text-gray text-xl cursor-pointer h-full" />
+                            {/* Laptop user small menu */}
+                            {User_menu_open && (
+                                <div
+                                    className="absolute py-2 top-full  md:right-[1vw] lg:right-[1vw]  xl:right-[4vw] 2xl:right-[8vw]  bg-white w-[160px] shadow-md rounded border border-gray flex flex-col items-start"
+                                    onMouseEnter={() => setUser_menu_open(true)}
+                                    onMouseLeave={() =>
+                                        setUser_menu_open(false)
+                                    }
+                                >
+                                    {/* <div className="triangle-up"></div> */}
+                                    <Link
+                                        to={`/Profile`}
+                                        className="flex items-center gap-3 pl-4 mb-1 "
+                                        onClick={() => setUser_menu_open(false)}
+                                    >
+                                        <FaUserTie className="text-gray text-2xl cursor-pointer" />
+                                        <div className="flex flex-col">
+                                            <span className="underline font-semibold text-gray text-xl">
+                                                Profile
+                                            </span>
+                                            <span className="text-sm">
+                                                {FirstName + LastName}
+                                            </span>
+                                        </div>
+                                    </Link>
+                                    <div className="bg-gray w-full h-[1px]"></div>
+                                    <div
+                                        className="text-red-600 rounded-b-xl flex items-center gap-2 pl-4 mt-4"
+                                        onClick={() => {
+                                            Logout();
+                                            setUser_menu_open(false);
+                                        }}
+                                    >
+                                        <TbLogout />
+                                        Logout
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     </>
                 ) : (
-                    <span className=" bg-green text-[#fff] px-3 py-1 text-xl rounded-lg cursor-pointer">
+                    <span className="bg-green text-[#fff] px-3 py-1 text-xl rounded-lg cursor-pointer">
                         <Link to={"/Login"}>Login</Link>
                     </span>
                 )}
