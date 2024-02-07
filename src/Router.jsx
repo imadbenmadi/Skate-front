@@ -15,23 +15,26 @@ import Not_Found from "./Components/Not_Found";
 import userCourses from "./Components/userCourses/userCourses";
 import Dashboard from "./Dashboard/Dashboard";
 import Dashboard_Login from "./Dashboard/Dashboard_Login";
-import VerifyEmail from "./Components/Register/VerifyEmail";
+import VerifyEmail from "./Components/Verify_email/Verify_email";
 const routes = createBrowserRouter([
     {
         path: "/",
         element: <App />,
         children: [
             { index: true, element: <Home /> },
-            { path: "/Services", element: <Services /> },
-            { path: "/Courses", element: <Courses /> },
-            { path: "/Events", element: <Events /> },
+            { path: "/Services", element: <Not_Finished /> },
+            { path: "/Courses", element: <Not_Finished /> },
             { path: "/Contact", element: <Contact /> },
-            { path: "/Profile/:id", element: <UserProfile /> },
-            { path: "/Mycourses", element: <userCourses /> },
-
+            { path: "/Profile", element: <Not_Finished /> },
+            { path: "/Mycourses", element: <Not_Finished /> },
+            { path: "/Events", element: <Not_Finished /> },
             {
                 path: "/Blogs",
-                element: <Blogs />,
+                element: <Not_Finished />,
+            },
+            {
+                path: "/verifyEmail",
+                element: <VerifyEmail />,
             },
             {
                 path: "*",

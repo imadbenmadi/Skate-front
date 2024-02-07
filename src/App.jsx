@@ -92,8 +92,6 @@ function App() {
                     });
                     set_Auth(false);
                     setLoading(false);
-                    console.log("we are here");
-
                     // return;
                 }
             } else {
@@ -130,15 +128,11 @@ function App() {
     };
     useEffect(() => {
         fetchData();
-        console.log(isAuth);
     }, [isAuth]);
     useEffect(() => {
         fetchData();
-        console.log(isAuth);
     }, []);
-    useEffect(() => {
-        console.log(isAuth);
-    }, [isAuth]);
+    
     return (
         <div>
             {loading ? (

@@ -26,9 +26,7 @@ function Verification({
     };
 
     const handleSubmit = async () => {
-        // console.log("Sending code to server:", code);
-        console.log("Sending user id to server:", Verify_id);
-        console.log("--------------");
+        
         let response = await Axios.post(
             "http://localhost:3000/VerifyAccount",
             {
