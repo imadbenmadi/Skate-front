@@ -5,12 +5,12 @@ function Confirm_to_send({ setConfirm_to_send_state }) {
     const { Email, FirstName } = useAppContext();
 
     return (
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center text-black_text">
             <div className="text-lg font-bold mb-4 text-green">
                 Welcome to the Verification Page
             </div>
-            <div className="mb-2">Your Name: {FirstName}</div>
-            <div className="mb-2">Your Email: {Email}</div>
+            <div className="mb-2 text-gray">Your Name: {FirstName}</div>
+            <div className="mb-2 text-gray">Your Email: {Email}</div>
             <div className="mb-4">
                 Confirming your email will allow you to use the website freely.
             </div>

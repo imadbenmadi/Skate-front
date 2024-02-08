@@ -4,7 +4,7 @@ import { Outlet } from "react-router";
 import { useState, useEffect } from "react";
 import { useAppContext } from "./Context/AppContext";
 import axios from "axios";
-import Activate_account from "./Components/Activate_account"
+import Activate_account from "./Components/Notifications/Activate_account";
 function App() {
     const { set_Auth, store_login, isAuth, IsEmailVerified } = useAppContext();
     const [Active_nav, setActive_nav] = useState("Home");
@@ -165,8 +165,7 @@ function App() {
                         Active_nav={Active_nav}
                         setActive_nav={setActive_nav}
                     />
-                    {!IsEmailVerified && <Activate_account />}
-                    
+                    {!isAuth && IsEmailVerified && <Activate_account />}
 
                     <Outlet />
                 </div>
