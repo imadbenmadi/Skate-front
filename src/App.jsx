@@ -37,8 +37,10 @@ function App() {
                     LastName,
                     Email,
                     Gender,
-                    Age,
                     Courses,
+                    Services,
+                    Notifications,
+                    IsEmailVerified,
                     _id
                 );
                 set_Auth(true);

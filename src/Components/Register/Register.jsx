@@ -20,9 +20,14 @@ function Register() {
     function handleShowPassword() {
         setShowPassword(!showPassword);
     }
+    useEffect(() => {
+        if (Succed_Register) {
+            setOpen_verify(true);
+        }
+    }, [Succed_Register]);
     return (
         <div>
-            {!open_verify ? (
+            {!open_verify && (
                 <div>
                     <div>
                         <img className=" w-20 m-auto pt-5 " src={Logo} alt="" />
@@ -319,7 +324,9 @@ function Register() {
                         </Link>
                     </div>
                 </div>
-            ) : (
+            )}
+
+            {open_verify && (
                 <VerifyEmail
                     Verify_id={Verify_id}
                     Verify_email={Verify_email}
