@@ -16,6 +16,7 @@ import userCourses from "./Components/userCourses/userCourses";
 import Dashboard from "./Dashboard/Dashboard";
 import Dashboard_Login from "./Dashboard/Dashboard_Login";
 import VerifyEmail from "./Components/Verify_email/Verify_email";
+import Notifications from "./Components/Notifications/Notifications";
 const routes = createBrowserRouter([
     {
         path: "/",
@@ -28,6 +29,7 @@ const routes = createBrowserRouter([
             { path: "/Profile", element: <Not_Finished /> },
             { path: "/Mycourses", element: <Not_Finished /> },
             { path: "/Events", element: <Not_Finished /> },
+            { path: "/Notifications", element: <Notifications /> },
             {
                 path: "/Blogs",
                 element: <Not_Finished />,

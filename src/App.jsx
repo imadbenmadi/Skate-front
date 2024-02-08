@@ -4,7 +4,7 @@ import { Outlet } from "react-router";
 import { useState, useEffect } from "react";
 import { useAppContext } from "./Context/AppContext";
 import axios from "axios";
-import Activate_account from "./Components/Notifications/Activate_account";
+import Activate_account from "./Components/Alerts/Activate_account";
 function App() {
     const { set_Auth, store_login, isAuth, IsEmailVerified } = useAppContext();
     const [Active_nav, setActive_nav] = useState("Home");

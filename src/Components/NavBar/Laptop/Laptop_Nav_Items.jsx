@@ -138,13 +138,15 @@ function Laptop_Nav_Items({
                         >
                             <div className="relative flex items-center h-full">
                                 <MdNotificationsNone className="text-gray text-2xl cursor-pointer h-full" />
-                                {Notifications.legnth > 0 && (
+                                {Notifications.filter(
+                                    (notification) => !notification.Readed
+                                ).length > 0 && (
                                     <div className=" w-2 h-2 bg-green rounded-full absolute top-[30%] -right-[5%]"></div>
                                 )}
                             </div>
                             {Notifications_open && (
                                 <div
-                                    className="absolute py-2 top-full md:right-[2vw] lg:right-[4vw]  xl:right-[8vw] 2xl:right-[12vw] bg-white w-[160px] shadow-md rounded border border-gray flex flex-col items-start"
+                                    className="absolute py-2 top-full md:right-[4vw] lg:right-[8vw]  xl:right-[12vw] 2xl:right-[12vw] bg-white w-[300px] shadow-md rounded border border-gray flex flex-col items-start"
                                     onMouseEnter={() =>
                                         setNotifications_open(true)
                                     }
