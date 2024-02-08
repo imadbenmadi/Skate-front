@@ -165,7 +165,7 @@ function App() {
                         Active_nav={Active_nav}
                         setActive_nav={setActive_nav}
                     />
-                    {!isAuth && IsEmailVerified && <Activate_account />}
+                    {isAuth && !IsEmailVerified && <Activate_account />}
 
                     <Outlet />
                 </div>
