@@ -6,6 +6,9 @@ import { FaUserTie } from "react-icons/fa";
 import { MdNotificationsNone } from "react-icons/md";
 import { TbSettings } from "react-icons/tb";
 import Swal from "sweetalert2";
+import Notifications_items from "./Notifications_items";
+import { useAppContext } from "../../../Context/AppContext";
+
 function Laptop_Nav_Items({
     Active_nav,
     isAuth,
@@ -16,26 +19,28 @@ function Laptop_Nav_Items({
     Toogle_User_Open,
     Logout,
 }) {
+    const { Notifications } = useAppContext();
+
     const [User_menu_open, setUser_menu_open] = useState(false);
     const [Notifications_open, setNotifications_open] = useState(false);
     const handleSettingsClick = () => {
         Swal.fire({
             title: "Settings",
             html: `
-        <div className="flex flex-col gap-4 justify-start items-start w-[200px]">
-            <div class="mb-4 flex items-center justify-center gap-4 w-[200px] m-auto">
-                <label for="language" class=" text-sm font-medium text-gray-700">Language:</label>
-                <select id="language" class="mt-1  w-[100px] m-auto py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                    <option value="English">English</option>
-                    <option value="Spanish">Spanish</option>
-                    <option value="French">French</option>
-                </select>
-            </div>
-            <div clasName='flex gap-3 w-[200px] items-center justify-start'>
-                <label for="darkMode" class="text-sm font-medium text-gray-700">Dark Mode</label>
-                <input type="checkbox" id="darkMode" class="mr-2 h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
-            </div>
-        </div>
+                <div className="flex flex-col gap-4 justify-start items-start w-[200px]">
+                    <div class="mb-4 flex items-center justify-center gap-4 w-[200px] m-auto">
+                        <label for="language" class=" text-sm font-medium text-gray-700">Language:</label>
+                        <select id="language" class="mt-1  w-[100px] m-auto py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            <option value="English">English</option>
+                            <option value="Spanish">Spanish</option>
+                            <option value="French">French</option>
+                        </select>
+                    </div>
+                    <div clasName='flex gap-3 w-[200px] items-center justify-start'>
+                        <label for="darkMode" class="text-sm font-medium text-gray-700">Dark Mode</label>
+                        <input type="checkbox" id="darkMode" class="mr-2 h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                    </div>
+                </div>
         
       `,
             showCancelButton: true,
@@ -131,7 +136,12 @@ function Laptop_Nav_Items({
                             onMouseEnter={() => setNotifications_open(true)}
                             onMouseLeave={() => setNotifications_open(false)}
                         >
-                            <MdNotificationsNone className="text-gray text-2xl cursor-pointer h-full" />
+                            <div className="relative flex items-center h-full">
+                                <MdNotificationsNone className="text-gray text-2xl cursor-pointer h-full" />
+                                {Notifications.legnth > 0 && (
+                                    <div className=" w-2 h-2 bg-green rounded-full absolute top-[30%] -right-[5%]"></div>
+                                )}
+                            </div>
                             {Notifications_open && (
                                 <div
                                     className="absolute py-2 top-full md:right-[2vw] lg:right-[4vw]  xl:right-[8vw] 2xl:right-[12vw] bg-white w-[160px] shadow-md rounded border border-gray flex flex-col items-start"
@@ -142,35 +152,7 @@ function Laptop_Nav_Items({
                                         setNotifications_open(false)
                                     }
                                 >
-                                    {/* <div className="triangle-up"></div> */}
-                                    <Link
-                                        to={`/Profile`}
-                                        className="flex items-center gap-3 pl-4 mb-1 "
-                                        onClick={() =>
-                                            setNotifications_open(false)
-                                        }
-                                    >
-                                        <FaUserTie className="text-gray text-2xl cursor-pointer" />
-                                        <div className="flex flex-col">
-                                            <span className="underline font-semibold text-gray text-xl">
-                                                Profile
-                                            </span>
-                                            <span className="text-sm">
-                                                {FirstName + LastName}
-                                            </span>
-                                        </div>
-                                    </Link>
-                                    <div className="bg-gray w-full h-[1px]"></div>
-                                    <div
-                                        className="text-red-600 rounded-b-xl flex items-center gap-2 pl-4 mt-4 cursor-pointer"
-                                        onClick={() => {
-                                            Logout();
-                                            setNotifications_open(false);
-                                        }}
-                                    >
-                                        <TbLogout />
-                                        Logout
-                                    </div>
+                                    <Notifications_items />
                                 </div>
                             )}
                         </div>
