@@ -17,31 +17,50 @@ const Notifications_items = () => {
         <div className=" w-full bg-white  pl-3 overflow-y-auto">
             <h2 className="text-lg font-bold mb-4">Notifications</h2>
             <div>
-                {Notifications.map((notification, index) => (
-                    <div
-                        key={index}
-                        className={`notification flex gap-2 p-4 mb-4 ${
-                            notification.Type === "verify" ? "bg-red-200" : ""
-                        }`}
-                    >
-                        {notification.Type === "verify" ? (
-                            <PiWarningCircleBold />
-                        ) : null}
-                        <div>
-                            <h3 className="text-base font-bold">
-                                {notification.Title}
-                            </h3>
-                            <p className="text-sm mb-2">{notification.Text}</p>
-                            <p className="text-xs">Date: {notification.Date}</p>
-                            <p className="text-xs">
-                                {notification.Readed ? "Read" : "Unread"}
-                            </p>
-                        </div>
+                {Notifications.length === 0 ? (
+                    <div className=" text-sm text-center pb-6">
+                        No notifications for the moment .
                     </div>
-                ))}
-                <div>
-                    <div className=" border p-2">See All</div>
-                </div>
+                ) : (
+                    <>
+                        {Notifications.map((notification, index) => (
+                            <div
+                                key={index}
+                                className={`notification flex items-center justify-start gap-2 p-4 mb-4 border-b border-gray ${
+                                    notification.Type === "verify"
+                                        ? "bg-red-200"
+                                        : ""
+                                }`}
+                            >
+                                <div>
+                                    {notification.Type === "verify" ? (
+                                        <PiWarningCircleBold />
+                                    ) : null}
+                                </div>
+
+                                <div>
+                                    <h3 className="text-base font-bold">
+                                        {notification.Title}
+                                    </h3>
+                                    <p className="text-sm mb-2">
+                                        {notification.Text}
+                                    </p>
+                                    <p className="text-xs">
+                                        Date: {notification.Date}
+                                    </p>
+                                    <p className="text-xs">
+                                        {notification.Readed
+                                            ? "Read"
+                                            : "Unread"}
+                                    </p>
+                                </div>
+                            </div>
+                        ))}
+                        <div className="flex justify-end mr-6">
+                            <div className="border px-2 py-1">See All</div>
+                        </div>
+                    </>
+                )}
             </div>
         </div>
     );
