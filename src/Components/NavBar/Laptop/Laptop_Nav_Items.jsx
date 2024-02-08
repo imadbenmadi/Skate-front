@@ -17,7 +17,7 @@ function Laptop_Nav_Items({
     Logout,
 }) {
     const [User_menu_open, setUser_menu_open] = useState(false);
-    const [Notifications_open , setNotifications_open] = useState(false)
+    const [Notifications_open, setNotifications_open] = useState(false);
 
     return (
         <div className="hidden md:flex items-center justify-center gap-7 text-lg text-black_text h-full ">
@@ -146,7 +146,7 @@ function Laptop_Nav_Items({
                             onMouseEnter={() => setUser_menu_open(true)}
                             onMouseLeave={() => setUser_menu_open(false)}
                         >
-                            <FaUserTie className="text-gray text-xl cursor-pointer h-full" />
+                            <FaUserTie className="text-gray text-md cursor-pointer h-full" />
                             {/* Laptop user small menu */}
                             {User_menu_open && (
                                 <div
@@ -167,8 +167,14 @@ function Laptop_Nav_Items({
                                             <span className="underline font-semibold text-gray text-xl">
                                                 Profile
                                             </span>
-                                            <span className="text-sm">
-                                                {FirstName + LastName}
+                                            <span className="text-sm break-all">
+                                                <span className="text-sm break-all">
+                                                    {FirstName}
+                                                </span>{" "}
+                                                {/* <span className="text-sm break-all">
+                                                    {" "}
+                                                    {LastName}
+                                                </span> */}
                                             </span>
                                         </div>
                                     </Link>
