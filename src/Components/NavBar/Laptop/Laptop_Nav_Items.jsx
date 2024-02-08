@@ -5,7 +5,7 @@ import Course from "../../../../public/Course.png";
 import { FaUserTie } from "react-icons/fa";
 import { MdNotificationsNone } from "react-icons/md";
 import { TbSettings } from "react-icons/tb";
-
+import Swal from "sweetalert2";
 function Laptop_Nav_Items({
     Active_nav,
     isAuth,
@@ -18,9 +18,39 @@ function Laptop_Nav_Items({
 }) {
     const [User_menu_open, setUser_menu_open] = useState(false);
     const [Notifications_open, setNotifications_open] = useState(false);
-
+    const handleSettingsClick = () => {
+        Swal.fire({
+            title: "Settings",
+            html: `
+        <div className="flex flex-col gap-4 justify-start items-start w-[200px]">
+            <div class="mb-4 flex items-center justify-center gap-4 w-[200px] m-auto">
+                <label for="language" class=" text-sm font-medium text-gray-700">Language:</label>
+                <select id="language" class="mt-1  w-[100px] m-auto py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                    <option value="English">English</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="French">French</option>
+                </select>
+            </div>
+            <div clasName='flex gap-3 w-[200px] items-center justify-start'>
+                <label for="darkMode" class="text-sm font-medium text-gray-700">Dark Mode</label>
+                <input type="checkbox" id="darkMode" class="mr-2 h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+            </div>
+        </div>
+        
+      `,
+            showCancelButton: true,
+            focusConfirm: false,
+            preConfirm: () => {
+                const language = document.getElementById("language").value;
+                const darkMode = document.getElementById("darkMode").checked;
+                // You can handle language and dark mode settings here
+                console.log("Selected language:", language);
+                console.log("Dark mode enabled:", darkMode);
+            },
+        });
+    };
     return (
-        <div className="hidden md:flex items-center justify-center gap-7 text-lg text-black_text h-full ">
+        <div className="hidden  md:flex items-center justify-center gap-7 text-lg text-black_text h-full ">
             <div className="flex gap-5">
                 <div className=" hover:text-green transition-colors cursor-pointer">
                     <Link
@@ -89,7 +119,10 @@ function Laptop_Nav_Items({
             </div>
             <div className="flex gap-4 justify-center items-center h-full">
                 <div className=" ">
-                    <TbSettings className="text-2xl text-gray cursor-pointer " />
+                    <TbSettings
+                        onClick={handleSettingsClick}
+                        className="text-2xl text-gray cursor-pointer "
+                    />
                 </div>
                 {isAuth ? (
                     <>
@@ -129,7 +162,7 @@ function Laptop_Nav_Items({
                                     </Link>
                                     <div className="bg-gray w-full h-[1px]"></div>
                                     <div
-                                        className="text-red-600 rounded-b-xl flex items-center gap-2 pl-4 mt-4"
+                                        className="text-red-600 rounded-b-xl flex items-center gap-2 pl-4 mt-4 cursor-pointer"
                                         onClick={() => {
                                             Logout();
                                             setNotifications_open(false);
@@ -180,7 +213,7 @@ function Laptop_Nav_Items({
                                     </Link>
                                     <div className="bg-gray w-full h-[1px]"></div>
                                     <div
-                                        className="text-red-600 rounded-b-xl flex items-center gap-2 pl-4 mt-4"
+                                        className="text-red-600 rounded-b-xl flex items-center gap-2 pl-4 mt-4 mb-2 cursor-pointer"
                                         onClick={() => {
                                             Logout();
                                             setUser_menu_open(false);
