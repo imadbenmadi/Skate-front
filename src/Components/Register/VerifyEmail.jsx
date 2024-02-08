@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Logo from "../../../public/skate_circle.png";
 import Axios from "axios";
 import Swal from "sweetalert2";
@@ -11,12 +11,21 @@ function Verification({
     Verify_Password,
     rigester_Date,
 }) {
+    const Navigate = useNavigate();
+    const [succed_verification, setSucced_verification] = useState(false);
+    const [succed_Login, setSucced_Login] = useState(false);
+    useEffect(() => {
+        if (succed_Login && succed_verification) Navigate("/");
+        else if (!succed_Login && succed_verification) {
+            Navigate("/Login");
+        }
+    }, [succed_verification, succed_Login]);
+    
     const [show_not_finished, setShow_not_finished] = useState(false);
     function open_not_finished() {
         setShow_not_finished(true);
     }
     const [code, setCode] = useState("");
-    const Navigate = useNavigate();
     const handleChange = (e) => {
         const { value } = e.target;
         // Ensure the entered value is only numeric and has a maximum length of 6
@@ -26,7 +35,6 @@ function Verification({
     };
 
     const handleSubmit = async () => {
-        
         let response = await Axios.post(
             "http://localhost:3000/VerifyAccount",
             {
@@ -42,6 +50,12 @@ function Verification({
         if (response.status === 200) {
             Swal.fire("Done!", "Email Verified Successfully", "success");
             try {
+                console.log(
+                    "Login data : Email",
+                    Verify_email,
+                    "Password  : ",
+                    Verify_Password
+                );
                 let response = await Axios.post(
                     "http://localhost:3000/Login",
                     {
@@ -54,17 +68,17 @@ function Verification({
                     }
                 );
                 if (response.status === 200) {
-                    console.log("Done!", "Logged in Successfully", "success");
-                    Navigate("/");
+                    setSucced_Login(true);
+                    setSucced_verification(true);
                 } else if (response.status === 401) {
                     console.log(response.data.error);
-                    Navigate("/Login");
+                    setSucced_verification(true);
                 } else if (response.status === 409) {
                     console.log(response.data.error);
-                    Navigate("/Login");
+                    setSucced_verification(true);
                 } else if (response.status === 500) {
                     console.log(response.data.error);
-                    Navigate("/Login");
+                    setSucced_verification(true);
                 } else if (response.status === 429) {
                     console.log("Too many requests");
                     Swal.fire(
@@ -74,7 +88,7 @@ function Verification({
                     );
                 } else {
                     console.log(response.data.error);
-                    Navigate("/Login");
+                    setSucced_verification(true);
                 }
             } catch (error) {
                 console.error("Error during Login:", error.message);

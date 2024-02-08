@@ -110,7 +110,15 @@ function Register() {
                             }}
                             onSubmit={async (values, { setSubmitting }) => {
                                 // Call your registration logic here
-
+                                setVerifyEmail(values.Email);
+                                setVerifyPassword(values.Password);
+                                console.log("Rigister component ");
+                                console.log("verify email : ", values.Email);
+                                console.log(
+                                    "verify password : ",
+                                    values.Password
+                                );
+                                console.log("--------------------------------");
                                 await handleRegistration(values, {
                                     setSubmitting,
                                     setSucced_Register,
@@ -118,8 +126,7 @@ function Register() {
                                     set_rigester_Date,
                                 });
                                 if (Succed_Register) {
-                                    setVerifyEmail(values.Email);
-                                    setVerifyPassword(values.Password);
+                                    
                                     setOpen_verify(true);
                                 }
                             }}
