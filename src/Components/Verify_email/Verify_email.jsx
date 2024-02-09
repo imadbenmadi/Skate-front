@@ -23,10 +23,8 @@ function Verify_email() {
                 const response = await fetchEmailVerificationStatus(_id);
                 console.log("response from verify email : ", response);
                 if (response.IsEmailVerified !== null) {
-                    
                     setIsEmailVerified(response.IsEmailVerified);
-                }
-                else {
+                } else {
                     setError(response);
                     console.log("chopapi");
                     console.log("error in verify email : ", response);
@@ -42,6 +40,7 @@ function Verify_email() {
 
         getEmailVerificationStatus();
     }, []);
+
     // console.log(Email, _id);
     const [show_not_finished, setShow_not_finished] = useState(false);
     function open_not_finished() {
@@ -77,7 +76,10 @@ function Verify_email() {
             Swal.fire("Error!", "Invalid Code", "error");
         } else if (response.status === 500) {
             Swal.fire("Error!", "Internal Server Error", "error");
-        } else if (response.status === 429) {
+        } else if (response.status === 409) {
+            Swal.fire("Error!", response.data.error, "error");
+        }
+        else if (response.status === 429) {
             console.log("Too many requests");
             Swal.fire(
                 "Error!",
