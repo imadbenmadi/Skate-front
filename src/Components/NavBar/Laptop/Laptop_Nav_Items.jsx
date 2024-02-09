@@ -13,10 +13,7 @@ function Laptop_Nav_Items({
     Active_nav,
     isAuth,
     FirstName,
-    LastName,
-    _id,
-    user_Open,
-    Toogle_User_Open,
+    
     Logout,
 }) {
     const { Notifications } = useAppContext();
