@@ -66,7 +66,7 @@ const Notifications_items = () => {
                                         : "bg-gray_white"
                                 }`}
                             >
-                                <div className=" text-4xl">
+                                <div className=" text-4xl text-gray">
                                     {notification.Type === "verify" ? (
                                         <PiWarningCircleBold />
                                     ) : notification.Type === "contact" ? (
