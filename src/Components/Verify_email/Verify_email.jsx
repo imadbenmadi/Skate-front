@@ -10,6 +10,9 @@ import ForbiddenRoute from "../ForbiddenRoute";
 import ErrorPage from "./ErrorPage";
 function Verify_email() {
     const { Email, _id } = useAppContext();
+    if (!Email || !_id) {
+        return <ForbiddenRoute />;
+    }
     const [error, setError] = useState(null);
     const [isEmailVerified, setIsEmailVerified] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -18,17 +21,23 @@ function Verify_email() {
         const getEmailVerificationStatus = async () => {
             try {
                 const response = await fetchEmailVerificationStatus(_id);
-                if (response.IsEmailVerified)
+                console.log("response from verify email : ", response);
+                if (response.IsEmailVerified !== null) {
+                    
                     setIsEmailVerified(response.IsEmailVerified);
-                else setError(response.error);
-                setLoading(false);
+                }
+                else {
+                    setError(response);
+                    console.log("chopapi");
+                    console.log("error in verify email : ", response);
+                }
             } catch (error) {
                 console.error(
                     "Error getting email verification status:",
                     error
                 );
-                setLoading(false);
             }
+            setLoading(false);
         };
 
         getEmailVerificationStatus();
@@ -82,9 +91,13 @@ function Verify_email() {
         // Reset the code after submission (optional)
         setCode("");
     };
-    
+
     if (loading) {
-        return <div>Loading...</div>;
+        return (
+            <div className=" w-screen h-[300px] flex items-center justify-center ">
+                <span className="loader"></span>
+            </div>
+        );
     }
     if (error) {
         return <ErrorPage />;
