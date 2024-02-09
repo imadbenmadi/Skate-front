@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useRef } from "react";
 import founder from "../../../public/Founder.png";
+import { useInView } from "framer-motion";
 export default function Founder() {
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true });
   return (
-    <div className="max-w-[1000px] mx-auto  py-20">
-      <div className="flex gap-5 max-md:flex-col max-md:gap-0 max-md:">
+    <div className=" max-w-[1000px] mx-auto  py-20">
+      <div
+        ref={ref}
+        style={{
+          transform: isInView ? "none " : "translateY(10%)",
+          opacity: isInView ? 1 : 0,
+          transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s",
+        }}
+        className="flex gap-5 max-md:flex-col max-md:gap-0 max-md:"
+      >
         <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
           <div className="flex flex-col grow px-5 py-12 font-bold max-md:mt-10">
             <div className="self-center text-4xl text-emerald-500">FOUNDER</div>
