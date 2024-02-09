@@ -1,7 +1,24 @@
 import * as React from "react";
 import AboutImg from "../../../public/unsplash_JaoVGh5aJ3E.png";
 import bxbowl from "../../../public/bx-bowl-hot 1.png";
+import { useInView, motion } from "framer-motion";
+
 export function AboutUs() {
+  const ref = React.useRef();
+  const imageInView = useInView(ref, { once: true });
+  const textInView = useInView(ref, { once: true });
+  const imageVariants = {
+    hidden: {
+      opacity: 0,
+      translateY: "10%",
+      transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s",
+    },
+    visible: {
+      opacity: 1,
+      translateY: "0%",
+      transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s",
+    },
+  };
   return (
     <div className=" mx-auto py-20 ">
       <div className="flex  mx-auto justify-center items-center max-w-[1200px] gap-5 max-md:flex-col max-md:gap-0 max-md:">
@@ -13,13 +30,24 @@ export function AboutUs() {
           <div className="w-10  max-md:hidden flex justify-center items-center h-10 bg-green rounded-full absolute top-5 -right-5  shadow">
             <img src={bxbowl} alt="" className="h-6 w-6" />
           </div>
-          <img
+          <motion.img
+            ref={ref}
+            variants={imageVariants}
+            initial="hidden"
+            animate={imageInView ? "visible" : "hidden"}
             loading="lazy"
             src={AboutImg}
-            className="grow  w-full max-md:w-[90%] max-md:self-center aspect-[0.93] max-md:mt-3.5 max-md:max-w-full"
+            className="grow duration-200  w-full max-md:w-[90%] max-md:self-center aspect-[0.93] max-md:mt-3.5 max-md:max-w-full"
           />
         </div>
-        <div className="flex flex-col ml-5 w-6/12 max-md:ml-0 max-md:w-full">
+        <motion.div
+          variants={textInView}
+          initial="hidden"
+          animate={imageInView ? "visible" : "hidden"}
+          loading="lazy"
+          src={AboutImg}
+          className="flex flex-col duration-300 ml-5 w-6/12 max-md:ml-0 max-md:w-full"
+        >
           <div className="flex flex-col px-5 mt-9 font-bold max-md:mt-10 max-md:max-w-full">
             <div className=" max-md:hidden self-center text-4xl text-green whitespace-nowrap">
               About <span className="text-sky-900">Skate</span>
@@ -48,7 +76,7 @@ export function AboutUs() {
               />
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
