@@ -6,8 +6,14 @@ import { useAppContext } from "./Context/AppContext";
 import axios from "axios";
 import Activate_account from "./Components/Alerts/Activate_account";
 function App() {
-    const { set_Auth, store_login, isAuth, IsEmailVerified, Notifications } =
-        useAppContext();
+    const {
+        set_Auth,
+        store_login,
+        isAuth,
+        IsEmailVerified,
+        Notifications,
+        
+    } = useAppContext();
     const [Active_nav, setActive_nav] = useState("Home");
     const [loading, setLoading] = useState(false);
     const fetchData = async () => {
@@ -43,13 +49,15 @@ function App() {
                     IsEmailVerified,
                     _id
                 );
-                Notifications.push({
+                !IsEmailVerified?(Notifications.push({
                     Type: "verify",
                     Title: "Please verify your email",
                     Text: "Please verify your email to get the most out of our services.",
                     Date: "18 feb 2024",
                     Readed: false,
-                });
+                })):null;
+                
+
                 set_Auth(true);
                 setLoading(false);
                 // return;
