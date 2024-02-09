@@ -50,7 +50,12 @@ const Notifications_items = () => {
                             // Within each category, sort by newest first
                             return new Date(b.Date) - new Date(a.Date);
                         }).map((notification, index) => (
-                            <div
+                            <Link
+                                to={
+                                    notification.Type === "verify"
+                                        ? "/verifyEmail"
+                                        : `/Notifications/${notification._id}`
+                                }
                                 key={index}
                                 className={`notification flex items-center justify-start gap-2 p-2 mb-4 border-b border-gray
                                 ${
@@ -96,11 +101,13 @@ const Notifications_items = () => {
                                     {notification.Type === "verify" &&
                                         notification.Date && (
                                             <p className="text-xs absolute bottom-0 right-0">
-                                                {Formate_Date(notification.Date)}
+                                                {Formate_Date(
+                                                    notification.Date
+                                                )}
                                             </p>
                                         )}
                                 </div>
-                            </div>
+                            </Link>
                         ))}
                         <Link
                             to={"/Notifications"}
