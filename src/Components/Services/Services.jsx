@@ -9,7 +9,7 @@ function Services() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
   return (
-    <div className=" w-screen  bg-slate-200   py-10 min-h-screen h-fit ">
+    <div className="   bg-slate-200   py-10 min-h-screen h-fit ">
       <div className="max-w-[1100px]   py-10 mx-auto h-12 flex justify-between items-center">
         <div className="w-fit   max-md:mx-auto max-md:text-center max-mad:text-center max-mad:w-full   max-mad:w-full   ">
           <span className="text-emerald-500 text-4xl font-bold ">OUR </span>
