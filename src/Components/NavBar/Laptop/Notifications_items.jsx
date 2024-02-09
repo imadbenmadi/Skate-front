@@ -10,16 +10,7 @@ import logo from "../../../../public/skate_circle.png";
 import {Formate_Date} from "../../../Logic/Formate_Date"; // Import your date formatting function
 import { Link } from "react-router-dom";
 const Notifications_items = () => {
-    const { Notifications } = useAppContext(); // Assuming Notifications is the array of Notifications from your context
-    console.log(Notifications);
-    // if (Notifications.length === 0) {
-    //     return (
-    //         <div className=" w-full">
-    //             <h3 className=" text-center m-auto">No Notifications</h3>
-    //         </div>
-    //     );
-    // }
-
+    const { Notifications } = useAppContext(); 
     return (
         <div className=" w-full bg-white overflow-y-auto">
             <div className=" flex items-center justify-between px-3 pb-2 border-b border-gray">

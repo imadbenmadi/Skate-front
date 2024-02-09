@@ -30,8 +30,8 @@ const routes = createBrowserRouter([
             { path: "/Profile", element: <Not_Finished /> },
             { path: "/Mycourses", element: <Not_Finished /> },
             { path: "/Events", element: <Not_Finished /> },
-            { path: "/Notifications", element: <Notifications /> },
-            { path: "/Notifications/:id", element: <Notification_item /> },
+            { path: "/Notifications", element: <Not_Finished /> },
+            { path: "/Notifications/:id", element: <Not_Finished /> },
             {
                 path: "/Blogs",
                 element: <Not_Finished />,
