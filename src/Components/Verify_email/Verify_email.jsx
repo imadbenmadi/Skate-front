@@ -10,6 +10,9 @@ import ForbiddenRoute from "../ForbiddenRoute";
 import ErrorPage from "./ErrorPage";
 function Verify_email() {
     const { Email, _id } = useAppContext();
+    if (!Email || !_id) {
+        return <ForbiddenRoute />;
+    }
     const [error, setError] = useState(null);
     const [isEmailVerified, setIsEmailVerified] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -18,21 +21,26 @@ function Verify_email() {
         const getEmailVerificationStatus = async () => {
             try {
                 const response = await fetchEmailVerificationStatus(_id);
-                if (response.IsEmailVerified)
+                console.log("response from verify email : ", response);
+                if (response.IsEmailVerified !== null) {
                     setIsEmailVerified(response.IsEmailVerified);
-                else setError(response.error);
-                setLoading(false);
+                } else {
+                    setError(response);
+                    console.log("chopapi");
+                    console.log("error in verify email : ", response);
+                }
             } catch (error) {
                 console.error(
                     "Error getting email verification status:",
                     error
                 );
-                setLoading(false);
             }
+            setLoading(false);
         };
 
         getEmailVerificationStatus();
     }, []);
+
     // console.log(Email, _id);
     const [show_not_finished, setShow_not_finished] = useState(false);
     function open_not_finished() {
@@ -68,7 +76,10 @@ function Verify_email() {
             Swal.fire("Error!", "Invalid Code", "error");
         } else if (response.status === 500) {
             Swal.fire("Error!", "Internal Server Error", "error");
-        } else if (response.status === 429) {
+        } else if (response.status === 409) {
+            Swal.fire("Error!", response.data.error, "error");
+        }
+        else if (response.status === 429) {
             console.log("Too many requests");
             Swal.fire(
                 "Error!",
@@ -82,9 +93,13 @@ function Verify_email() {
         // Reset the code after submission (optional)
         setCode("");
     };
-    
+
     if (loading) {
-        return <div>Loading...</div>;
+        return (
+            <div className=" w-screen h-[300px] flex items-center justify-center ">
+                <span className="loader"></span>
+            </div>
+        );
     }
     if (error) {
         return <ErrorPage />;

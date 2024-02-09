@@ -7,7 +7,6 @@ export default {
         black_text: "#1f1f1f",
         gray: "#525252",
         gray_white: "#dadada",
-        white: "#fff",
         green: "#078343",
         blue: "#004172",
       },
