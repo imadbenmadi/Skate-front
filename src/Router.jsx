@@ -12,7 +12,6 @@ import Events from "./Components/Events/Events";
 import Contact from "./Components/Contact/Contact";
 import UserProfile from "./Components/UserProfile/UserProfile";
 import Not_Found from "./Components/Not_Found";
-import userCourses from "./Components/userCourses/userCourses";
 import Dashboard from "./Dashboard/Dashboard";
 import Dashboard_Login from "./Dashboard/Dashboard_Login";
 import VerifyEmail from "./Components/Verify_email/Verify_email";

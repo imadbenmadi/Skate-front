@@ -1,6 +1,6 @@
 import * as React from "react";
-import AboutImg from "../../../public/unsplash_JaoVGh5aJ3E.png";
-import bxbowl from "../../../public/bx-bowl-hot 1.png";
+import AboutImg from "../../../../public/unsplash_JaoVGh5aJ3E.png";
+import bxbowl from "../../../../public/bx-bowl-hot 1.png";
 import { useInView, motion } from "framer-motion";
 import { useRef } from "react";
 
