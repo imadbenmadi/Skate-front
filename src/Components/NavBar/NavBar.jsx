@@ -24,8 +24,9 @@ function NavBar({ Active_nav, setActive_nav }) {
     useEffect(() => {
         setActive_nav(location.pathname.substring(1));
     }, [location.pathname]);
-
+    const [LogoutClicked, setLogoutClicked] = useState(false);
     const Logout = async () => {
+        setLogoutClicked(true);
         try {
             // Send a request to the logout endpoint on the server
             const response = await axios.post(
@@ -67,6 +68,7 @@ function NavBar({ Active_nav, setActive_nav }) {
             console.error("An unexpected error occurred during logout", error);
             // Handle unexpected errors during logout
         }
+        setLogoutClicked(false);
     };
     return (
         <div className={` fixed  h-[60px] m-0  z-40 w-full `}>
@@ -99,6 +101,7 @@ function NavBar({ Active_nav, setActive_nav }) {
                     user_Open={user_Open}
                     Toogle_User_Open={Toogle_User_Open}
                     Logout={Logout}
+                    LogoutClicked={LogoutClicked}
                 />
             </div>
             {/* Moblie nav bar */}
@@ -106,6 +109,7 @@ function NavBar({ Active_nav, setActive_nav }) {
                 MobileNav_Open={MobileNav_Open}
                 Toogle_Menu_Bar={Toogle_Menu_Bar}
                 Logout={Logout}
+                LogoutClicked={LogoutClicked}
             />
         </div>
     );

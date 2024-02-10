@@ -13,8 +13,9 @@ function Laptop_Nav_Items({
     Active_nav,
     isAuth,
     FirstName,
-    
+
     Logout,
+    LogoutClicked,
 }) {
     const { Notifications } = useAppContext();
 
@@ -193,16 +194,24 @@ function Laptop_Nav_Items({
                                         </div>
                                     </Link>
                                     <div className="bg-gray w-full h-[1px]"></div>
-                                    <div
-                                        className="text-red-600 rounded-b-xl flex items-center gap-2 pl-4 mt-4 mb-2 cursor-pointer"
-                                        onClick={() => {
-                                            Logout();
-                                            setUser_menu_open(false);
-                                        }}
-                                    >
-                                        <TbLogout />
-                                        Logout
-                                    </div>
+                                    <>
+                                        {!LogoutClicked ? (
+                                            <div
+                                                className="text-red-600 rounded-b-xl flex items-center gap-2 pl-4 mt-4 mb-2 cursor-pointer"
+                                                onClick={() => {
+                                                    Logout();
+                                                    setUser_menu_open(false);
+                                                }}
+                                            >
+                                                <TbLogout />
+                                                Logout
+                                            </div>
+                                        ) : (
+                                            <div className=" w-full flex items-center justify-center mt-4 mb-2 text-red-600 m-auto">
+                                                <span className="small-loader  w-full m-auto"></span>
+                                            </div>
+                                        )}
+                                    </>
                                 </div>
                             )}
                         </div>

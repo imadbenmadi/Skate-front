@@ -10,9 +10,9 @@ import { useAppContext } from "../../../Context/AppContext"; // Import your cont
 import { MdNotificationsNone } from "react-icons/md";
 import { FaUserTie } from "react-icons/fa";
 import { TbLogout } from "react-icons/tb";
-
+import { useState } from "react";
 import Swal from "sweetalert2";
-function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar, Logout }) {
+function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar, Logout,LogoutClicked }) {
     const { isAuth } = useAppContext();
     const handleSettingsClick = () => {
         Swal.fire({
@@ -157,15 +157,23 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar, Logout }) {
                         Contact
                     </Link>
                     {isAuth ? (
-                        <div
-                            className="text-red-600 w-[155px]  flex items-center gap-2 mt-12 "
-                            onClick={() => {
-                                Logout();
-                            }}
-                        >
-                            <TbLogout />
-                            Logout
-                        </div>
+                        <>
+                            {!LogoutClicked ? (
+                                <div
+                                    className="text-red-600 w-[155px]  flex items-center gap-2 mt-12 "
+                                    onClick={() => {
+                                        Logout();
+                                    }}
+                                >
+                                    <TbLogout />
+                                    Logout
+                                </div>
+                            ) : (
+                                <div className=" w-full flex items-center justify-center mt-12 text-red-600">
+                                    <span className="small-loader"></span>
+                                </div>
+                            )}
+                        </>
                     ) : null}
                 </div>
                 {isAuth ? (
