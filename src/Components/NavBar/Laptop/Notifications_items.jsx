@@ -12,7 +12,7 @@ import { Link } from "react-router-dom";
 const Notifications_items = () => {
     const { Notifications } = useAppContext(); 
     return (
-        <div className=" w-full bg-white overflow-y-auto">
+        <div className=" w-full bg-white">
             <div className=" flex items-center justify-between px-3 pb-2 border-b border-gray">
                 <h2 className="text-lg font-bold">Notifications</h2>
                 <div className=" text-sm">
@@ -34,21 +34,22 @@ const Notifications_items = () => {
                     </div>
                 ) : (
                     <>
-                        {Notifications.sort((a, b) => {
-                            if (a.Readed !== b.Readed) {
-                                return a.Readed ? 1 : -1; // Unread notifications first
-                            }
-                            // Within each category, sort by newest first
-                            return new Date(b.Date) - new Date(a.Date);
-                        }).map((notification, index) => (
-                            <Link
-                                to={
-                                    notification.Type === "verify"
-                                        ? "/verifyEmail"
-                                        : `/Notifications/${notification._id}`
+                        <div className=" overflow-y-auto h-80">
+                            {Notifications.sort((a, b) => {
+                                if (a.Readed !== b.Readed) {
+                                    return a.Readed ? 1 : -1; // Unread notifications first
                                 }
-                                key={index}
-                                className={`notification flex items-center justify-start gap-2 p-2 mb-4 border-b border-gray
+                                // Within each category, sort by newest first
+                                return new Date(b.Date) - new Date(a.Date);
+                            }).map((notification, index) => (
+                                <Link
+                                    to={
+                                        notification.Type === "verify"
+                                            ? "/verifyEmail"
+                                            : `/Notifications/${notification._id}`
+                                    }
+                                    key={index}
+                                    className={`notification flex items-center justify-start gap-2 p-2 pb-4 border-b border-gray
                                 ${
                                     notification.Type === "verify"
                                         ? "bg-red-200"
@@ -56,53 +57,54 @@ const Notifications_items = () => {
                                         ? "bg-white"
                                         : "bg-gray_white"
                                 }`}
-                            >
-                                <div className=" text-4xl text-gray">
-                                    {notification.Type === "verify" ? (
-                                        <PiWarningCircleBold />
-                                    ) : notification.Type === "contact" ? (
-                                        <MdOutlineMailOutline />
-                                    ) : notification.Type === "event" ? (
-                                        <RiCalendarEventLine />
-                                    ) : notification.Type === "course" ? (
-                                        <FaBookOpen />
-                                    ) : notification.Type === "service" ? (
-                                        <FaRegHandshake />
-                                    ) : (
-                                        <img
-                                            src={logo}
-                                            alt="logo"
-                                            className=" w-14"
-                                        />
-                                    )}
-                                </div>
-
-                                <div className="flex flex-col w-full relative">
-                                    <h3 className="text-base font-bold mb-1">
-                                        {notification.Title}
-                                    </h3>
-                                    <p className="text-sm mb-4">
-                                        {notification.Text.length > 50
-                                            ? `${notification.Text.slice(
-                                                  0,
-                                                  50
-                                              )}...`
-                                            : notification.Text}
-                                    </p>
-                                    {notification.Type === "verify" &&
-                                        notification.Date && (
-                                            <p className="text-xs absolute bottom-0 right-0">
-                                                {Formate_Date(
-                                                    notification.Date
-                                                )}
-                                            </p>
+                                >
+                                    <div className=" text-4xl text-gray">
+                                        {notification.Type === "verify" ? (
+                                            <PiWarningCircleBold />
+                                        ) : notification.Type === "contact" ? (
+                                            <MdOutlineMailOutline />
+                                        ) : notification.Type === "event" ? (
+                                            <RiCalendarEventLine />
+                                        ) : notification.Type === "course" ? (
+                                            <FaBookOpen />
+                                        ) : notification.Type === "service" ? (
+                                            <FaRegHandshake />
+                                        ) : (
+                                            <img
+                                                src={logo}
+                                                alt="logo"
+                                                className=" w-14"
+                                            />
                                         )}
-                                </div>
-                            </Link>
-                        ))}
+                                    </div>
+
+                                    <div className="flex flex-col w-full relative">
+                                        <h3 className="text-base font-bold mb-1">
+                                            {notification.Title}
+                                        </h3>
+                                        <p className="text-sm mb-4">
+                                            {notification.Text.length > 50
+                                                ? `${notification.Text.slice(
+                                                      0,
+                                                      50
+                                                  )}...`
+                                                : notification.Text}
+                                        </p>
+                                        {notification.Type === "verify" &&
+                                            notification.Date && (
+                                                <p className="text-xs absolute bottom-0 right-0">
+                                                    {Formate_Date(
+                                                        notification.Date
+                                                    )}
+                                                </p>
+                                            )}
+                                    </div>
+                                </Link>
+                            ))}
+                        </div>
                         <Link
                             to={"/Notifications"}
-                            className="flex justify-end mr-6"
+                            className="flex justify-end mr-6 mt-2"
                         >
                             <div className="border px-2 py-1">See All</div>
                         </Link>
