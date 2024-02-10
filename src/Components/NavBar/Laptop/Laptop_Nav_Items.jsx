@@ -144,7 +144,7 @@ function Laptop_Nav_Items({
                             </div>
                             {Notifications_open && (
                                 <div
-                                    className="absolute py-2 top-full md:right-[4vw] lg:right-[8vw]  xl:right-[12vw] 2xl:right-[12vw] bg-white w-[300px] shadow-md rounded border border-gray flex flex-col items-start"
+                                    className="absolute py-2 top-full md:right-[4vw] lg:right-[8vw]  xl:right-[10vw] 2xl:right-[12vw] bg-white w-[300px] shadow-md rounded border border-gray flex flex-col items-start"
                                     onMouseEnter={() =>
                                         setNotifications_open(true)
                                     }
