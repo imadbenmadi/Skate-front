@@ -14,7 +14,7 @@ function Register() {
     const [Verify_id, setVerifyId] = useState(null);
     const [Verify_email, setVerifyEmail] = useState("");
     const [Verify_Password, setVerifyPassword] = useState("");
-    const [rigester_Date , set_rigester_Date] = useState(null)
+    const [rigester_Date, set_rigester_Date] = useState(null);
     const [Succed_Register, setSucced_Register] = useState(false);
     const [showPassword, setShowPassword] = useState(false);
     function handleShowPassword() {
@@ -57,12 +57,20 @@ function Register() {
                                 if (!values.FirstName) {
                                     errors.FirstName =
                                         "first name is Required ";
-                                }
-
-                                // Validate Last Name
+                                } else if (values.FirstName > 14)
+                                    errors.FirstName =
+                                        "first name must be less than 14 chars";
+                                else if (values.FirstName < 3)
+                                    errors.FirstName =
+                                        "first name must be more than 3 chars ";
                                 if (!values.LastName) {
+                                    // Validate Last Name
                                     errors.LastName = "last name is Required";
-                                }
+                                } else if (values.LastName > 14) {
+                                    ("Last Name must be less than 14 chars");
+                                } else if (values.LastName < 3)
+                                    errors.LastName =
+                                        "Last Name must be more than 3 chars ";
                                 if (!values.Telephone) {
                                     errors.Telephone =
                                         "Telephone number is required";
@@ -126,7 +134,6 @@ function Register() {
                                     set_rigester_Date,
                                 });
                                 if (Succed_Register) {
-                                    
                                     setOpen_verify(true);
                                 }
                             }}
