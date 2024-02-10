@@ -130,7 +130,7 @@ function Laptop_Nav_Items({
                 {isAuth ? (
                     <>
                         <Link
-                            to={"Notifications"}
+                            to={"/Profile/Notifications"}
                             className=" h-full"
                             onMouseEnter={() => setNotifications_open(true)}
                             onMouseLeave={() => setNotifications_open(false)}

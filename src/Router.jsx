@@ -13,7 +13,7 @@ import Contact from "./Components/Contact/Contact";
 
 import Profile from "./Components/Profile/Profile";
 import Info from "./Components/Profile/Info";
-import UserServices from "./Components/Profile/";
+import UserServices from "./Components/Profile/UserServices";
 import UserNotifications from "./Components/Profile/UserNotifications";
 import UserCourses from "./Components/Profile/UserCourses";
 

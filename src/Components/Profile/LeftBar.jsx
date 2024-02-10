@@ -2,7 +2,7 @@ import React from 'react'
 
 function LeftBar() {
   return (
-    <div>LeftBar</div>
+    <div className=' w-full h-full bg-red-600'></div>
   )
 }
 
