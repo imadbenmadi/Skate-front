@@ -10,7 +10,13 @@ import Services from "./Components/Services/Services";
 import Courses from "./Components/Courses/Courses";
 import Events from "./Components/Events/Events";
 import Contact from "./Components/Contact/Contact";
-import UserProfile from "./Components/UserProfile/UserProfile";
+
+import Profile from "./Components/Profile/Profile";
+import Info from "./Components/Profile/Info";
+import UserServices from "./Components/Profile/";
+import UserNotifications from "./Components/Profile/UserNotifications";
+import UserCourses from "./Components/Profile/UserCourses";
+
 import Not_Found from "./Components/Not_Found";
 import Dashboard from "./Dashboard/Dashboard";
 import Dashboard_Login from "./Dashboard/Dashboard_Login";
@@ -26,10 +32,28 @@ const routes = createBrowserRouter([
             { path: "/Services", element: <Not_Finished /> },
             { path: "/Courses", element: <Not_Finished /> },
             { path: "/Contact", element: <Contact /> },
-            { path: "/Profile", element: <Not_Finished /> },
+            {
+                path: "/Profile",
+                element: <Profile />,
+                children: [
+                    { index: true, element: <Info /> },
+                    {
+                        path: "/Profile/Notifications",
+                        element: <UserNotifications />,
+                    },
+                    {
+                        path: "/Profile/Courses",
+                        element: <UserCourses />,
+                    },
+                    {
+                        path: "/Profile/Services",
+                        element: <UserServices />,
+                    },
+                ],
+            },
             { path: "/Mycourses", element: <Not_Finished /> },
             { path: "/Events", element: <Not_Finished /> },
-            { path: "/Notifications", element: <Not_Finished /> },
+            { path: "/Notifications", element: <Notifications /> },
             { path: "/Notifications/:id", element: <Not_Finished /> },
             {
                 path: "/Blogs",
