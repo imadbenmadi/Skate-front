@@ -5,7 +5,7 @@ import Hero from "./Hero";
 import { AboutUs } from "../AboutUS/AboutUs";
 import Services from "../Services/Services";
 import Courses from "../Courses/Courses";
-import Founder from "../Founder/Founder";
+import Founder from "./Founder/Founder";
 import Footer from "../Footer/Footer";
 function Home() {
   return (

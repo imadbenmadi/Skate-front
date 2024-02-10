@@ -1,5 +1,5 @@
 import React, { useRef } from "react";
-import founder from "../../../public/Founder.png";
+import founder from "../../../../public/Founder.png";
 import { useInView } from "framer-motion";
 export default function Founder() {
   const ref = useRef(null);
