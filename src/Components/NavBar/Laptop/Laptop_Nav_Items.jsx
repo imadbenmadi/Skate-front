@@ -129,7 +129,8 @@ function Laptop_Nav_Items({
                 </div>
                 {isAuth ? (
                     <>
-                        <div
+                        <Link
+                            to={"Notifications"}
                             className=" h-full"
                             onMouseEnter={() => setNotifications_open(true)}
                             onMouseLeave={() => setNotifications_open(false)}
@@ -155,8 +156,9 @@ function Laptop_Nav_Items({
                                     <Notifications_items />
                                 </div>
                             )}
-                        </div>
-                        <div
+                        </Link>
+                        <Link
+                            to={"/Profile"}
                             className=" h-full"
                             onMouseEnter={() => setUser_menu_open(true)}
                             onMouseLeave={() => setUser_menu_open(false)}
@@ -214,7 +216,7 @@ function Laptop_Nav_Items({
                                     </>
                                 </div>
                             )}
-                        </div>
+                        </Link>
                     </>
                 ) : (
                     <span className="bg-green text-[#fff] px-3 py-1 text-xl rounded-lg cursor-pointer">
