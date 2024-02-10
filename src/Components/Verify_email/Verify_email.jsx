@@ -21,13 +21,10 @@ function Verify_email() {
         const getEmailVerificationStatus = async () => {
             try {
                 const response = await fetchEmailVerificationStatus(_id);
-                console.log("response from verify email : ", response);
                 if (response.IsEmailVerified !== null) {
                     setIsEmailVerified(response.IsEmailVerified);
                 } else {
                     setError(response);
-                    console.log("chopapi");
-                    console.log("error in verify email : ", response);
                 }
             } catch (error) {
                 console.error(
@@ -42,10 +39,31 @@ function Verify_email() {
     }, []);
 
     // console.log(Email, _id);
-    const [show_not_finished, setShow_not_finished] = useState(false);
-    function open_not_finished() {
-        setShow_not_finished(true);
+    const [RemainingSeconds, setRemainingSeconds] = useState(0);
+    const [ResendLoading, setResendLoading] = useState(false);
+    const [SubmitLoading, setSubmitLoading] = useState(false);
+    function startResendTimer() {
+        // Set the initial remaining time to 60 seconds
+        setRemainingSeconds(60);
+        // Update the remaining time every second
+        const timerInterval = setInterval(() => {
+            setRemainingSeconds((prevSeconds) => {
+                // Decrease the remaining seconds by 1
+                const newSeconds = prevSeconds - 1;
+
+                // If the remaining time reaches 0, enable the resend button and clear the interval
+                if (newSeconds === 0) {
+                    clearInterval(timerInterval);
+                }
+
+                // Return the new remaining seconds
+                return newSeconds;
+            });
+        }, 1000); // Update every 1 second
     }
+    // function () {
+    //     setShow_not_finished(true);
+    // }
     const [code, setCode] = useState("");
     const Navigate = useNavigate();
     const handleChange = (e) => {
@@ -57,6 +75,7 @@ function Verify_email() {
     };
     useEffect(() => {}, [Confirm_to_send_state]);
     const handleSubmit = async () => {
+        setSubmitLoading(true);
         let response = await Axios.post(
             "http://localhost:3000/VerifyAccount",
             {
@@ -78,8 +97,7 @@ function Verify_email() {
             Swal.fire("Error!", "Internal Server Error", "error");
         } else if (response.status === 409) {
             Swal.fire("Error!", response.data.error, "error");
-        }
-        else if (response.status === 429) {
+        } else if (response.status === 429) {
             console.log("Too many requests");
             Swal.fire(
                 "Error!",
@@ -90,10 +108,47 @@ function Verify_email() {
             Swal.fire("Error!", "Something Went Wrong", "error");
         }
         console.log(response);
-        // Reset the code after submission (optional)
+        setSubmitLoading(false);
         setCode("");
     };
+    const handleResendClick = async () => {
+        setResendLoading(true);
+        let response = await Axios.post(
+            "http://localhost:3000/ReSend_Verification_Email",
+            {
+                userId: _id,
+            },
+            {
+                withCredentials: true,
+                validateStatus: () => true,
+            }
+        );
 
+        if (response.status === 200) {
+            Swal.fire(
+                "Email Sendeed Successfully",
+                "Check Out Your Email , we resend a new verification Code to you",
+                "success"
+            );
+            startResendTimer();
+        } else if (response.status === 401) {
+            Swal.fire("Error!", "Unauthorized", "error");
+        } else if (response.status === 400) {
+            Swal.fire("Error!", "Internal Server Error", "error");
+        } else if (response.status === 429) {
+            console.log("Too many requests");
+            Swal.fire(
+                "Error!",
+                `Too many requests ,try again latter\n  ${response.data.error}`,
+                "error"
+            );
+        } else {
+            Swal.fire("Error!", "Something Went Wrong", "error");
+        }
+        console.log(response);
+        setResendLoading(false);
+        setCode("");
+    };
     if (loading) {
         return (
             <div className=" w-screen h-[300px] flex items-center justify-center ">
@@ -131,33 +186,44 @@ function Verify_email() {
                             className="form-control border border-gray-300 rounded w-24 h-12 text-center mb-4"
                             maxLength={6}
                         />
+
                         <button
                             onClick={handleSubmit}
-                            className="bg-blue-500 text-white bg-green px-4 py-2 rounded disabled:opacity-50"
-                            disabled={code.length !== 6}
+                            className={`mt-4 ${
+                                SubmitLoading ? "bg-gray" : "bg-green"
+                            }  text-white px-4 py-2 rounded-md cursor-pointer`}
+                            disabled={SubmitLoading}
                         >
-                            Submit
+                            {SubmitLoading ? "Sending..." : "Send Email"}
                         </button>
-                        <div className="mt-8 color-gray text-sm">
+
+                        <div className="mt-8 color-gray text-xl">
                             Didn’t receive verification code?
                         </div>
-                        <div
-                            className=" text-center text-gray underline cursor-pointer text-sm"
-                            onClick={open_not_finished}
-                        >
-                            resend it
+                        <div className="text-center text-gray  text-xl">
+                            {RemainingSeconds === 0 ? (
+                                <>
+                                    <button
+                                        onClick={handleResendClick}
+                                        className={` underline cursor-pointer`}
+                                        disabled={ResendLoading}
+                                    >
+                                        {ResendLoading
+                                            ? "Sending..."
+                                            : "Resend"}
+                                    </button>
+                                </>
+                            ) : (
+                                <span>
+                                    {RemainingSeconds} seconds left to resend
+                                </span>
+                            )}
                         </div>
-                        {show_not_finished && (
-                            <div className="mt-4 bg-red-500 opacity-70  p-4 rounded-2xl text-white">
-                                <div>
-                                    Sorry we did not finished this part yet{" "}
-                                </div>
-                            </div>
-                        )}
                     </>
                 ) : (
                     <Confirm_to_send
                         setConfirm_to_send_state={setConfirm_to_send_state}
+                        startResendTimer={startResendTimer}
                     />
                 )}
             </div>

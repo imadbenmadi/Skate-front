@@ -4,7 +4,7 @@ import { useState } from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 
-function Confirm_to_send({ setConfirm_to_send_state }) {
+function Confirm_to_send({ setConfirm_to_send_state, startResendTimer }) {
     const [loading_toSend, setloading_toSend] = useState(false);
 
     const { Email, FirstName, _id } = useAppContext();
@@ -24,6 +24,7 @@ function Confirm_to_send({ setConfirm_to_send_state }) {
             if (response.status === 200) {
                 console.log("Email sent successfully");
                 setloading_toSend(false);
+                startResendTimer();
                 setConfirm_to_send_state(true);
             } else if (response.status === 429) {
                 console.error("Error sending email");
@@ -33,8 +34,7 @@ function Confirm_to_send({ setConfirm_to_send_state }) {
                     "error"
                 );
                 setloading_toSend(false);
-            }
-            else if (response.status === 401) {
+            } else if (response.status === 401) {
                 console.error("Error sending email");
                 Swal.fire(
                     "Error!",
@@ -51,7 +51,7 @@ function Confirm_to_send({ setConfirm_to_send_state }) {
     };
     return (
         <div className="flex flex-col items-center justify-center text-black_text">
-            <div className="">
+            <div className=" ml-5">
                 <div className="text-lg font-bold mb-4 text-green">
                     Welcome to the Verification Page
                 </div>
