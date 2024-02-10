@@ -9,8 +9,10 @@ import { Link } from "react-router-dom";
 import { useAppContext } from "../../../Context/AppContext"; // Import your context hook
 import { MdNotificationsNone } from "react-icons/md";
 import { FaUserTie } from "react-icons/fa";
+import { TbLogout } from "react-icons/tb";
+
 import Swal from "sweetalert2";
-function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
+function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar, Logout }) {
     const { isAuth } = useAppContext();
     const handleSettingsClick = () => {
         Swal.fire({
@@ -66,7 +68,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                             <Link
                                 onClick={Toogle_Menu_Bar}
                                 to={"/Profile"}
-                                className="w-[155px] flex  items-center cursor-pointer gap-2 mb-4 "
+                                className="w-[155px] flex  items-center gap-2 mb-4 "
                             >
                                 <FaUserTie className="text-2xl" />
                                 Profile
@@ -75,7 +77,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                             <Link
                                 onClick={Toogle_Menu_Bar}
                                 to={"/Notifications"}
-                                className="w-[170px] flex cursor-pointer mb-4 "
+                                className="w-[170px] flex mb-4 "
                             >
                                 <MdNotificationsNone className=" text-3xl" />
                                 Notifications
@@ -83,18 +85,18 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                         </>
                     ) : (
                         <>
-                            <div className="flex gap-2 cursor-pointer mb-4 ">
+                            <div className="flex gap-2 mb-4 ">
                                 <Link
                                     onClick={Toogle_Menu_Bar}
                                     to={"/Login"}
-                                    className=" bg-green text-[#fff] px-3 py-2 rounded-lg cursor-pointer "
+                                    className=" bg-green text-[#fff] px-3 py-2 rounded-lg "
                                 >
                                     Login
                                 </Link>
                                 <Link
                                     onClick={Toogle_Menu_Bar}
                                     to={"/Register"}
-                                    className=" bg-gray_white text-black_text px-3 py-2 rounded-lg cursor-pointer"
+                                    className=" bg-gray_white text-black_text px-3 py-2 rounded-lg"
                                 >
                                     Register
                                 </Link>
@@ -103,7 +105,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                     )}
 
                     <div
-                        className="w-[155px] flex cursor-pointer gap-2 mb-4 "
+                        className="w-[155px] flex gap-2 mb-4 "
                         onClick={() => {
                             Toogle_Menu_Bar();
                             handleSettingsClick();
@@ -116,7 +118,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                     <Link
                         onClick={Toogle_Menu_Bar}
                         to={"/Services"}
-                        className="w-[155px] flex cursor-pointer gap-2  mb-4 "
+                        className="w-[155px] flex gap-2  mb-4 "
                     >
                         <FaRegHandshake className=" text-3xl" />
                         Services
@@ -124,7 +126,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                     <Link
                         onClick={Toogle_Menu_Bar}
                         to={"/Courses"}
-                        className="w-[165px] flex cursor-pointer  gap-2  mb-4"
+                        className="w-[165px] flex  gap-2  mb-4"
                     >
                         <FaBookReader className=" text-3xl" />
                         Courses
@@ -133,7 +135,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                     <Link
                         onClick={Toogle_Menu_Bar}
                         to={"/Events"}
-                        className="w-[155px] flex cursor-pointer  gap-2 mb-4"
+                        className="w-[155px] flex  gap-2 mb-4"
                     >
                         <MdEventAvailable className=" text-3xl" />
                         Events
@@ -141,7 +143,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                     <Link
                         onClick={Toogle_Menu_Bar}
                         to={"/Blogs"}
-                        className="w-[155px] flex cursor-pointer  gap-2 mb-4"
+                        className="w-[155px] flex  gap-2 mb-4"
                     >
                         <RiArticleFill className=" text-3xl" />
                         Blogs
@@ -149,12 +151,34 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar }) {
                     <Link
                         onClick={Toogle_Menu_Bar}
                         to={"/Contact"}
-                        className="w-[155px] flex cursor-pointer  gap-2 "
+                        className="w-[155px] flex  gap-2 "
                     >
                         <IoCall className=" text-3xl" />
                         Contact
                     </Link>
+                    {isAuth ? (
+                        <div
+                            className="text-red-600 w-[155px]  flex items-center gap-2 mt-12 "
+                            onClick={() => {
+                                Logout();
+                            }}
+                        >
+                            <TbLogout />
+                            Logout
+                        </div>
+                    ) : null}
                 </div>
+                {isAuth ? (
+                    <div
+                        className="text-red-600  flex items-center justify-center gap-2 mt-10 "
+                        onClick={() => {
+                            Logout();
+                        }}
+                    >
+                        <TbLogout />
+                        Logout
+                    </div>
+                ) : null}
             </div>
         </div>
     );

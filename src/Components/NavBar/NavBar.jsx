@@ -105,6 +105,7 @@ function NavBar({ Active_nav, setActive_nav }) {
             <Mobile_Nav_Items
                 MobileNav_Open={MobileNav_Open}
                 Toogle_Menu_Bar={Toogle_Menu_Bar}
+                Logout={Logout}
             />
         </div>
     );
