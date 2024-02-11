@@ -6,8 +6,8 @@ import Not_Finished from "./Components/Not_Finished";
 import Blogs from "./Components/Blogs/Blogs";
 import Login from "./Components/Login/Login";
 import Register from "./Components/Register/Register";
-import Services from "./Components/Services/Services";
-import Courses from "./Components/Courses/Courses";
+// import Services from "./Components/Home/Services/Services";
+// import Courses from "./Components/Courses/Courses";
 import Events from "./Components/Events/Events";
 import Contact from "./Components/Contact/Contact";
 

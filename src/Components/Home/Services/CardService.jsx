@@ -1,5 +1,5 @@
 import React from "react";
-import vectorService from "../../../public/VectorService.png";
+import vectorService from "../../../../public/VectorService.png";
 function CardService({ icon, titleService, desServicce }) {
   return (
     <div className="flex flex-col mx-auto cursor-pointer  self-center mb-5 justify-center  text-lg max-w-[90%]">

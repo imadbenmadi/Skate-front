@@ -1,6 +1,6 @@
 import React, { useRef } from "react";
 import CardCours from "./CardCours";
-import img from "../../../public/CoursImg.png";
+import img from "../../../../public/CoursImg.png";
 import { useInView } from "framer-motion";
 function Courses() {
   const ref = useRef(null);
