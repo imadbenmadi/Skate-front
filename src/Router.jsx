@@ -7,7 +7,7 @@ import Blogs from "./Components/Blogs/Blogs";
 import Login from "./Components/Login/Login";
 import Register from "./Components/Register/Register";
 // import Services from "./Components/Home/Services/Services";
-// import Courses from "./Components/Courses/Courses";
+import Courses from "./Components/Courses/Courses";
 import Events from "./Components/Events/Events";
 import Contact from "./Components/Contact/Contact";
 
@@ -30,7 +30,7 @@ const routes = createBrowserRouter([
         children: [
             { index: true, element: <Home /> },
             { path: "/Services", element: <Not_Finished /> },
-            { path: "/Courses", element: <Not_Finished /> },
+            { path: "/Courses", element: <Courses /> },
             { path: "/Contact", element: <Contact /> },
             {
                 path: "/Profile",
