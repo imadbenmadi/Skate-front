@@ -98,6 +98,7 @@ function App() {
     }, [isAuth]);
     // useEffect(() => {
     //     console.log("exuted");
+
     //     fetchData();
     // }, []);
 
