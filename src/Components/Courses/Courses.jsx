@@ -5,7 +5,7 @@ import { useAppContext } from "../../Context/AppContext";
 function Courses() {
     const [loading, setLoading] = useState(false);
     const { isAuth, _id } = useAppContext();
-    const fetch_Data = async () => {
+    const fetchCourses = async () => {
         setLoading(true);
 
         try {
@@ -22,10 +22,13 @@ function Courses() {
             if (isAuth) {
                 const userId = _id;
                 const response = await axios.get(
-                    `http://localhost:3000/Courses/userCourses/${userId}`,
+                    `http://localhost:3000/Courses/userCourses/${_id}`,
                     {
                         withCredentials: true,
                         validateStatus: () => true,
+                        // data: {
+                        //     userId: _id,
+                        // },
                     }
                 );
                     console.log("userCourses : ");
@@ -43,7 +46,7 @@ function Courses() {
         }
     };
        useEffect(() => {
-        fetch_Data();
+        fetchCourses();
     }, []);
 
     return (

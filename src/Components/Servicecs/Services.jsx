@@ -2,14 +2,14 @@ import React from "react";
 import { useState, useEffect } from "react";
 import { useAppContext } from "../../Context/AppContext";
 import axios from "axios";
-function Blogs() {
+function Services() {
     const [loading, setLoading] = useState(false);
     const { isAuth, _id } = useAppContext();
-    const fetchBlogs = async () => {
+    const fetchServices = async () => {
         setLoading(true);
 
         try {
-            const response = await axios.get("http://localhost:3000/Blogs", {
+            const response = await axios.get("http://localhost:3000/Services", {
                 withCredentials: true,
                 validateStatus: () => true,
             });
@@ -26,7 +26,7 @@ function Blogs() {
         }
     };
     useEffect(() => {
-        fetchBlogs();
+        fetchServices();
     }, []);
     return (
         <div>
@@ -35,10 +35,10 @@ function Blogs() {
                     <span className="loader"></span>
                 </div>
             ) : (
-                <div className="pt-[60px]">wolcom to skate Blogs</div>
+                <div className="pt-[60px]">wolcom to skate Services</div>
             )}
         </div>
     );
 }
 
-export default Blogs;
+export default Services;

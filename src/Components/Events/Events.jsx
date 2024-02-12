@@ -1,9 +1,47 @@
 import React from 'react'
-
+import { useState,useEffect } from 'react';
+import { useAppContext } from '../../Context/AppContext';
+import axios from 'axios';
 function Events() {
+  const [loading, setLoading] = useState(false);
+  const { isAuth, _id } = useAppContext();
+  const fetchEvents = async () => {
+      setLoading(true);
+
+      try {
+          const response = await axios.get("http://localhost:3000/Events", {
+              withCredentials: true,
+              validateStatus: () => true,
+          });
+
+          if (response.status === 200) {
+              console.log(response.data);
+          } else {
+              console.log(response.data);
+          }
+          
+      } catch (error) {
+          console.log(error);
+      } finally {
+          setLoading(false); // Set loading state to false regardless of success or failure
+      }
+  };
+  useEffect(() => {
+      fetchEvents();
+  }, []);
   return (
-    <div>Events</div>
-  )
+      <div>
+          {loading ? (
+              <div className="w-screen h-screen flex items-center justify-center">
+                  <span className="loader"></span>
+              </div>
+          ) : (
+              <div className="pt-[60px]">
+                  wolcom to skate Events
+              </div>
+          )}
+      </div>
+  );
 }
 
 export default Events

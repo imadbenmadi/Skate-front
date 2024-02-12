@@ -6,7 +6,7 @@ import Not_Finished from "./Components/Not_Finished";
 import Blogs from "./Components/Blogs/Blogs";
 import Login from "./Components/Login/Login";
 import Register from "./Components/Register/Register";
-// import Services from "./Components/Home/Services/Services";
+import Services from "./Components/Servicecs/Services";
 import Courses from "./Components/Courses/Courses";
 import Events from "./Components/Events/Events";
 import Contact from "./Components/Contact/Contact";
@@ -29,7 +29,7 @@ const routes = createBrowserRouter([
         element: <App />,
         children: [
             { index: true, element: <Home /> },
-            { path: "/Services", element: <Not_Finished /> },
+            { path: "/Services", element: <Services /> },
             { path: "/Courses", element: <Courses /> },
             { path: "/Contact", element: <Contact /> },
             {
@@ -52,12 +52,12 @@ const routes = createBrowserRouter([
                 ],
             },
             { path: "/Mycourses", element: <Not_Finished /> },
-            { path: "/Events", element: <Not_Finished /> },
+            { path: "/Events", element: <Events /> },
             { path: "/Notifications", element: <Notifications /> },
             { path: "/Notifications/:id", element: <Not_Finished /> },
             {
                 path: "/Blogs",
-                element: <Not_Finished />,
+                element: <Blogs />,
             },
             {
                 path: "/verifyEmail",
