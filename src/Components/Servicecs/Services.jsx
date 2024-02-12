@@ -19,6 +19,25 @@ function Services() {
             } else {
                 console.log(response.data);
             }
+            if (isAuth) {
+                const userId = _id;
+                const response = await axios.get(
+                    `http://localhost:3000/Courses/userCourses/${_id}`,
+                    {
+                        withCredentials: true,
+                        validateStatus: () => true,
+                        // data: {
+                        //     userId: _id,
+                        // },
+                    }
+                );
+                console.log("userCourses : ");
+                if (response.status === 200) {
+                    console.log(response.data);
+                } else {
+                    console.log(response.data);
+                }
+            }
         } catch (error) {
             console.log(error);
         } finally {

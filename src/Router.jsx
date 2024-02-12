@@ -31,7 +31,9 @@ const routes = createBrowserRouter([
             { index: true, element: <Home /> },
             { path: "/Services", element: <Services /> },
             { path: "/Courses", element: <Courses /> },
+            { path: "/Events", element: <Events /> },
             { path: "/Contact", element: <Contact /> },
+            {path: "/Blogs",element: <Blogs />,},
             {
                 path: "/Profile",
                 element: <Profile />,
@@ -51,14 +53,7 @@ const routes = createBrowserRouter([
                     },
                 ],
             },
-            { path: "/Mycourses", element: <Not_Finished /> },
-            { path: "/Events", element: <Events /> },
-            { path: "/Notifications", element: <Notifications /> },
             { path: "/Notifications/:id", element: <Not_Finished /> },
-            {
-                path: "/Blogs",
-                element: <Blogs />,
-            },
             {
                 path: "/verifyEmail",
                 element: <VerifyEmail />,
@@ -81,12 +76,7 @@ const routes = createBrowserRouter([
     {
         path: "/Register",
         element: <Register />,
-        // children: [{ path: "/Register/", element: <VerifyEmail /> }],
     },
-    // {
-    //     path: "/verifyEmail",
-    //     element: <VerifyEmail />,
-    // },
     {
         path: "*",
         element: <Not_Found />,
