@@ -2,7 +2,7 @@ import React from "react";
 
 function CourseItem() {
     return (
-        <div className="border border-gray-300 rounded p-4 mb-4">
+        <div className="border border-gray-300 rounded pt-[60px] p-4 mb-4">
             {/* You can include content for each course item here */}
             <h2 className="text-xl font-bold mb-2">Course Title</h2>
             <p className="text-gray-700">

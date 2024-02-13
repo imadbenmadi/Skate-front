@@ -18,7 +18,7 @@ function Explore({ courses }) {
                     <Filter filter={filter} setFilter={setFilter} />
                 </div>
 
-                <div className=" w-[85%] overflow-y-auto pt-2">
+                <div className=" w-[85%] overflow-y-auto">
                     <ExploreCCourses
                         search={search}
                         filter={filter}

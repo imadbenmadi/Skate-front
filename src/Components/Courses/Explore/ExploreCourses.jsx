@@ -7,7 +7,7 @@ function ExploreCourses({ search, filter, courses }) {
         return (
             <div className=" ">
                 {courses.map((course) => (
-                    <div key={course._id} className="w-full mb-4">
+                    <div key={course._id} className="w-full ">
                         <Card course={course} />
                     </div>
                 ))}
@@ -35,7 +35,7 @@ function ExploreCourses({ search, filter, courses }) {
                     <Link
                         to={`/Courses/${course._id}`}
                         key={course._id}
-                        className="w-full mb-4 "
+                        className="w-full "
                     >
                         <Card course={course} />
                     </Link>
