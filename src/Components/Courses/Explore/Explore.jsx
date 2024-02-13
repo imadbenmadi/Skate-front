@@ -8,17 +8,17 @@ function Explore({ courses }) {
     const [filter, setFilter] = useState([]);
     console.log("courses : ", courses);
     return (
-        <div className=" pt-8">
+        <div className=" pt-[30px]">
             <div className=" flex justify-between items-center mx-16 mb-2">
                 <div className=" text-3xl">Explore Ower Courses</div>
                 <Search setSearch={setSearch} />
             </div>
-            <div className=" flex">
-                <div className=" w-[25%] bg-green">
+            <div className=" flex h-[calc(100vh-135px)]">
+                <div className=" w-[15%] bg-gray_white">
                     <Filter filter={filter} setFilter={setFilter} />
                 </div>
 
-                <div className=" w-[75%] ">
+                <div className=" w-[85%] overflow-y-auto">
                     <ExploreCCourses
                         search={search}
                         filter={filter}

@@ -3,7 +3,7 @@ import Card from "./Card";
 
 function ExploreCourses({ search, filter, courses }) {
     return (
-        <div>
+        <div className=" ">
             {courses.map((course) => (
                 <div key={course._id} className="w-full mb-4">
                     <Card course={course} />
