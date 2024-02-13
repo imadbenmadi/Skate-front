@@ -4,7 +4,8 @@ import Filter from "./Filter"
 import ExploreCCourses from "./ExploreCourses"
 import { useState } from "react";
 function Explore() {
-    const [search, setSearch] = useState("");
+  const [search, setSearch] = useState("");
+  const [filter, setFilter] = useState("");
     return (
         <div className=" pt-8">
             <div className=" flex justify-between mx-16">
@@ -13,11 +14,11 @@ function Explore() {
             </div>
             <div className=" flex">
                 <div className=" w-[25%] bg-green">
-                    <Filter />
+                    <Filter setFilter={setFilter} />
                 </div>
 
                 <div className=" w-[75%] bg-red-600">
-                    <ExploreCCourses search={search} />
+                    <ExploreCCourses search={search} filter={filter} />
                 </div>
             </div>
         </div>
