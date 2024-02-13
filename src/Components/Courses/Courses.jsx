@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import axios from "axios"; // Import axios for making HTTP requests
 import { useAppContext } from "../../Context/AppContext";
 import Current_Courses from "./Current/Current_Courses";
+import Explore from "./Explore/Explore";
 function Courses() {
     const [loading, setLoading] = useState(false);
     const [courses, setCourses] = useState([]);
@@ -60,7 +61,7 @@ function Courses() {
             ) : (
                 <div className="pt-[60px]">
                     <Current_Courses userCourses={userCourses} />
-                    {/* <Explore /> */}
+                    <Explore />
                 </div>
             )}
         </div>
