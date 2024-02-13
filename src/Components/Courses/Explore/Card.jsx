@@ -1,8 +1,12 @@
 import React from 'react'
 import img from "../../../../public/wallpaper.jpg";
+import { Link } from 'react-router-dom';
 function Card({course}) {
   return (
-      <div className="w-full rounded overflow-hidden border-b border-gray pb-2 flex justify-start h-[190px]">
+      <Link
+          to={`/Courses/${course._id}`}
+          className="w-full rounded overflow-hidden border-b border-gray pb-2 flex justify-start h-[190px]"
+      >
           <img
               className=" w-[320px] object-cover"
               src={img}
@@ -20,7 +24,7 @@ function Card({course}) {
                   {new Date(course.Date).toLocaleDateString()}
               </p>
           </div>
-      </div>
+      </Link>
   );
 }
 

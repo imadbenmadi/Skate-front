@@ -1,6 +1,6 @@
 import React from "react";
 import Card from "./Card";
-
+import { Link } from "react-router-dom";
 function ExploreCourses({ search, filter, courses }) {
     // If filter is null or empty, return all courses
     if ((!filter || filter.length === 0)&&(search === "")) {
@@ -32,9 +32,13 @@ function ExploreCourses({ search, filter, courses }) {
                 </div>
             ) : (
                 filteredCourses.map((course) => (
-                    <div key={course._id} className="w-full mb-4">
+                    <Link
+                        to={`/Courses/${course._id}`}
+                        key={course._id}
+                        className="w-full mb-4 "
+                    >
                         <Card course={course} />
-                    </div>
+                    </Link>
                 ))
             )}
         </div>
