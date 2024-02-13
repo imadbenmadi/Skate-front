@@ -1,24 +1,17 @@
-import React from 'react'
-import Card from './Card'
-function Current_Courses() {
-  return (
-      <div className=" flex  gap-4 w-screen ">
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-          <Card />
-      </div>
-  );
+import React from "react";
+import Card from "./Card";
+
+function Current_Courses({ userCourses }) {
+    return userCourses.length !== 0 ? (
+        <div>
+            <div>Your Current Courses : </div>
+            <div className="flex gap-4 w-screen overflow-auto">
+          {userCourses.map((item) => {
+                  <Card/>
+                })}
+            </div>
+        </div>
+    ) : null;
 }
 
-export default Current_Courses
+export default Current_Courses;

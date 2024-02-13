@@ -21,8 +21,6 @@ import Not_Found from "./Components/Not_Found";
 import Dashboard from "./Dashboard/Dashboard";
 import Dashboard_Login from "./Dashboard/Dashboard_Login";
 import VerifyEmail from "./Components/Verify_email/Verify_email";
-import Notifications from "./Components/Notifications/Notifications";
-import Notification_item from "./Components/Notifications/Notification_item";
 const routes = createBrowserRouter([
     {
         path: "/",
