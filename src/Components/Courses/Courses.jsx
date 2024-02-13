@@ -3,9 +3,11 @@ import axios from "axios"; // Import axios for making HTTP requests
 import { useAppContext } from "../../Context/AppContext";
 import Current_Courses from "./Current/Current_Courses";
 import Explore from "./Explore/Explore";
+import ErrorPage from "../ErrorPage";
 function Courses() {
     const [loading, setLoading] = useState(false);
     const [courses, setCourses] = useState([]);
+    const [error, setError] = useState(null);
     const [userCourses, setUserCourses] = useState([]);
     const { isAuth, _id } = useAppContext();
     const fetchCourses = async () => {
@@ -21,6 +23,7 @@ function Courses() {
                 setCourses(response.data);
             } else {
                 console.log(response.data);
+                setError(response.data);
             }
             if (isAuth) {
                 const userId = _id;
@@ -34,16 +37,18 @@ function Courses() {
                         // },
                     }
                 );
-                console.log("userCourses : ");
+
                 if (response.status === 200) {
                     setUserCourses(response.data);
-                    console.log("userCourses : ",userCourses);
+                    console.log("userCourses : ", userCourses);
                 } else {
                     console.log(response.data);
+                    setError(response.data);
                 }
             }
         } catch (error) {
             console.log(error);
+            setError(response.data);
         } finally {
             setLoading(false); // Set loading state to false regardless of success or failure
         }
@@ -51,7 +56,9 @@ function Courses() {
     useEffect(() => {
         fetchCourses();
     }, []);
-
+    if (error) {
+        return <ErrorPage />;
+    }
     return (
         <div>
             {loading ? (

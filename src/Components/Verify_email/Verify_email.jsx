@@ -7,7 +7,7 @@ import { useAppContext } from "../../Context/AppContext";
 import Confirm_to_send from "./Confirm_to_send";
 import { fetchEmailVerificationStatus } from "./is_email_verified";
 import ForbiddenRoute from "../ForbiddenRoute";
-import ErrorPage from "./ErrorPage";
+import ErrorPage from "../ErrorPage";
 function Verify_email() {
     const { Email, _id } = useAppContext();
     if (!Email || !_id) {

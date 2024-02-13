@@ -1,4 +1,5 @@
 import React from "react";
+import { IoMdRefresh } from "react-icons/io";
 
 const ErrorPage = () => {
     return (
@@ -10,6 +11,13 @@ const ErrorPage = () => {
                 We're sorry, but an error occurred while fetching data. Please
                 try again later.
             </p>
+            <div
+                className=" flex gap-1 text-gray items-end cursor-pointer"
+                onClick={() => window.location.reload()}
+            >
+                Refresh the page
+                <IoMdRefresh />
+            </div>
         </div>
     );
 };
