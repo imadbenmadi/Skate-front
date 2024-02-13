@@ -10,9 +10,9 @@ function Search({ setSearch }) {
     console.log(searchInput.value);
   };
     return (
-        <div className=" flex border mr-10">
-            <input type="text" className=" pl-2 py-1 w-[300px] " id="searchInput" />
-            <button className=" px-2 border-l" onClick={handleSearch}>
+        <div className=" flex border-2 mr-10">
+            <input type="text" className=" pl-2 py-1 w-[300px]  focus:outline-none" id="searchInput" />
+            <button className=" px-2 border-l-2" onClick={handleSearch}>
                 <IoSearchOutline />
             </button>
         </div>

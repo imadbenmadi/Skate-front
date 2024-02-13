@@ -1,29 +1,46 @@
-import React from 'react'
+import React from "react";
 import img from "../../../../public/wallpaper.jpg";
-import { Link } from 'react-router-dom';
-function Card({course}) {
-  return (
-      <Link
-          to={`/Courses/${course._id}`}
-          className="w-full rounded overflow-hidden border-b border-gray py-5 px-5 flex justify-start h-[200px]"
-      >
-          <img
-              className=" w-[320px] object-cover"
-              src={img}
-              alt={course.Title}
-          />
-          <div className="pl-6 py-4">
-              <div className="font-bold text-xl mb-2">{course.Title}</div>
-              <p className="text-gray-700 text-base">{course.Text}</p>
-              {/* <p className="text-gray-700 text-base">{course.Description}</p> */}
-              <p className="text-gray-700 text-base">DA {course.Price}</p>
-              <p className="text-gray-700 text-base">{course.Category}</p>
-              <p className="text-gray-700 text-base">
+import { Link } from "react-router-dom";
+function Card({ course }) {
+    return (
+        <Link
+            to={`/Courses/${course._id}`}
+            className="w-full relative rounded overflow-hidden border-b border-gray py-5 px-5 flex shrink-0 justify-start h-[200px]"
+        >
+            <img
+                className=" w-[40%] object-cover"
+                src={img}
+                alt={course.Title}
+            />
+            <div className="w-[50%] pl-6 py-4 ">
+                {/* <div className="font-bold text-xl mb-2 overflow-hidden w-[550px]">
+                    {course.Title}
+                </div> */}
+                {course.Title && (
+                    <p className="font-bold text-xl mb-2 overflow-hidden">
+                        {course.Title.slice(0, 60) +
+                            (course.Title.length > 60 ? "..." : "")}
+                    </p>
+                )}
+
+                {course.Text && (
+                    <p className="text-gray-700 text-base">
+                        {course.Text.slice(0, 70) +
+                            (course.Text.length > 70 ? "..." : "")}
+                    </p>
+                )}
+
+                {/* <p className="text-gray-700 text-base">{course.Description}</p> */}
+                <p className="text-gray-700  text-sm absolute top-10 right-5 ">
+                    {course.Price} DA
+                </p>
+                <p className="text-gray-700 text-sm pt-4">{course.Category}</p>
+                {/* <p className="text-gray-700 text-base">
                   {new Date(course.Date).toLocaleDateString()}
-              </p>
-          </div>
-      </Link>
-  );
+              </p> */}
+            </div>
+        </Link>
+    );
 }
 
-export default Card
+export default Card;

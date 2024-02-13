@@ -1,4 +1,5 @@
 import React from "react";
+import { IoFilterSharp } from "react-icons/io5";
 
 function Filter({ filter, setFilter }) {
     const categories = ["management", "finance", "marketing", "design"];
@@ -18,8 +19,11 @@ function Filter({ filter, setFilter }) {
     };
 
     return (
-        <div className="filter-bar bg-gray-100 p-4 rounded-lg ">
-            <h2 className="text-lg font-semibold mb-2">Filter</h2>
+        <div className="bg-gray-100 md:p-2 lg:p-6 rounded-lg ">
+            <h2 className=" font-semibold mb-6 flex items-center gap-1 text-2xl border-b border-gray w-fit text-gray">
+                <IoFilterSharp />
+                Filter
+            </h2>
             <div>
                 {categories.map((category, index) => (
                     <label key={index} className=" mb-2 flex items-center  ">
@@ -29,7 +33,7 @@ function Filter({ filter, setFilter }) {
                             onChange={() => handleToggleCategory(category)}
                             className="mr-2"
                         />
-                        <span className="text-gray-800">{category}</span>
+                        <span className="text-gray">{category}</span>
                     </label>
                 ))}
             </div>
