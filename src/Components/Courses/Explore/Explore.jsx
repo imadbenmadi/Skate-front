@@ -8,7 +8,7 @@ function Explore() {
   const [filter, setFilter] = useState("");
     return (
         <div className=" pt-8">
-            <div className=" flex justify-between mx-16">
+            <div className=" flex justify-between items-center mx-16 mb-2">
                 <div className=" text-3xl">Explore Ower Courses</div>
                 <Search setSearch={setSearch} />
             </div>
