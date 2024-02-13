@@ -7,14 +7,16 @@ import ErrorPage from "../ErrorPage";
 import axios from "axios";
 import swal from "sweetalert2";
 import { useNavigate } from "react-router";
+import { MdDone } from "react-icons/md";
+
 function CourseItem() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-
+    const [secces, setsecces] = useState(false);
     const [course, setCourse] = useState([]);
     const { isAuth, _id, Courses } = useAppContext();
     const location = useLocation();
-    const Navigate = useNavigate()
+    const Navigate = useNavigate();
     let Already_have_course = null;
     if (Courses) {
         Already_have_course = Courses.some(
@@ -37,8 +39,13 @@ function CourseItem() {
 
             if (response.status === 200) {
                 swal.fire("success", "request sent successfully", "success");
+                setsecces(true);
             } else if (response.status === 409) {
-                swal.fire("error", "You Already have this Course", "error");
+                swal.fire(
+                    "You Already Requested this Course ",
+                    " wait intil the Center Aprove your request",
+                    "warning"
+                );
             } else if (401) {
                 swal.fire({
                     title: "You should login to do that",
@@ -106,7 +113,12 @@ function CourseItem() {
                     <img src={img} alt="" />
 
                     <div className="pt-4 flex justify-end mr-10">
-                        {!Already_have_course ? (
+                        {secces ? (
+                            <div className="flex items-center text-green gap-1 text-xl">
+                                course requested
+                                <MdDone className=" text-2xl " />
+                            </div>
+                        ) : !Already_have_course ? (
                             <div
                                 className="bg-green px-4 py-2 w-fit text-white rounded cursor-pointer"
                                 onClick={() => {
@@ -139,6 +151,7 @@ function CourseItem() {
                                 Go ot Course
                             </Link>
                         )}
+                        {/* {} */}
                     </div>
                 </div>
                 <div className="w-[500px]  break-words border border-gray-300 rounded p-4 mb-4">
