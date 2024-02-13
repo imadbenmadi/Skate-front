@@ -5,6 +5,8 @@ import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import ErrorPage from "../ErrorPage";
 import axios from "axios";
+import swal from "sweetalert2";
+import { useNavigate } from "react-router";
 function CourseItem() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -12,13 +14,51 @@ function CourseItem() {
     const [course, setCourse] = useState([]);
     const { isAuth, _id, Courses } = useAppContext();
     const location = useLocation();
+    const Navigate = useNavigate()
     let Already_have_course = null;
     if (Courses) {
         Already_have_course = Courses.some(
             (course) => course._id === location.pathname.split("/")[2]
         );
     }
-    
+    const handle_request_course = async () => {
+        try {
+            const response = await axios.post(
+                `http://localhost:3000/Courses/request`,
+                {
+                    userId: _id,
+                    courseId: location.pathname.split("/")[2],
+                },
+                {
+                    withCredentials: true,
+                    validateStatus: () => true,
+                }
+            );
+
+            if (response.status === 200) {
+                swal.fire("success", "request sent successfully", "success");
+            } else if (response.status === 409) {
+                swal.fire("error", "You Already have this Course", "error");
+            } else if (401) {
+                swal.fire({
+                    title: "You should login to do that",
+                    text: "Your are Not Authenthicated !",
+                    icon: "warning",
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "green",
+                    confirmButtonText: "Go to Login Page",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Navigate("/Login");
+                    }
+                });
+            } else {
+                swal.fire("error", "request not sent", "error");
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
     const fetchCourse = async () => {
         setLoading(true);
 
@@ -67,7 +107,28 @@ function CourseItem() {
 
                     <div className="pt-4 flex justify-end mr-10">
                         {!Already_have_course ? (
-                            <div className="bg-green px-4 py-2 w-fit text-white rounded cursor-pointer">
+                            <div
+                                className="bg-green px-4 py-2 w-fit text-white rounded cursor-pointer"
+                                onClick={() => {
+                                    if (!isAuth) {
+                                        swal.fire({
+                                            title: "You should login to do that",
+                                            text: "Your are Not Authenthicated !",
+                                            icon: "warning",
+                                            confirmButtonColor: "#3085d6",
+                                            cancelButtonColor: "green",
+                                            confirmButtonText:
+                                                "Go to Login Page",
+                                        }).then((result) => {
+                                            if (result.isConfirmed) {
+                                                Navigate("/Login");
+                                            }
+                                        });
+                                    } else {
+                                        handle_request_course();
+                                    }
+                                }}
+                            >
                                 Request the course
                             </div>
                         ) : (
