@@ -12,12 +12,12 @@ function Card({course}) {
               <div className="font-bold text-xl mb-2">{course.Title}</div>
               <p className="text-gray-700 text-base">{course.Text}</p>
               <p className="text-gray-700 text-base">{course.Description}</p>
-              <p className="text-gray-700 text-base">Price: ${course.Price}</p>
+              <p className="text-gray-700 text-base">DA {course.Price}</p>
               <p className="text-gray-700 text-base">
                   Category: {course.Category}
               </p>
               <p className="text-gray-700 text-base">
-                  Date: {new Date(course.Date).toLocaleDateString()}
+                  {new Date(course.Date).toLocaleDateString()}
               </p>
           </div>
       </div>

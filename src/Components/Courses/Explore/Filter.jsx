@@ -1,7 +1,6 @@
 import React from "react";
 
-function Filter({filter, setFilter }) {
-
+function Filter({ filter, setFilter }) {
     const categories = ["management", "finance", "marketing", "design"];
 
     const handleToggleCategory = (category) => {
@@ -19,18 +18,18 @@ function Filter({filter, setFilter }) {
     };
 
     return (
-        <div className="filter-bar">
-            <h2>Filter</h2>
+        <div className="filter-bar bg-gray-100 p-4 rounded-lg ">
+            <h2 className="text-lg font-semibold mb-2">Filter</h2>
             <div>
                 {categories.map((category, index) => (
-                    <label key={index} className="block">
+                    <label key={index} className=" mb-2 flex items-center  ">
                         <input
                             type="checkbox"
                             checked={filter.includes(category)}
                             onChange={() => handleToggleCategory(category)}
                             className="mr-2"
                         />
-                        {category}
+                        <span className="text-gray-800">{category}</span>
                     </label>
                 ))}
             </div>
