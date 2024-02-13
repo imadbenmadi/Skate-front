@@ -61,7 +61,7 @@ function Courses() {
             ) : (
                 <div className="pt-[60px]">
                     <Current_Courses userCourses={userCourses} />
-                    <Explore />
+                    <Explore courses={courses} />
                 </div>
             )}
         </div>

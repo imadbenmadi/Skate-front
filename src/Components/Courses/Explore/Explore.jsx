@@ -3,9 +3,10 @@ import Search from "./Search";
 import Filter from "./Filter";
 import ExploreCCourses from "./ExploreCourses";
 import { useState } from "react";
-function Explore() {
+function Explore({ courses }) {
     const [search, setSearch] = useState("");
     const [filter, setFilter] = useState([]);
+    console.log("courses : ", courses);
     return (
         <div className=" pt-8">
             <div className=" flex justify-between items-center mx-16 mb-2">
@@ -17,8 +18,12 @@ function Explore() {
                     <Filter filter={filter} setFilter={setFilter} />
                 </div>
 
-                <div className=" w-[75%] bg-red-600">
-                    <ExploreCCourses search={search} filter={filter} />
+                <div className=" w-[75%] ">
+                    <ExploreCCourses
+                        search={search}
+                        filter={filter}
+                        courses={courses}
+                    />
                 </div>
             </div>
         </div>
