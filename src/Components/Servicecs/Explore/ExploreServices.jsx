@@ -2,7 +2,6 @@ import React from "react";
 import Card from "./Card";
 import { Link } from "react-router-dom";
 function ExploreServices({ search, filter, services }) {
-    
     const filteredservices = services.filter((service) => {
         const matchesSearch =
             !search ||
@@ -17,13 +16,9 @@ function ExploreServices({ search, filter, services }) {
             <div className=" ">
                 {services.map((service, index) => (
                     // console.log("service inside map: ", )
-                    <Link
-                        to={`/Services/${service._id}`}
-                        key={index}
-                        className="w-full "
-                    >
+                    <div key={index} className="w-full ">
                         <Card service={service} />
-                    </Link>
+                    </div>
                 ))}
             </div>
         );
@@ -37,13 +32,9 @@ function ExploreServices({ search, filter, services }) {
                 </div>
             ) : (
                 filteredservices.map((service, index) => (
-                    <Link
-                        to={`/Services/${service._id}`}
-                        key={index}
-                        className="w-full "
-                    >
+                    <div key={index} className="w-full ">
                         <Card service={service} />
-                    </Link>
+                    </div>
                 ))
             )}
         </div>

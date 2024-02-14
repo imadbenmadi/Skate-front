@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Card({ service }) {
     return (
         <Link
-            to={`/services/${service._id}`}
+            to={`/Services/${service._id}`}
             className="w-full relative rounded overflow-hidden border-b border-gray py-5 px-5 flex shrink-0 justify-start h-[200px]"
         >
             <img
