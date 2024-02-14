@@ -1,13 +1,18 @@
-import React from "react";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useAppContext } from "../../Context/AppContext";
+import Current_Services from "./Current/Current_Services";
+import Explore from "./Explore/Explore";
 import axios from "axios";
+
 function Services() {
     const [loading, setLoading] = useState(false);
+    const [services, setServices] = useState(null);
+    const [error, setError] = useState(null);
+    const [userServices, setUserServices] = useState([]);
     const { isAuth, _id } = useAppContext();
+
     const fetchServices = async () => {
         setLoading(true);
-
         try {
             const response = await axios.get("http://localhost:3000/Services", {
                 withCredentials: true,
@@ -15,38 +20,40 @@ function Services() {
             });
 
             if (response.status === 200) {
-                console.log(response.data);
+                setServices(response.data);
+                console.log("services from services:helllllooo ", services);
             } else {
-                console.log(response.data);
+                setError(response.data);
             }
+
             if (isAuth) {
-                const userId = _id;
-                const response = await axios.get(
+                const userResponse = await axios.get(
                     `http://localhost:3000/Courses/userCourses/${_id}`,
                     {
                         withCredentials: true,
                         validateStatus: () => true,
-                        // data: {
-                        //     userId: _id,
-                        // },
                     }
                 );
-                console.log("userCourses : ");
-                if (response.status === 200) {
-                    console.log(response.data);
+                if (userResponse.status === 200) {
+                    setUserServices(userResponse.data);
                 } else {
-                    console.log(response.data);
+                    setError(userResponse.data);
                 }
             }
         } catch (error) {
-            console.log(error);
+            setError(error);
         } finally {
-            setLoading(false); // Set loading state to false regardless of success or failure
+            setLoading(false);
         }
     };
+
     useEffect(() => {
         fetchServices();
     }, []);
+    if (error) {
+        return <ErrorPage />;
+    }
+
     return (
         <div>
             {loading ? (
@@ -54,7 +61,10 @@ function Services() {
                     <span className="loader"></span>
                 </div>
             ) : (
-                <div className="pt-[60px]">wolcom to skate Services</div>
+                <div className="pt-[60px]">
+                    <Current_Services userServicecs={userServices} />
+                    <Explore services={services} />
+                </div>
             )}
         </div>
     );
