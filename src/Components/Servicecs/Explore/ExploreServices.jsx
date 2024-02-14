@@ -2,30 +2,32 @@ import React from "react";
 import Card from "./Card";
 import { Link } from "react-router-dom";
 function ExploreServices({ search, filter, services }) {
-    const filteredservices = services.filter((course) => {
+    
+    const filteredservices = services.filter((service) => {
         const matchesSearch =
             !search ||
-            course.Title.toLowerCase().includes(search.toLowerCase());
+            service.Title.toLowerCase().includes(search.toLowerCase());
         const matchesFilter =
-            !filter || filter.length === 0 || filter.includes(course.Category);
+            !filter || filter.length === 0 || filter.includes(service.Category);
         return matchesSearch && matchesFilter;
     });
     // If filter is null or empty, return all services
-    // if ((!filter || filter.length === 0) && search === "") {
-    //     return (
-    //         <div className=" ">
-    //             {services.map((course) => (
-    //                 <Link
-    //                     to={`/Services/${course._id}`}
-    //                     key={course._id}
-    //                     className="w-full "
-    //                 >
-    //                     <Card course={course} />
-    //                 </Link>
-    //             ))}
-    //         </div>
-    //     );
-    // }
+    if ((!filter || filter.length === 0) && search === "") {
+        return (
+            <div className=" ">
+                {services.map((service, index) => (
+                    // console.log("service inside map: ", )
+                    <Link
+                        to={`/Services/${service._id}`}
+                        key={index}
+                        className="w-full "
+                    >
+                        <Card service={service} />
+                    </Link>
+                ))}
+            </div>
+        );
+    }
 
     return (
         <div>
@@ -34,13 +36,13 @@ function ExploreServices({ search, filter, services }) {
                     No services match the selected filter.
                 </div>
             ) : (
-                filteredservices.map((course) => (
+                filteredservices.map((service, index) => (
                     <Link
-                        to={`/Services/${course._id}`}
-                        key={course._id}
+                        to={`/Services/${service._id}`}
+                        key={index}
                         className="w-full "
                     >
-                        <Card course={course} />
+                        <Card service={service} />
                     </Link>
                 ))
             )}

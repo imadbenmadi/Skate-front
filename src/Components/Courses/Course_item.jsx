@@ -154,14 +154,15 @@ function CourseItem() {
                     </div>
                 </div>
                 <div className="w-[90vw] md:w-[350px]  break-words border border-gray-300 rounded p-4 mb-4">
-
                     <h2 className="text-xl font-bold mb-2">
-                        {course.Title.slice(0, 80) +
-                            (course.Title.length > 80 ? "..." : "")}
+                        {course.Title &&
+                            course.Title.slice(0, 80) +
+                                (course.Title.length > 80 ? "..." : "")}
                     </h2>
                     <p className="text-gray-700">
-                        {course.Text.slice(0, 80) +
-                            (course.Text.length > 80 ? "..." : "")}
+                        {course.Text &&
+                            course.Text.slice(0, 80) +
+                                (course.Text.length > 80 ? "..." : "")}
                     </p>
                     <p className="text-gray-700">{course.Price}DA</p>
                     <p className="text-gray-700">Category: Web Development</p>

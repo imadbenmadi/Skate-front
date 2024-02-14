@@ -9,27 +9,27 @@ import swal from "sweetalert2";
 import { useNavigate } from "react-router";
 import { MdDone } from "react-icons/md";
 
-function CourseItem() {
+function ServiceItem() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [secces, setsecces] = useState(false);
-    const [course, setCourse] = useState([]);
+    const [service, setservice] = useState([]);
     const { isAuth, _id, Services } = useAppContext();
     const location = useLocation();
     const Navigate = useNavigate();
-    let Already_have_course = null;
+    let Already_have_service = null;
     if (Services) {
-        Already_have_course = Services.some(
-            (course) => course._id === location.pathname.split("/")[2]
+        Already_have_service = Services.some(
+            (service) => service._id === location.pathname.split("/")[2]
         );
     }
-    const handle_request_course = async () => {
+    const handle_request_service = async () => {
         try {
             const response = await axios.post(
                 `http://localhost:3000/Services/request`,
                 {
                     userId: _id,
-                    courseId: location.pathname.split("/")[2],
+                    ServiceId: location.pathname.split("/")[2],
                 },
                 {
                     withCredentials: true,
@@ -42,7 +42,7 @@ function CourseItem() {
                 setsecces(true);
             } else if (response.status === 409) {
                 swal.fire(
-                    "You Already Requested this Course ",
+                    "You Already Requested this service ",
                     " wait intil the Center Aprove your request",
                     "warning"
                 );
@@ -66,7 +66,7 @@ function CourseItem() {
             console.log(error);
         }
     };
-    const fetchCourse = async () => {
+    const fetchservice = async () => {
         setLoading(true);
 
         try {
@@ -81,8 +81,8 @@ function CourseItem() {
             );
 
             if (response.status === 200) {
-                setCourse(response.data);
-                console.log(course);
+                setservice(response.data);
+                console.log(service);
             } else {
                 console.log(response.data);
                 setError(true);
@@ -95,7 +95,7 @@ function CourseItem() {
         }
     };
     useEffect(() => {
-        fetchCourse();
+        fetchservice();
     }, []);
     if (error) {
         return <ErrorPage />;
@@ -115,10 +115,10 @@ function CourseItem() {
                     <div className="pt-4 flex justify-center md:justify-end ">
                         {secces ? (
                             <div className="flex items-center text-green gap-1 text-xl">
-                                course requested
+                                service requested
                                 <MdDone className=" text-2xl " />
                             </div>
-                        ) : !Already_have_course ? (
+                        ) : !Already_have_service ? (
                             <div
                                 className="bg-green px-4 py-2 w-fit text-white rounded cursor-pointer"
                                 onClick={() => {
@@ -137,45 +137,46 @@ function CourseItem() {
                                             }
                                         });
                                     } else {
-                                        handle_request_course();
+                                        handle_request_service();
                                     }
                                 }}
                             >
-                                Request the course
+                                Request the service
                             </div>
                         ) : (
                             <Link
                                 to={"/Profile"}
                                 className="bg-green px-4 py-2 w-fit text-white rounded cursor-pointer"
                             >
-                                Go ot Course
+                                Go ot service
                             </Link>
                         )}
-                        {/* {} */}
                     </div>
                 </div>
                 <div className="w-[90vw] md:w-[350px]  break-words border border-gray-300 rounded p-4 mb-4">
-                    {/* You can include content for each course item here */}
+                    {/* You can include content for each service item here */}
 
                     <h2 className="text-xl font-bold mb-2">
-                        {course.Title.slice(0, 80) +
-                            (course.Title.length > 80 ? "..." : "")}
+                        {service.Title &&
+                            service.Title.slice(0, 80) +
+                                (service.Title.length > 80 ? "..." : "")}
                     </h2>
                     <p className="text-gray-700">
-                        {course.Text.slice(0, 80) +
-                            (course.Text.length > 80 ? "..." : "")}
+                        {service.Text &&
+                            service.Text.slice(0, 80) +
+                                (service.Text.length > 80 ? "..." : "")}
                     </p>
-                    <p className="text-gray-700">{course.Price}DA</p>
+                    <p className="text-gray-700">{service.Price}DA</p>
                     <p className="text-gray-700">Category: Web Development</p>
                     <p className="text-gray-700">Date: January 1, 2024</p>
                 </div>
             </div>
 
             <div className=" w-[90vw] m-auto my-6 p-4 rounded bg-gray_white">
-                {course.Description}
+                {service.Description}
             </div>
         </div>
     );
 }
 
-export default CourseItem;
+export default ServiceItem;
