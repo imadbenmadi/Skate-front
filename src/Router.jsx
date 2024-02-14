@@ -12,6 +12,7 @@ import Courses from "./Components/Courses/Courses";
 import Course_item from "./Components/Courses/Course_item";
 import Service_item from "./Components/Servicecs/Service_item";
 import Events from "./Components/Events/Events";
+import Events_item from "./Components/Events/Events_item";
 import Contact from "./Components/Contact/Contact";
 
 import Profile from "./Components/Profile/Profile";
@@ -35,6 +36,7 @@ const routes = createBrowserRouter([
             { path: "/Courses", element: <Courses /> },
             { path: "/Courses/:id", element: <Course_item /> },
             { path: "/Events", element: <Events /> },
+            { path: "/Events/:id", element: <Events_item /> },
             { path: "/Contact", element: <Contact /> },
             { path: "/Blogs", element: <Blogs /> },
             { path: "/Blogs/:id", element: <Blogs_item /> },

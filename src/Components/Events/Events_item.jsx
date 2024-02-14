@@ -4,17 +4,17 @@ import { useLocation } from "react-router";
 import ErrorPage from "../ErrorPage";
 import axios from "axios";
 
-function Blogs_item() {
+function Event_item() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const [blog, setblog] = useState([]);
+    const [event, setevent] = useState([]);
     const location = useLocation();
 
-    const fetchblog = async () => {
+    const fetchevent = async () => {
         setLoading(true);
         try {
             const response = await axios.get(
-                `http://localhost:3000/Blogs/${
+                `http://localhost:3000/Events/${
                     location.pathname.split("/")[2]
                 }`,
                 {
@@ -24,8 +24,8 @@ function Blogs_item() {
             );
 
             if (response.status === 200) {
-                setblog(response.data);
-                console.log(blog);
+                setevent(response.data);
+                console.log(event);
             } else {
                 console.log(response.data);
                 setError(true);
@@ -38,7 +38,7 @@ function Blogs_item() {
         }
     };
     useEffect(() => {
-        fetchblog();
+        fetchevent();
     }, []);
     if (error) {
         return <ErrorPage />;
@@ -51,20 +51,20 @@ function Blogs_item() {
         );
     return (
         <div className=" pt-[80px] flex flex-col items-center w-[90%] m-auto md:items-start justify-center gap-3 ">
-            <h2 className="text-2xl font-bold mb-2 m-auto">{blog.Title}</h2>
+            <h2 className="text-2xl font-bold mb-2 m-auto">{event.Title}</h2>
             <div className="flex justify-center gap-6 m-auto ">
                 <img src={img} alt="" className=" w-[400px]" />
                 <p className="text-gray-700">
-                    {blog.Text &&
-                        blog.Text.slice(0, 120) +
-                            (blog.Text.length > 120 ? "..." : "")}
+                    {event.Text &&
+                        event.Text.slice(0, 120) +
+                            (event.Text.length > 120 ? "..." : "")}
                 </p>
             </div>
             <div className=" w-[90vw] m-auto my-6 p-4 rounded ">
-                {blog.Description}
+                {event.Description}
             </div>
         </div>
     );
 }
 
-export default Blogs_item;
+export default Event_item;
