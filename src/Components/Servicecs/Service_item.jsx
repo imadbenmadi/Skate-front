@@ -153,7 +153,7 @@ function ServiceItem() {
                         )}
                     </div>
                 </div>
-                <div className="w-[90vw] md:w-[350px]  break-words border border-gray-300 rounded p-4 mb-4">
+                <div className="w-[90vw] md:w-[350px]  break-words border border-gray-300 rounded p-4 ">
                     {/* You can include content for each service item here */}
 
                     <h2 className="text-xl font-bold mb-2">

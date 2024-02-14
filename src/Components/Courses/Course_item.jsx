@@ -153,7 +153,7 @@ function CourseItem() {
                         )}
                     </div>
                 </div>
-                <div className="w-[90vw] md:w-[350px]  break-words border border-gray-300 rounded p-4 mb-4">
+                <div className="w-[90vw] md:w-[350px]  break-words border border-gray-300 rounded p-4 ">
                     <h2 className="text-xl font-bold mb-2">
                         {course.Title &&
                             course.Title.slice(0, 80) +
