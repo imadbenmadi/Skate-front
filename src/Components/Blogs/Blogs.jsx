@@ -80,7 +80,7 @@ function Blogs() {
                     <div className="">
                         {search === "" ? (
                             blogs.map((blog) => (
-                                <div key={blog._id} className="w-full ">
+                                <div key={blog._id} className="w-[90vw] m-auto ">
                                     <Card blog={blog} />
                                 </div>
                             ))
@@ -90,7 +90,7 @@ function Blogs() {
                             </div>
                         ) : (
                             filteredblogs.map((blog) => (
-                                <div key={blog._id} className="w-full ">
+                                <div key={blog._id} className="w-[80vw] m-auto ">
                                     <Card blog={blog} />
                                 </div>
                             ))
