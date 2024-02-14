@@ -26,7 +26,10 @@ function Filter({ filter, setFilter }) {
             </h2>
             <div>
                 {categories.map((category, index) => (
-                    <label key={index} className=" mb-2 flex items-center  ">
+                    <label
+                        key={index}
+                        className=" mb-2 flex items-center w-fit   "
+                    >
                         <input
                             type="checkbox"
                             checked={filter.includes(category)}

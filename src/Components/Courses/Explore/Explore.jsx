@@ -2,6 +2,7 @@ import React from "react";
 import Search from "./Search";
 import Filter from "./Filter";
 import ExploreCourses from "./ExploreCourses";
+import Mobile_Filter from "./Mobile_Filter";
 import { useState } from "react";
 function Explore({ courses }) {
     const [search, setSearch] = useState("");
@@ -14,11 +15,16 @@ function Explore({ courses }) {
                     <span className=" text-green2">Explore </span>
                     Skate Courses
                 </div>
-                <Search setSearch={setSearch} />
+
+                <div className="   flex gap-2">
+                    <div className=" md:hidden">
+                        <Mobile_Filter filter={filter} setFilter={setFilter} />
+                    </div>
+                    <Search setSearch={setSearch} />
+                </div>
             </div>
             {/* <div className=" flex h-[calc(100vh-135px)] border-t-2 border-gray_white">
                 <div className=" w-[20%] bg-gray_white">
-                    <Filter filter={filter} setFilter={setFilter} />
                 </div>
 
                 <div className=" w-[80%] overflow-y-auto 
@@ -30,6 +36,13 @@ function Explore({ courses }) {
                     />
                 </div>
             </div> */}
+            <div>
+                <ExploreCourses
+                    search={search}
+                    filter={filter}
+                    courses={courses}
+                />
+            </div>
         </div>
     );
 }
