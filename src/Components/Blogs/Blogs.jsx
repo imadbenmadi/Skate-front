@@ -1,10 +1,27 @@
 import React from "react";
 import { useState, useEffect } from "react";
-import { useAppContext } from "../../Context/AppContext";
+import { IoSearchOutline } from "react-icons/io5";
+import Card from "./Card";
 import axios from "axios";
+import { Link } from "react-router-dom";
+
 function Blogs() {
     const [loading, setLoading] = useState(false);
-    const { isAuth, _id } = useAppContext();
+    const [search, setSearch] = useState("");
+    const [blogs, setBlogs] = useState([]);
+    const [error, setError] = useState(null);
+    const handleSearch = () => {
+        const searchInput = document.getElementById("searchInput");
+        if (searchInput) {
+            setSearch(searchInput.value);
+        }
+    };
+    const filteredblogs = blogs.filter((course) => {
+        const matchesSearch =
+            !search ||
+            course.Title.toLowerCase().includes(search.toLowerCase());
+        return matchesSearch ;
+    });
     const fetchBlogs = async () => {
         setLoading(true);
 
@@ -15,12 +32,12 @@ function Blogs() {
             });
 
             if (response.status === 200) {
-                console.log(response.data);
+                setBlogs(response.data);
             } else {
-                console.log(response.data);
+                setError(response.data);
             }
         } catch (error) {
-            console.log(error);
+            setError(error);
         } finally {
             setLoading(false); // Set loading state to false regardless of success or failure
         }
@@ -28,6 +45,9 @@ function Blogs() {
     useEffect(() => {
         fetchBlogs();
     }, []);
+    if (error) {
+        return <ErrorPage />;
+    }
     return (
         <div>
             {loading ? (
@@ -35,7 +55,56 @@ function Blogs() {
                     <span className="loader"></span>
                 </div>
             ) : (
-                <div className="pt-[60px]">wolcom to skate Blogs</div>
+                <div className="pt-[90px]">
+                    <div className=" flex flex-col md:flex-row justify-between items-center mx-16 mb-2 font-semibold text-gray w-300px">
+                        <div className=" text-2xl w-screen md:w-fit text-center lg:text-3xl mb-2 ">
+                            <span className=" text-green2">Read </span>
+                            Skate Blogs
+                        </div>
+                        {/* Search bar  */}
+                        <div className=" flex border-2 md:mr-10">
+                            <input
+                                type="text"
+                                className=" pl-2 py-1 w-[150px] md:w-[300px]  focus:outline-none"
+                                id="searchInput"
+                            />
+                            <button
+                                className=" px-2 border-l-2"
+                                onClick={handleSearch}
+                            >
+                                <IoSearchOutline className=" text-2xl" />
+                            </button>
+                        </div>
+                    </div>
+
+                    <div className="">
+                        {search === "" ? (
+                            blogs.map((blog) => (
+                                <Link
+                                    to={`/Blogs/${blog._id}`}
+                                    key={blog._id}
+                                    className="w-full "
+                                >
+                                    <Card blog={blog} />
+                                </Link>
+                            ))
+                        ) : filteredblogs.length === 0 ? (
+                            <div className="text-center text-gray-500">
+                                No blogs match the selected filter.
+                            </div>
+                        ) : (
+                            filteredblogs.map((blog) => (
+                                <Link
+                                    to={`/Blogs/${blog._id}`}
+                                    key={blog._id}
+                                    className="w-full "
+                                >
+                                    <Card blog={blog} />
+                                </Link>
+                            ))
+                        )}
+                    </div>
+                </div>
             )}
         </div>
     );

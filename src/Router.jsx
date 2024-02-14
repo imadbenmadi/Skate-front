@@ -4,6 +4,7 @@ import Home from "./Components/Home/Home";
 import App from "./App";
 import Not_Finished from "./Components/Not_Finished";
 import Blogs from "./Components/Blogs/Blogs";
+import Blogs_item from "./Components/Blogs/Blogs_item";
 import Login from "./Components/Login/Login";
 import Register from "./Components/Register/Register";
 import Services from "./Components/Servicecs/Services";
@@ -36,6 +37,7 @@ const routes = createBrowserRouter([
             { path: "/Events", element: <Events /> },
             { path: "/Contact", element: <Contact /> },
             { path: "/Blogs", element: <Blogs /> },
+            { path: "/Blogs/:id", element: <Blogs_item /> },
             {
                 path: "/Profile",
                 element: <Profile />,
