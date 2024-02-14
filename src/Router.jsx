@@ -8,7 +8,7 @@ import Login from "./Components/Login/Login";
 import Register from "./Components/Register/Register";
 import Services from "./Components/Servicecs/Services";
 import Courses from "./Components/Courses/Courses";
-import Course_item from "./Components/Course_item/Course_item";
+import Course_item from "./Components/Courses/Course_item";
 import Events from "./Components/Events/Events";
 import Contact from "./Components/Contact/Contact";
 

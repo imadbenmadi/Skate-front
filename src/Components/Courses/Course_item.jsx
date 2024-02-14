@@ -108,11 +108,11 @@ function CourseItem() {
         );
     return (
         <div className=" pt-[80px] ">
-            <div className="flex items-start justify-center gap-3">
-                <div className=" w-[500px]">
-                    <img src={img} alt="" />
+            <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-3">
+                <div className=" w-[350px]">
+                    <img src={img} alt="" className=" w-[400px]" />
 
-                    <div className="pt-4 flex justify-end mr-10">
+                    <div className="pt-4 flex justify-center md:justify-end ">
                         {secces ? (
                             <div className="flex items-center text-green gap-1 text-xl">
                                 course requested
@@ -154,17 +154,24 @@ function CourseItem() {
                         {/* {} */}
                     </div>
                 </div>
-                <div className="w-[500px]  break-words border border-gray-300 rounded p-4 mb-4">
+                <div className="w-[90vw] md:w-[350px]  break-words border border-gray-300 rounded p-4 mb-4">
                     {/* You can include content for each course item here */}
-                    <h2 className="text-xl font-bold mb-2">{course.Title}</h2>
-                    <p className="text-gray-700">{course.Title}</p>
+
+                    <h2 className="text-xl font-bold mb-2">
+                        {course.Title.slice(0, 80) +
+                            (course.Title.length > 80 ? "..." : "")}
+                    </h2>
+                    <p className="text-gray-700">
+                        {course.Text.slice(0, 80) +
+                            (course.Text.length > 80 ? "..." : "")}
+                    </p>
                     <p className="text-gray-700">{course.Price}DA</p>
                     <p className="text-gray-700">Category: Web Development</p>
                     <p className="text-gray-700">Date: January 1, 2024</p>
                 </div>
             </div>
 
-            <div className=" w-[80vw] m-auto mt-6 p-4 rounded bg-gray_white">
+            <div className=" w-[90vw] m-auto mt-6 p-4 rounded bg-gray_white">
                 {course.Description}
             </div>
         </div>
