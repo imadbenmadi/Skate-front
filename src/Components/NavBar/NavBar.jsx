@@ -22,7 +22,8 @@ function NavBar({ Active_nav, setActive_nav }) {
         set_User_Open(!user_Open);
     }
     useEffect(() => {
-        setActive_nav(location.pathname.substring(1));
+        setActive_nav(location.pathname.split("/")[1]);
+        
     }, [location.pathname]);
     const [LogoutClicked, setLogoutClicked] = useState(false);
     const Logout = async () => {
