@@ -9,14 +9,14 @@ function Explore({ courses }) {
     console.log("courses : ", courses);
     return (
         <div className=" pt-[30px]">
-            <div className=" flex flex-col justify-between items-center mx-16 mb-2 font-semibold text-gray">
-                <div className=" text-2xl lg:text-3xl">
+            <div className=" flex flex-col md:flex-row justify-between items-center mx-16 mb-2 font-semibold text-gray w-300px">
+                <div className=" text-2xl w-screen md:w-fit text-center lg:text-3xl mb-2 ">
                     <span className=" text-green2">Explore </span>
                     Skate Courses
                 </div>
                 <Search setSearch={setSearch} />
             </div>
-            <div className=" flex h-[calc(100vh-135px)] border-t-2 border-gray_white">
+            {/* <div className=" flex h-[calc(100vh-135px)] border-t-2 border-gray_white">
                 <div className=" w-[20%] bg-gray_white">
                     <Filter filter={filter} setFilter={setFilter} />
                 </div>
@@ -29,7 +29,7 @@ function Explore({ courses }) {
                         courses={courses}
                     />
                 </div>
-            </div>
+            </div> */}
         </div>
     );
 }
