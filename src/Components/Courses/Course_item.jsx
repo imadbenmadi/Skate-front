@@ -171,7 +171,7 @@ function CourseItem() {
                 </div>
             </div>
 
-            <div className=" w-[90vw] m-auto mt-6 p-4 rounded bg-gray_white">
+            <div className=" w-[90vw] m-auto my-6 p-4 rounded bg-gray_white">
                 {course.Description}
             </div>
         </div>
