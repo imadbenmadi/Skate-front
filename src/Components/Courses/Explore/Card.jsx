@@ -8,11 +8,11 @@ function Card({ course }) {
             className="w-full relative rounded overflow-hidden border-b border-gray py-5 px-5 flex shrink-0 justify-start h-[200px]"
         >
             <img
-                className=" w-[40%] object-cover"
+                className=" w-[30%] object-cover"
                 src={img}
                 alt={course.Title}
             />
-            <div className="w-[50%] pl-6 py-4 ">
+            <div className="w-[60%] pl-6 py-4 ">
                 {/* <div className="font-bold text-xl mb-2 overflow-hidden w-[550px]">
                     {course.Title}
                 </div> */}

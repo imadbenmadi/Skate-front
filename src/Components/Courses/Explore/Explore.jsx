@@ -9,7 +9,7 @@ function Explore({ courses }) {
     console.log("courses : ", courses);
     return (
         <div className=" pt-[30px]">
-            <div className=" flex justify-between items-center mx-16 mb-2 font-semibold text-gray">
+            <div className=" flex flex-col justify-between items-center mx-16 mb-2 font-semibold text-gray">
                 <div className=" text-2xl lg:text-3xl">
                     <span className=" text-green2">Explore </span>
                     Skate Courses
@@ -21,7 +21,8 @@ function Explore({ courses }) {
                     <Filter filter={filter} setFilter={setFilter} />
                 </div>
 
-                <div className=" w-[80%] overflow-y-auto">
+                <div className=" w-[80%] overflow-y-auto 
+                ">
                     <ExploreCourses
                         search={search}
                         filter={filter}

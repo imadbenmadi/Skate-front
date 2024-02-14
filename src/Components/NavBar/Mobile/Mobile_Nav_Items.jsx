@@ -59,7 +59,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar, Logout,LogoutClicke
                 className={` md:hidden ${
                     MobileNav_Open
                         ? " translate-x-[30vw]"
-                        : " translate-x-[100vh] "
+                        : " translate-x-[200vh] "
                 } absolute  transition-all select-none w-[70vw]  z-50 bg-zinc-100 border-l-4  text-gray font-semibold `}
             >
                 <div className=" flex flex-col items-center justify-start h-screen text-2xl  mt-8 ">
