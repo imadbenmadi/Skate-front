@@ -6,7 +6,7 @@ import Mobile_Filter from "./Mobile_Filter";
 import { useState } from "react";
 function Explore({ courses }) {
     const [search, setSearch] = useState("");
-    const [filter, setFilter] = useState([]);
+    const [filter, setFilter] = useState([])
     return (
         <div className=" pt-[30px]">
             <div className=" flex flex-col md:flex-row justify-between items-center mx-16 mb-2 font-semibold text-gray w-300px">
@@ -22,14 +22,15 @@ function Explore({ courses }) {
                     <Search setSearch={setSearch} />
                 </div>
             </div>
-            <div className=" flex h-[calc(100vh-135px)] border-t-2 border-gray_white">
-
+            <div className="hidden  md:flex h-[calc(100vh-135px)] border-t-2 border-gray_white">
                 <div className="hidden md:block w-[20%] bg-gray_white">
                     <Filter filter={filter} setFilter={setFilter} />
                 </div>
 
-                <div className=" w-[80%] overflow-y-auto 
-                ">
+                <div
+                    className=" w-[80%] overflow-y-auto 
+                "
+                >
                     <ExploreCourses
                         search={search}
                         filter={filter}
@@ -37,7 +38,7 @@ function Explore({ courses }) {
                     />
                 </div>
             </div>
-            <div>
+            <div className="md:hidden">
                 <ExploreCourses
                     search={search}
                     filter={filter}

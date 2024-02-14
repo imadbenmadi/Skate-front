@@ -21,7 +21,6 @@ function Courses() {
 
             if (response.status === 200) {
                 setCourses(response.data);
-                
             } else {
                 console.log(response.data);
                 setError(response.data);
@@ -49,7 +48,7 @@ function Courses() {
             }
         } catch (error) {
             console.log(error);
-            setError(response.data);
+            setError(error);
         } finally {
             setLoading(false); // Set loading state to false regardless of success or failure
         }

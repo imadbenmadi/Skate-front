@@ -6,7 +6,7 @@ import axios from "axios";
 
 function Services() {
     const [loading, setLoading] = useState(false);
-    const [services, setServices] = useState(null);
+    const [services, setServices] = useState([]);
     const [error, setError] = useState(null);
     const [userServices, setUserServices] = useState([]);
     const { isAuth, _id } = useAppContext();
@@ -21,7 +21,7 @@ function Services() {
 
             if (response.status === 200) {
                 setServices(response.data);
-                console.log("services from services:helllllooo ", services);
+                
             } else {
                 setError(response.data);
             }
