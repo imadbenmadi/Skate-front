@@ -20,7 +20,7 @@ function Blogs() {
         const matchesSearch =
             !search ||
             course.Title.toLowerCase().includes(search.toLowerCase());
-        return matchesSearch ;
+        return matchesSearch;
     });
     const fetchBlogs = async () => {
         setLoading(true);
@@ -80,13 +80,9 @@ function Blogs() {
                     <div className="">
                         {search === "" ? (
                             blogs.map((blog) => (
-                                <Link
-                                    to={`/Blogs/${blog._id}`}
-                                    key={blog._id}
-                                    className="w-full "
-                                >
+                                <div key={blog._id} className="w-full ">
                                     <Card blog={blog} />
-                                </Link>
+                                </div>
                             ))
                         ) : filteredblogs.length === 0 ? (
                             <div className="text-center text-gray-500">
@@ -94,13 +90,9 @@ function Blogs() {
                             </div>
                         ) : (
                             filteredblogs.map((blog) => (
-                                <Link
-                                    to={`/Blogs/${blog._id}`}
-                                    key={blog._id}
-                                    className="w-full "
-                                >
+                                <div key={blog._id} className="w-full ">
                                     <Card blog={blog} />
-                                </Link>
+                                </div>
                             ))
                         )}
                     </div>
