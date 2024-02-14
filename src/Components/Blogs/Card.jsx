@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function Card({ blog }) {
     return (
         <Link
-            to={`/blogs/${blog._id}`}
+            to={`/Blogs/${blog._id}`}
             className="w-full relative rounded overflow-hidden border-b border-gray py-5 px-5 flex shrink-0 justify-start h-[300px]"
         >
             <img className=" w-[30%] object-cover" src={img} alt={blog.Title} />
