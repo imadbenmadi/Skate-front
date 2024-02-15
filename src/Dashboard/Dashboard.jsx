@@ -51,9 +51,11 @@ function Dashboard() {
         );
     if (Auth)
         return (
-            <div>
-                <NavBar />
-                <div>
+            <div className=" flex">
+                <div className=" w-[20%] bg-black h-screen">
+                    <NavBar />
+                </div>
+                <div className="w-[80%] h-screen bg-green">
                     <Outlet />
                 </div>
             </div>

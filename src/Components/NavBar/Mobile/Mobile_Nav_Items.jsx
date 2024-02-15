@@ -62,13 +62,13 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar, Logout,LogoutClicke
                         : " translate-x-[200vh] "
                 } absolute  transition-all select-none w-[70vw]  z-50 bg-zinc-100 border-l-4  text-gray font-semibold `}
             >
-                <div className=" flex flex-col items-center justify-start h-screen text-2xl  mt-8 ">
+                <div className=" w-[80%] m-auto h-screen text-2xl  mt-8 ">
                     {isAuth ? (
                         <>
                             <Link
                                 onClick={Toogle_Menu_Bar}
                                 to={"/Profile"}
-                                className="w-[155px] flex  items-center gap-2 mb-4 "
+                                className=" flex  items-center gap-2 mb-4 "
                             >
                                 <FaUserTie className="text-2xl" />
                                 Profile
@@ -77,7 +77,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar, Logout,LogoutClicke
                             <Link
                                 onClick={Toogle_Menu_Bar}
                                 to={"/Notifications"}
-                                className="w-[170px] flex mb-4 "
+                                className=" flex mb-4 "
                             >
                                 <MdNotificationsNone className=" text-3xl" />
                                 Notifications
@@ -105,7 +105,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar, Logout,LogoutClicke
                     )}
 
                     <div
-                        className="w-[155px] flex gap-2 mb-4 "
+                        className=" flex gap-2 mb-4 "
                         onClick={() => {
                             Toogle_Menu_Bar();
                             handleSettingsClick();
@@ -118,7 +118,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar, Logout,LogoutClicke
                     <Link
                         onClick={Toogle_Menu_Bar}
                         to={"/Services"}
-                        className="w-[155px] flex gap-2  mb-4 "
+                        className=" flex gap-2  mb-4 "
                     >
                         <FaRegHandshake className=" text-3xl" />
                         Services
@@ -126,7 +126,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar, Logout,LogoutClicke
                     <Link
                         onClick={Toogle_Menu_Bar}
                         to={"/Courses"}
-                        className="w-[165px] flex  gap-2  mb-4"
+                        className=" flex  gap-2  mb-4"
                     >
                         <FaBookReader className=" text-3xl" />
                         Courses
@@ -135,7 +135,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar, Logout,LogoutClicke
                     <Link
                         onClick={Toogle_Menu_Bar}
                         to={"/Events"}
-                        className="w-[155px] flex  gap-2 mb-4"
+                        className=" flex  gap-2 mb-4"
                     >
                         <MdEventAvailable className=" text-3xl" />
                         Events
@@ -143,7 +143,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar, Logout,LogoutClicke
                     <Link
                         onClick={Toogle_Menu_Bar}
                         to={"/Blogs"}
-                        className="w-[155px] flex  gap-2 mb-4"
+                        className=" flex  gap-2 mb-4"
                     >
                         <RiArticleFill className=" text-3xl" />
                         Blogs
@@ -151,7 +151,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar, Logout,LogoutClicke
                     <Link
                         onClick={Toogle_Menu_Bar}
                         to={"/Contact"}
-                        className="w-[155px] flex  gap-2 "
+                        className=" flex  gap-2 "
                     >
                         <IoCall className=" text-3xl" />
                         Contact
@@ -160,7 +160,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar, Logout,LogoutClicke
                         <>
                             {!LogoutClicked ? (
                                 <div
-                                    className="text-red-600 w-[155px]  flex items-center gap-2 mt-12 "
+                                    className="text-red-600   flex items-center gap-2 mt-4 "
                                     onClick={() => {
                                         Logout();
                                     }}
@@ -169,16 +169,16 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar, Logout,LogoutClicke
                                     Logout
                                 </div>
                             ) : (
-                                <div className=" w-full flex items-center justify-center mt-12 text-red-600">
+                                <div className=" w-full flex items-center justify-center mt-4  text-red-600">
                                     <span className="small-loader"></span>
                                 </div>
                             )}
                         </>
                     ) : null}
                 </div>
-                {isAuth ? (
+                {/* {isAuth ? (
                     <div
-                        className="text-red-600  flex items-center justify-center gap-2 mt-10 "
+                        className="text-red-600  flex items-center justify-center gap-2  "
                         onClick={() => {
                             Logout();
                         }}
@@ -186,7 +186,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar, Logout,LogoutClicke
                         <TbLogout />
                         Logout
                     </div>
-                ) : null}
+                ) : null} */}
             </div>
         </div>
     );
