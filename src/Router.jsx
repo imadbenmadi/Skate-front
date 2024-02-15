@@ -14,6 +14,7 @@ import Service_item from "./Components/Servicecs/Service_item";
 import Events from "./Components/Events/Events";
 import Events_item from "./Components/Events/Events_item";
 import Contact from "./Components/Contact/Contact";
+import VerifyEmail from "./Components/Verify_email/Verify_email";
 
 import Profile from "./Components/Profile/Profile";
 import Info from "./Components/Profile/Info";
@@ -24,7 +25,13 @@ import UserCourses from "./Components/Profile/UserCourses";
 import Not_Found from "./Components/Not_Found";
 import Dashboard from "./Dashboard/Dashboard";
 import Dashboard_Login from "./Dashboard/Dashboard_Login";
-import VerifyEmail from "./Components/Verify_email/Verify_email";
+import Dashboard_home from "./Dashboard/Dashboard_home/Dashboard_home";
+import Dashboard_Users from "./Dashboard/Dashboard_Users/Dashboard_Users";
+import Dashboard_Services from "./Dashboard/Dashboard_Services/Dashboard_Services";
+import Dashboard_Courses from "./Dashboard/Dashboard_Courses/Dashboard_Courses";
+import Dashboard_Events from "./Dashboard/Dashboard_Events/Dashboard_Events";
+import Dashboard_Blogs from "./Dashboard/Dashboard_Blogs/Dashboard_Blogs";
+
 const routes = createBrowserRouter([
     {
         path: "/",
@@ -73,7 +80,18 @@ const routes = createBrowserRouter([
     {
         path: "/Dashboard",
         element: <Dashboard />,
-        // children: [{ path: "/Dashboard/Login", element: <Dashboard_Login /> }],
+        children: [
+            { index: true, element: <Dashboard_home /> },
+            { path: "/Dashboard/Users", element: <Dashboard_Users /> },
+            { path: "/Dashboard/Services", element: <Dashboard_Services /> },
+            { path: "/Dashboard/Courses", element: <Dashboard_Courses /> },
+            { path: "/Dashboard/Events", element: <Dashboard_Events /> },
+            { path: "/Dashboard/Blogs", element: <Dashboard_Blogs /> },
+            {
+                path: "*",
+                element: <Not_Found />,
+            },
+        ],
     },
     {
         path: "/Dashboard_Login",

@@ -1,4 +1,4 @@
-import React,{useEffect} from "react";
+import React, { useEffect } from "react";
 import logo from "../../../public/skate_circle.png";
 import { MdSpaceDashboard } from "react-icons/md";
 import { HiMiniUsers } from "react-icons/hi2";
@@ -7,10 +7,11 @@ import { FaHandshake } from "react-icons/fa6";
 import { FaCalendarCheck } from "react-icons/fa6";
 import { IoIosPaper } from "react-icons/io";
 import { useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 function Navbar({ Active_nav, setActive_nav }) {
     const location = useLocation();
     useEffect(() => {
-        console.log(location.pathname.split("/")[2]);
+        setActive_nav(location.pathname.split("/")[2]);
     }, [location.pathname]);
     return (
         <div className=" w-full h-full overflow-auto">
@@ -24,30 +25,60 @@ function Navbar({ Active_nav, setActive_nav }) {
             {/* nav items */}
 
             <div className=" w-[95%]  md:w-[80%] m-auto text-white text-sm md:text-xl  lg:text-2xl flex flex-col gap-10 mt-8">
-                <div className={` flex items-center cursor-pointer ${Active_nav && "text-green"}`}>
+                <Link
+                    to={"/Dashboard"}
+                    className={` flex items-center cursor-pointer ${
+                        !location.pathname.split("/")[2] && "text-green "
+                    }`}
+                >
                     <MdSpaceDashboard />
                     <div>Dashboard</div>
-                </div>
-                <div className={` flex items-center gap-3 cursor-pointer ${Active_nav && "text-green"}`}>
+                </Link>
+                <Link
+                    to={"/Dashboard/Users"}
+                    className={` flex items-center gap-3 cursor-pointer ${
+                        Active_nav == "Users" && "text-green"
+                    }`}
+                >
                     <HiMiniUsers />
                     <div>Users</div>
-                </div>
-                <div className={` flex items-center gap-3 cursor-pointer ${Active_nav && "text-green"}`}>
+                </Link>
+                <Link
+                    to={"/Dashboard/Services"}
+                    className={` flex items-center gap-3 cursor-pointer ${
+                        Active_nav == "Services" && "text-green"
+                    }`}
+                >
                     <FaHandshake />
                     <div>Services</div>
-                </div>
-                <div className={` flex items-center gap-3 cursor-pointer ${Active_nav && "text-green"}`}>
+                </Link>
+                <Link
+                    to={"/Dashboard/Courses"}
+                    className={` flex items-center gap-3 cursor-pointer ${
+                        Active_nav == "Courses" && "text-green"
+                    }`}
+                >
                     <FaBook />
                     <div>Courses</div>
-                </div>
-                <div className={` flex items-center gap-3 cursor-pointer ${Active_nav && "text-green"}`}>
+                </Link>
+                <Link
+                    to={"/Dashboard/Events"}
+                    className={` flex items-center gap-3 cursor-pointer ${
+                        Active_nav == "Events" && "text-green"
+                    }`}
+                >
                     <FaCalendarCheck />
                     <div>Events</div>
-                </div>
-                <div className={` flex items-center gap-3 cursor-pointer ${Active_nav && "text-green"}`}>
+                </Link>
+                <Link
+                    to={"/Dashboard/Blogs"}
+                    className={` flex items-center gap-3 cursor-pointer ${
+                        Active_nav == "Blogs" && "text-green"
+                    }`}
+                >
                     <IoIosPaper />
                     <div>Blogs</div>
-                </div>
+                </Link>
             </div>
         </div>
     );
