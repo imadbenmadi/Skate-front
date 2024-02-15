@@ -93,7 +93,6 @@ function App() {
         }
     };
     useEffect(() => {
-        console.log("exuted");
         fetchData();
     }, [isAuth]);
     // useEffect(() => {
