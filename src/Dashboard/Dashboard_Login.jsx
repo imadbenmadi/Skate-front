@@ -21,42 +21,22 @@ function Dashboard_Login() {
     async function handle_Admin_Login(values, { setSubmitting }) {
         try {
             let response = await Axios.post(
-                "http://localhost:3000/Login",
+                "http://localhost:3000/Dashboard/Login",
                 values,
                 {
                     withCredentials: true,
-
                     validateStatus: () => true,
                 }
             );
 
             if (response.status === 200) {
                 Swal.fire("Done!", "Logged in Successfully", "success");
-                // const FirstName = response.data.userData.FirstName;
-                // const LastName = response.data.userData.LastName;
-                // const Email = response.data.userData.Email;
-                // const Gender = response.data.userData.Gender;
-
-                // const Age = response.data.userData.Age;
-                // const Courses = response.data.userData.Courses;
-                // const _id = response.data.userData._id;
-
-                // store_login(
-                //     FirstName,
-                //     LastName,
-                //     Email,
-                //     Gender,
-                //     Age,
-                //     Courses,
-                //     _id
-                // );
-
-                Navigate("/");
+                Navigate("/Dashboard");
             } else if (response.status === 401) {
                 console.log(response.data.error);
                 Swal.fire(
-                    "Email already exists",
-                    `Please try to use another Email , ${response.data.error}`,
+                    "Unauthorized!",
+                    `wrong email or password , ${response.data.error}`,
                     "error"
                 );
             } else if (response.status === 409) {

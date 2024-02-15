@@ -73,7 +73,7 @@ const routes = createBrowserRouter([
     {
         path: "/Dashboard",
         element: <Dashboard />,
-        children: [{ path: "/Dashboard", element: <Dashboard_Login /> }],
+        children: [{ path: "/Dashboard/Login", element: <Dashboard_Login /> }],
     },
     {
         path: "/Login",
