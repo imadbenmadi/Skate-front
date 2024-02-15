@@ -3,12 +3,11 @@ import NavBar from "./Navbar/Navbar";
 import { Outlet, useNavigate } from "react-router";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Activate_account from "../Components/Alerts/Activate_account";
-import { Navigate } from "react-router";
+
 function Dashboard() {
     const Navigate = useNavigate();
     const [loading, setLoading] = useState(false);
-
+    const [Active_nav , setActive_nav] = useState(null)
     const [Auth, setAuth] = useState(false);
     const fetchData = async () => {
         setLoading(true);
@@ -53,7 +52,10 @@ function Dashboard() {
         return (
             <div className=" flex">
                 <div className=" w-[20%] bg-black h-screen">
-                    <NavBar />
+                    <NavBar
+                        Active_nav={Active_nav}
+                        setActive_nav={setActive_nav}
+                    />
                 </div>
                 <div className="w-[80%] h-screen bg-green">
                     <Outlet />
