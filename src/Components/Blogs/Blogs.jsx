@@ -55,7 +55,7 @@ function Blogs() {
                     <span className="loader"></span>
                 </div>
             ) : (
-                <div className="pt-[90px]">
+                <div className="overflow-auto custom-overflow pt-[90px]">
                     <div className=" flex flex-col md:flex-row justify-between items-center mx-16 mb-2 font-semibold text-gray w-300px">
                         <div className=" text-2xl w-screen md:w-fit text-center lg:text-3xl mb-2 ">
                             <span className=" text-green2">Read </span>
@@ -85,7 +85,10 @@ function Blogs() {
                             </div>
                         ) : search === "" ? (
                             blogs.map((blog) => (
-                                <div key={blog._id} className="w-[90vw] m-auto ">
+                                <div
+                                    key={blog._id}
+                                    className="w-[90vw] m-auto "
+                                >
                                     <Card blog={blog} />
                                 </div>
                             ))
@@ -95,7 +98,10 @@ function Blogs() {
                             </div>
                         ) : (
                             filteredblogs.map((blog) => (
-                                <div key={blog._id} className="w-[80vw] m-auto ">
+                                <div
+                                    key={blog._id}
+                                    className="w-[80vw] m-auto "
+                                >
                                     <Card blog={blog} />
                                 </div>
                             ))

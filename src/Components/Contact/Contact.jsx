@@ -9,7 +9,7 @@ function Contact() {
   const Navigate = useNavigate();
     const { isAuth, _id } = useAppContext();
     return (
-        <div className=" pt-16 ">
+        <div className="overflow-auto custom-overflow pt-16 ">
             <div>
                 <img className=" w-20 m-auto pt-5 " src={Logo} alt="" />
             </div>
@@ -141,7 +141,7 @@ function Contact() {
                     )}
                 </Formik>
             </div>
-            <Links/>
+            <Links />
         </div>
     );
 }
