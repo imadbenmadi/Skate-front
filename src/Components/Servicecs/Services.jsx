@@ -3,7 +3,7 @@ import { useAppContext } from "../../Context/AppContext";
 import Current_Services from "./Current/Current_Services";
 import Explore from "./Explore/Explore";
 import axios from "axios";
-
+import ErrorPage from "../ErrorPage";
 function Services() {
     const [loading, setLoading] = useState(false);
     const [services, setServices] = useState([]);

@@ -4,6 +4,8 @@ import Filter from "./Filter";
 import ExploreServices from "./ExploreServices";
 import { useState } from "react";
 import Mobile_Filter from "./Mobile_Filter";
+import { IoWarning } from "react-icons/io5";
+
 function Explore({ services }) {
     const [search, setSearch] = useState("");
     const [filter, setFilter] = useState([]);
@@ -28,20 +30,34 @@ function Explore({ services }) {
                 <div className="hidden md:block w-[20%] bg-gray_white">
                     <Filter filter={filter} setFilter={setFilter} />
                 </div>
-                <div className=" w-[80%] overflow-y-auto ">
+                {services.length == 0 ? (
+                    <div className=" w-[80%] h-fit text-center pt-6 flex gap-1 text-2xl justify-center items-center text-gray">
+                        <IoWarning />
+                        No Services Founded
+                    </div>
+                ) : (
+                    <div className=" w-[80%] overflow-y-auto ">
+                        <ExploreServices
+                            search={search}
+                            filter={filter}
+                            services={services}
+                        />
+                    </div>
+                )}
+            </div>
+            <div className="md:hidden">
+                {services.length == 0 ? (
+                    <div className=" w-[80%] m-auto h-fit text-center pt-6 flex gap-1 text-2xl justify-center items-center text-gray">
+                        <IoWarning />
+                        No Services Founded
+                    </div>
+                ) : (
                     <ExploreServices
                         search={search}
                         filter={filter}
                         services={services}
                     />
-                </div>
-            </div>
-            <div className="md:hidden">
-                <ExploreServices
-                    search={search}
-                    filter={filter}
-                    services={services}
-                />
+                )}
             </div>
         </div>
     );

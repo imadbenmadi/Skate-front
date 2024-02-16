@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import Card from "./Card";
 import axios from "axios";
+import { IoWarning } from "react-icons/io5";
 
 function event() {
     const [loading, setLoading] = useState(false);
@@ -77,7 +78,12 @@ function event() {
                     </div>
 
                     <div className="">
-                        {search === "" ? (
+                        {event.length == 0 ? (
+                            <div className=" w-[80%] m-auto h-fit text-center pt-6 flex gap-1 text-2xl justify-center items-center text-gray">
+                                <IoWarning />
+                                No Events Founded
+                            </div>
+                        ) : search === "" ? (
                             event.map((event) => (
                                 <div
                                     key={event._id}

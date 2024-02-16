@@ -4,6 +4,8 @@ import Filter from "./Filter";
 import ExploreCourses from "./ExploreCourses";
 import Mobile_Filter from "./Mobile_Filter";
 import { useState } from "react";
+import { IoWarning } from "react-icons/io5";
+
 function Explore({ courses }) {
     const [search, setSearch] = useState("");
     const [filter, setFilter] = useState([])
@@ -26,24 +28,34 @@ function Explore({ courses }) {
                 <div className="hidden md:block w-[20%] bg-gray_white">
                     <Filter filter={filter} setFilter={setFilter} />
                 </div>
-
-                <div
-                    className=" w-[80%] overflow-y-auto 
-                "
-                >
+                {courses.length == 0 ? (
+                    <div className=" w-[80%] h-fit text-center pt-6 flex gap-1 text-2xl justify-center items-center text-gray">
+                        <IoWarning />
+                        No Courses Founded
+                    </div>
+                ) : (
+                    <div className=" w-[80%] overflow-y-auto ">
+                        <ExploreCourses
+                            search={search}
+                            filter={filter}
+                            courses={courses}
+                        />
+                    </div>
+                )}
+            </div>
+            <div className="md:hidden">
+                {courses.length == 0 ? (
+                    <div className=" w-[80%] m-auto h-fit text-center pt-6 flex gap-1 text-2xl justify-center items-center text-gray">
+                        <IoWarning />
+                        No Courses Founded
+                    </div>
+                ) : (
                     <ExploreCourses
                         search={search}
                         filter={filter}
                         courses={courses}
                     />
-                </div>
-            </div>
-            <div className="md:hidden">
-                <ExploreCourses
-                    search={search}
-                    filter={filter}
-                    courses={courses}
-                />
+                )}
             </div>
         </div>
     );

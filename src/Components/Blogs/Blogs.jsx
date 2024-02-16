@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import { IoSearchOutline } from "react-icons/io5";
 import Card from "./Card";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { IoWarning } from "react-icons/io5";
 
 function Blogs() {
     const [loading, setLoading] = useState(false);
@@ -78,7 +78,12 @@ function Blogs() {
                     </div>
 
                     <div className="">
-                        {search === "" ? (
+                        {blogs.length == 0 ? (
+                            <div className=" w-[80%] m-auto h-fit text-center pt-6 flex gap-1 text-2xl justify-center items-center text-gray">
+                                <IoWarning />
+                                No Events Founded
+                            </div>
+                        ) : search === "" ? (
                             blogs.map((blog) => (
                                 <div key={blog._id} className="w-[90vw] m-auto ">
                                     <Card blog={blog} />
