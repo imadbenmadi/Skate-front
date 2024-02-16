@@ -57,7 +57,7 @@ function Dashboard() {
                         setActive_nav={setActive_nav}
                     />
                 </div>
-                <div className="w-[80%] h-screen bg-green">
+                <div className="w-[80%] h-screen bg-gray_white pt-6">
                     <Outlet />
                 </div>
             </div>
