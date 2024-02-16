@@ -14,7 +14,7 @@ function Navbar({ Active_nav, setActive_nav }) {
         setActive_nav(location.pathname.split("/")[2]);
     }, [location.pathname]);
     return (
-        <div className=" w-full h-full overflow-auto">
+        <div className=" w-full h-full overflow-auto custom-overflow">
             <div className=" flex gap-3 items-center text-xl md:text-4xl text-green justify-center pt-4 ">
                 <div>
                     <img src={logo} alt="logo" className=" w-8 md:w-12" />

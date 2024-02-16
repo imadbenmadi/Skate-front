@@ -34,7 +34,7 @@ function Explore({ courses }) {
                         No Courses Founded
                     </div>
                 ) : (
-                    <div className=" w-[80%] overflow-y-auto ">
+                    <div className=" w-[80%] overflow-y-auto custom-overflow ">
                         <ExploreCourses
                             search={search}
                             filter={filter}

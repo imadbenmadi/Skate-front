@@ -34,7 +34,7 @@ const Notifications_items = () => {
                     </div>
                 ) : (
                     <>
-                        <div className=" overflow-y-auto h-80">
+                        <div className=" overflow-y-auto custom-overflow h-80">
                             {Notifications.sort((a, b) => {
                                 if (a.Readed !== b.Readed) {
                                     return a.Readed ? 1 : -1; // Unread notifications first

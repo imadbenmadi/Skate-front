@@ -5,9 +5,9 @@ function Current_Courses({ userCourses }) {
     return userCourses.length !== 0 ? (
         <div>
             <div>Your Current Courses : </div>
-            <div className="flex gap-4 w-screen overflow-auto">
-          {userCourses.map((item) => {
-                  <Card/>
+            <div className="flex gap-4 w-screen overflow-auto custom-overflow">
+                {userCourses.map((item) => {
+                    <Card />;
                 })}
             </div>
         </div>

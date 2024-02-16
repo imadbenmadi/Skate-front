@@ -36,7 +36,7 @@ function Explore({ services }) {
                         No Services Founded
                     </div>
                 ) : (
-                    <div className=" w-[80%] overflow-y-auto ">
+                    <div className=" w-[80%] overflow-y-auto custom-overflow ">
                         <ExploreServices
                             search={search}
                             filter={filter}

@@ -4,7 +4,7 @@ import { FaPen } from "react-icons/fa";
 function Users_Table({ users }) {
     console.log("users", users);
     return (
-        <div className="relative overflow-auto shadow-md  mt-[20px] h-[calc(100vh-66px)] border-t-2">
+        <div className="relative overflow-auto custom-overflow shadow-md  mt-[20px] h-[calc(100vh-66px)] border-t-2">
             <table className="w-full text-sm  rtl:text-right  text-black_text ">
                 <thead className="text-xs uppercase  text-center   h-[40px]">
                     <tr>
