@@ -7,8 +7,10 @@ import axios from "axios";
 function Dashboard() {
     const Navigate = useNavigate();
     const [loading, setLoading] = useState(false);
-    const [Active_nav , setActive_nav] = useState(null)
+    const [Active_nav, setActive_nav] = useState(null);
     const [Auth, setAuth] = useState(false);
+    // const [users, setUsers] = useState(null);
+
     const fetchData = async () => {
         setLoading(true);
 
@@ -34,8 +36,6 @@ function Dashboard() {
             setAuth(false);
             setLoading(false);
             Navigate("/Dashboard_Login");
-
-            // return;
         }
     };
     useEffect(() => {
@@ -57,7 +57,7 @@ function Dashboard() {
                         setActive_nav={setActive_nav}
                     />
                 </div>
-                <div className="w-[80%] h-screen bg-gray_white pt-6">
+                <div className="w-[80%] h-screen  pt-6">
                     <Outlet />
                 </div>
             </div>
