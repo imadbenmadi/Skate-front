@@ -47,7 +47,7 @@ function Dashboard_Users() {
             </div>
         );
     return (
-        <div>
+        <>
             <div className=" flex  justify-around">
                 <div className=" flex items-center">
                     <Filter />
@@ -73,7 +73,7 @@ function Dashboard_Users() {
             <div>
                 {open_add_user ? <Add_user /> : <Users_Table users={users} />}
             </div>
-        </div>
+        </>
     );
 }
 
