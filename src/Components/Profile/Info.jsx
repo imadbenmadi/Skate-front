@@ -1,15 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import avater from "../../../public/Founder.png";
+import menu from "../../../public/icons8-menu-50.png";
 function Info() {
+  const [isOpen, setIsOpen] =useState(false)
   return (
     <div className="flex flex-col px-5 md:px-10 ">
       <div className="flex gap-5 justify-between w-full text-3xl font-semibold text-black max-md:flex-wrap max-md:max-w-full max-md:text-4xl">
-        <div className="flex-auto my-auto max-md:text-4xl">Edit profile</div>
-        <img
+ 
+        <div className="  max-md:text-4xl">Edit profile</div>
+        {/* <img
           loading="lazy"
           src={avater}
           className="max-w-full rounded-full aspect-square w-[120px]"
-        />
+        /> */}
       </div>
       <div className="mt-10 w-full max-md:mt-10 max-md:max-w-full">
         <div className="flex gap-5 max-md:flex-col max-md:gap-0 max-md:">
