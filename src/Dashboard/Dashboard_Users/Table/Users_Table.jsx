@@ -3,7 +3,6 @@ import { FaPen } from "react-icons/fa";
 import { IoWarning } from "react-icons/io5";
 import { Link } from "react-router-dom";
 function Users_Table({ users }) {
-    console.log("users", users);
     if (users === null || users === undefined) {
         return null;
     }

@@ -15,7 +15,6 @@ export async function handleRegistration(
         );
 
         if (response.status === 401) {
-            console.log(response.data.error);
             Swal.fire(
                 "Email already exists",
                 `Please try to use another Email , ${response.data.error}`,
@@ -31,35 +30,30 @@ export async function handleRegistration(
             //     "success"
             // );
         } else if (response.status === 400) {
-            console.log(response.data.error);
             Swal.fire(
                 "Error!",
                 `Internal server error.${response.data.error}`,
                 "error"
             );
         } else if (response.status === 409) {
-            console.log(response.data.error);
             Swal.fire(
                 "Error!",
                 `Missing Data ,  ${response.data.error}`,
                 "error"
             );
         } else if (response.status === 429) {
-            console.log(response.data.error);
             Swal.fire(
                 "Error!",
                 `warning! you created lot of accounts in 3mins , ${response.data.error}`,
                 "error"
             );
         } else if (response.status === 500) {
-            console.log(response.data.error);
             Swal.fire(
                 "Error!",
                 `Internal server error.${response.data.error}`,
                 "error"
             );
         } else {
-            console.log(response.data.error);
             Swal.fire(
                 "Error!",
                 `Something Went Wrong. Please try again , ${response.data.error}`,
@@ -67,7 +61,6 @@ export async function handleRegistration(
             );
         }
     } catch (error) {
-        console.error("Error during registration:", error.message);
         Swal.fire(
             "Error!",
             `Something Went Wrong. Please try again , ${error.message}`,

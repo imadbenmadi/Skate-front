@@ -74,7 +74,6 @@ function App() {
                 // return;
             }
         } catch (error) {
-            console.log("error in the front end : ", error);
             store_login({
                 FirstName: "",
                 LastName: "",
@@ -95,11 +94,7 @@ function App() {
     useEffect(() => {
         fetchData();
     }, [isAuth]);
-    // useEffect(() => {
-    //     console.log("exuted");
-
-    //     fetchData();
-    // }, []);
+   
 
     return (
         <div>

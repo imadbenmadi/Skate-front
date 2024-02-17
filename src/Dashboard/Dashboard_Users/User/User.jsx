@@ -25,12 +25,10 @@ function User() {
             );
             if (response.status === 200) {
                 setUser(response.data);
-                console.log("user : ", user);
             } else {
                 setError(response.data);
             }
         } catch (error) {
-            console.log("error in the front end : ", error);
             setError(error);
         }
         setLoading(false);

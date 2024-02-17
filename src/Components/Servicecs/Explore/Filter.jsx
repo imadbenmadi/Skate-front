@@ -15,7 +15,6 @@ function Filter({ filter, setFilter }) {
         }
 
         setFilter(newfilter); // Update the filter state in the parent component
-        console.log(newfilter);
     };
 
     return (

@@ -30,35 +30,30 @@ function Login() {
                 Swal.fire("Done!", "Logged in Successfully", "success");
                 Navigate("/");
             } else if (response.status === 401) {
-                console.log(response.data.error);
                 Swal.fire(
                     "Email already exists",
                     `Username or Password isn't correct , ${response.data.error}`,
                     "error"
                 );
             } else if (response.status === 409) {
-                console.log(response.data.error);
                 Swal.fire(
                     "Error!",
                     `Missing Data ,  ${response.data.error}`,
                     "error"
                 );
             } else if (response.status === 500) {
-                console.log(response.data.error);
                 Swal.fire(
                     "Error!",
                     `Internal Server Error ,  ${response.data.error}`,
                     "error"
                 );
             } else if (response.status === 429) {
-                console.log("Too many requests");
                 Swal.fire(
                     "Error!",
                     `Too many requests ,try again latter\n  ${response.data.error}`,
                     "error"
                 );
             } else {
-                console.log(response.data.error);
                 Swal.fire(
                     "Error!",
                     `Something Went Wrong ,${response.data.error}`,
@@ -66,7 +61,6 @@ function Login() {
                 );
             }
         } catch (error) {
-            console.error("Error during Login:", error);
             Swal.fire(
                 "Error!",
                 `Something Went Wrong ,${error.message}`,

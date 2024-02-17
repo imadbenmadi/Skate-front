@@ -50,12 +50,6 @@ function Verification({
         if (response.status === 200) {
             Swal.fire("Done!", "Email Verified Successfully", "success");
             try {
-                console.log(
-                    "Login data : Email",
-                    Verify_email,
-                    "Password  : ",
-                    Verify_Password
-                );
                 let response = await Axios.post(
                     "http://localhost:3000/Login",
                     {
@@ -71,34 +65,27 @@ function Verification({
                     setSucced_Login(true);
                     setSucced_verification(true);
                 } else if (response.status === 401) {
-                    console.log(response.data.error);
                     setSucced_verification(true);
                 } else if (response.status === 409) {
-                    console.log(response.data.error);
                     setSucced_verification(true);
                 } else if (response.status === 500) {
-                    console.log(response.data.error);
                     setSucced_verification(true);
                 } else if (response.status === 429) {
-                    console.log("Too many requests");
                     Swal.fire(
                         "Error!",
                         `Too many requests ,try again latter\n  ${response.data.error}`,
                         "error"
                     );
                 } else {
-                    console.log(response.data.error);
                     setSucced_verification(true);
                 }
             } catch (error) {
-                console.error("Error during Login:", error.message);
             }
         } else if (response.status === 401) {
             Swal.fire("Error!", "Invalid Code", "error");
         } else if (response.status === 500) {
             Swal.fire("Error!", "Internal Server Error", "error");
         } else if (response.status === 429) {
-            console.log("Too many requests");
             Swal.fire(
                 "Error!",
                 `Too many requests ,try again latter\n  ${response.data.error}`,
@@ -107,8 +94,6 @@ function Verification({
         } else {
             Swal.fire("Error!", "Something Went Wrong", "error");
         }
-        console.log(response);
-        // Reset the code after submission (optional)
         setCode("");
     };
     const Sended_Date = Formate_Date(rigester_Date);

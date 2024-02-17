@@ -15,7 +15,6 @@ function ExploreServices({ search, filter, services }) {
         return (
             <div className=" ">
                 {services.map((service, index) => (
-                    // console.log("service inside map: ", )
                     <div key={index} className="w-full ">
                         <Card service={service} />
                     </div>

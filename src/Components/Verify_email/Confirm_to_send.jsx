@@ -22,12 +22,10 @@ function Confirm_to_send({ setConfirm_to_send_state, startResendTimer }) {
                 }
             );
             if (response.status === 200) {
-                console.log("Email sent successfully");
                 setloading_toSend(false);
                 startResendTimer();
                 setConfirm_to_send_state(true);
             } else if (response.status === 429) {
-                console.error("Error sending email");
                 Swal.fire(
                     "Error!",
                     "Error sending email , Too many Requests",
@@ -35,7 +33,6 @@ function Confirm_to_send({ setConfirm_to_send_state, startResendTimer }) {
                 );
                 setloading_toSend(false);
             } else if (response.status === 401) {
-                console.error("Error sending email");
                 Swal.fire(
                     "Error!",
                     "Error sending email , Unauthorized",
@@ -44,7 +41,6 @@ function Confirm_to_send({ setConfirm_to_send_state, startResendTimer }) {
                 setloading_toSend(flase);
             }
         } catch (error) {
-            console.error("Error sending email:", error);
             Swal.fire("Error!", "Error sending email", "error");
             setloading_toSend(false);
         }

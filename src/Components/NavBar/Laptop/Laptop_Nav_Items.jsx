@@ -46,9 +46,7 @@ function Laptop_Nav_Items({
             preConfirm: () => {
                 const language = document.getElementById("language").value;
                 const darkMode = document.getElementById("darkMode").checked;
-                // You can handle language and dark mode settings here
-                console.log("Selected language:", language);
-                console.log("Dark mode enabled:", darkMode);
+                
             },
         });
     };

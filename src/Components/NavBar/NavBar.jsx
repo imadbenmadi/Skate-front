@@ -41,7 +41,6 @@ function NavBar({ Active_nav, setActive_nav }) {
 
             if (response.status === 204) {
                 // Successfully logged out, you may want to redirect to the login page or update the UI accordingly
-                console.log("Logged out successfully");
                 store_login({
                     FirstName: "",
                     LastName: "",
@@ -55,18 +54,15 @@ function NavBar({ Active_nav, setActive_nav }) {
 
                 // You can use state or context to handle the logout state in your application
             } else if (response.status === 429) {
-                console.log("Too many requests");
                 Swal.fire(
                     "Error!",
                     `Too many requests ,try again latter\n  ${response.data.error}`,
                     "error"
                 );
             } else {
-                console.error("Failed to log out");
                 // Handle the case where the server failed to log out the user
             }
         } catch (error) {
-            console.error("An unexpected error occurred during logout", error);
             // Handle unexpected errors during logout
         }
         setLogoutClicked(false);

@@ -37,7 +37,6 @@ function Table() {
             }
         } catch (error) {
             setError(error);
-            console.log("error in the front end : ", error);
         }
         setLoading(false);
     };

@@ -25,13 +25,10 @@ function Event_item() {
 
             if (response.status === 200) {
                 setevent(response.data);
-                console.log(event);
             } else {
-                console.log(response.data);
                 setError(true);
             }
         } catch (error) {
-            console.log(error);
             setError(true);
         } finally {
             setLoading(false); // Set loading state to false regardless of success or failure

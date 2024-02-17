@@ -7,7 +7,6 @@ function Search({ setSearch }) {
         if (searchInput) {
             setSearch(searchInput.value);
         }
-        console.log(searchInput.value);
     };
     return (
         <div className=" flex border-2 md:mr-10">

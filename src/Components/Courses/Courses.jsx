@@ -22,7 +22,6 @@ function Courses() {
             if (response.status === 200) {
                 setCourses(response.data);
             } else {
-                console.log(response.data);
                 setError(response.data);
             }
             if (isAuth) {
@@ -40,14 +39,11 @@ function Courses() {
 
                 if (response.status === 200) {
                     setUserCourses(response.data);
-                    console.log("userCourses : ", userCourses);
                 } else {
-                    console.log(response.data);
                     setError(response.data);
                 }
             }
         } catch (error) {
-            console.log(error);
             setError(error);
         } finally {
             setLoading(false); // Set loading state to false regardless of success or failure

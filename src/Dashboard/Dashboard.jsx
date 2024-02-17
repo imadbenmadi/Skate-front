@@ -32,7 +32,6 @@ function Dashboard() {
                 Navigate("/Dashboard_Login");
             }
         } catch (error) {
-            console.log("error in the front end : ", error);
             setAuth(false);
             setLoading(false);
             Navigate("/Dashboard_Login");
@@ -40,7 +39,6 @@ function Dashboard() {
     };
     useEffect(() => {
         fetchData();
-        console.log(Auth);
     }, [Auth]);
     if (loading)
         return (

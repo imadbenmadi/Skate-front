@@ -27,10 +27,7 @@ function Verify_email() {
                     setError(response);
                 }
             } catch (error) {
-                console.error(
-                    "Error getting email verification status:",
-                    error
-                );
+                
             }
             setLoading(false);
         };
@@ -38,7 +35,6 @@ function Verify_email() {
         getEmailVerificationStatus();
     }, []);
 
-    // console.log(Email, _id);
     const [RemainingSeconds, setRemainingSeconds] = useState(0);
     const [ResendLoading, setResendLoading] = useState(false);
     const [SubmitLoading, setSubmitLoading] = useState(false);
@@ -98,7 +94,6 @@ function Verify_email() {
         } else if (response.status === 409) {
             Swal.fire("Error!", response.data.error, "error");
         } else if (response.status === 429) {
-            console.log("Too many requests");
             Swal.fire(
                 "Error!",
                 `Too many requests ,try again latter\n  ${response.data.error}`,
@@ -107,7 +102,6 @@ function Verify_email() {
         } else {
             Swal.fire("Error!", "Something Went Wrong", "error");
         }
-        console.log(response);
         setSubmitLoading(false);
         setCode("");
     };
@@ -136,7 +130,6 @@ function Verify_email() {
         } else if (response.status === 400) {
             Swal.fire("Error!", "Internal Server Error", "error");
         } else if (response.status === 429) {
-            console.log("Too many requests");
             Swal.fire(
                 "Error!",
                 `Too many requests ,try again latter\n  ${response.data.error}`,
@@ -145,7 +138,6 @@ function Verify_email() {
         } else {
             Swal.fire("Error!", "Something Went Wrong", "error");
         }
-        console.log(response);
         setResendLoading(false);
         setCode("");
     };

@@ -13,7 +13,6 @@ import { FaMessage } from "react-icons/fa6";
 
 function Default() {
     const user = useOutletContext()
-    console.log("passing data throw context :",user);
     const location = useLocation();
     const Navigate = useNavigate();
     const userId = location.pathname.split("/")[3];
@@ -62,7 +61,6 @@ function Default() {
                 );
             }
         } catch (error) {
-            console.log(error);
         }
     }
     

@@ -2,7 +2,6 @@ import Axios from "axios";
 import Swal from "sweetalert2";
 
 export async function handleContact(values, { setSubmitting, onSuccess }) {
-    console.log(values);
     try {
         let response = await Axios.post(
             "http://localhost:3000/Contact",
@@ -21,28 +20,24 @@ export async function handleContact(values, { setSubmitting, onSuccess }) {
                 "success"
             );
         } else if (response.status === 400) {
-            console.log(response);
             Swal.fire(
                 "Error!",
                 `Internal server error.${response.data.error}`,
                 "error"
             );
         } else if (response.status === 409) {
-            console.log(response.data.error);
             Swal.fire(
                 "Error!",
                 `Missing Data ,  ${response.data.error}`,
                 "error"
             );
         } else if (response.status === 429) {
-            console.log("Too many requests");
             Swal.fire(
                 "Error!",
                 `Too many requests ,try again latter\n  ${response.data.error}`,
                 "error"
             );
         } else {
-            console.log(response.data.error);
             Swal.fire(
                 "Error!",
                 `Something Went Wrong. Please try again , ${response.data.error}`,
@@ -50,7 +45,6 @@ export async function handleContact(values, { setSubmitting, onSuccess }) {
             );
         }
     } catch (error) {
-        console.error("Error during registration:", error.message);
         Swal.fire(
             "Error!",
             `Something Went Wrong. Please try again , ${error.message}`,

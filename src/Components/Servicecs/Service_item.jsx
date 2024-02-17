@@ -63,7 +63,6 @@ function ServiceItem() {
                 swal.fire("error", "request not sent", "error");
             }
         } catch (error) {
-            console.log(error);
         }
     };
     const fetchservice = async () => {
@@ -82,13 +81,10 @@ function ServiceItem() {
 
             if (response.status === 200) {
                 setservice(response.data);
-                console.log(service);
             } else {
-                console.log(response.data);
                 setError(true);
             }
         } catch (error) {
-            console.log(error);
             setError(true);
         } finally {
             setLoading(false); // Set loading state to false regardless of success or failure

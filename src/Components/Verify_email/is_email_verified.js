@@ -13,7 +13,6 @@ export const fetchEmailVerificationStatus = async (_id) => {
         );
         return response.data;
     } catch (error) {
-        console.log("error getting email verification status !", error);
         return error;
     }
 };
