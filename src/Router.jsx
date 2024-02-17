@@ -106,19 +106,10 @@ const routes = createBrowserRouter([
                         children: [
                             { index: true, element: <Default_user /> },
                             { path: "/Dashboard/Users/:id/Edit", element: <Edit_user /> },
-
-                            // {
-                            //     path: "/Dashboard/Users/:id/Notifications",
-                            //     element: <UserNotifications />,
-                            // },
-                            // {
-                            //     path: "/Dashboard/Users/:id/Courses",
-                            //     element: <UserCourses />,
-                            // },
-                            // {
-                            //     path: "/Dashboard/Users/:id/Services",
-                            //     element: <UserServices />,
-                            // },
+                            { path: "/Dashboard/Users/:id/Notification", element: <UserNotifications /> },
+                            { path: "/Dashboard/Users/:id/Courses", element: <UserCourses /> },
+                            { path: "/Dashboard/Users/:id/Services", element: <UserServices /> },
+                            {path: "/Dashboard/Users/:id/Message", element: <UserNotifications />},
                         ],
                     },
                 ],

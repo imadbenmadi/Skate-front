@@ -5,7 +5,6 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router";
 import ErrorPage from "../../../Components/ErrorPage";
 
-
 function User() {
     const [loading, setLoading] = useState(false);
     const [user, setUser] = useState(null);
@@ -32,7 +31,7 @@ function User() {
             setError(error);
         }
         setLoading(false);
-    }; 
+    };
     useEffect(() => {
         fetchUser();
     }, []);
@@ -46,13 +45,7 @@ function User() {
     if (error) {
         return <ErrorPage />;
     }
-    return (
-        
-            
-
-            <Outlet context={user} />
-        
-    );
+    return <Outlet context={user} />;
 }
 
 export default User;
