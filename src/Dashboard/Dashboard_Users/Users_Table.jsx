@@ -78,9 +78,9 @@ function Users_Table({ users }) {
                             </td>
                             <td
                                 style={{ maxWidth: "90px" }}
-                                className="w-[90px] whitespace-nowrap border overflow-auto scrollbar-thumb-rounded-full scrollbar-thin scrollbar-thumb-green scrollbar-track-slate-300"
+                                className= { `w-[90px] whitespace-nowrap border overflow-auto scrollbar-thumb-rounded-full scrollbar-thin scrollbar-thumb-green scrollbar-track-slate-300  ${user.IsEmailVerified ? "text-green" : "text-red-600"}`}
                             >
-                                {user.Status}
+                                {user.IsEmailVerified ? "Verified" : "Not Verified"}
                             </td>
                             <td
                                 style={{ maxWidth: "70px" }}
@@ -92,7 +92,7 @@ function Users_Table({ users }) {
                                 style={{ maxWidth: "40px" }}
                                 className="w-[40px] whitespace-nowrap border overflow-auto scrollbar-thumb-rounded-full scrollbar-thin scrollbar-thumb-green scrollbar-track-slate-300"
                             >
-                                {user.Age}
+                                {user.Age ? user.Age : "none"}
                             </td>
                             <td
                                 style={{ maxWidth: "150px" }}
