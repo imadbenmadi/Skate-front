@@ -30,7 +30,7 @@ import Dashboard_home from "./Dashboard/Dashboard_home/Dashboard_home";
 
 import Dashboard_Users from "./Dashboard/Dashboard_Users/Dashboard_Users";
 import Default_user from "./Dashboard/Dashboard_Users/User/Default";
-import Edit_user from "./Dashboard/Dashboard_Users/User/Edit/Edit";
+import Edit_user from "./Dashboard/Dashboard_Users/User/Edit";
 
 import Add_user from "./Dashboard/Dashboard_Users/Add_user";
 import User from "./Dashboard/Dashboard_Users/User/User";

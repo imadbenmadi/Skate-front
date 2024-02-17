@@ -134,6 +134,14 @@ function Default() {
                                         {user.Gender}
                                     </td>
                                 </tr>
+                                <tr>
+                                    <th className="text-left pr-4 border  p-2">
+                                        Status:
+                                    </th>
+                                    <td className=" border border-gray pl-3">
+                                        {user.IsEmailVerified == true ? "Verified " : "Not Verified"}
+                                    </td>
+                                </tr>
                             </tbody>
                         </table>
                     )}
