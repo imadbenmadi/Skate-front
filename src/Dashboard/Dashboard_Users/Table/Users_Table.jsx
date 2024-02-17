@@ -1,7 +1,7 @@
 import React from "react";
 import { FaPen } from "react-icons/fa";
 import { IoWarning } from "react-icons/io5";
-
+import { Link } from "react-router-dom";
 function Users_Table({ users }) {
     console.log("users", users);
     if (users === null || users === undefined) {
@@ -78,9 +78,15 @@ function Users_Table({ users }) {
                             </td>
                             <td
                                 style={{ maxWidth: "90px" }}
-                                className= { `w-[90px] whitespace-nowrap border overflow-auto scrollbar-thumb-rounded-full scrollbar-thin scrollbar-thumb-green scrollbar-track-slate-300  ${user.IsEmailVerified ? "text-green" : "text-red-600"}`}
+                                className={`w-[90px] whitespace-nowrap border overflow-auto scrollbar-thumb-rounded-full scrollbar-thin scrollbar-thumb-green scrollbar-track-slate-300  ${
+                                    user.IsEmailVerified
+                                        ? "text-green"
+                                        : "text-red-600"
+                                }`}
                             >
-                                {user.IsEmailVerified ? "Verified" : "Not Verified"}
+                                {user.IsEmailVerified
+                                    ? "Verified"
+                                    : "Not Verified"}
                             </td>
                             <td
                                 style={{ maxWidth: "70px" }}
@@ -101,10 +107,13 @@ function Users_Table({ users }) {
                                 {user.Password}
                             </td>
                             <td className="w-[50px] whitespace-nowrap overflow-x-auto border">
-                                <div className="w-fit items-center m-auto flex gap-1 bg-green text-white p-1 rounded">
+                                <Link
+                                    to={"/Dashboard/Users/" + user._id}
+                                    className="w-fit items-center m-auto flex gap-1 bg-green text-white p-1 rounded"
+                                >
                                     <FaPen />
-                                    Edit
-                                </div>
+                                    View
+                                </Link>
                             </td>
                         </tr>
                     ))}

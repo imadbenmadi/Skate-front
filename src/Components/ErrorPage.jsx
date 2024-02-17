@@ -3,7 +3,7 @@ import { IoMdRefresh } from "react-icons/io";
 
 const ErrorPage = () => {
     return (
-        <div className="flex flex-col items-center justify-center h-screen">
+        <div className="flex flex-col items-center justify-center h-[60vh]">
             <h1 className="text-4xl font-bold text-red-600 mb-4">
                 Oops! Something went wrong
             </h1>

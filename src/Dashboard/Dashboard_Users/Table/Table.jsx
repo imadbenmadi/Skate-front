@@ -8,15 +8,15 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import Users_Table from "./Users_Table";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import ErrorPage from "../../../Components/ErrorPage";
 function Table() {
     const [users, setUsers] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
     const [search, setSearch] = useState("");
     const [filter, setFilter] = useState("All");
     const [open_add_user, setopen_add_user] = useState(false);
-    function toogle_open_add_user() {
-        setopen_add_user(!open_add_user);
-    }
+   
 
     const fetch_users = async () => {
         setLoading(true);
@@ -33,8 +33,10 @@ function Table() {
             if (response.status === 200) {
                 setUsers(response.data);
             } else {
+                setError(response.data);
             }
         } catch (error) {
+            setError(error);
             console.log("error in the front end : ", error);
         }
         setLoading(false);
@@ -48,6 +50,9 @@ function Table() {
                 <span className="loader"></span>
             </div>
         );
+    if (error) {
+        return <ErrorPage />;
+    }
     return (
         <>
             <div className=" flex  justify-around">
