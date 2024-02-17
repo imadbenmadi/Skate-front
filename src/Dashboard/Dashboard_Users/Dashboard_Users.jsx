@@ -10,7 +10,8 @@ import axios from "axios";
 function Dashboard_Users() {
     const [users, setUsers] = useState(null);
     const [loading, setLoading] = useState(false);
-
+    const [search, setSearch] = useState("")
+    const [filter, setFilter] = useState("All")
     const [open_add_user, setopen_add_user] = useState(false);
     function toogle_open_add_user() {
         setopen_add_user(!open_add_user);
@@ -50,8 +51,8 @@ function Dashboard_Users() {
         <>
             <div className=" flex  justify-around">
                 <div className=" flex items-center">
-                    <Filter />
-                    <Search />
+                    <Filter filter={filter} setFilter={setFilter} />
+                    <Search setSearch={setSearch} />
                 </div>
                 <div
                     className=" bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 "
