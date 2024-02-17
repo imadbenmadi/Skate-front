@@ -9,7 +9,7 @@ function Users_Table({ users }) {
     }
 
     return (
-        <div className="relative overflow-auto custom-overflow shadow-md mt-[20px] h-[calc(100vh-66px)]">
+        <div className="relative overflow-auto custom-overflow shadow-md mt-[20px] h-[calc(100vh-75px)]">
             <table className="w-full text-sm rtl:text-right text-black_text relative">
                 <thead className="text-xs uppercase text-center h-[40px] sticky top-0 bg-white">
                     <tr className="border-y-2">

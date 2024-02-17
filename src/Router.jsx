@@ -27,11 +27,14 @@ import Dashboard from "./Dashboard/Dashboard";
 import Dashboard_Login from "./Dashboard/Dashboard_Login";
 import Dashboard_home from "./Dashboard/Dashboard_home/Dashboard_home";
 import Dashboard_Users from "./Dashboard/Dashboard_Users/Dashboard_Users";
-import Users_Table from "./Dashboard/Dashboard_Users/Users_Table";
+
+import Add_user from "./Dashboard/Dashboard_Users/Add_user";
+import Table from "./Dashboard/Dashboard_Users/Table/Table";
 import Dashboard_Services from "./Dashboard/Dashboard_Services/Dashboard_Services";
 import Dashboard_Courses from "./Dashboard/Dashboard_Courses/Dashboard_Courses";
 import Dashboard_Events from "./Dashboard/Dashboard_Events/Dashboard_Events";
 import Dashboard_Blogs from "./Dashboard/Dashboard_Blogs/Dashboard_Blogs";
+
 
 const routes = createBrowserRouter([
     {
@@ -83,7 +86,17 @@ const routes = createBrowserRouter([
         element: <Dashboard />,
         children: [
             { index: true, element: <Dashboard_home /> },
-            {path: "/Dashboard/Users",element: <Dashboard_Users />,},
+            {
+                path: "/Dashboard/Users",
+                element: <Dashboard_Users />,
+                children: [
+                    { index: true, element: <Table /> },
+                    {
+                        path: "/Dashboard/Users/Add",
+                        element: <Add_user />,
+                    },
+                ],
+            },
             { path: "/Dashboard/Services", element: <Dashboard_Services /> },
             { path: "/Dashboard/Courses", element: <Dashboard_Courses /> },
             { path: "/Dashboard/Events", element: <Dashboard_Events /> },
