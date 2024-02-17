@@ -24,6 +24,7 @@ function User() {
             );
             if (response.status === 200) {
                 setUser(response.data);
+                console.log("user : ", user);
             } else {
                 setError(response.data);
             }
@@ -32,7 +33,7 @@ function User() {
             setError(error);
         }
         setLoading(false);
-    };
+    }; 
     useEffect(() => {
         fetchUser();
     }, []);
@@ -48,6 +49,13 @@ function User() {
     }
     return (
         <div>
+            {user && (
+                <div className=" pl-4 text-black_text">
+                    <span className=" underline text-xl"> User Profile :</span>{" "}
+                    {user.Email}
+                </div>
+            )}
+
             <Outlet />
         </div>
     );

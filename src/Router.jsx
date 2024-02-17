@@ -26,7 +26,12 @@ import Not_Found from "./Components/Not_Found";
 import Dashboard from "./Dashboard/Dashboard";
 import Dashboard_Login from "./Dashboard/Dashboard_Login";
 import Dashboard_home from "./Dashboard/Dashboard_home/Dashboard_home";
+
+
 import Dashboard_Users from "./Dashboard/Dashboard_Users/Dashboard_Users";
+import Default_user from "./Dashboard/Dashboard_Users/User/Default";
+import Edit_user from "./Dashboard/Dashboard_Users/User/Edit/Edit";
+
 import Add_user from "./Dashboard/Dashboard_Users/Add_user";
 import User from "./Dashboard/Dashboard_Users/User/User";
 import Table from "./Dashboard/Dashboard_Users/Table/Table";
@@ -98,6 +103,23 @@ const routes = createBrowserRouter([
                     {
                         path: "/Dashboard/Users/:id",
                         element: <User />,
+                        children: [
+                            { index: true, element: <Default_user /> },
+                            { path: "/Dashboard/Users/:id/Edit", element: <Edit_user /> },
+
+                            // {
+                            //     path: "/Dashboard/Users/:id/Notifications",
+                            //     element: <UserNotifications />,
+                            // },
+                            // {
+                            //     path: "/Dashboard/Users/:id/Courses",
+                            //     element: <UserCourses />,
+                            // },
+                            // {
+                            //     path: "/Dashboard/Users/:id/Services",
+                            //     element: <UserServices />,
+                            // },
+                        ],
                     },
                 ],
             },
