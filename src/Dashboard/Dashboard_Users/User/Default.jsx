@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { MdOutlineDeleteForever } from "react-icons/md";
-
+import Message from "./Message";
 import { FaPen } from "react-icons/fa";
 import { useLocation } from "react-router";
 import axios from "axios";

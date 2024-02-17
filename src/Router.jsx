@@ -31,10 +31,13 @@ import Dashboard_home from "./Dashboard/Dashboard_home/Dashboard_home";
 import Dashboard_Users from "./Dashboard/Dashboard_Users/Dashboard_Users";
 import Default_user from "./Dashboard/Dashboard_Users/User/Default";
 import Edit_user from "./Dashboard/Dashboard_Users/User/Edit";
-
+import Send_Message from "./Dashboard/Dashboard_Users/User/Message";
 import Add_user from "./Dashboard/Dashboard_Users/Add_user";
 import User from "./Dashboard/Dashboard_Users/User/User";
 import Table from "./Dashboard/Dashboard_Users/Table/Table";
+
+
+
 import Dashboard_Services from "./Dashboard/Dashboard_Services/Dashboard_Services";
 import Dashboard_Courses from "./Dashboard/Dashboard_Courses/Dashboard_Courses";
 import Dashboard_Events from "./Dashboard/Dashboard_Events/Dashboard_Events";
@@ -105,11 +108,26 @@ const routes = createBrowserRouter([
                         element: <User />,
                         children: [
                             { index: true, element: <Default_user /> },
-                            { path: "/Dashboard/Users/:id/Edit", element: <Edit_user /> },
-                            { path: "/Dashboard/Users/:id/Notification", element: <UserNotifications /> },
-                            { path: "/Dashboard/Users/:id/Courses", element: <UserCourses /> },
-                            { path: "/Dashboard/Users/:id/Services", element: <UserServices /> },
-                            {path: "/Dashboard/Users/:id/Message", element: <UserNotifications />},
+                            {
+                                path: "/Dashboard/Users/:id/Edit",
+                                element: <Edit_user />,
+                            },
+                            {
+                                path: "/Dashboard/Users/:id/Notification",
+                                element: <UserNotifications />,
+                            },
+                            {
+                                path: "/Dashboard/Users/:id/Courses",
+                                element: <UserCourses />,
+                            },
+                            {
+                                path: "/Dashboard/Users/:id/Services",
+                                element: <UserServices />,
+                            },
+                            {
+                                path: "/Dashboard/Users/:id/Message",
+                                element: <Send_Message />,
+                            },
                         ],
                     },
                 ],

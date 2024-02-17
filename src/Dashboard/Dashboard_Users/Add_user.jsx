@@ -111,10 +111,10 @@ function Add_user() {
                             );
                             setSubmitting(false);
 
-                            if (response.status === 401) {
+                            if (response.status === 404) {
                                 Swal.fire(
-                                    "Email already exists",
-                                    `Please try to use another Email , ${response.data.error}`,
+                                    "User Not found",
+                                    `Somthing Went Wrong`,
                                     "error"
                                 );
                             } else if (response.status === 200) {
@@ -130,6 +130,19 @@ function Add_user() {
                                     `Internal server error.${response.data.error}`,
                                     "error"
                                 );
+                            } else if (401) {
+                                Swal.fire({
+                                    title: "Unauthorised Action",
+                                    text: "You should Login again ",
+                                    icon: "error",
+                                    confirmButtonColor: "#3085d6",
+
+                                    confirmButtonText: "Go to Admin Login Page",
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        Navigate("/Dashboard_Login");
+                                    }
+                                });
                             } else if (response.status === 409) {
                                 Swal.fire(
                                     "Error!",
