@@ -67,7 +67,7 @@ function Courses() {
                     <span className="loader"></span>
                 </div>
             ) : (
-                <div className="overflow-auto custom-overflow pt-[60px]">
+                <div className="h-screen  overflow-auto custom-overflow pt-[60px]">
                     <Current_Courses userCourses={userCourses} />
                     <Explore courses={courses} />
                 </div>

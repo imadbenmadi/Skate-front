@@ -111,14 +111,14 @@ function App() {
                     <span className="loader"></span>
                 </div>
             ) : (
-                <div className="relative">
+                <div className="relative ">
                     <NavBar
                         Active_nav={Active_nav}
                         setActive_nav={setActive_nav}
                     />
                     {isAuth && !IsEmailVerified && <Activate_account />}
 
-                    <Outlet />
+                    <Outlet  />
                 </div>
             )}
         </div>
