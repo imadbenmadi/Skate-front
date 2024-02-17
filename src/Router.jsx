@@ -27,8 +27,8 @@ import Dashboard from "./Dashboard/Dashboard";
 import Dashboard_Login from "./Dashboard/Dashboard_Login";
 import Dashboard_home from "./Dashboard/Dashboard_home/Dashboard_home";
 import Dashboard_Users from "./Dashboard/Dashboard_Users/Dashboard_Users";
-
 import Add_user from "./Dashboard/Dashboard_Users/Add_user";
+import User from "./Dashboard/Dashboard_Users/User/User";
 import Table from "./Dashboard/Dashboard_Users/Table/Table";
 import Dashboard_Services from "./Dashboard/Dashboard_Services/Dashboard_Services";
 import Dashboard_Courses from "./Dashboard/Dashboard_Courses/Dashboard_Courses";
@@ -94,6 +94,10 @@ const routes = createBrowserRouter([
                     {
                         path: "/Dashboard/Users/Add",
                         element: <Add_user />,
+                    },
+                    {
+                        path: "/Dashboard/Users/:id",
+                        element: <User />,
                     },
                 ],
             },

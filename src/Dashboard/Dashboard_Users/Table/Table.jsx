@@ -1,11 +1,11 @@
 import React from "react";
-import Search from "../Search";
-import Filter from "../Filter";
+import Search from "./Search";
+import Filter from "./Filter";
 import { FaPlus } from "react-icons/fa6";
 import { useState, useEffect } from "react";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
-import Users_Table from "../Users_Table";
+import Users_Table from "./Users_Table";
 import axios from "axios";
 import { Link } from "react-router-dom";
 function Table() {
