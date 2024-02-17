@@ -49,16 +49,11 @@ function User() {
         return <ErrorPage />;
     }
     return (
-        <div>
-            {user && (
-                <div className=" pl-4 text-black_text">
-                    <span className=" underline text-xl"> User Profile :</span>{" "}
-                    {user.FirstName} {" "} {user.LastName}
-                </div>
-            )}
+        
+            
 
             <Outlet context={user} />
-        </div>
+        
     );
 }
 

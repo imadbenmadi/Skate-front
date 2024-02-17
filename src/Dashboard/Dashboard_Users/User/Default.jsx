@@ -8,6 +8,8 @@ import axios from "axios";
 import swal from "sweetalert2";
 import { useNavigate } from "react-router";
 import { useOutletContext } from "react-router-dom";
+import { IoIosNotifications } from "react-icons/io";
+import { FaMessage } from "react-icons/fa6";
 
 function Default() {
     const user = useOutletContext()
@@ -97,45 +99,64 @@ function Default() {
                 </div>
             </div>
 
-            <div className="bg-gray_white rounded mt-8 w-fit m-auto">
-                {user && (
-                    <table className="w-full">
-                        <tbody>
-                            <tr className="">
-                                <th className="text-left pr-4 border  p-2 ">
-                                    User name:
-                                </th>
-                                <td className=" border border-gray pl-3">
-                                    {user.FirstName} {user.LastName}
-                                </td>
-                            </tr>
-                            <tr>
-                                <th className="text-left pr-4 border  p-2">
-                                    Email:
-                                </th>
-                                <td className=" border border-gray pl-3">
-                                    {user.Email}
-                                </td>
-                            </tr>
-                            <tr>
-                                <th className="text-left pr-4 border  p-2">
-                                    Telephone:
-                                </th>
-                                <td className=" border border-gray pl-3">
-                                    {user.Telephone}
-                                </td>
-                            </tr>
-                            <tr>
-                                <th className="text-left pr-4 border  p-2">
-                                    Gender:
-                                </th>
-                                <td className=" border border-gray pl-3">
-                                    {user.Gender}
-                                </td>
-                            </tr>
-                        </tbody>
-                    </table>
-                )}
+            <div className=" flex  items-center justify-center gap-4">
+                <div className="bg-gray_white rounded mt-8 w-fit">
+                    {user && (
+                        <table className="w-full">
+                            <tbody>
+                                <tr className="">
+                                    <th className="text-left pr-4 border  p-2 ">
+                                        User name:
+                                    </th>
+                                    <td className=" border border-gray pl-3">
+                                        {user.FirstName} {user.LastName}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th className="text-left pr-4 border  p-2">
+                                        Email:
+                                    </th>
+                                    <td className=" border border-gray pl-3">
+                                        {user.Email}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th className="text-left pr-4 border  p-2">
+                                        Telephone:
+                                    </th>
+                                    <td className=" border border-gray pl-3">
+                                        {user.Telephone}
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th className="text-left pr-4 border  p-2">
+                                        Gender:
+                                    </th>
+                                    <td className=" border border-gray pl-3">
+                                        {user.Gender}
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    )}
+                </div>
+
+                <div className=" flex flex-col gap-4  pt-6 justify-center text-xl ">
+                    <Link
+                        to={"/Dashboard/Users/" + userId + "/Message"}
+                        className="flex items-center   gap-2 bg-gray text-white px-3 py-1 rounded"
+                    >
+                        <FaMessage className=" text-sm" />
+                        Send Message
+                    </Link>
+                    <Link
+                        to={"/Dashboard/Users/" + userId + "/Notification"}
+                        className="flex items-center  cursor-pointer  gap-1 bg-gray text-white px-3 py-1 rounded"
+                    >
+                        <IoIosNotifications />
+                        Send Notification
+                    </Link>
+                </div>
             </div>
         </div>
     );
