@@ -7,7 +7,11 @@ import { useLocation } from "react-router";
 import axios from "axios";
 import swal from "sweetalert2";
 import { useNavigate } from "react-router";
-function Default({ user }) {
+import { useOutletContext } from "react-router-dom";
+
+function Default() {
+    const user = useOutletContext()
+    console.log("passing data throw context :",user);
     const location = useLocation();
     const Navigate = useNavigate();
     const userId = location.pathname.split("/")[3];
@@ -22,6 +26,7 @@ function Default({ user }) {
             );
 
             if (response.status === 200) {
+                Navigate("/Dashboard/Users");
                 swal.fire(
                     "User Deleted Successfully",
                     "",
@@ -90,6 +95,47 @@ function Default({ user }) {
                     <MdOutlineDeleteForever />
                     Delete user
                 </div>
+            </div>
+
+            <div className="bg-gray_white rounded mt-8 w-fit m-auto">
+                {user && (
+                    <table className="w-full">
+                        <tbody>
+                            <tr className="">
+                                <th className="text-left pr-4 border  p-2 ">
+                                    User name:
+                                </th>
+                                <td className=" border border-gray pl-3">
+                                    {user.FirstName} {user.LastName}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th className="text-left pr-4 border  p-2">
+                                    Email:
+                                </th>
+                                <td className=" border border-gray pl-3">
+                                    {user.Email}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th className="text-left pr-4 border  p-2">
+                                    Telephone:
+                                </th>
+                                <td className=" border border-gray pl-3">
+                                    {user.Telephone}
+                                </td>
+                            </tr>
+                            <tr>
+                                <th className="text-left pr-4 border  p-2">
+                                    Gender:
+                                </th>
+                                <td className=" border border-gray pl-3">
+                                    {user.Gender}
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                )}
             </div>
         </div>
     );

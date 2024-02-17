@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useLocation } from "react-router";
 import ErrorPage from "../../../Components/ErrorPage";
 
+
 function User() {
     const [loading, setLoading] = useState(false);
     const [user, setUser] = useState(null);
@@ -52,11 +53,11 @@ function User() {
             {user && (
                 <div className=" pl-4 text-black_text">
                     <span className=" underline text-xl"> User Profile :</span>{" "}
-                    {user.Email}
+                    {user.FirstName} {" "} {user.LastName}
                 </div>
             )}
 
-            <Outlet />
+            <Outlet context={user} />
         </div>
     );
 }
