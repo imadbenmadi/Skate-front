@@ -35,31 +35,31 @@ function Dashboard_Login() {
             } else if (response.status == 401) {
                 Swal.fire(
                     "Unauthorized!",
-                    `wrong email or password , ${response.data.error}`,
+                    `wrong email or password , ${response.data.message}`,
                     "error"
                 );
             } else if (response.status == 409) {
                 Swal.fire(
                     "Error!",
-                    `Missing Data ,  ${response.data.error}`,
+                    `Missing Data ,  ${response.data.message}`,
                     "error"
                 );
             } else if (response.status == 500) {
                 Swal.fire(
                     "Error!",
-                    `Internal Server Error ,  ${response.data.error}`,
+                    `Internal Server Error ,  ${response.data.message}`,
                     "error"
                 );
             } else if (response.status == 429) {
                 Swal.fire(
                     "Error!",
-                    `Too many requests ,try again latter\n  ${response.data.error}`,
+                    `Too many requests ,try again latter\n  ${response.data.message}`,
                     "error"
                 );
             } else {
                 Swal.fire(
                     "Error!",
-                    `Something Went Wrong ,${response.data.error}`,
+                    `Something Went Wrong ,${response.data.message}`,
                     "error"
                 );
             }

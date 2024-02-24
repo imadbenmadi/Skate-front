@@ -127,7 +127,7 @@ function Add_user() {
                             } else if (response.status == 400) {
                                 Swal.fire(
                                     "Error!",
-                                    `Internal server error.${response.data.error}`,
+                                    `Internal server error.${response.data.message}`,
                                     "error"
                                 );
                             } else if (401) {
@@ -146,25 +146,25 @@ function Add_user() {
                             } else if (response.status == 409) {
                                 Swal.fire(
                                     "Error!",
-                                    `Missing Data ,  ${response.data.error}`,
+                                    `Missing Data ,  ${response.data.message}`,
                                     "error"
                                 );
                             } else if (response.status == 429) {
                                 Swal.fire(
                                     "Error!",
-                                    `warning! you created lot of accounts in 3mins , ${response.data.error}`,
+                                    `warning! you created lot of accounts in 3mins , ${response.data.message}`,
                                     "error"
                                 );
                             } else if (response.status == 500) {
                                 Swal.fire(
                                     "Error!",
-                                    `Internal server error.${response.data.error}`,
+                                    `Internal server error.${response.data.message}`,
                                     "error"
                                 );
                             } else {
                                 Swal.fire(
                                     "Error!",
-                                    `Something Went Wrong. Please try again , ${response.data.error}`,
+                                    `Something Went Wrong. Please try again , ${response.data.message}`,
                                     "error"
                                 );
                             }

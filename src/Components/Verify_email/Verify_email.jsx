@@ -90,11 +90,11 @@ function Verify_email() {
         } else if (response.status == 500) {
             Swal.fire("Error!", "Internal Server Error", "error");
         } else if (response.status == 409) {
-            Swal.fire("Error!", response.data.error, "error");
+            Swal.fire("Error!", response.data.message, "error");
         } else if (response.status == 429) {
             Swal.fire(
                 "Error!",
-                `Too many requests ,try again latter\n  ${response.data.error}`,
+                `Too many requests ,try again latter\n  ${response.data.message}`,
                 "error"
             );
         } else {
@@ -130,7 +130,7 @@ function Verify_email() {
         } else if (response.status == 429) {
             Swal.fire(
                 "Error!",
-                `Too many requests ,try again latter\n  ${response.data.error}`,
+                `Too many requests ,try again latter\n  ${response.data.message}`,
                 "error"
             );
         } else {

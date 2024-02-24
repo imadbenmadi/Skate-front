@@ -8,6 +8,7 @@ import axios from "axios";
 import Menu_Toogler from "./Mobile/Menu_Toogler";
 import Laptop_Nav_Items from "./Laptop/Laptop_Nav_Items";
 import Mobile_Nav_Items from "./Mobile/Mobile_Nav_Items";
+import Swal from "sweetalert2";
 function NavBar({ Active_nav, setActive_nav }) {
     const { isAuth, FirstName, LastName, _id } = useAppContext();
     const { set_Auth, store_login } = useAppContext();
@@ -55,14 +56,14 @@ function NavBar({ Active_nav, setActive_nav }) {
             } else if (response.status == 429) {
                 Swal.fire(
                     "Error!",
-                    `Too many requests ,try again latter\n  ${response.data.error}`,
+                    `Too many requests ,try again latter\n  ${response.data.message}`,
                     "error"
                 );
             } else {
-                // Handle the case where the server failed to log out the user
+                Swal.fire("Error!", `Something Went Wrong ,`, "error");
             }
         } catch (error) {
-            // Handle unexpected errors during logout
+            Swal.fire("Error!", `Something Went Wrong `, "error");
         }
         setLogoutClicked(false);
     };

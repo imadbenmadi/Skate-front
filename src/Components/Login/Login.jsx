@@ -36,7 +36,7 @@ function Login() {
                     "error"
                 );
             } else if (response.status == 409) {
-                Swal.fire("Error!", `Missing Data  `, "error");
+                Swal.fire("Error!", `${response.data.message} `, "error");
             } else if (response.status == 500) {
                 Swal.fire("Error!", `Internal Server Error   `, "error");
             } else if (response.status == 429) {

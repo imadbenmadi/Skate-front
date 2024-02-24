@@ -81,19 +81,19 @@ function Message() {
                             } else if (response.status == 409) {
                                 Swal.fire(
                                     "Error!",
-                                    `Missing Data ,  ${response.data.error}`,
+                                    `Missing Data ,  ${response.data.message}`,
                                     "error"
                                 );
                             } else if (response.status == 500) {
                                 Swal.fire(
                                     "Error!",
-                                    `Internal Server Error ,  ${response.data.error}`,
+                                    `Internal Server Error ,  ${response.data.message}`,
                                     "error"
                                 );
                             } else if (response.status == 429) {
                                 Swal.fire(
                                     "Error!",
-                                    `Too many requests ,try again latter\n  ${response.data.error}`,
+                                    `Too many requests ,try again latter\n  ${response.data.message}`,
                                     "error"
                                 );
                             } else {

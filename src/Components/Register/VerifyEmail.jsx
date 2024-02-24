@@ -73,7 +73,7 @@ function Verification({
                 } else if (response.status == 429) {
                     Swal.fire(
                         "Error!",
-                        `Too many requests ,try again latter\n  ${response.data.error}`,
+                        `Too many requests ,try again latter\n  ${response.data.message}`,
                         "error"
                     );
                 } else {
@@ -87,7 +87,7 @@ function Verification({
         } else if (response.status == 429) {
             Swal.fire(
                 "Error!",
-                `Too many requests ,try again latter\n  ${response.data.error}`,
+                `Too many requests ,try again latter\n  ${response.data.message}`,
                 "error"
             );
         } else {

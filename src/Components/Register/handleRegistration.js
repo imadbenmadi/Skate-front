@@ -17,46 +17,41 @@ export async function handleRegistration(
         if (response.status == 401) {
             Swal.fire(
                 "Email already exists",
-                `Please try to use another Email , ${response.data.error}`,
+                `Please try to use another Email , ${response.data.message}`,
                 "error"
             );
         } else if (response.status == 200) {
             setVerifyId(response.data._id);
             set_rigester_Date(response.data.Date);
             setSucced_Register(true);
-            // Swal.fire(
-            //     "Done!",
-            //     "Your account has been created Successfully",
-            //     "success"
-            // );
         } else if (response.status == 400) {
             Swal.fire(
                 "Error!",
-                `Internal server error.${response.data.error}`,
+                `${response.data.message} `,
                 "error"
             );
         } else if (response.status == 409) {
             Swal.fire(
                 "Error!",
-                `Missing Data ,  ${response.data.error}`,
+                `${response.data.message}`,
                 "error"
             );
         } else if (response.status == 429) {
             Swal.fire(
                 "Error!",
-                `warning! you created lot of accounts in 3mins , ${response.data.error}`,
+                `warning! you created lot of accounts in a short time ,try again latter`,
                 "error"
             );
         } else if (response.status == 500) {
             Swal.fire(
                 "Error!",
-                `Internal server error.${response.data.error}`,
+                `Internal server error.`,
                 "error"
             );
         } else {
             Swal.fire(
                 "Error!",
-                `Something Went Wrong. Please try again , ${response.data.error}`,
+                `Something Went Wrong. Please try again `,
                 "error"
             );
         }
