@@ -12,19 +12,23 @@ import { MdDone } from "react-icons/md";
 function CourseItem() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const [secces, setsecces] = useState(false);
+    const [success, setSuccess] = useState(false);
     const [course, setCourse] = useState([]);
+    const [requestLoading, setRequestLoading] = useState(false);
     const { isAuth, _id, Courses } = useAppContext();
     const location = useLocation();
-    const Navigate = useNavigate();
-    let Already_have_course = null;
+    const navigate = useNavigate();
+    let alreadyHaveCourse = null;
+
     if (Courses) {
-        Already_have_course = Courses.some(
-            (course) => course._id == location.pathname.split("/")[2]
+        alreadyHaveCourse = Courses.some(
+            (course) => course._id === location.pathname.split("/")[2]
         );
     }
-    const handle_request_course = async () => {
+
+    const handleRequestCourse = async () => {
         try {
+            setRequestLoading(true);
             const response = await axios.post(
                 `http://localhost:3000/Courses/request`,
                 {
@@ -37,47 +41,50 @@ function CourseItem() {
                 }
             );
 
-            if (response.status == 200) {
-                swal.fire("success", "request sent successfully", "success");
-                setsecces(true);
-            } else if (response.status == 409) {
+            if (response.status === 200) {
+                swal.fire("Success", "Request sent successfully", "success");
+                setSuccess(true);
+            } else if (response.status === 409) {
                 swal.fire(
                     "Missing Data ",
-                    "Request could not be sendded",
-                    "warning"
+                    "Request could not be sent",
+                    "error"
                 );
-            } else if (response.status == 404) {
+            } else if (response.status === 404) {
                 swal.fire(
-                    "not found",
-                    "Somthing Went wrong PLease try again latter",
+                    "Not found",
+                    "Something went wrong. Please try again later",
                     "warning"
                 );
-            } else if (response.status == 400) {
+            } else if (response.status === 400) {
                 swal.fire(
-                    "You Already Requested this Course ",
-                    " wait intil the Center Aprove your request",
+                    "You already requested this course",
+                    "Please wait until the center approves your request",
                     "warning"
                 );
-            } else if (401) {
+            } else if (response.status === 401) {
                 swal.fire({
                     title: "You should login to do that",
-                    text: "Your are Not Authenthicated !",
+                    text: "You are not authenticated!",
                     icon: "warning",
                     confirmButtonColor: "#3085d6",
                     cancelButtonColor: "green",
                     confirmButtonText: "Go to Login Page",
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        Navigate("/Login");
+                        navigate("/Login");
                     }
                 });
             } else {
-                swal.fire("error", "internal server error", "error");
+                swal.fire("Error", "Internal server error", "error");
             }
         } catch (error) {
-            swal.fire("error", "internal server error", "error");
+            swal.fire("Error", "Internal server error", "error");
+        } finally {
+            setRequestLoading(false);
         }
     };
+
     const fetchCourse = async () => {
         setLoading(true);
 
@@ -92,7 +99,7 @@ function CourseItem() {
                 }
             );
 
-            if (response.status == 200) {
+            if (response.status === 200) {
                 setCourse(response.data);
             } else {
                 setError(true);
@@ -100,41 +107,49 @@ function CourseItem() {
         } catch (error) {
             setError(true);
         } finally {
-            setLoading(false); // Set loading state to false regardless of success or failure
+            setLoading(false);
         }
     };
+
     useEffect(() => {
         fetchCourse();
     }, []);
+
     if (error) {
         return <ErrorPage />;
     }
-    if (loading)
+
+    if (loading) {
         return (
             <div className="w-screen h-screen flex items-center justify-center">
                 <span className="loader"></span>
             </div>
         );
-    return (
-        <div className=" pt-[80px] ">
-            <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-3">
-                <div className=" w-[350px]">
-                    <img src={img} alt="" className=" w-[400px]" />
+    }
 
-                    <div className="pt-4 flex justify-center md:justify-end ">
-                        {secces ? (
+    return (
+        <div className="pt-[80px]">
+            <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-3">
+                <div className="w-[350px]">
+                    <img src={img} alt="" className="w-[400px]" />
+                    <div className="pt-4 flex justify-center md:justify-end">
+                        {success ? (
                             <div className="flex items-center text-green gap-1 text-xl">
-                                course requested
-                                <MdDone className=" text-2xl " />
+                                Course requested
+                                <MdDone className="text-2xl" />
                             </div>
-                        ) : !Already_have_course ? (
+                        ) : !alreadyHaveCourse ? (
                             <div
-                                className="bg-green px-4 py-2 w-fit text-white rounded cursor-pointer"
+                                className={`bg-green px-4 py-2 w-fit text-white rounded cursor-pointer ${
+                                    requestLoading
+                                        ? "opacity-50 pointer-events-none"
+                                        : ""
+                                }`}
                                 onClick={() => {
                                     if (!isAuth) {
                                         swal.fire({
                                             title: "You should login to do that",
-                                            text: "Your are Not Authenthicated !",
+                                            text: "You are not authenticated!",
                                             icon: "warning",
                                             confirmButtonColor: "#3085d6",
                                             cancelButtonColor: "green",
@@ -142,27 +157,29 @@ function CourseItem() {
                                                 "Go to Login Page",
                                         }).then((result) => {
                                             if (result.isConfirmed) {
-                                                Navigate("/Login");
+                                                navigate("/Login");
                                             }
                                         });
                                     } else {
-                                        handle_request_course();
+                                        handleRequestCourse();
                                     }
                                 }}
                             >
-                                Request the course
+                                {requestLoading
+                                    ? "Requesting..."
+                                    : "Request the course"}
                             </div>
                         ) : (
                             <Link
                                 to={"/Profile"}
                                 className="bg-green px-4 py-2 w-fit text-white rounded cursor-pointer"
                             >
-                                Go ot Course
+                                Go to Course
                             </Link>
                         )}
                     </div>
                 </div>
-                <div className="w-[90vw] md:w-[350px]  break-words border border-gray-300 rounded p-4 ">
+                <div className="w-[90vw] md:w-[350px]  break-words border border-gray-300 rounded p-4">
                     <h2 className="text-xl font-bold mb-2">
                         {course.Title &&
                             course.Title.slice(0, 80) +
@@ -179,7 +196,7 @@ function CourseItem() {
                 </div>
             </div>
 
-            <div className=" w-[90vw] m-auto my-6 p-4 rounded bg-gray_white">
+            <div className="w-[90vw] m-auto my-6 p-4 rounded bg-gray_white">
                 {course.Description}
             </div>
         </div>

@@ -14,6 +14,7 @@ function ServiceItem() {
     const [error, setError] = useState(null);
     const [secces, setsecces] = useState(false);
     const [service, setservice] = useState([]);
+    const [requestLoading, setRequestLoading] = useState(false);
     const { isAuth, _id, Services } = useAppContext();
     const location = useLocation();
     const Navigate = useNavigate();
@@ -25,6 +26,7 @@ function ServiceItem() {
     }
     const handle_request_service = async () => {
         try {
+            setRequestLoading(true);
             const response = await axios.post(
                 `http://localhost:3000/Services/request`,
                 {
@@ -74,7 +76,11 @@ function ServiceItem() {
             } else {
                 swal.fire("error", "internal server error", "error");
             }
-        } catch (error) {}
+        } catch (error) {
+            // Handle error...
+        } finally {
+            setRequestLoading(false);
+        }
     };
     const fetchservice = async () => {
         setLoading(true);
@@ -98,7 +104,7 @@ function ServiceItem() {
         } catch (error) {
             setError(true);
         } finally {
-            setLoading(false); // Set loading state to false regardless of success or failure
+            setLoading(false);
         }
     };
     useEffect(() => {
@@ -114,20 +120,24 @@ function ServiceItem() {
             </div>
         );
     return (
-        <div className=" pt-[80px] ">
+        <div className="pt-[80px]">
             <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-3">
-                <div className=" w-[350px]">
-                    <img src={img} alt="" className=" w-[400px]" />
+                <div className="w-[350px]">
+                    <img src={img} alt="" className="w-[400px]" />
 
                     <div className="pt-4 flex justify-center md:justify-end ">
                         {secces ? (
                             <div className="flex items-center text-green gap-1 text-xl">
                                 service requested
-                                <MdDone className=" text-2xl " />
+                                <MdDone className="text-2xl" />
                             </div>
                         ) : !Already_have_service ? (
                             <div
-                                className="bg-green px-4 py-2 w-fit text-white rounded cursor-pointer"
+                                className={`bg-green px-4 py-2 w-fit text-white rounded cursor-pointer ${
+                                    requestLoading
+                                        ? "opacity-50 pointer-events-none"
+                                        : ""
+                                }`}
                                 onClick={() => {
                                     if (!isAuth) {
                                         swal.fire({
@@ -148,21 +158,21 @@ function ServiceItem() {
                                     }
                                 }}
                             >
-                                Request the service
+                                {requestLoading
+                                    ? "Requesting..."
+                                    : "Request the service"}
                             </div>
                         ) : (
                             <Link
                                 to={"/Profile"}
                                 className="bg-green px-4 py-2 w-fit text-white rounded cursor-pointer"
                             >
-                                Go ot service
+                                Go to service
                             </Link>
                         )}
                     </div>
                 </div>
-                <div className="w-[90vw] md:w-[350px]  break-words border border-gray-300 rounded p-4 ">
-                    {/* You can include content for each service item here */}
-
+                <div className="w-[90vw] md:w-[350px]  break-words border border-gray-300 rounded p-4">
                     <h2 className="text-xl font-bold mb-2">
                         {service.Title &&
                             service.Title.slice(0, 80) +
@@ -179,7 +189,7 @@ function ServiceItem() {
                 </div>
             </div>
 
-            <div className=" w-[90vw] m-auto my-6 p-4 rounded bg-gray_white">
+            <div className="w-[90vw] m-auto my-6 p-4 rounded bg-gray_white">
                 {service.Description}
             </div>
         </div>
