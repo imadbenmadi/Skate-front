@@ -25,11 +25,13 @@ function Default() {
                     validateStatus: () => true,
                 }
             );
+            
 
             if (response.status == 200) {
                 Navigate("/Dashboard/Users");
                 swal.fire("User Deleted Successfully", "", "success");
-                setsecces(true);
+                
+                // setsecces(true);
             } else if (response.status == 404) {
                 swal.fire(
                     " User Not found ",
@@ -52,11 +54,13 @@ function Default() {
             } else {
                 swal.fire(
                     "Could not delete user",
-                    "Please Try again Latter",
+                    `${response.data.message}`,
                     "error"
                 );
             }
-        } catch (error) {}
+        } catch (error) {
+            swal.fire("Could not delete user", "Please Try again Latter", "error");
+        }
     }
 
     return (
