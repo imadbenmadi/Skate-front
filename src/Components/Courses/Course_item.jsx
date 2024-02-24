@@ -41,6 +41,11 @@ function CourseItem() {
                 swal.fire("success", "request sent successfully", "success");
                 setsecces(true);
             } else if (response.status === 409) {
+                swal.fire("Missing Data ", "Request could not be sendded", "warning");
+            } else if (response.status === 404) {
+                swal.fire("not found", "Somthing Went wrong PLease try again latter", "warning");
+            } 
+            else if (response.status === 400) {
                 swal.fire(
                     "You Already Requested this Course ",
                     " wait intil the Center Aprove your request",
@@ -63,6 +68,7 @@ function CourseItem() {
                 swal.fire("error", "request not sent", "error");
             }
         } catch (error) {
+            swal.fire("error", "request not sent", "error");
         }
     };
     const fetchCourse = async () => {
