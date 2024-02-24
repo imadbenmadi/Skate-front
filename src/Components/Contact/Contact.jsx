@@ -16,6 +16,8 @@ function Contact() {
             <div className=" m-auto text-center pt-5 text-2xl font-semibold text-blue ">
                 Contact The Help Center
             </div>
+            <Links />
+
             {/* input fields */}
             <div className=" border border-gray_white text-black_text shadow-md w-[80%] md:w-[50%] m-auto mt-3 p-5 rounded-lg  ">
                 <div className=" text-lg font-semibold mb-4 ">
@@ -141,7 +143,6 @@ function Contact() {
                     )}
                 </Formik>
             </div>
-            <Links />
         </div>
     );
 }
