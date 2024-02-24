@@ -19,35 +19,34 @@ export async function handleContact(values, { setSubmitting, onSuccess }) {
                 "Your Message has been Sended Successfully",
                 "success"
             );
-        } else if (response.status === 400) {
+        } else if (response.status === 500) {
             Swal.fire(
                 "Error!",
-                `Internal server error.${response.data.error}`,
+                `Internal server error. `,
                 "error"
             );
         } else if (response.status === 409) {
             Swal.fire(
                 "Error!",
-                `Missing Data ,  ${response.data.error}`,
-                "error"
+                `Missing Data  `
             );
         } else if (response.status === 429) {
             Swal.fire(
                 "Error!",
-                `Too many requests ,try again latter\n  ${response.data.error}`,
+                `Too many requests ,try again latter\n  `,
                 "error"
             );
         } else {
             Swal.fire(
                 "Error!",
-                `Something Went Wrong. Please try again , ${response.data.error}`,
+                `Something Went Wrong. Please try again , `,
                 "error"
             );
         }
     } catch (error) {
         Swal.fire(
             "Error!",
-            `Something Went Wrong. Please try again , ${error.message}`,
+            `Something Went Wrong. Please try again `,
             "error"
         );
     }
