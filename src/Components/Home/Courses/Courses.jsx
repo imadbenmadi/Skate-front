@@ -43,9 +43,9 @@ function Courses() {
         style={{
           transform: isInView ? "translateX(0) " : "translateY(10%)",
           opacity: isInView ? 1 : 0,
-          transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s",
+          transition: "all 0.9s  cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s",
         }}
-        className="grid grid-cols-3 w-full mx-auto  mt-2  self-center h-fit max-md:grid-cols-1 max-w-[1200px]  mx-auto  "
+        className="grid grid-cols-3  w-full mx-auto  mt-2  self-center h-fit max-md:grid-cols-1 max-w-[1200px]  mx-auto  "
       >
         <div className=" max-w-[1200px] max-md:hidden flex flex-col w-screen  gap-4 md:flex-row md:justify-between ">
           <CardCours
@@ -74,7 +74,7 @@ they are passionated to have an awesome"
           />{" "}
         </div>
 
-        <div className=" md:hidden w-[90vw]  mx-auto h-[35vh]  ">
+        <div className=" md:hidden w-[90vw]  mx-auto h-fit py-7  ">
           <Swiper
             className="  h-fit"
             // install Swiper modules
@@ -124,12 +124,14 @@ they are passionated to have an awesome"
           </Swiper>
         </div>
       </div>
-      <Link
-        to={"/Courses"}
-        className=" block w-fit  text-center mx-auto   md:hidden border border-green px-5 py-2 rounded-md  text-center text-green-800 text-base font-medium  leading-normal"
-      >
-        Veiw All COURSES{" "}
-      </Link>
+      <div className="w-full pb-10 mx-auto h-fit flex justify-center items-center">
+        <Link
+          to={"/Courses"}
+          className="  w-fit  text-center mx-auto   md:hidden border border-green px-5 py-2 rounded-md  text-center text-green-800 text-base font-medium  leading-normal"
+        >
+          Veiw All COURSES{" "}
+        </Link>
+      </div>
     </div>
   );
 }
