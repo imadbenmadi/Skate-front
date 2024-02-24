@@ -3,6 +3,23 @@ import CardCours from "./CardCours";
 import img from "../../../../public/CoursImg.png";
 import { useInView } from "framer-motion";
 import { Link } from "react-router-dom";
+import {
+  Navigation,
+  Pagination,
+  Autoplay,
+  Scrollbar,
+  A11y,
+} from "swiper/modules";
+import "swiper/css/autoplay"; // Autoplay styles (important!)
+
+import { Swiper, SwiperSlide } from "swiper/react";
+
+import "swiper/css/autoplay";
+// Import Swiper styles
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import "swiper/css/scrollbar";
 function Courses() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
@@ -14,7 +31,10 @@ function Courses() {
           <span className="text-blue-950 text-4xl  text-gray">COURSES </span>
         </div>
 
-        <Link to={"/Courses"} className=" w-fit max-md:hidden border border-green px-5 py-2 rounded-md  text-center text-green-800 text-base font-medium  leading-normal">
+        <Link
+          to={"/Courses"}
+          className=" w-fit max-md:hidden border border-green px-5 py-2 rounded-md  text-center text-green-800 text-base font-medium  leading-normal"
+        >
           Veiw All Courses{" "}
         </Link>
       </div>
@@ -25,34 +45,89 @@ function Courses() {
           opacity: isInView ? 1 : 0,
           transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s",
         }}
-        className="grid grid-cols-3 w-full  mt-2  self-center h-fit max-md:grid-cols-1 max-w-[1100px]  mx-auto  "
+        className="grid grid-cols-3 w-full mx-auto  mt-2  self-center h-fit max-md:grid-cols-1 max-w-[1200px]  mx-auto  "
       >
-        <CardCours
-          img={img}
-          title="Financement"
-          cat="Finance"
-          dec="Take a finance skkills using skate Courses 
+        <div className=" max-w-[1200px] max-md:hidden flex flex-col w-screen  gap-4 md:flex-row md:justify-between ">
+          <CardCours
+            img={img}
+            title="Financement"
+            cat="Finance"
+            dec="Take a finance skkills using skate Courses 
 they are passionated to have an awesome"
-          price="5.000"
-        />
-        <CardCours
-          img={img}
-          title="Financement"
-          cat="Finance"
-          dec="Take a finance skkills using skate Courses 
+            price="5.000"
+          />
+          <CardCours
+            img={img}
+            title="Financement"
+            cat="Finance"
+            dec="Take a finance skkills using skate Courses 
 they are passionated to have an awesome"
-          price="5.000"
-        />
-        <CardCours
-          img={img}
-          title="Financement"
-          cat="Finance"
-          dec="Take a finance skkills using skate Courses 
+            price="5.000"
+          />
+          <CardCours
+            img={img}
+            title="Financement"
+            cat="Finance"
+            dec="Take a finance skkills using skate Courses 
 they are passionated to have an awesome"
-          price="5.000"
-        />
+            price="5.000"
+          />{" "}
+        </div>
+
+        <div className=" md:hidden w-[90vw]  mx-auto h-[35vh]  ">
+          <Swiper
+            className="  h-fit"
+            // install Swiper modules
+            modules={[Navigation, Pagination, Autoplay, Scrollbar, A11y]}
+            loop={true}
+            spaceBetween={30}
+            centeredSlides={true}
+            autoplay={{
+              delay: 2500,
+              disableOnInteraction: false,
+            }}
+            slidesPerView={1}
+          >
+            <SwiperSlide className=" ">
+              {" "}
+              <CardCours
+                img={img}
+                title="Financement"
+                cat="Finance"
+                dec="Take a finance skkills using skate Courses 
+they are passionated to have an awesome"
+                price="5.000"
+              />{" "}
+            </SwiperSlide>
+            <SwiperSlide>
+              {" "}
+              <CardCours
+                img={img}
+                title="Financement"
+                cat="Finance"
+                dec="Take a finance skkills using skate Courses 
+they are passionated to have an awesome"
+                price="5.000"
+              />{" "}
+            </SwiperSlide>
+            <SwiperSlide>
+              {" "}
+              <CardCours
+                img={img}
+                title="Financement"
+                cat="Finance"
+                dec="Take a finance skkills using skate Courses 
+they are passionated to have an awesome"
+                price="5.000"
+              />{" "}
+            </SwiperSlide>
+          </Swiper>
+        </div>
       </div>
-      <Link to={"/Courses"} className=" block w-fit  text-center mx-auto   md:hidden border border-green px-5 py-2 rounded-md  text-center text-green-800 text-base font-medium  leading-normal">
+      <Link
+        to={"/Courses"}
+        className=" block w-fit  text-center mx-auto   md:hidden border border-green px-5 py-2 rounded-md  text-center text-green-800 text-base font-medium  leading-normal"
+      >
         Veiw All COURSES{" "}
       </Link>
     </div>
