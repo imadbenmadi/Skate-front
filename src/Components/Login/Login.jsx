@@ -32,40 +32,24 @@ function Login() {
             } else if (response.status == 401) {
                 Swal.fire(
                     "Email already exists",
-                    `Username or Password isn't correct , ${response.data.error}`,
+                    `Username or Password isn't correct  `,
                     "error"
                 );
             } else if (response.status == 409) {
-                Swal.fire(
-                    "Error!",
-                    `Missing Data ,  ${response.data.error}`,
-                    "error"
-                );
+                Swal.fire("Error!", `Missing Data  `, "error");
             } else if (response.status == 500) {
-                Swal.fire(
-                    "Error!",
-                    `Internal Server Error ,  ${response.data.error}`,
-                    "error"
-                );
+                Swal.fire("Error!", `Internal Server Error   `, "error");
             } else if (response.status == 429) {
                 Swal.fire(
                     "Error!",
-                    `Too many requests ,try again latter\n  ${response.data.error}`,
+                    `Too many requests ,try again latter\n  `,
                     "error"
                 );
             } else {
-                Swal.fire(
-                    "Error!",
-                    `Something Went Wrong ,${response.data.error}`,
-                    "error"
-                );
+                Swal.fire("Error!", `Something Went Wrong ,`, "error");
             }
         } catch (error) {
-            Swal.fire(
-                "Error!",
-                `Something Went Wrong ,${error.message}`,
-                "error"
-            );
+            Swal.fire("Error!", `Something Went Wrong `, "error");
         }
 
         setSubmitting(false);
