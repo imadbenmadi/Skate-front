@@ -25,7 +25,7 @@ function Footer() {
             >
                 <div className="flex gap-3 justify-center mt-2 ">
                     <a
-                        href="https://api.whatsapp.com/send?phone=0658335232"
+                        href="https://api.whatsapp.com/send?phone=+213658335232"
                         target="_blank"
                         rel="noopener noreferrer"
                     >

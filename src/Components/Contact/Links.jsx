@@ -7,7 +7,7 @@ function Links() {
     return (
         <div className="flex gap-3 justify-center mt-2 ">
             <a
-                href="https://api.whatsapp.com/send?phone=123456789"
+                href="https://api.whatsapp.com/send?phone=+213658335232"
                 target="_blank"
                 rel="noopener noreferrer"
             >
@@ -15,7 +15,7 @@ function Links() {
             </a>
             <br />
             <a
-                href="https://www.facebook.com/your-facebook-page"
+                href="https://www.facebook.com/Skate.consult"
                 target="_blank"
                 rel="noopener noreferrer"
             >
