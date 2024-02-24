@@ -34,16 +34,16 @@ export function AboutUs() {
         <motion.div className="flex flex-col duration-300 ml-5 w-6/12 max-md:ml-0 max-md:w-full">
           <div className="flex flex-col px-5 mt-2 font-bold  max-md:max-w-full">
             <div className=" max-md:hidden self-center text-4xl text-green whitespace-nowrap">
-              About <span className="text-sky-900">Skate</span>
+              About <span className="text-gray">Skate</span>
             </div>
             <div className="mt-10 text-3xl text-neutral-600  max-md:max-w-full">
               Skills Knowledge Attitude, Training Education.
             </div>
-            <div className="self-start mt-8 text-xl leading-10 text-gray-900 text-opacity-70 max-md:max-w-full">
-              <span className="font-normal text-gray-900">
+            <div className="self-start mt-8 text-xl leading-10 text-black_text text-opacity-70 max-md:max-w-full">
+              <span className="font-normal ">
                 Skate is a center of{" "}
               </span>
-              <span className=" font-normal text-gray-900">
+              <span className=" font-normal ">
                 Study, Consultation, Support, Training, and Assistance for
                 individuals, businesses, and public and private organizations.
                 Accredited by the Ministry of Environment.
