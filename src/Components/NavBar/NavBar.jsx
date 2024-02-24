@@ -23,7 +23,6 @@ function NavBar({ Active_nav, setActive_nav }) {
     }
     useEffect(() => {
         setActive_nav(location.pathname.split("/")[1]);
-        
     }, [location.pathname]);
     const [LogoutClicked, setLogoutClicked] = useState(false);
     const Logout = async () => {
@@ -39,7 +38,7 @@ function NavBar({ Active_nav, setActive_nav }) {
                 }
             );
 
-            if (response.status === 204) {
+            if (response.status == 204) {
                 // Successfully logged out, you may want to redirect to the login page or update the UI accordingly
                 store_login({
                     FirstName: "",
@@ -53,7 +52,7 @@ function NavBar({ Active_nav, setActive_nav }) {
                 set_Auth(false);
 
                 // You can use state or context to handle the logout state in your application
-            } else if (response.status === 429) {
+            } else if (response.status == 429) {
                 Swal.fire(
                     "Error!",
                     `Too many requests ,try again latter\n  ${response.data.error}`,

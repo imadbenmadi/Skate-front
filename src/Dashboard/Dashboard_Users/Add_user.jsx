@@ -111,20 +111,20 @@ function Add_user() {
                             );
                             setSubmitting(false);
 
-                            if (response.status === 404) {
+                            if (response.status == 404) {
                                 Swal.fire(
                                     "User Not found",
                                     `Somthing Went Wrong`,
                                     "error"
                                 );
-                            } else if (response.status === 200) {
+                            } else if (response.status == 200) {
                                 resetForm();
                                 Swal.fire(
                                     "Done!",
                                     "account has been created Successfully",
                                     "success"
                                 );
-                            } else if (response.status === 400) {
+                            } else if (response.status == 400) {
                                 Swal.fire(
                                     "Error!",
                                     `Internal server error.${response.data.error}`,
@@ -143,19 +143,19 @@ function Add_user() {
                                         Navigate("/Dashboard_Login");
                                     }
                                 });
-                            } else if (response.status === 409) {
+                            } else if (response.status == 409) {
                                 Swal.fire(
                                     "Error!",
                                     `Missing Data ,  ${response.data.error}`,
                                     "error"
                                 );
-                            } else if (response.status === 429) {
+                            } else if (response.status == 429) {
                                 Swal.fire(
                                     "Error!",
                                     `warning! you created lot of accounts in 3mins , ${response.data.error}`,
                                     "error"
                                 );
-                            } else if (response.status === 500) {
+                            } else if (response.status == 500) {
                                 Swal.fire(
                                     "Error!",
                                     `Internal server error.${response.data.error}`,

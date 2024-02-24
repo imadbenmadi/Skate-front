@@ -29,28 +29,28 @@ function Dashboard_Login() {
                 }
             );
 
-            if (response.status === 200) {
+            if (response.status == 200) {
                 Swal.fire("Done!", "Logged in Successfully", "success");
                 Navigate("/Dashboard");
-            } else if (response.status === 401) {
+            } else if (response.status == 401) {
                 Swal.fire(
                     "Unauthorized!",
                     `wrong email or password , ${response.data.error}`,
                     "error"
                 );
-            } else if (response.status === 409) {
+            } else if (response.status == 409) {
                 Swal.fire(
                     "Error!",
                     `Missing Data ,  ${response.data.error}`,
                     "error"
                 );
-            } else if (response.status === 500) {
+            } else if (response.status == 500) {
                 Swal.fire(
                     "Error!",
                     `Internal Server Error ,  ${response.data.error}`,
                     "error"
                 );
-            } else if (response.status === 429) {
+            } else if (response.status == 429) {
                 Swal.fire(
                     "Error!",
                     `Too many requests ,try again latter\n  ${response.data.error}`,

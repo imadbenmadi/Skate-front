@@ -23,15 +23,12 @@ function Blogs_item() {
                 }
             );
 
-            if (response.status === 200) {
+            if (response.status == 200) {
                 setblog(response.data);
-                
             } else {
-                
                 setError(true);
             }
         } catch (error) {
-            
             setError(true);
         } finally {
             setLoading(false); // Set loading state to false regardless of success or failure

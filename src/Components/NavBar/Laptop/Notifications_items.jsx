@@ -7,10 +7,10 @@ import { RiCalendarEventLine } from "react-icons/ri";
 import { FaBookOpen } from "react-icons/fa";
 import { FaRegHandshake } from "react-icons/fa6";
 import logo from "../../../../public/skate_circle.png";
-import {Formate_Date} from "../../../Logic/Formate_Date"; // Import your date formatting function
+import { Formate_Date } from "../../../Logic/Formate_Date"; // Import your date formatting function
 import { Link } from "react-router-dom";
 const Notifications_items = () => {
-    const { Notifications } = useAppContext(); 
+    const { Notifications } = useAppContext();
     return (
         <div className=" w-full bg-white">
             <div className=" flex items-center justify-between px-3 pb-2 border-b border-gray">
@@ -25,7 +25,7 @@ const Notifications_items = () => {
                 </div>
             </div>
             <div>
-                {Notifications.length === 0 ? (
+                {Notifications.length == 0 ? (
                     <div className=" flex items-center justify-center py-6 gap-3">
                         <HiOutlineMailOpen className=" text-2xl" />
                         <div className=" text-sm text-center  flex items-center">
@@ -44,14 +44,14 @@ const Notifications_items = () => {
                             }).map((notification, index) => (
                                 <Link
                                     to={
-                                        notification.Type === "verify"
+                                        notification.Type == "verify"
                                             ? "/verifyEmail"
                                             : `/Notifications/${notification._id}`
                                     }
                                     key={index}
                                     className={`notification flex items-center justify-start gap-2 p-2 pb-4 border-b border-gray
                                 ${
-                                    notification.Type === "verify"
+                                    notification.Type == "verify"
                                         ? "bg-red-200"
                                         : notification.Readed
                                         ? "bg-white"
@@ -59,15 +59,15 @@ const Notifications_items = () => {
                                 }`}
                                 >
                                     <div className=" text-4xl text-gray">
-                                        {notification.Type === "verify" ? (
+                                        {notification.Type == "verify" ? (
                                             <PiWarningCircleBold />
-                                        ) : notification.Type === "contact" ? (
+                                        ) : notification.Type == "contact" ? (
                                             <MdOutlineMailOutline />
-                                        ) : notification.Type === "event" ? (
+                                        ) : notification.Type == "event" ? (
                                             <RiCalendarEventLine />
-                                        ) : notification.Type === "course" ? (
+                                        ) : notification.Type == "course" ? (
                                             <FaBookOpen />
-                                        ) : notification.Type === "service" ? (
+                                        ) : notification.Type == "service" ? (
                                             <FaRegHandshake />
                                         ) : (
                                             <img
@@ -90,7 +90,7 @@ const Notifications_items = () => {
                                                   )}...`
                                                 : notification.Text}
                                         </p>
-                                        {notification.Type === "verify" &&
+                                        {notification.Type == "verify" &&
                                             notification.Date && (
                                                 <p className="text-xs absolute bottom-0 right-0">
                                                     {Formate_Date(

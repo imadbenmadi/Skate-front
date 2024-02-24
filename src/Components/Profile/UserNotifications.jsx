@@ -16,7 +16,7 @@ function UserNotifications() {
         <div className=" pt-[60px] ">
             <div className=" text-4xl p-8">Notifications</div>
             <div className=" md:pl-10 md:w-[600px]">
-                {Notifications.length === 0 ? (
+                {Notifications.length == 0 ? (
                     <div className="pl-5 flex items-center justify-start py-6 gap-3">
                         <HiOutlineMailOpen className=" text-2xl" />
                         <div className=" text-sm text-center  flex items-center">
@@ -28,14 +28,14 @@ function UserNotifications() {
                         {Notifications.map((notification, index) => (
                             <Link
                                 to={
-                                    notification.Type === "verify"
+                                    notification.Type == "verify"
                                         ? "/verifyEmail"
                                         : `/Notifications/${notification._id}`
                                 }
                                 key={index}
                                 className={`notification flex items-center justify-start gap-2 px-2 py-5  border-b border-gray
                                 ${
-                                    notification.Type === "verify"
+                                    notification.Type == "verify"
                                         ? "bg-red-200"
                                         : notification.Readed
                                         ? "bg-white"
@@ -43,15 +43,15 @@ function UserNotifications() {
                                 }`}
                             >
                                 <div className=" text-5xl text-gray">
-                                    {notification.Type === "verify" ? (
+                                    {notification.Type == "verify" ? (
                                         <PiWarningCircleBold />
-                                    ) : notification.Type === "contact" ? (
+                                    ) : notification.Type == "contact" ? (
                                         <MdOutlineMailOutline />
-                                    ) : notification.Type === "event" ? (
+                                    ) : notification.Type == "event" ? (
                                         <RiCalendarEventLine />
-                                    ) : notification.Type === "course" ? (
+                                    ) : notification.Type == "course" ? (
                                         <FaBookOpen />
-                                    ) : notification.Type === "service" ? (
+                                    ) : notification.Type == "service" ? (
                                         <FaRegHandshake />
                                     ) : (
                                         <img

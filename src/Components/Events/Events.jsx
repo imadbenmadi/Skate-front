@@ -25,7 +25,7 @@ function Event() {
                 validateStatus: () => true,
             });
 
-            if (response.status === 200) {
+            if (response.status == 200) {
                 const { totalPages, events } = response.data;
                 setEvents(events);
             } else {
@@ -75,12 +75,12 @@ function Event() {
                     </div>
 
                     <div className="">
-                        {events.length === 0 ? (
+                        {events.length == 0 ? (
                             <div className="w-[80%] m-auto h-fit text-center pt-6 flex gap-1 text-2xl justify-center items-center text-gray">
                                 <IoWarning />
                                 No Events Found
                             </div>
-                        ) : search === "" ? (
+                        ) : search == "" ? (
                             events.map((event) => (
                                 <div
                                     key={event._id}

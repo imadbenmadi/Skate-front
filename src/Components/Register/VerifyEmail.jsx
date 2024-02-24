@@ -20,7 +20,7 @@ function Verification({
             Navigate("/Login");
         }
     }, [succed_verification, succed_Login]);
-    
+
     const [show_not_finished, setShow_not_finished] = useState(false);
     function open_not_finished() {
         setShow_not_finished(true);
@@ -47,7 +47,7 @@ function Verification({
             }
         );
 
-        if (response.status === 200) {
+        if (response.status == 200) {
             Swal.fire("Done!", "Email Verified Successfully", "success");
             try {
                 let response = await Axios.post(
@@ -61,16 +61,16 @@ function Verification({
                         validateStatus: () => true,
                     }
                 );
-                if (response.status === 200) {
+                if (response.status == 200) {
                     setSucced_Login(true);
                     setSucced_verification(true);
-                } else if (response.status === 401) {
+                } else if (response.status == 401) {
                     setSucced_verification(true);
-                } else if (response.status === 409) {
+                } else if (response.status == 409) {
                     setSucced_verification(true);
-                } else if (response.status === 500) {
+                } else if (response.status == 500) {
                     setSucced_verification(true);
-                } else if (response.status === 429) {
+                } else if (response.status == 429) {
                     Swal.fire(
                         "Error!",
                         `Too many requests ,try again latter\n  ${response.data.error}`,
@@ -79,13 +79,12 @@ function Verification({
                 } else {
                     setSucced_verification(true);
                 }
-            } catch (error) {
-            }
-        } else if (response.status === 401) {
+            } catch (error) {}
+        } else if (response.status == 401) {
             Swal.fire("Error!", "Invalid Code", "error");
-        } else if (response.status === 500) {
+        } else if (response.status == 500) {
             Swal.fire("Error!", "Internal Server Error", "error");
-        } else if (response.status === 429) {
+        } else if (response.status == 429) {
             Swal.fire(
                 "Error!",
                 `Too many requests ,try again latter\n  ${response.data.error}`,

@@ -23,7 +23,7 @@ function Dashboard() {
                 }
             );
 
-            if (response.status === 200) {
+            if (response.status == 200) {
                 setAuth(true);
                 setLoading(false);
             } else {

@@ -30,7 +30,7 @@ function Blogs() {
                 validateStatus: () => true,
             });
 
-            if (response.status === 200) {
+            if (response.status == 200) {
                 const { totalPages, blogs } = response.data;
                 setBlogs(blogs);
             } else {
@@ -80,12 +80,12 @@ function Blogs() {
                     </div>
 
                     <div className="">
-                        {blogs.length === 0 ? (
+                        {blogs.length == 0 ? (
                             <div className="w-[80%] m-auto h-fit text-center pt-6 flex gap-1 text-2xl justify-center items-center text-gray">
                                 <IoWarning />
                                 No Blogs Found
                             </div>
-                        ) : search === "" ? (
+                        ) : search == "" ? (
                             blogs.map((blog) => (
                                 <>
                                     <div
@@ -97,7 +97,7 @@ function Blogs() {
                                     <div></div>
                                 </>
                             ))
-                        ) : filteredBlogs.length === 0 ? (
+                        ) : filteredBlogs.length == 0 ? (
                             <div className="text-center text-gray-500">
                                 No blogs match the selected filter.
                             </div>

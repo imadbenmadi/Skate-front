@@ -23,7 +23,7 @@ function Event_item() {
                 }
             );
 
-            if (response.status === 200) {
+            if (response.status == 200) {
                 setevent(response.data);
             } else {
                 setError(true);

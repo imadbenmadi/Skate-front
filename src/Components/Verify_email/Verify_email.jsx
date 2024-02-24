@@ -26,9 +26,7 @@ function Verify_email() {
                 } else {
                     setError(response);
                 }
-            } catch (error) {
-                
-            }
+            } catch (error) {}
             setLoading(false);
         };
 
@@ -48,7 +46,7 @@ function Verify_email() {
                 const newSeconds = prevSeconds - 1;
 
                 // If the remaining time reaches 0, enable the resend button and clear the interval
-                if (newSeconds === 0) {
+                if (newSeconds == 0) {
                     clearInterval(timerInterval);
                 }
 
@@ -84,16 +82,16 @@ function Verify_email() {
             }
         );
 
-        if (response.status === 200) {
+        if (response.status == 200) {
             Swal.fire("Done!", "Email Verified Successfully", "success");
             Navigate("/");
-        } else if (response.status === 401) {
+        } else if (response.status == 401) {
             Swal.fire("Error!", "Invalid Code", "error");
-        } else if (response.status === 500) {
+        } else if (response.status == 500) {
             Swal.fire("Error!", "Internal Server Error", "error");
-        } else if (response.status === 409) {
+        } else if (response.status == 409) {
             Swal.fire("Error!", response.data.error, "error");
-        } else if (response.status === 429) {
+        } else if (response.status == 429) {
             Swal.fire(
                 "Error!",
                 `Too many requests ,try again latter\n  ${response.data.error}`,
@@ -118,18 +116,18 @@ function Verify_email() {
             }
         );
 
-        if (response.status === 200) {
+        if (response.status == 200) {
             Swal.fire(
                 "Email Sendeed Successfully",
                 "Check Out Your Email , we resend a new verification Code to you",
                 "success"
             );
             startResendTimer();
-        } else if (response.status === 401) {
+        } else if (response.status == 401) {
             Swal.fire("Error!", "Unauthorized", "error");
-        } else if (response.status === 400) {
+        } else if (response.status == 400) {
             Swal.fire("Error!", "Internal Server Error", "error");
-        } else if (response.status === 429) {
+        } else if (response.status == 429) {
             Swal.fire(
                 "Error!",
                 `Too many requests ,try again latter\n  ${response.data.error}`,
@@ -193,7 +191,7 @@ function Verify_email() {
                             Didn’t receive verification code?
                         </div>
                         <div className="text-center text-gray  text-xl">
-                            {RemainingSeconds === 0 ? (
+                            {RemainingSeconds == 0 ? (
                                 <>
                                     <button
                                         onClick={handleResendClick}

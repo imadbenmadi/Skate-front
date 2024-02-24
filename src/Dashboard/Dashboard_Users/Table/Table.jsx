@@ -16,7 +16,6 @@ function Table() {
     const [search, setSearch] = useState("");
     const [filter, setFilter] = useState("All");
     const [open_add_user, setopen_add_user] = useState(false);
-   
 
     const fetch_users = async () => {
         setLoading(true);
@@ -30,7 +29,7 @@ function Table() {
                 }
             );
 
-            if (response.status === 200) {
+            if (response.status == 200) {
                 setUsers(response.data);
             } else {
                 setError(response.data);

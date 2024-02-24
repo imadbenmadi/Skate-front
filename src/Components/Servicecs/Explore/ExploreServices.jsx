@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { IoWarning } from "react-icons/io5";
 function ExploreServices({ search, filter, services }) {
     if (services.services && Array.isArray(services.services)) {
-        if (services.services.length === 0)
+        if (services.services.length == 0)
             return (
                 <div className=" flex text-gray items-center gap-2 p-3">
                     <IoWarning className=" text-2xl" />
@@ -20,13 +20,13 @@ function ExploreServices({ search, filter, services }) {
                 service.Title.toLowerCase().includes(search.toLowerCase());
             const matchesFilter =
                 !filter ||
-                filter.length === 0 ||
+                filter.length == 0 ||
                 !service.Category ||
                 filter.includes(service.Category);
             return matchesSearch && matchesFilter;
         });
 
-        if ((!filter || filter.length === 0) && search === "") {
+        if ((!filter || filter.length == 0) && search == "") {
             return (
                 <div className=" ">
                     {services.services.map((service, index) => (
@@ -40,7 +40,7 @@ function ExploreServices({ search, filter, services }) {
 
         return (
             <div>
-                {filteredservices.length === 0 ? (
+                {filteredservices.length == 0 ? (
                     <div className="text-center text-gray-500">
                         No services match the selected filter.
                     </div>
@@ -61,7 +61,7 @@ function ExploreServices({ search, filter, services }) {
                 No services for the moment
             </div>
         </div>
-    ); 
+    );
 }
 
 export default ExploreServices;

@@ -22,7 +22,7 @@ function App() {
                 }
             );
 
-            if (response.status === 200) {
+            if (response.status == 200) {
                 const _id = response.data.userData._id;
                 const Email = response.data.userData.Email;
                 const FirstName = response.data.userData.FirstName;
@@ -94,7 +94,6 @@ function App() {
     useEffect(() => {
         fetchData();
     }, [isAuth]);
-   
 
     return (
         <div>
@@ -113,7 +112,7 @@ function App() {
                     />
                     {isAuth && !IsEmailVerified && <Activate_account />}
 
-                    <Outlet  />
+                    <Outlet />
                 </div>
             )}
         </div>

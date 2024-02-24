@@ -15,7 +15,6 @@ function Message() {
             <div className=" border border-gray_white text-black_text shadow-md w-[80%] md:w-[50%] m-auto mt-3 p-5 rounded-lg  ">
                 <Formik
                     initialValues={{
-                        
                         Title: "",
                         Text: "",
                         Description: "",
@@ -59,7 +58,7 @@ function Message() {
                                 }
                             );
                             console.log(response.data);
-                            if (response.status === 200) {
+                            if (response.status == 200) {
                                 Swal.fire(
                                     "Done!",
                                     "Message sended in Successfully",
@@ -79,19 +78,19 @@ function Message() {
                                         Navigate("/Dashboard_Login");
                                     }
                                 });
-                            } else if (response.status === 409) {
+                            } else if (response.status == 409) {
                                 Swal.fire(
                                     "Error!",
                                     `Missing Data ,  ${response.data.error}`,
                                     "error"
                                 );
-                            } else if (response.status === 500) {
+                            } else if (response.status == 500) {
                                 Swal.fire(
                                     "Error!",
                                     `Internal Server Error ,  ${response.data.error}`,
                                     "error"
                                 );
-                            } else if (response.status === 429) {
+                            } else if (response.status == 429) {
                                 Swal.fire(
                                     "Error!",
                                     `Too many requests ,try again latter\n  ${response.data.error}`,

@@ -19,7 +19,7 @@ function Courses() {
                 validateStatus: () => true,
             });
 
-            if (response.status === 200) {
+            if (response.status == 200) {
                 setCourses(response.data);
             } else {
                 setError(response.data);
@@ -37,8 +37,8 @@ function Courses() {
                     }
                 );
 
-                if (response.status === 200) {
-                    setUserCourses(response.data);
+                if (response.status == 200) {
+                    setUserCourses(response.data.Courses);
                 } else {
                     setError(response.data);
                 }
@@ -55,7 +55,7 @@ function Courses() {
     if (error) {
         return <ErrorPage />;
     }
-    
+
     return (
         <div>
             {loading ? (

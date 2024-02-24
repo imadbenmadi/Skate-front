@@ -14,13 +14,13 @@ export async function handleRegistration(
             }
         );
 
-        if (response.status === 401) {
+        if (response.status == 401) {
             Swal.fire(
                 "Email already exists",
                 `Please try to use another Email , ${response.data.error}`,
                 "error"
             );
-        } else if (response.status === 200) {
+        } else if (response.status == 200) {
             setVerifyId(response.data._id);
             set_rigester_Date(response.data.Date);
             setSucced_Register(true);
@@ -29,25 +29,25 @@ export async function handleRegistration(
             //     "Your account has been created Successfully",
             //     "success"
             // );
-        } else if (response.status === 400) {
+        } else if (response.status == 400) {
             Swal.fire(
                 "Error!",
                 `Internal server error.${response.data.error}`,
                 "error"
             );
-        } else if (response.status === 409) {
+        } else if (response.status == 409) {
             Swal.fire(
                 "Error!",
                 `Missing Data ,  ${response.data.error}`,
                 "error"
             );
-        } else if (response.status === 429) {
+        } else if (response.status == 429) {
             Swal.fire(
                 "Error!",
                 `warning! you created lot of accounts in 3mins , ${response.data.error}`,
                 "error"
             );
-        } else if (response.status === 500) {
+        } else if (response.status == 500) {
             Swal.fire(
                 "Error!",
                 `Internal server error.${response.data.error}`,

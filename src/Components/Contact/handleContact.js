@@ -12,25 +12,18 @@ export async function handleContact(values, { setSubmitting, onSuccess }) {
             }
         );
 
-        if (response.status === 200) {
+        if (response.status == 200) {
             onSuccess();
             Swal.fire(
                 "Done!",
                 "Your Message has been Sended Successfully",
                 "success"
             );
-        } else if (response.status === 500) {
-            Swal.fire(
-                "Error!",
-                `Internal server error. `,
-                "error"
-            );
-        } else if (response.status === 409) {
-            Swal.fire(
-                "Error!",
-                `Missing Data  `
-            );
-        } else if (response.status === 429) {
+        } else if (response.status == 500) {
+            Swal.fire("Error!", `Internal server error. `, "error");
+        } else if (response.status == 409) {
+            Swal.fire("Error!", `Missing Data  `);
+        } else if (response.status == 429) {
             Swal.fire(
                 "Error!",
                 `Too many requests ,try again latter\n  `,
@@ -44,11 +37,7 @@ export async function handleContact(values, { setSubmitting, onSuccess }) {
             );
         }
     } catch (error) {
-        Swal.fire(
-            "Error!",
-            `Something Went Wrong. Please try again `,
-            "error"
-        );
+        Swal.fire("Error!", `Something Went Wrong. Please try again `, "error");
     }
 
     setSubmitting(false);

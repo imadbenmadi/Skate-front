@@ -20,7 +20,7 @@ function ServiceItem() {
     let Already_have_service = null;
     if (Services) {
         Already_have_service = Services.some(
-            (service) => service._id === location.pathname.split("/")[2]
+            (service) => service._id == location.pathname.split("/")[2]
         );
     }
     const handle_request_service = async () => {
@@ -37,16 +37,16 @@ function ServiceItem() {
                 }
             );
 
-            if (response.status === 200) {
+            if (response.status == 200) {
                 swal.fire("success", "request sent successfully", "success");
                 setsecces(true);
-            } else if (response.status === 409) {
+            } else if (response.status == 409) {
                 swal.fire(
                     "Missing Data ",
                     " Request could not be sendded",
                     "error"
                 );
-            } else if (401) {
+            } else if (service.status == 401) {
                 swal.fire({
                     title: "You should login to do that",
                     text: "Your are Not Authenthicated !",
@@ -59,24 +59,22 @@ function ServiceItem() {
                         Navigate("/Login");
                     }
                 });
-            } else if (response.status === 400) {
+            } else if (response.status == 400) {
                 swal.fire(
                     "You Already Requested this Service ",
                     " wait intil the Center Aprove your request",
                     "warning"
                 );
-            } else if (response.status === 404) {
+            } else if (response.status == 404) {
                 swal.fire(
                     "not found",
                     "Somthing Went wrong PLease try again latter",
                     "warning"
                 );
-            }
-            else {
+            } else {
                 swal.fire("error", "internal server error", "error");
             }
-        } catch (error) {
-        }
+        } catch (error) {}
     };
     const fetchservice = async () => {
         setLoading(true);
@@ -92,7 +90,7 @@ function ServiceItem() {
                 }
             );
 
-            if (response.status === 200) {
+            if (response.status == 200) {
                 setservice(response.data);
             } else {
                 setError(true);

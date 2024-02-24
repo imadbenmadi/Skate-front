@@ -19,9 +19,8 @@ function Services() {
                 validateStatus: () => true,
             });
 
-            if (response.status === 200) {
+            if (response.status == 200) {
                 setServices(response.data);
-                
             } else {
                 setError(response.data);
             }
@@ -34,7 +33,7 @@ function Services() {
                         validateStatus: () => true,
                     }
                 );
-                if (userResponse.status === 200) {
+                if (userResponse.status == 200) {
                     setUserServices(userResponse.data);
                 } else {
                     setError(userResponse.data);

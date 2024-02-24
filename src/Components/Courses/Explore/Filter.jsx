@@ -8,7 +8,7 @@ function Filter({ filter, setFilter }) {
         const currentIndex = filter.indexOf(category);
         const newfilter = [...filter];
 
-        if (currentIndex === -1) {
+        if (currentIndex == -1) {
             newfilter.push(category);
         } else {
             newfilter.splice(currentIndex, 1);

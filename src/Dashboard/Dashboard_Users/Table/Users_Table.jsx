@@ -3,7 +3,7 @@ import { FaPen } from "react-icons/fa";
 import { IoWarning } from "react-icons/io5";
 import { Link } from "react-router-dom";
 function Users_Table({ users }) {
-    if (users === null || users === undefined) {
+    if (users == null || users == undefined) {
         return null;
     }
 
@@ -39,7 +39,7 @@ function Users_Table({ users }) {
                     </tr>
                 </thead>
                 <tbody>
-                    {users.length === 0 && (
+                    {users.length == 0 && (
                         <tr className="bg-gray_white  h-[40px] text-center">
                             <td
                                 colSpan="8"

@@ -21,18 +21,18 @@ function Confirm_to_send({ setConfirm_to_send_state, startResendTimer }) {
                     validateStatus: () => true,
                 }
             );
-            if (response.status === 200) {
+            if (response.status == 200) {
                 setloading_toSend(false);
                 startResendTimer();
                 setConfirm_to_send_state(true);
-            } else if (response.status === 429) {
+            } else if (response.status == 429) {
                 Swal.fire(
                     "Error!",
                     "Error sending email , Too many Requests",
                     "error"
                 );
                 setloading_toSend(false);
-            } else if (response.status === 401) {
+            } else if (response.status == 401) {
                 Swal.fire(
                     "Error!",
                     "Error sending email , Unauthorized",

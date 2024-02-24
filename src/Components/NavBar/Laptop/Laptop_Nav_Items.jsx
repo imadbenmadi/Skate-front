@@ -46,7 +46,6 @@ function Laptop_Nav_Items({
             preConfirm: () => {
                 const language = document.getElementById("language").value;
                 const darkMode = document.getElementById("darkMode").checked;
-                
             },
         });
     };
@@ -57,7 +56,7 @@ function Laptop_Nav_Items({
                     <Link
                         to={"/Services"}
                         className={
-                            Active_nav === "Services"
+                            Active_nav == "Services"
                                 ? "text-green hover:text-green"
                                 : "text-black_text hover:text-green"
                         }
@@ -70,7 +69,7 @@ function Laptop_Nav_Items({
                     <Link
                         to={"/Courses"}
                         className={
-                            Active_nav === "Courses"
+                            Active_nav == "Courses"
                                 ? "text-green hover:text-green"
                                 : "text-black_text hover:text-green"
                         }
@@ -82,7 +81,7 @@ function Laptop_Nav_Items({
                     <Link
                         to={"/Events"}
                         className={
-                            Active_nav === "Events"
+                            Active_nav == "Events"
                                 ? "text-green hover:text-green"
                                 : "text-black_text hover:text-green"
                         }
@@ -95,7 +94,7 @@ function Laptop_Nav_Items({
                     <Link
                         to={"/Blogs"}
                         className={
-                            Active_nav === "Blogs"
+                            Active_nav == "Blogs"
                                 ? "text-green hover:text-green"
                                 : "text-black_text hover:text-green"
                         }
@@ -108,7 +107,7 @@ function Laptop_Nav_Items({
                     <Link
                         to={"/Contact"}
                         className={`${
-                            Active_nav === "Contact"
+                            Active_nav == "Contact"
                                 ? "text-green hover:text-green"
                                 : "text-black_text hover:text-green"
                         }`}

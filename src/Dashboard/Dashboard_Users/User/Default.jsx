@@ -12,7 +12,7 @@ import { IoIosNotifications } from "react-icons/io";
 import { FaMessage } from "react-icons/fa6";
 
 function Default() {
-    const user = useOutletContext()
+    const user = useOutletContext();
     const location = useLocation();
     const Navigate = useNavigate();
     const userId = location.pathname.split("/")[3];
@@ -26,15 +26,11 @@ function Default() {
                 }
             );
 
-            if (response.status === 200) {
+            if (response.status == 200) {
                 Navigate("/Dashboard/Users");
-                swal.fire(
-                    "User Deleted Successfully",
-                    "",
-                    "success"
-                );
+                swal.fire("User Deleted Successfully", "", "success");
                 setsecces(true);
-            } else if (response.status === 404) {
+            } else if (response.status == 404) {
                 swal.fire(
                     " User Not found ",
                     " Refresh the page please",
@@ -60,10 +56,9 @@ function Default() {
                     "error"
                 );
             }
-        } catch (error) {
-        }
+        } catch (error) {}
     }
-    
+
     return (
         <div>
             <div className=" flex gap-10  pt-6 justify-center text-xl ">
@@ -139,7 +134,9 @@ function Default() {
                                         Status:
                                     </th>
                                     <td className=" border border-gray pl-3">
-                                        {user.IsEmailVerified == true ? "Verified " : "Not Verified"}
+                                        {user.IsEmailVerified == true
+                                            ? "Verified "
+                                            : "Not Verified"}
                                     </td>
                                 </tr>
                             </tbody>

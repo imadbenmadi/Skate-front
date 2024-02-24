@@ -20,7 +20,7 @@ function CourseItem() {
     let Already_have_course = null;
     if (Courses) {
         Already_have_course = Courses.some(
-            (course) => course._id === location.pathname.split("/")[2]
+            (course) => course._id == location.pathname.split("/")[2]
         );
     }
     const handle_request_course = async () => {
@@ -37,15 +37,22 @@ function CourseItem() {
                 }
             );
 
-            if (response.status === 200) {
+            if (response.status == 200) {
                 swal.fire("success", "request sent successfully", "success");
                 setsecces(true);
-            } else if (response.status === 409) {
-                swal.fire("Missing Data ", "Request could not be sendded", "warning");
-            } else if (response.status === 404) {
-                swal.fire("not found", "Somthing Went wrong PLease try again latter", "warning");
-            } 
-            else if (response.status === 400) {
+            } else if (response.status == 409) {
+                swal.fire(
+                    "Missing Data ",
+                    "Request could not be sendded",
+                    "warning"
+                );
+            } else if (response.status == 404) {
+                swal.fire(
+                    "not found",
+                    "Somthing Went wrong PLease try again latter",
+                    "warning"
+                );
+            } else if (response.status == 400) {
                 swal.fire(
                     "You Already Requested this Course ",
                     " wait intil the Center Aprove your request",
@@ -85,7 +92,7 @@ function CourseItem() {
                 }
             );
 
-            if (response.status === 200) {
+            if (response.status == 200) {
                 setCourse(response.data);
             } else {
                 setError(true);
