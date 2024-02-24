@@ -61,10 +61,10 @@ function ServiceItem() {
                         Navigate("/Login");
                     }
                 });
-            } else if (response.status == 400) {
+            } else if (response.status === 400) {
                 swal.fire(
-                    "You Already Requested this Service ",
-                    " wait intil the Center Aprove your request",
+                    "You Cannot request the Service",
+                    `${response.data.message}`,
                     "warning"
                 );
             } else if (response.status == 404) {

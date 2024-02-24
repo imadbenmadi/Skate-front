@@ -58,8 +58,8 @@ function CourseItem() {
                 );
             } else if (response.status === 400) {
                 swal.fire(
-                    "You already requested this course",
-                    "Please wait until the center approves your request",
+                    "You Cannot request the course",
+                   `${response.data.message}`,
                     "warning"
                 );
             } else if (response.status === 401) {
