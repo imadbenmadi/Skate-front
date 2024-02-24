@@ -79,10 +79,15 @@ function Verification({
                 } else {
                     setSucced_verification(true);
                 }
-            } catch (error) {}
-        } else if (response.status == 401) {
-            Swal.fire("Error!", "Invalid Code", "error");
-        } else if (response.status == 500) {
+            } catch (error) {
+                setSucced_verification(true);
+            }
+        } else if (response.status == 409) {
+            Swal.fire("Could not Verify Account!", `${response.data.message}`, "error");
+        } else if (response.status == 404) {
+            Swal.fire("Error!", `${response.data.message}`, "error");
+        } 
+        else if (response.status == 500) {
             Swal.fire("Error!", "Internal Server Error", "error");
         } else if (response.status == 429) {
             Swal.fire(
