@@ -9,7 +9,7 @@ import Founder from "./Founder/Founder";
 import Footer from "../Footer/Footer";
 function Home() {
     return (
-        <div className="h-screen  overflow-auto custom-overflow  max-w-8xl m-auto">
+        <div className="h-screen  overflow-auto custom-overflow  max-w-8xl m-auto overflow-x-hidden">
             <Hero />
             {/* <Pages_Btns /> */}
             {/* <div className=" h-[40vh] bg-gray_white w-full"></div>
