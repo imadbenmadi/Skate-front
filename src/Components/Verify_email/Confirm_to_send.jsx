@@ -35,10 +35,23 @@ function Confirm_to_send({ setConfirm_to_send_state, startResendTimer }) {
             } else if (response.status == 401) {
                 Swal.fire(
                     "Error!",
-                    "Error sending email , Unauthorized",
+                    "Error sending email , Unauthorized action",
                     "error"
                 );
                 setloading_toSend(flase);
+            } else if (response.status == 409) {
+                Swal.fire("Error!", `${response.data.message}`, "error");
+                setloading_toSend(false);
+            } else if (response.status == 404) {
+                Swal.fire("Error!", "User not found", "error");
+                setloading_toSend(false);
+            } else if (response.status == 400){
+                Swal.fire("Error!", `${response.data.message}`, "error");
+                setloading_toSend(false);
+            }
+            else if (response.status == 500) {
+                Swal.fire("Error!", "Internal Server Error", "error");
+                setloading_toSend(false);
             }
         } catch (error) {
             Swal.fire("Error!", "Error sending email", "error");
