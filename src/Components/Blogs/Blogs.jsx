@@ -8,7 +8,7 @@ function Blogs() {
     const [search, setSearch] = useState("");
     const [blogs, setBlogs] = useState([]);
     const [error, setError] = useState(null);
-
+    const [page, setPage] = useState(1);
     const handleSearch = () => {
         const searchInput = document.getElementById("searchInput");
         if (searchInput) {
@@ -87,9 +87,15 @@ function Blogs() {
                             </div>
                         ) : search === "" ? (
                             blogs.map((blog) => (
-                                <div key={blog._id} className="w-[90vw] m-auto">
-                                    <Card blog={blog} />
-                                </div>
+                                <>
+                                    <div
+                                        key={blog._id}
+                                        className="w-[90vw] m-auto"
+                                    >
+                                        <Card blog={blog} />
+                                    </div>
+                                    <div></div>
+                                </>
                             ))
                         ) : filteredBlogs.length === 0 ? (
                             <div className="text-center text-gray-500">
