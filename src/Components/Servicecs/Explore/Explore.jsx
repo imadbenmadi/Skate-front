@@ -17,7 +17,6 @@ function Explore({ services }) {
                     <span className=" text-green2">Explore </span>
                     Skate Services
                 </div>
-
                 <div className="   flex gap-2">
                     <div className=" md:hidden">
                         <Mobile_Filter filter={filter} setFilter={setFilter} />
