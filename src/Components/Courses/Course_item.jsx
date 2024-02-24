@@ -65,10 +65,10 @@ function CourseItem() {
                     }
                 });
             } else {
-                swal.fire("error", "request not sent", "error");
+                swal.fire("error", "internal server error", "error");
             }
         } catch (error) {
-            swal.fire("error", "request not sent", "error");
+            swal.fire("error", "internal server error", "error");
         }
     };
     const fetchCourse = async () => {

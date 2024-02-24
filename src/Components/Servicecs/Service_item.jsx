@@ -42,9 +42,9 @@ function ServiceItem() {
                 setsecces(true);
             } else if (response.status === 409) {
                 swal.fire(
-                    "You Already Requested this service ",
-                    " wait intil the Center Aprove your request",
-                    "warning"
+                    "Missing Data ",
+                    " Request could not be sendded",
+                    "error"
                 );
             } else if (401) {
                 swal.fire({
@@ -59,8 +59,21 @@ function ServiceItem() {
                         Navigate("/Login");
                     }
                 });
-            } else {
-                swal.fire("error", "request not sent", "error");
+            } else if (response.status === 400) {
+                swal.fire(
+                    "You Already Requested this Service ",
+                    " wait intil the Center Aprove your request",
+                    "warning"
+                );
+            } else if (response.status === 404) {
+                swal.fire(
+                    "not found",
+                    "Somthing Went wrong PLease try again latter",
+                    "warning"
+                );
+            }
+            else {
+                swal.fire("error", "internal server error", "error");
             }
         } catch (error) {
         }
