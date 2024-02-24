@@ -15,10 +15,10 @@ export function AboutUs() {
         opacity: isInView ? 1 : 0,
         transition: "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s",
       }}
-      className=" mx-auto py-20 "
+      className=" mx-auto py-4 " 
     >
       <div className="flex  mx-auto justify-center items-center max-w-[1200px] gap-5 max-md:flex-col max-md:gap-0 max-md:">
-        <div className="md:hidden  my-10 self-center text-4xl text-green whitespace-nowrap">
+        <div className="md:hidden  my-5 self-center text-4xl text-green whitespace-nowrap">
           About <span className="text-sky-900">Skate</span>
         </div>
 
@@ -28,15 +28,15 @@ export function AboutUs() {
           </div>
           <motion.img
             src={AboutImg}
-            className="grow duration-200  w-full max-md:w-[90%] max-md:self-center aspect-[0.93] max-md:mt-3.5 max-md:max-w-full"
+            className="grow duration-200  w-[250px] max-md:w-[90%] max-md:self-center aspect-[0.93] max-md:mt-3.5 max-md:max-w-full"
           />
         </motion.div>
         <motion.div className="flex flex-col duration-300 ml-5 w-6/12 max-md:ml-0 max-md:w-full">
-          <div className="flex flex-col px-5 mt-9 font-bold max-md:mt-10 max-md:max-w-full">
+          <div className="flex flex-col px-5 mt-2 font-bold  max-md:max-w-full">
             <div className=" max-md:hidden self-center text-4xl text-green whitespace-nowrap">
               About <span className="text-sky-900">Skate</span>
             </div>
-            <div className="mt-10 text-3xl text-neutral-600 max-md:mt-10 max-md:max-w-full">
+            <div className="mt-10 text-3xl text-neutral-600  max-md:max-w-full">
               Skills Knowledge Attitude, Training Education.
             </div>
             <div className="self-start mt-8 text-xl leading-10 text-gray-900 text-opacity-70 max-md:max-w-full">
