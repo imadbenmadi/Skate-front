@@ -113,8 +113,8 @@ function Add_user() {
 
                             if (response.status == 404) {
                                 Swal.fire(
-                                    "User Not found",
-                                    `Somthing Went Wrong`,
+                                    "Error",
+                                    `${response.data.message}`,
                                     "error"
                                 );
                             } else if (response.status == 200) {
@@ -127,7 +127,7 @@ function Add_user() {
                             } else if (response.status == 400) {
                                 Swal.fire(
                                     "Error!",
-                                    `Internal server error.${response.data.message}`,
+                                    `Internal server error : ${response.data.message}`,
                                     "error"
                                 );
                             } else if (401) {
@@ -146,7 +146,7 @@ function Add_user() {
                             } else if (response.status == 409) {
                                 Swal.fire(
                                     "Error!",
-                                    `Missing Data ,  ${response.data.message}`,
+                                    `${response.data.message}`,
                                     "error"
                                 );
                             } else if (response.status == 429) {
@@ -158,7 +158,7 @@ function Add_user() {
                             } else if (response.status == 500) {
                                 Swal.fire(
                                     "Error!",
-                                    `Internal server error.${response.data.message}`,
+                                    `Internal server error : ${response.data.message}`,
                                     "error"
                                 );
                             } else {
