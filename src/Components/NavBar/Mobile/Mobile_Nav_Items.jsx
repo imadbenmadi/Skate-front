@@ -74,7 +74,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar, Logout,LogoutClicke
 
                             <Link
                                 onClick={Toogle_Menu_Bar}
-                                to={"/Notifications"}
+                                to={"/Profile/Notifications"}
                                 className=" flex mb-4 "
                             >
                                 <MdNotificationsNone className=" text-3xl" />

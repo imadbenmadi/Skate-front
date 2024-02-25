@@ -62,24 +62,28 @@ const routes = createBrowserRouter([
             { path: "/Blogs/:id", element: <Blogs_item /> },
             {
                 path: "/Profile",
-                element: <Profile />,
+                element: <Not_Finished />,
                 children: [
                     { index: true, element: <Info /> },
                     {
                         path: "/Profile/Notifications",
-                        element: <UserNotifications />,
+                        element: <Not_Finished />,
+                    },
+                    {
+                        path: "/Profile/Notifications/:id",
+                        element: <Not_Finished />,
                     },
                     {
                         path: "/Profile/Courses",
-                        element: <UserCourses />,
+                        element: <Not_Finished />,
                     },
                     {
                         path: "/Profile/Services",
-                        element: <UserServices />,
+                        element: <Not_Finished />,
                     },
                 ],
             },
-            { path: "/Notifications/:id", element: <Not_Finished /> },
+            // { path: "/Notifications/:id", element: <Not_Finished /> },
             {
                 path: "/verifyEmail",
                 element: <VerifyEmail />,
@@ -135,7 +139,7 @@ const routes = createBrowserRouter([
             },
             { path: "/Dashboard/Courses", element: <Dashboard_Courses /> },
             { path: "/Dashboard/Courses/Add", element: <Add_Course /> },
-            
+
             { path: "/Dashboard/Services", element: <Dashboard_Services /> },
             { path: "/Dashboard/Events", element: <Dashboard_Events /> },
             { path: "/Dashboard/Blogs", element: <Dashboard_Blogs /> },

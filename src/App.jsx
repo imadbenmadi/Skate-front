@@ -43,15 +43,15 @@ function App() {
                     IsEmailVerified,
                     _id
                 );
-                !IsEmailVerified
-                    ? Notifications.push({
-                          Type: "verify",
-                          Title: "Please verify your email",
-                          Text: "Please verify your email to get the most out of our services.",
-                          Date: "18 feb 2024",
-                          Readed: false,
-                      })
-                    : null;
+                // !IsEmailVerified
+                //     ? Notifications.push({
+                //           Type: "verify",
+                //           Title: "Please verify your email",
+                //           Text: "Please verify your email to get the most out of our services.",
+                //           Date: "18 feb 2024",
+                //           Readed: false,
+                //       })
+                //     : null;
 
                 set_Auth(true);
                 setLoading(false);

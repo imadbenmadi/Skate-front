@@ -46,7 +46,7 @@ const Notifications_items = () => {
                                     to={
                                         notification.Type == "verify"
                                             ? "/verifyEmail"
-                                            : `/Notifications/${notification._id}`
+                                            : `/Profile/Notifications/${notification._id}`
                                     }
                                     key={index}
                                     className={`notification flex items-center justify-start gap-2 p-2 pb-4 border-b border-gray
