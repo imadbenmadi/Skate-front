@@ -25,12 +25,11 @@ function Default() {
                     validateStatus: () => true,
                 }
             );
-            
 
             if (response.status == 200) {
                 Navigate("/Dashboard/Users");
                 swal.fire("User Deleted Successfully", "", "success");
-                
+
                 // setsecces(true);
             } else if (response.status == 404) {
                 swal.fire(
@@ -59,7 +58,11 @@ function Default() {
                 );
             }
         } catch (error) {
-            swal.fire("Could not delete user", "Please Try again Latter", "error");
+            swal.fire(
+                "Could not delete user",
+                "Please Try again Latter",
+                "error"
+            );
         }
     }
 
@@ -103,10 +106,18 @@ function Default() {
                             <tbody>
                                 <tr className="">
                                     <th className="text-left pr-4 border  p-2 ">
-                                        User name:
+                                        First name:
                                     </th>
                                     <td className=" border border-gray pl-3">
-                                        {user.FirstName} {user.LastName}
+                                        {user.FirstName}
+                                    </td>
+                                </tr>
+                                <tr className="">
+                                    <th className="text-left pr-4 border  p-2 ">
+                                        Last name:
+                                    </th>
+                                    <td className=" border border-gray pl-3">
+                                        {user.LastName}
                                     </td>
                                 </tr>
                                 <tr>
