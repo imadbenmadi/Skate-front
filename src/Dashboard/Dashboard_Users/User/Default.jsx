@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { MdOutlineDeleteForever } from "react-icons/md";
-import Message from "./Message";
+
 import { FaPen } from "react-icons/fa";
 import { useLocation } from "react-router";
 import axios from "axios";
@@ -69,6 +69,13 @@ function Default() {
     return (
         <div>
             <div className=" flex gap-10  pt-6 justify-center text-xl ">
+                <Link
+                    to={"/Dashboard/Users/" + userId + "/Notification"}
+                    className="flex items-center  cursor-pointer  gap-1 bg-gray text-white px-3 py-1 rounded"
+                >
+                    <IoIosNotifications />
+                    Send Notification
+                </Link>
                 <Link
                     to={"/Dashboard/Users/" + userId + "/Edit"}
                     className="flex items-center   gap-1 bg-green text-white px-3 py-1 rounded"
@@ -157,23 +164,6 @@ function Default() {
                             </tbody>
                         </table>
                     )}
-                </div>
-
-                <div className=" flex flex-col gap-4  pt-6 justify-center text-xl ">
-                    <Link
-                        to={"/Dashboard/Users/" + userId + "/Message"}
-                        className="flex items-center   gap-2 bg-gray text-white px-3 py-1 rounded"
-                    >
-                        <FaMessage className=" text-sm" />
-                        Send Message
-                    </Link>
-                    <Link
-                        to={"/Dashboard/Users/" + userId + "/Notification"}
-                        className="flex items-center  cursor-pointer  gap-1 bg-gray text-white px-3 py-1 rounded"
-                    >
-                        <IoIosNotifications />
-                        Send Notification
-                    </Link>
                 </div>
             </div>
         </div>
