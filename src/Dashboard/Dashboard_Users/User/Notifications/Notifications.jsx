@@ -5,11 +5,11 @@ import Axios from "axios";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
-
+import Current_Notifications from "./Current_Notifications";
 function Notifications() {
     const user = useOutletContext();
+    console.log(user);
     const userId = location.pathname.split("/")[3];
-    console.log("http://localhost:3000/Dashboard/User/" + userId + "/Notify");
 
     const Navigate = useNavigate();
     return (
@@ -239,6 +239,14 @@ function Notifications() {
                         </Form>
                     )}
                 </Formik>
+            </div>
+            <div className=" m-auto w-fit mt-12">
+                <Link
+                    to={`/Dashboard/Users/${userId}/Current_Notifications`}
+                    className="bg-green text-white font-bold py-2 px-4 rounded"
+                >
+                    View User Current Notifications
+                </Link>
             </div>
         </div>
     );
