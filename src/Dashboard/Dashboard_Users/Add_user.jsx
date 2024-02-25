@@ -1,12 +1,10 @@
 import React from "react";
-import Logo from "../../../public/Logo.png";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { IoMdEye } from "react-icons/io";
 import { IoMdEyeOff } from "react-icons/io";
-import { useEffect } from "react";
 import Axios from "axios";
 import Swal from "sweetalert2";
 import { IoMdArrowRoundBack } from "react-icons/io";
@@ -152,7 +150,7 @@ function Add_user() {
                             } else if (response.status == 429) {
                                 Swal.fire(
                                     "Error!",
-                                    `warning! you created lot of accounts in 3mins , ${response.data.message}`,
+                                    `Too many Requests , ${response.data.message}`,
                                     "error"
                                 );
                             } else if (response.status == 500) {
