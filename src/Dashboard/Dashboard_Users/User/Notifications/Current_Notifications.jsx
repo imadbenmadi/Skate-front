@@ -10,10 +10,9 @@ import { Formate_Date } from "../../../../Logic/Formate_Date";
 import logo from ".././../../../../public/logo.png";
 import { useNavigate } from "react-router-dom";
 function Current_Notifications() {
-    
     const user = useOutletContext();
     if (!user) return null;
-    const Notifications = user.Notifications
+    const Notifications = user.Notifications;
     return (
         <div>
             <div className=" text-center text-gray font-semibold text-2xl my-5">
@@ -53,6 +52,9 @@ function Current_Notifications() {
                                     </p>
                                 )}
                         </div>
+                        {notification.Description && (
+                            <div>{notification.Description}</div>
+                        )}
                     </div>
                 ))}
             </div>
