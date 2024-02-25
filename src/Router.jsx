@@ -31,7 +31,7 @@ import Dashboard_home from "./Dashboard/Dashboard_home/Dashboard_home";
 import Dashboard_Users from "./Dashboard/Dashboard_Users/Dashboard_Users";
 import Default_user from "./Dashboard/Dashboard_Users/User/Default";
 import Edit_user from "./Dashboard/Dashboard_Users/User/Edit";
-import user_Notifications from "./Dashboard/Dashboard_Users/User/Notifications";
+import Dashboard_Users_Notification from "./Dashboard/Dashboard_Users/User/Notifications/Notifications";
 import Add_user from "./Dashboard/Dashboard_Users/Add_user";
 import User from "./Dashboard/Dashboard_Users/User/User";
 import Table from "./Dashboard/Dashboard_Users/Table/Table";
@@ -114,7 +114,7 @@ const routes = createBrowserRouter([
                             },
                             {
                                 path: "/Dashboard/Users/:id/Notification",
-                                element: <user_Notifications />,
+                                element: <Dashboard_Users_Notification />,
                             },
                             {
                                 path: "/Dashboard/Users/:id/Courses",

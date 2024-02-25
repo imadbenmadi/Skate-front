@@ -14,9 +14,13 @@ function Notifications() {
     const Navigate = useNavigate();
     return (
         <div>
+            <div className=" text-center text-gray font-semibold text-2xl ">
+                Send Notification :
+            </div>
             <div className=" border border-gray_white text-black_text shadow-md w-[80%] md:w-[50%] m-auto mt-3 p-5 rounded-lg  ">
                 <Formik
                     initialValues={{
+                        Type: "others",
                         Title: "",
                         Text: "",
                         Description: "",
@@ -123,6 +127,43 @@ function Notifications() {
                 >
                     {({ isSubmitting }) => (
                         <Form className="  flex flex-col text-sm md:text-lg md:mx-5 gap-4 text-gray">
+                            <div className="flex items-center ">
+                                <div className="mr-2">Notification Type:</div>
+                                <div className="relative">
+                                    <Field
+                                        as="select"
+                                        name="Type"
+                                        disabled={isSubmitting}
+                                        className="border w-[200px] border-gray_white px-2 py-1 rounded shadow-sm appearance-none"
+                                    >
+                                        <option value="">Select Type</option>
+                                        <option value="verify">
+                                            Verify Your account
+                                        </option>
+
+                                        <option value="event">
+                                            Event Notification
+                                        </option>
+                                        <option value="course">
+                                            Course Notification
+                                        </option>
+                                        <option value="service">
+                                            Service Notification
+                                        </option>
+                                        <option value="blog">
+                                            Blog Notification
+                                        </option>
+                                        <option value="message">Message</option>
+                                        <option value="other">Other</option>
+                                    </Field>
+                                </div>
+                                <ErrorMessage
+                                    name="Type"
+                                    component="div"
+                                    className="text-red-600 font-semibold ml-2"
+                                />
+                            </div>
+
                             <div>
                                 <div>
                                     Title{" "}
