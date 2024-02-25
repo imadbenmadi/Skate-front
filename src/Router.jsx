@@ -37,10 +37,10 @@ import Add_user from "./Dashboard/Dashboard_Users/Add_user";
 import User from "./Dashboard/Dashboard_Users/User/User";
 import Table from "./Dashboard/Dashboard_Users/Table/Table";
 
-
+import Dashboard_Courses from "./Dashboard/Dashboard_Courses/Dashboard_Courses";
+import Add_Course from "./Dashboard/Dashboard_Courses/Add_Course";
 
 import Dashboard_Services from "./Dashboard/Dashboard_Services/Dashboard_Services";
-import Dashboard_Courses from "./Dashboard/Dashboard_Courses/Dashboard_Courses";
 import Dashboard_Events from "./Dashboard/Dashboard_Events/Dashboard_Events";
 import Dashboard_Blogs from "./Dashboard/Dashboard_Blogs/Dashboard_Blogs";
 
@@ -133,8 +133,10 @@ const routes = createBrowserRouter([
                     },
                 ],
             },
-            { path: "/Dashboard/Services", element: <Dashboard_Services /> },
             { path: "/Dashboard/Courses", element: <Dashboard_Courses /> },
+            { path: "/Dashboard/Courses/Add", element: <Add_Course /> },
+            
+            { path: "/Dashboard/Services", element: <Dashboard_Services /> },
             { path: "/Dashboard/Events", element: <Dashboard_Events /> },
             { path: "/Dashboard/Blogs", element: <Dashboard_Blogs /> },
             {
