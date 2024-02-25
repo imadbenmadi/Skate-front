@@ -8,11 +8,12 @@ import { FaRegHandshake } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { Formate_Date } from "../../../../Logic/Formate_Date";
 import logo from ".././../../../../public/logo.png";
+import { useNavigate } from "react-router-dom";
 function Current_Notifications() {
+    
     const user = useOutletContext();
-
-    console.log(user);
-    const Notifications = user.Notifications;
+    if (!user) return null;
+    const Notifications = user.Notifications
     return (
         <div>
             <div className=" text-center text-gray font-semibold text-2xl my-5">

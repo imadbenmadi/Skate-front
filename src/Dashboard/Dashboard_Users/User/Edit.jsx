@@ -12,6 +12,7 @@ import { useOutletContext } from "react-router-dom";
 
 function Edit() {
     const user = useOutletContext();
+    if (!user) return null;
     const Navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     function handleShowPassword() {

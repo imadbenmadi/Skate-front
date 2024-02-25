@@ -13,6 +13,7 @@ import { FaMessage } from "react-icons/fa6";
 
 function Default() {
     const user = useOutletContext();
+    if (!user) return null;
     const location = useLocation();
     const Navigate = useNavigate();
     const userId = location.pathname.split("/")[3];

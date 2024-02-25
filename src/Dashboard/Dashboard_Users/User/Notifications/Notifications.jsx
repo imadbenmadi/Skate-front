@@ -8,7 +8,7 @@ import { useOutletContext } from "react-router-dom";
 import Current_Notifications from "./Current_Notifications";
 function Notifications() {
     const user = useOutletContext();
-    console.log(user);
+    if (!user) return null;
     const userId = location.pathname.split("/")[3];
 
     const Navigate = useNavigate();
