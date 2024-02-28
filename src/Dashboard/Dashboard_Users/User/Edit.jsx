@@ -108,7 +108,7 @@ function Edit() {
                             setSubmitting(true);
                             console.log(values);
                             let response = await Axios.put(
-                                "http://backend.skate-consult.com/Dashboard/User",
+                                "https://backend.skate-consult.com/Dashboard/User",
                                 values,
                                 {
                                     withCredentials: true,

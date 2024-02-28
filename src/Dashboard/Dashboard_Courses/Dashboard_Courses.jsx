@@ -13,7 +13,7 @@ function Dashboard_Courses() {
         setLoading(true);
         try {
             const response = await axios.get(
-                "http://backend.skate-consult.com/Courses",
+                "https://backend.skate-consult.com/Courses",
                 {
                     withCredentials: true,
                     validateStatus: () => true,

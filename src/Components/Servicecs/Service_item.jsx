@@ -28,7 +28,7 @@ function ServiceItem() {
         try {
             setRequestLoading(true);
             const response = await axios.post(
-                `http://backend.skate-consult.com/Services/request`,
+                `https://backend.skate-consult.com/Services/request`,
                 {
                     userId: _id,
                     ServiceId: location.pathname.split("/")[2],
@@ -87,7 +87,7 @@ function ServiceItem() {
 
         try {
             const response = await axios.get(
-                `http://backend.skate-consult.com/Services/${
+                `https://backend.skate-consult.com/Services/${
                     location.pathname.split("/")[2]
                 }`,
                 {

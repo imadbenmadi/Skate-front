@@ -21,7 +21,7 @@ function Event() {
 
         try {
             const response = await axios.get(
-                "http://backend.skate-consult.com/Events",
+                "https://backend.skate-consult.com/Events",
                 {
                     withCredentials: true,
                     validateStatus: () => true,

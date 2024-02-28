@@ -26,7 +26,7 @@ function Blogs() {
         setLoading(true);
         try {
             const response = await axios.get(
-                "http://backend.skate-consult.com/Blogs",
+                "https://backend.skate-consult.com/Blogs",
                 {
                     withCredentials: true,
                     validateStatus: () => true,

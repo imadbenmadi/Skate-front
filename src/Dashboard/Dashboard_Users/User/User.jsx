@@ -16,7 +16,7 @@ function User() {
 
         try {
             const response = await axios.get(
-                `http://backend.skate-consult.com/Dashboard/User/${userId}`,
+                `https://backend.skate-consult.com/Dashboard/User/${userId}`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,
