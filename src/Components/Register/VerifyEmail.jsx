@@ -36,7 +36,7 @@ function Verification({
 
     const handleSubmit = async () => {
         let response = await Axios.post(
-            "http://localhost:3000/VerifyAccount",
+            "http://backend.skate-consult.com/VerifyAccount",
             {
                 Code: code,
                 userId: Verify_id,
@@ -51,7 +51,7 @@ function Verification({
             Swal.fire("Done!", "Email Verified Successfully", "success");
             try {
                 let response = await Axios.post(
-                    "http://localhost:3000/Login",
+                    "http://backend.skate-consult.com/Login",
                     {
                         Email: Verify_email,
                         Password: Verify_Password,
@@ -83,11 +83,14 @@ function Verification({
                 setSucced_verification(true);
             }
         } else if (response.status == 409) {
-            Swal.fire("Could not Verify Account!", `${response.data.message}`, "error");
+            Swal.fire(
+                "Could not Verify Account!",
+                `${response.data.message}`,
+                "error"
+            );
         } else if (response.status == 404) {
             Swal.fire("Error!", `${response.data.message}`, "error");
-        } 
-        else if (response.status == 500) {
+        } else if (response.status == 500) {
             Swal.fire("Error!", "Internal Server Error", "error");
         } else if (response.status == 429) {
             Swal.fire(

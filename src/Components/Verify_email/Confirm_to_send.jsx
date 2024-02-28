@@ -12,7 +12,7 @@ function Confirm_to_send({ setConfirm_to_send_state, startResendTimer }) {
         setloading_toSend(true);
         try {
             const response = await axios.post(
-                "http://localhost:3000/Send_Verification_Email",
+                "http://backend.skate-consult.com/Send_Verification_Email",
                 {
                     userId,
                 },
@@ -45,11 +45,10 @@ function Confirm_to_send({ setConfirm_to_send_state, startResendTimer }) {
             } else if (response.status == 404) {
                 Swal.fire("Error!", "User not found", "error");
                 setloading_toSend(false);
-            } else if (response.status == 400){
+            } else if (response.status == 400) {
                 Swal.fire("Error!", `${response.data.message}`, "error");
                 setloading_toSend(false);
-            }
-            else if (response.status == 500) {
+            } else if (response.status == 500) {
                 Swal.fire("Error!", "Internal Server Error", "error");
                 setloading_toSend(false);
             }

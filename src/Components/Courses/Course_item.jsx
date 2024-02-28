@@ -30,7 +30,7 @@ function CourseItem() {
         try {
             setRequestLoading(true);
             const response = await axios.post(
-                `http://localhost:3000/Courses/request`,
+                `http://backend.skate-consult.com/Courses/request`,
                 {
                     userId: _id,
                     courseId: location.pathname.split("/")[2],
@@ -59,7 +59,7 @@ function CourseItem() {
             } else if (response.status === 400) {
                 swal.fire(
                     "You Cannot request the course",
-                   `${response.data.message}`,
+                    `${response.data.message}`,
                     "warning"
                 );
             } else if (response.status === 401) {
@@ -90,7 +90,7 @@ function CourseItem() {
 
         try {
             const response = await axios.get(
-                `http://localhost:3000/Courses/${
+                `http://backend.skate-consult.com/Courses/${
                     location.pathname.split("/")[2]
                 }`,
                 {

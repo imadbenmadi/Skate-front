@@ -6,7 +6,7 @@ export async function handleRegistration(
 ) {
     try {
         let response = await Axios.post(
-            "http://localhost:3000/Register",
+            "http://backend.skate-consult.com/Register",
             values,
             {
                 withCredentials: true,
@@ -25,17 +25,9 @@ export async function handleRegistration(
             set_rigester_Date(response.data.Date);
             setSucced_Register(true);
         } else if (response.status == 400) {
-            Swal.fire(
-                "Error!",
-                `${response.data.message} `,
-                "error"
-            );
+            Swal.fire("Error!", `${response.data.message} `, "error");
         } else if (response.status == 409) {
-            Swal.fire(
-                "Error!",
-                `${response.data.message}`,
-                "error"
-            );
+            Swal.fire("Error!", `${response.data.message}`, "error");
         } else if (response.status == 429) {
             Swal.fire(
                 "Error!",
@@ -43,11 +35,7 @@ export async function handleRegistration(
                 "error"
             );
         } else if (response.status == 500) {
-            Swal.fire(
-                "Error!",
-                `Internal server error.`,
-                "error"
-            );
+            Swal.fire("Error!", `Internal server error.`, "error");
         } else {
             Swal.fire(
                 "Error!",

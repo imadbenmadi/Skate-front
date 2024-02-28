@@ -2,7 +2,7 @@ import axios from "axios";
 export const fetchEmailVerificationStatus = async (_id) => {
     try {
         let response = await axios.post(
-            "http://localhost:3000/is_email_verified",
+            "http://backend.skate-consult.com/is_email_verified",
             {
                 userId: _id,
             },

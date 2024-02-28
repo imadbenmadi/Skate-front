@@ -17,7 +17,7 @@ function Login() {
     async function handleLogin(values, { setSubmitting }) {
         try {
             let response = await Axios.post(
-                "http://localhost:3000/Login",
+                "http://backend.skate-consult.com/Login",
                 values,
                 {
                     withCredentials: true,

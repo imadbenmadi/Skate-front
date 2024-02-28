@@ -12,10 +12,13 @@ function Dashboard_Courses() {
     const fetch_courses = async () => {
         setLoading(true);
         try {
-            const response = await axios.get("http://localhost:3000/Courses", {
-                withCredentials: true,
-                validateStatus: () => true,
-            });
+            const response = await axios.get(
+                "http://backend.skate-consult.com/Courses",
+                {
+                    withCredentials: true,
+                    validateStatus: () => true,
+                }
+            );
             console.log(response);
             if (response.status == 200) {
                 setCourses(response.data.courses);

@@ -14,7 +14,7 @@ function Event_item() {
         setLoading(true);
         try {
             const response = await axios.get(
-                `http://localhost:3000/Events/${
+                `http://backend.skate-consult.com/Events/${
                     location.pathname.split("/")[2]
                 }`,
                 {
