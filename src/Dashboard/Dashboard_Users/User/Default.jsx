@@ -11,6 +11,7 @@ import { useOutletContext } from "react-router-dom";
 import { IoIosNotifications } from "react-icons/io";
 import { FaMessage } from "react-icons/fa6";
 import Current_Courses from "./Current Courses/Current Courses";
+import Current_Service from "./Current Services/Current Services";
 function Default() {
     const user = useOutletContext();
     if (!user) return null;
@@ -168,8 +169,9 @@ function Default() {
                 </div>
             </div>
 
-            <div className=" pl-8 pt-8 flex ">
+            <div className=" pl-8 pt-8 flex w-full ">
                 <Current_Courses />
+                <Current_Service/>
             </div>
         </div>
     );
