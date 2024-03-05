@@ -69,7 +69,26 @@ function Table() {
                         </>
                     </Link>
                 </div>
-                <Users_Table users={users} />
+                {!search && <Users_Table users={users} />}
+                {search && (
+                    <Users_Table
+                        users={users.filter(
+                            (user) =>
+                                user.FirstName.toLowerCase().includes(
+                                    search.toLowerCase()
+                                ) ||
+                                user.LastName.toLowerCase().includes(
+                                    search.toLowerCase()
+                                ) ||
+                                user.Email.toLowerCase().includes(
+                                    search.toLowerCase()
+                                ) ||
+                                user.Telephone.toLowerCase().includes(
+                                    search.toLowerCase()
+                                )
+                        )}
+                    />
+                )}
             </div>
         </div>
     );
