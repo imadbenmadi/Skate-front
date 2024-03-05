@@ -15,7 +15,7 @@ function Add_user() {
         setShowPassword(!showPassword);
     }
     return (
-        <div className=" ">
+        <div className=" pt-4">
             <Link
                 to={"/Dashboard/Users"}
                 className="w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 "

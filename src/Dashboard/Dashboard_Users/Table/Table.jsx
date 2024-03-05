@@ -52,7 +52,7 @@ function Table() {
         return <ErrorPage />;
     }
     return (
-        <>
+        <div className=' pt-4'>
             <div className=" flex  justify-around">
                 <div className=" flex items-center">
                     <Filter filter={filter} setFilter={setFilter} />
@@ -69,7 +69,7 @@ function Table() {
                 </Link>
             </div>
             <Users_Table users={users} />
-        </>
+        </div>
     );
 }
 
