@@ -12,6 +12,7 @@ import { IoIosNotifications } from "react-icons/io";
 import { FaMessage } from "react-icons/fa6";
 import Current_Courses from "./Current Courses/Current Courses";
 import Current_Service from "./Current Services/Current Services";
+import { IoMdArrowRoundBack } from "react-icons/io";
 function Default() {
     const user = useOutletContext();
     if (!user) return null;
@@ -70,6 +71,13 @@ function Default() {
 
     return (
         <div className=" h-[100vh] overflow-auto  custom-overflow ">
+            <Link
+                to={"/Dashboard/Users"}
+                className=" mt-4 w-fit  m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 "
+            >
+                <IoMdArrowRoundBack />
+                <div>Back to table</div>
+            </Link>
             <div className=" flex gap-10  pt-6 justify-center text-xl ">
                 <Link
                     to={"/Dashboard/Users/" + userId + "/Notification"}
@@ -171,7 +179,7 @@ function Default() {
 
             <div className="  pt-8 flex w-full ">
                 <Current_Courses />
-                <Current_Service/>
+                <Current_Service />
             </div>
         </div>
     );

@@ -9,13 +9,23 @@ import { Link } from "react-router-dom";
 import { Formate_Date } from "../../../../Logic/Formate_Date";
 import logo from ".././../../../../public/logo.png";
 import { useNavigate } from "react-router-dom";
+import { IoMdArrowRoundBack } from "react-icons/io";
 function Current_Notifications() {
     const user = useOutletContext();
     if (!user) return null;
     const Notifications = user.Notifications;
+    const userId = location.pathname.split("/")[3];
+
     return (
-        <div>
-            <div className=" text-center text-gray font-semibold text-2xl my-5">
+        <div className=" pt-4">
+            <Link
+                to={`/Dashboard/Users/${userId}`}
+                className="mb-4 w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 "
+            >
+                <IoMdArrowRoundBack />
+                <div>Back to user</div>
+            </Link>
+            <div className=" text-center text-gray font-semibold text-2xl ">
                 Current User Notifications :
             </div>
             <div className="h-[85vh] overflow-auto custom-overflow">

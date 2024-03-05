@@ -6,6 +6,7 @@ import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
 import { useOutletContext } from "react-router-dom";
 import Current_Notifications from "./Current_Notifications";
+import { IoMdArrowRoundBack } from "react-icons/io";
 function Notifications() {
     const user = useOutletContext();
     if (!user) return null;
@@ -13,7 +14,14 @@ function Notifications() {
 
     const Navigate = useNavigate();
     return (
-        <div>
+        <div className="pt-4">
+            <Link
+                to={`/Dashboard/Users/${userId}`}
+                className="mb-4 w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 "
+            >
+                <IoMdArrowRoundBack />
+                <div>Back to user</div>
+            </Link>
             <div className=" text-center text-gray font-semibold text-2xl ">
                 Send Notification :
             </div>

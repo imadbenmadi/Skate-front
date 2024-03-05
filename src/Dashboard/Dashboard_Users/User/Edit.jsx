@@ -9,6 +9,7 @@ import Axios from "axios";
 import Swal from "sweetalert2";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useOutletContext } from "react-router-dom";
+import { FaArrowLeft } from "react-icons/fa";
 
 function Edit() {
     const user = useOutletContext();
@@ -20,7 +21,7 @@ function Edit() {
     }
     const userId = window.location.pathname.split("/")[3];
     return (
-        <div className=" ">
+        <div className=" pt-4 ">
             <Link
                 to={`/Dashboard/Users/${userId}`}
                 className="w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 "
