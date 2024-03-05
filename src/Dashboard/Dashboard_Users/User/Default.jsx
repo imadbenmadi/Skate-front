@@ -168,7 +168,7 @@ function Default() {
                 </div>
             </div>
 
-            <div className=" pl-8">
+            <div className=" pl-8 pt-8 flex ">
                 <Current_Courses />
             </div>
         </div>
