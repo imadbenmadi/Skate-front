@@ -169,7 +169,7 @@ function Default() {
                 </div>
             </div>
 
-            <div className=" pl-8 pt-8 flex w-full ">
+            <div className="  pt-8 flex w-full ">
                 <Current_Courses />
                 <Current_Service/>
             </div>
