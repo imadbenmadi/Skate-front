@@ -10,7 +10,7 @@ import { useNavigate } from "react-router";
 import { useOutletContext } from "react-router-dom";
 import { IoIosNotifications } from "react-icons/io";
 import { FaMessage } from "react-icons/fa6";
-
+import Current_Courses from "./Current Courses/Current Courses";
 function Default() {
     const user = useOutletContext();
     if (!user) return null;
@@ -167,6 +167,7 @@ function Default() {
                     )}
                 </div>
             </div>
+            < Current_Courses />
         </div>
     );
 }

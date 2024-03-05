@@ -1,9 +1,9 @@
 import React from 'react'
 
-function Courses() {
+function Current_Courses() {
   return (
     <div>Courses</div>
   )
 }
 
-export default Courses
+export default Current_Courses
