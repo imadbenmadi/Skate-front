@@ -43,19 +43,8 @@ function App() {
                     IsEmailVerified,
                     _id
                 );
-                // !IsEmailVerified
-                //     ? Notifications.push({
-                //           Type: "verify",
-                //           Title: "Please verify your email",
-                //           Text: "Please verify your email to get the most out of our services.",
-                //           Date: "18 feb 2024",
-                //           Readed: false,
-                //       })
-                //     : null;
-
                 set_Auth(true);
                 setLoading(false);
-                // return;
             } else {
                 store_login({
                     FirstName: "",
@@ -70,8 +59,6 @@ function App() {
                 });
                 set_Auth(false);
                 setLoading(false);
-
-                // return;
             }
         } catch (error) {
             store_login({
@@ -87,8 +74,6 @@ function App() {
             });
             set_Auth(false);
             setLoading(false);
-
-            // return;
         }
     };
     useEffect(() => {
@@ -111,7 +96,6 @@ function App() {
                         setActive_nav={setActive_nav}
                     />
                     {isAuth && !IsEmailVerified && <Activate_account />}
-
                     <Outlet />
                 </div>
             )}
