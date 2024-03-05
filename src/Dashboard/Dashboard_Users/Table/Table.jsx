@@ -56,7 +56,7 @@ function Table() {
             <div className=" pt-4">
                 <div className=" flex  justify-around">
                     <div className=" flex items-center">
-                        <Filter filter={filter} setFilter={setFilter} />
+                        {/* <Filter filter={filter} setFilter={setFilter} /> */}
                         <Search setSearch={setSearch} />
                     </div>
                     <Link

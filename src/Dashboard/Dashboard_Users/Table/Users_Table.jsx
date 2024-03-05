@@ -8,7 +8,7 @@ function Users_Table({ users }) {
     }
     if (users.length == 0)
         return (
-            <div className=" flex justify-center items-center gap-1">
+            <div className=" flex justify-center items-center gap-1 text-2xl text-gray pt-8">
                 <IoWarning />
                 No users found
             </div>
