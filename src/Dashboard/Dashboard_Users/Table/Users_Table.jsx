@@ -110,7 +110,7 @@ function Users_Table({ users }) {
                                     to={"/Dashboard/Users/" + user._id}
                                     className="w-fit items-center m-auto flex gap-1 bg-green text-white p-1 rounded"
                                 >
-                                    <FaPen />
+                                    {/* <FaPen /> */}
                                     View
                                 </Link>
                             </td>
