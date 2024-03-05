@@ -16,8 +16,12 @@ function ExploreServices({ search, filter, services }) {
         const filteredservices = services.services.filter((service) => {
             const matchesSearch =
                 !search ||
-                !service.Title ||
-                service.Title.toLowerCase().includes(search.toLowerCase());
+                service.Title.toLowerCase().includes(search.toLowerCase()) ||
+                service.Text.toLowerCase().includes(search.toLowerCase()) ||
+                service.Description.toLowerCase().includes(
+                    search.toLowerCase()
+                ) ||
+                service.Category.toLowerCase().includes(search.toLowerCase());
             const matchesFilter =
                 !filter ||
                 filter.length == 0 ||

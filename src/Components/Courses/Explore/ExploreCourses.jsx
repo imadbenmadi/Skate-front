@@ -16,8 +16,12 @@ function ExploreCourses({ search, filter, courses }) {
         const filteredCourses = courses.courses.filter((course) => {
             const matchesSearch =
                 !search ||
-                !course.Title ||
-                course.Title.toLowerCase().includes(search.toLowerCase());
+                course.Title.toLowerCase().includes(search.toLowerCase()) ||
+                course.Text.toLowerCase().includes(search.toLowerCase()) ||
+                course.Description.toLowerCase().includes(
+                    search.toLowerCase()
+                ) ||
+                course.Category.toLowerCase().includes(search.toLowerCase());
             const matchesFilter =
                 !filter ||
                 filter.length == 0 ||
