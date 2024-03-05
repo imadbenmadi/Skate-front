@@ -8,11 +8,19 @@ function Event() {
     const [search, setSearch] = useState("");
     const [events, setEvents] = useState([]);
     const [error, setError] = useState(null);
+    const [filteredEvents, setFilteredEvents] = useState([]);
 
     const handleSearch = () => {
         const searchInput = document.getElementById("searchInput");
         if (searchInput) {
             setSearch(searchInput.value);
+            const filtered = events.filter(
+                (event) =>
+                    event.Title.toLowerCase().includes(searchInput) ||
+                    event.Text.toLowerCase().includes(searchInput) ||
+                    event.Description.toLowerCase().includes(searchInput)
+            );
+            setFilteredEvents(filtered);
         }
     };
 
