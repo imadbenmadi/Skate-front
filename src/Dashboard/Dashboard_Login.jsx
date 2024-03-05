@@ -76,9 +76,9 @@ function Dashboard_Login() {
 
     return (
         <div>
-            <div>
+            <Link to={"/"} className=" flex m-auto w-fit">
                 <img className=" w-20 m-auto pt-5 " src={Logo} alt="" />
-            </div>
+            </Link>
             <div className=" m-auto text-center pt-5 text-2xl font-semibold text-blue ">
                 Welcome Back Admin
             </div>

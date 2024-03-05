@@ -29,9 +29,9 @@ function Register() {
         <div>
             {!open_verify && (
                 <div>
-                    <div>
+                    <Link to={"/"} className=" w-fit flex m-auto">
                         <img className=" w-20 m-auto pt-5 " src={Logo} alt="" />
-                    </div>
+                    </Link>
                     <div className=" m-auto text-center pt-5 text-2xl font-semibold text-blue ">
                         Join to Skate Community
                     </div>

@@ -58,8 +58,11 @@ function Login() {
     return (
         <div>
             <div>
-                <img className=" w-20 m-auto pt-5 " src={Logo} alt="" />
+                <Link to={"/"} className=" flex m-auto w-fit ">
+                    <img className=" w-20 m-auto pt-5 " src={Logo} alt="" />
+                </Link>
             </div>
+
             <div className=" m-auto text-center pt-5 text-2xl font-semibold text-blue ">
                 Login to your Skate Account
             </div>
