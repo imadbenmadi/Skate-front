@@ -52,23 +52,25 @@ function Table() {
         return <ErrorPage />;
     }
     return (
-        <div className=' pt-4'>
-            <div className=" flex  justify-around">
-                <div className=" flex items-center">
-                    <Filter filter={filter} setFilter={setFilter} />
-                    <Search setSearch={setSearch} />
+        <div className="  h-screen overflow-auto custom-overflow">
+            <div className=" pt-4">
+                <div className=" flex  justify-around">
+                    <div className=" flex items-center">
+                        <Filter filter={filter} setFilter={setFilter} />
+                        <Search setSearch={setSearch} />
+                    </div>
+                    <Link
+                        className=" bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 "
+                        to={"/Dashboard/Users/Add"}
+                    >
+                        <>
+                            <FaPlus />
+                            <div>Add User</div>
+                        </>
+                    </Link>
                 </div>
-                <Link
-                    className=" bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 "
-                    to={"/Dashboard/Users/Add"}
-                >
-                    <>
-                        <FaPlus />
-                        <div>Add User</div>
-                    </>
-                </Link>
+                <Users_Table users={users} />
             </div>
-            <Users_Table users={users} />
         </div>
     );
 }
