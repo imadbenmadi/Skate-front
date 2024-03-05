@@ -46,23 +46,10 @@ function Dashboard_Courses() {
 
     return (
         <div>
-            <div className=" flex items-center justify-around">
-                <div className=" text-center text-gray font-semibold text-2xl my-5">
-                    Skate Courses :
-                </div>
-
-                <Link
-                    className=" bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 "
-                    to={"/Dashboard/Courses/Add"}
-                >
-                    <>
-                        <FaPlus />
-                        <div>Add Course</div>
-                    </>
-                </Link>
+            <div className=" pl-4 text-gray font-semibold text-2xl my-5">
+                <span className=" text-green">Skate</span> Courses :
             </div>
             <Outlet context={Courses} />
-            {/* <Current_Courses Courses={Courses} /> */}
         </div>
     );
 }
