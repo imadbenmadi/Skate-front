@@ -55,7 +55,7 @@ function Dashboard() {
                         setActive_nav={setActive_nav}
                     />
                 </div>
-                <div className="w-[80%]  pt-[10px]  ">
+                <div className="w-[80%]  ">
                     <Outlet />
                 </div>
             </div>

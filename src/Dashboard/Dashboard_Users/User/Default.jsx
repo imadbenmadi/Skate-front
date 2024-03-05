@@ -68,7 +68,7 @@ function Default() {
     }
 
     return (
-        <div>
+        <div className=" h-[100vh] overflow-auto  custom-overflow ">
             <div className=" flex gap-10  pt-6 justify-center text-xl ">
                 <Link
                     to={"/Dashboard/Users/" + userId + "/Notification"}
@@ -167,7 +167,10 @@ function Default() {
                     )}
                 </div>
             </div>
-            < Current_Courses />
+
+            <div className=" pl-8">
+                <Current_Courses />
+            </div>
         </div>
     );
 }
