@@ -2,19 +2,21 @@ import React from "react";
 import { IoWarning } from "react-icons/io5";
 import ErrorPage from "../../Components/ErrorPage";
 import img from "../../../public/wallpaper.jpg";
+import { useOutletContext } from "react-router";
 
-function Current_Courses({ Courses }) {
-    if (!Courses) return <ErrorPage />;
-    if (Courses.length == 0)
+function Current_Courses() {
+    const Courses = useOutletContext();
+    if (!Courses) return null;
+    else if (Courses.length == 0)
         return (
             <div className=" flex text-gray items-center gap-2 p-3">
                 <IoWarning className=" text-2xl" />
                 <div className="text-center text-gray">
-                    No courses for the moment
+                    No courses Found
                 </div>
             </div>
         );
-    if (Courses.length !== 0) {
+    else {
         return (
             <div>
                 <div className="flex gap-4 w-full h-[80vh] overflow-auto custom-overflow">
@@ -57,14 +59,6 @@ function Current_Courses({ Courses }) {
             </div>
         );
     }
-    return (
-        <div className=" flex text-gray items-center gap-2 p-3">
-            <IoWarning className=" text-2xl" />
-            <div className="text-center text-gray">
-                No courses for the moment
-            </div>
-        </div>
-    );
 }
 
 export default Current_Courses;

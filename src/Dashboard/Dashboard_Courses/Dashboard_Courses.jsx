@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import ErrorPage from "../../Components/ErrorPage";
 import Current_Courses from "./Current_Courses";
 import { FaPlus } from "react-icons/fa";
+import { Outlet } from "react-router-dom";
 function Dashboard_Courses() {
     const [Courses, setCourses] = useState(null);
     const [loading, setLoading] = useState(false);
@@ -49,6 +50,7 @@ function Dashboard_Courses() {
                 <div className=" text-center text-gray font-semibold text-2xl my-5">
                     Skate Courses :
                 </div>
+
                 <Link
                     className=" bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 "
                     to={"/Dashboard/Courses/Add"}
@@ -59,8 +61,8 @@ function Dashboard_Courses() {
                     </>
                 </Link>
             </div>
-
-            <Current_Courses Courses={Courses} />
+            <Outlet context={Courses} />
+            {/* <Current_Courses Courses={Courses} /> */}
         </div>
     );
 }
