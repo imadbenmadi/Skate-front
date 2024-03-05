@@ -100,13 +100,14 @@ function Event() {
                                     <Card event={event} />
                                 </div>
                             ))
+                        ) : filteredEvents.length == 0 ? (
+                            <div className="text-center text-gray-500">
+                                No blogs match the selected filter.
+                            </div>
                         ) : (
-                            filteredEvents.map((event) => (
-                                <div
-                                    key={event._id}
-                                    className="w-[80vw] m-auto"
-                                >
-                                    <Card event={event} />
+                            filteredEvents.map((blog) => (
+                                <div key={blog._id} className="w-[80vw] m-auto">
+                                    <Card blog={blog} />
                                 </div>
                             ))
                         )}

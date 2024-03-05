@@ -9,18 +9,22 @@ function Blogs() {
     const [blogs, setBlogs] = useState([]);
     const [error, setError] = useState(null);
     const [page, setPage] = useState(1);
+
+    const [filteredBlogs, setFilteredBlogs] = useState([]);
+
     const handleSearch = () => {
         const searchInput = document.getElementById("searchInput");
         if (searchInput) {
             setSearch(searchInput.value);
+            const filtered = blogs.filter(
+                (Blog) =>
+                    Blog.Title.toLowerCase().includes(searchInput) ||
+                    Blog.Text.toLowerCase().includes(searchInput) ||
+                    Blog.Description.toLowerCase().includes(searchInput)
+            );
+            setFilteredBlogs(filtered);
         }
     };
-
-    const filteredBlogs = blogs.filter((blog) => {
-        const matchesSearch =
-            !search || blog.Title.toLowerCase().includes(search.toLowerCase());
-        return matchesSearch;
-    });
 
     const fetchBlogs = async () => {
         setLoading(true);
