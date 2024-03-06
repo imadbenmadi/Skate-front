@@ -36,7 +36,7 @@ function Verification({
 
     const handleSubmit = async () => {
         let response = await Axios.post(
-            "https://localhost:3000.com/VerifyAccount",
+            "https://localhost:3000/VerifyAccount",
             {
                 Code: code,
                 userId: Verify_id,
@@ -51,7 +51,7 @@ function Verification({
             Swal.fire("Done!", "Email Verified Successfully", "success");
             try {
                 let response = await Axios.post(
-                    "https://localhost:3000.com/Login",
+                    "https://localhost:3000/Login",
                     {
                         Email: Verify_email,
                         Password: Verify_Password,

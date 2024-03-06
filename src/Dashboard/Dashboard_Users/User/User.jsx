@@ -16,7 +16,7 @@ function User() {
 
         try {
             const response = await axios.get(
-                `https://localhost:3000.com/Dashboard/User/${userId}`,
+                `https://localhost:3000/Dashboard/User/${userId}`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,

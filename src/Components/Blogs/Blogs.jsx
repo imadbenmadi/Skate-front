@@ -29,13 +29,10 @@ function Blogs() {
     const fetchBlogs = async () => {
         setLoading(true);
         try {
-            const response = await axios.get(
-                "https://localhost:3000.com/Blogs",
-                {
-                    withCredentials: true,
-                    validateStatus: () => true,
-                }
-            );
+            const response = await axios.get("https://localhost:3000/Blogs", {
+                withCredentials: true,
+                validateStatus: () => true,
+            });
 
             if (response.status == 200) {
                 const { totalPages, blogs } = response.data;

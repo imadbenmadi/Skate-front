@@ -14,7 +14,7 @@ function Event_item() {
         setLoading(true);
         try {
             const response = await axios.get(
-                `https://localhost:3000.com/Events/${
+                `https://localhost:3000/Events/${
                     location.pathname.split("/")[2]
                 }`,
                 {

@@ -15,7 +15,7 @@ function Current_Courses_Card({ item }) {
     async function handle_delete_Course(course) {
         try {
             const response = await axios.delete(
-                `https://localhost:3000.com/Dashboard/Courses`,
+                `https://localhost:3000/Dashboard/Courses`,
                 {
                     courseId: course._id,
                 },

@@ -22,13 +22,10 @@ function Dashboard_Courses() {
     const fetch_courses = async () => {
         setLoading(true);
         try {
-            const response = await axios.get(
-                "https://localhost:3000.com/Courses",
-                {
-                    withCredentials: true,
-                    validateStatus: () => true,
-                }
-            );
+            const response = await axios.get("https://localhost:3000/Courses", {
+                withCredentials: true,
+                validateStatus: () => true,
+            });
             if (response.status == 200) {
                 setCourses(response.data.courses);
             } else {
