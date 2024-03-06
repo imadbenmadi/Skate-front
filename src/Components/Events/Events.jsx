@@ -64,7 +64,7 @@ function Event() {
                     <span className="loader"></span>
                 </div>
             ) : (
-                <div className="h-screen overflow-auto custom-overflow pt-[90px]">
+                <div className="pt-[90px]">
                     <div className="flex flex-col md:flex-row justify-between items-center mx-16 mb-2 font-semibold text-gray w-300px">
                         <div className="text-2xl w-screen md:w-fit text-center lg:text-3xl mb-2 ">
                             <span className="text-green2">Explore </span>
