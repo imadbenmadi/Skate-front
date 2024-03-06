@@ -71,7 +71,7 @@ function Verify_email() {
     const handleSubmit = async () => {
         setSubmitLoading(true);
         let response = await Axios.post(
-            "https://backend.skate-consult.com/VerifyAccount",
+            "https://localhost:3000.com/VerifyAccount",
             {
                 Code: code,
                 userId: _id,
@@ -106,7 +106,7 @@ function Verify_email() {
     const handleResendClick = async () => {
         setResendLoading(true);
         let response = await Axios.post(
-            "https://backend.skate-consult.com/ReSend_Verification_Email",
+            "https://localhost:3000.com/ReSend_Verification_Email",
             {
                 userId: _id,
             },

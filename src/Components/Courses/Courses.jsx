@@ -15,7 +15,7 @@ function Courses() {
 
         try {
             const response = await axios.get(
-                "https://backend.skate-consult.com/Courses",
+                "https://localhost:3000.com/Courses",
                 {
                     withCredentials: true,
                     validateStatus: () => true,
@@ -30,7 +30,7 @@ function Courses() {
             if (isAuth) {
                 const userId = _id;
                 const response = await axios.get(
-                    `https://backend.skate-consult.com/Courses/userCourses/${_id}`,
+                    `https://localhost:3000.com/Courses/userCourses/${_id}`,
                     {
                         withCredentials: true,
                         validateStatus: () => true,

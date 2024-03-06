@@ -16,7 +16,7 @@ function Dashboard() {
 
         try {
             const response = await axios.get(
-                "https://backend.skate-consult.com/Dashboard/check_Auth",
+                "https://localhost:3000.com/Dashboard/check_Auth",
                 {
                     withCredentials: true,
                     validateStatus: () => true,

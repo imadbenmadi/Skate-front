@@ -15,7 +15,7 @@ function App() {
 
         try {
             const response = await axios.get(
-                "https://backend.skate-consult.com/check_Auth",
+                "https://localhost:3000.com/check_Auth",
                 {
                     withCredentials: true,
                     validateStatus: () => true,

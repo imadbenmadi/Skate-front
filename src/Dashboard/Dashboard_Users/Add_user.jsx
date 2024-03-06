@@ -100,7 +100,7 @@ function Add_user() {
                         try {
                             setSubmitting(true);
                             let response = await Axios.post(
-                                "https://backend.skate-consult.com/Dashboard/User",
+                                "https://localhost:3000.com/Dashboard/User",
                                 values,
                                 {
                                     withCredentials: true,

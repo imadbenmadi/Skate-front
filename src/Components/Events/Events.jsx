@@ -29,7 +29,7 @@ function Event() {
 
         try {
             const response = await axios.get(
-                "https://backend.skate-consult.com/Events",
+                "https://localhost:3000.com/Events",
                 {
                     withCredentials: true,
                     validateStatus: () => true,

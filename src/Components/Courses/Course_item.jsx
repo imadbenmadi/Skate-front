@@ -30,7 +30,7 @@ function CourseItem() {
         try {
             setRequestLoading(true);
             const response = await axios.post(
-                `https://backend.skate-consult.com/Courses/request`,
+                `https://localhost:3000.com/Courses/request`,
                 {
                     userId: _id,
                     courseId: location.pathname.split("/")[2],
@@ -90,7 +90,7 @@ function CourseItem() {
 
         try {
             const response = await axios.get(
-                `https://backend.skate-consult.com/Courses/${
+                `https://localhost:3000.com/Courses/${
                     location.pathname.split("/")[2]
                 }`,
                 {

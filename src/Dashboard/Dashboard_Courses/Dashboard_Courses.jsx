@@ -13,16 +13,17 @@ function Dashboard_Courses() {
     const [error, setError] = useState(null);
     const [active, setActive] = useState("Current");
     const location = useLocation();
-    
+
     useEffect(() => {
-        if (location.pathname.split("/")[3] == "Requests") setActive("Requests");
+        if (location.pathname.split("/")[3] == "Requests")
+            setActive("Requests");
         else setActive("Current");
     }, [location.pathname]);
     const fetch_courses = async () => {
         setLoading(true);
         try {
             const response = await axios.get(
-                "https://backend.skate-consult.com/Courses",
+                "https://localhost:3000.com/Courses",
                 {
                     withCredentials: true,
                     validateStatus: () => true,

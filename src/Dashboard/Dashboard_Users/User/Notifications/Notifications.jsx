@@ -61,7 +61,7 @@ function Notifications() {
                     onSubmit={async (values, { setSubmitting }) => {
                         try {
                             let response = await Axios.post(
-                                "https://backend.skate-consult.com/Dashboard/User/" +
+                                "https://localhost:3000.com/Dashboard/User/" +
                                     userId +
                                     "/Notify",
                                 values,
@@ -70,7 +70,7 @@ function Notifications() {
                                     validateStatus: () => true,
                                 }
                             );
-                            
+
                             if (response.status == 200) {
                                 Swal.fire(
                                     "Done!",
