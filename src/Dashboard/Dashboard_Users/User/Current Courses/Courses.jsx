@@ -4,7 +4,6 @@ import { IoWarning } from "react-icons/io5";
 function Courses() {
     const user = useOutletContext();
     if (!user) return null;
-    console.log(user.Courses);
     if (user.Courses && Array.isArray(user.Courses)) {
         if (user.Courses.length === 0)
             return (

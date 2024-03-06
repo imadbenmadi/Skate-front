@@ -2,14 +2,63 @@ import React, { useState } from "react";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 import { MdDelete, MdEdit } from "react-icons/md";
 import swal from "sweetalert2";
-import handle_delete_Course from "./handle_delete_Course";
+import axios from "axios";
 import img from "../../../public/wallpaper.jpg";
+import { useNavigate } from "react-router";
 
 function Current_Courses_Card({ item }) {
     const [showDescription, setShowDescription] = useState(false);
-
+    const Navigate = useNavigate();
     function toggleDescription() {
         setShowDescription(!showDescription);
+    }
+    async function handle_delete_Course(course) {
+        try {
+            const response = await axios.delete(
+                `https://backend.skate-consult.com/Dashboard/Courses`,
+                {
+                    courseId: course._id,
+                },
+                {
+                    withCredentials: true,
+                    validateStatus: () => true,
+                }
+            );
+            console.log(response);
+            if (response.status == 200) {
+                Navigate("/Dashboard/Courses");
+                swal.fire("Course Deleted Successfully", "", "success");
+            }
+            // else if (response.status == 404) {
+            //     swal.fire(" Course Not found ", " Refresh the page please", "info");
+            // }
+            else if (401) {
+                swal.fire({
+                    title: "Unauthorised Action",
+                    text: "You should Login again ",
+                    icon: "error",
+                    confirmButtonColor: "#3085d6",
+
+                    confirmButtonText: "Go to Admin Login Page",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Navigate("/Dashboard_Login");
+                    }
+                });
+            } else {
+                swal.fire(
+                    "Could not delete Course",
+                    `${response.data.message}`,
+                    "error"
+                );
+            }
+        } catch (error) {
+            swal.fire(
+                "Could not delete Course",
+                "Please Try again Latter",
+                "error"
+            );
+        }
     }
 
     return (

@@ -28,7 +28,6 @@ function Dashboard_Courses() {
                     validateStatus: () => true,
                 }
             );
-            console.log(response);
             if (response.status == 200) {
                 setCourses(response.data.courses);
             } else {

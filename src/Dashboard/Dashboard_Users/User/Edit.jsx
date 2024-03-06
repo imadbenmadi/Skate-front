@@ -107,7 +107,6 @@ function Edit() {
                     onSubmit={async (values, { setSubmitting, resetForm }) => {
                         try {
                             setSubmitting(true);
-                            console.log(values);
                             let response = await Axios.put(
                                 "https://backend.skate-consult.com/Dashboard/User",
                                 values,

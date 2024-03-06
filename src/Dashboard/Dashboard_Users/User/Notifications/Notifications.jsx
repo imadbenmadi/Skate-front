@@ -70,7 +70,7 @@ function Notifications() {
                                     validateStatus: () => true,
                                 }
                             );
-                            console.log(response.status);
+                            
                             if (response.status == 200) {
                                 Swal.fire(
                                     "Done!",
