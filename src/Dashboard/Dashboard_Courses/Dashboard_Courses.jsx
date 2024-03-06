@@ -46,9 +46,7 @@ function Dashboard_Courses() {
 
     return (
         <div>
-            <div className=" pl-4 text-gray font-semibold text-2xl my-5">
-                <span className=" text-green">Skate</span> Courses :
-            </div>
+            
             <Outlet context={Courses} />
         </div>
     );

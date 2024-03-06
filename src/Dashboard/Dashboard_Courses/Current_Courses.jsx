@@ -31,15 +31,21 @@ function Current_Courses() {
     else {
         return (
             <div>
-                <Link
-                    className=" bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1  w-fit m-auto "
-                    to={"/Dashboard/Courses/Add"}
-                >
-                    <>
-                        <FaPlus />
-                        <div>Add Course</div>
-                    </>
-                </Link>
+                <div className=" flex items-center justify-around my-5">
+                    <div className=" pl-4 text-gray font-semibold text-2xl ">
+                        <span className=" text-green">Skate</span> Courses :
+                    </div>
+                    <Link
+                        className=" bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1   "
+                        to={"/Dashboard/Courses/Add"}
+                    >
+                        <>
+                            <FaPlus />
+                            <div>Add Course</div>
+                        </>
+                    </Link>
+                </div>
+
                 <div className="flex gap-4 w-full ">
                     {Courses.map((item, index) => (
                         <div key={index} className="w-full ">
