@@ -1,7 +1,10 @@
-async function handle_delete_Course() {
+export default async function handle_delete_Course(course) {
     try {
         const response = await axios.delete(
-            `https://backend.skate-consult.com/Dashboard/User/${userId}`,
+            `https://backend.skate-consult.com/Dashboard/Courses`,
+            {
+                courseId : course._id
+            },
             {
                 withCredentials: true,
                 validateStatus: () => true,
@@ -39,4 +42,3 @@ async function handle_delete_Course() {
         swal.fire("Could not delete user", "Please Try again Latter", "error");
     }
 }
-module.exports = {handle_delete_Course}
