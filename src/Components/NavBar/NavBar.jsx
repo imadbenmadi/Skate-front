@@ -68,7 +68,7 @@ function NavBar({ Active_nav, setActive_nav }) {
         setLogoutClicked(false);
     };
     return (
-        <div className={` fixed  h-[60px] m-0  z-40 w-full `}>
+        <div className={` fixed  h-[60px] m-0  z-40 w-[98.5vw] md:w-[99vw] xl:w-[99.5vw] `}>
             <div className=" h-full  flex shadow-lg bg-white justify-between items-center md:justify-around select-none ">
                 <div className=" p-2 ml-5 md:ml-0">
                     <Link
