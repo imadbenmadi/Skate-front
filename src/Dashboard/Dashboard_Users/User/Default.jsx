@@ -70,7 +70,7 @@ function Default() {
     }
 
     return (
-        <div className=" h-[100vh] overflow-auto  custom-overflow ">
+        <div className=" ">
             <Link
                 to={"/Dashboard/Users"}
                 className=" mt-4 w-fit  m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 "

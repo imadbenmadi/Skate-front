@@ -52,7 +52,7 @@ function Table() {
         return <ErrorPage />;
     }
     return (
-        <div className="  h-screen overflow-auto custom-overflow">
+        <div className="">
             <div className=" pt-4">
                 <div className=" flex  justify-around">
                     <div className=" flex items-center">

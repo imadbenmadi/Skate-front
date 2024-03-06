@@ -40,7 +40,7 @@ function Current_Courses() {
                         <div>Add Course</div>
                     </>
                 </Link>
-                <div className="flex gap-4 w-full h-[80vh] overflow-auto custom-overflow">
+                <div className="flex gap-4 w-full ">
                     {Courses.map((item, index) => (
                         <div key={index} className="w-full ">
                             <div className="w-full relative rounded overflow-hidden border-b border-gray py-5 px-5 flex shrink-0 justify-start h-fit">

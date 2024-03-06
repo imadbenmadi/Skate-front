@@ -28,7 +28,7 @@ function Current_Notifications() {
             <div className=" text-center text-gray font-semibold text-2xl ">
                 Current User Notifications :
             </div>
-            <div className="h-[85vh] overflow-auto custom-overflow">
+            <div className="">
                 {Notifications.map((notification, index) => (
                     <div
                         key={index}

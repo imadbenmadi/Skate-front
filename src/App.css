@@ -59,7 +59,6 @@ body {
     right: 10px; /* Adjust position as needed */
 }
 
-
 .small-loader {
     width: 30px;
     height: 30px;
@@ -71,17 +70,16 @@ body {
     animation: rotation 1s linear infinite;
 }
 
-
 .custom-overflow::-webkit-scrollbar {
-  width: 8px; /* Adjust the width as needed */
-  height: 8px; /* Adjust the width as needed */
+    width: 8px; /* Adjust the width as needed */
+    height: 8px; /* Adjust the width as needed */
 }
 
 .custom-overflow::-webkit-scrollbar-thumb {
-  background-color: #078343; /* Change the color as needed */
-  border-radius: 999px; /* Makes the thumb round */
+    background-color: #078343; /* Change the color as needed */
+    border-radius: 999px; /* Makes the thumb round */
 }
 
 .custom-overflow::-webkit-scrollbar-track {
-  background-color: #cfd8dc; /* Change the color as needed */
+    background-color: #cfd8dc; /* Change the color as needed */
 }
