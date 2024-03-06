@@ -40,6 +40,9 @@ import Table from "./Dashboard/Dashboard_Users/Table/Table";
 import Dashboard_Courses from "./Dashboard/Dashboard_Courses/Dashboard_Courses";
 import Add_Course from "./Dashboard/Dashboard_Courses/Add_Course";
 import Current_Skate_Courses from "./Dashboard/Dashboard_Courses/Current_Courses";
+import Courses_Requests from "./Dashboard/Dashboard_Courses/Requests"
+
+
 import Dashboard_Services from "./Dashboard/Dashboard_Services/Dashboard_Services";
 import Dashboard_Events from "./Dashboard/Dashboard_Events/Dashboard_Events";
 import Dashboard_Blogs from "./Dashboard/Dashboard_Blogs/Dashboard_Blogs";
@@ -143,6 +146,7 @@ const routes = createBrowserRouter([
                 children: [
                     { index: true, element: <Current_Skate_Courses /> },
                     { path: "/Dashboard/Courses/Add", element: <Add_Course /> },
+                    { path: "/Dashboard/Courses/Requests", element:<Courses_Requests/> },
                 ],
             },
 
