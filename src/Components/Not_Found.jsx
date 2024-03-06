@@ -11,7 +11,7 @@ function Not_Found() {
                 <h1 className="text-3xl md:text-5xl mb-4 text-gray-800">
                     Oops! This Page Not Found
                 </h1>
-                <p className="text-lg mb-8 text-gray-700">
+                <p className="text-lg mb-8 text-gray">
                     The page you're looking for might be under construction or
                     has been moved.
                 </p>
@@ -22,7 +22,9 @@ function Not_Found() {
                 />
                 <p className="text-sm text-gray-600">
                     Double-check the URL or go back to the{" "}
-                    <Link to={"/"} className=" text-green">home page.</Link>
+                    <Link to={"/"} className=" text-green">
+                        home page.
+                    </Link>
                 </p>
             </div>
         </div>

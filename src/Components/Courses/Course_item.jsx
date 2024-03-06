@@ -185,14 +185,14 @@ function CourseItem() {
                             course.Title.slice(0, 80) +
                                 (course.Title.length > 80 ? "..." : "")}
                     </h2>
-                    <p className="text-gray-700">
+                    <p className="text-gray">
                         {course.Text &&
                             course.Text.slice(0, 80) +
                                 (course.Text.length > 80 ? "..." : "")}
                     </p>
-                    <p className="text-gray-700">{course.Price}DA</p>
-                    <p className="text-gray-700">Category: Web Development</p>
-                    <p className="text-gray-700">Date: January 1, 2024</p>
+                    <p className="text-gray">{course.Price}DA</p>
+                    <p className="text-gray">Category: Web Development</p>
+                    <p className="text-gray">Date: January 1, 2024</p>
                 </div>
             </div>
 

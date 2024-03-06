@@ -24,18 +24,18 @@ function Card({ service }) {
                 )}
 
                 {service.Text && (
-                    <p className="text-gray-700 text-base">
+                    <p className="text-gray text-base">
                         {service.Text.slice(0, 70) +
                             (service.Text.length > 70 ? "..." : "")}
                     </p>
                 )}
 
-                {/* <p className="text-gray-700 text-base">{service.Description}</p> */}
-                <p className="text-gray-700  text-sm absolute top-10 right-5 ">
+                {/* <p className="text-gray text-base">{service.Description}</p> */}
+                <p className="text-gray  text-sm absolute top-10 right-5 ">
                     {service.Price} DA
                 </p>
-                <p className="text-gray-700 text-sm pt-4">{service.Category}</p>
-                {/* <p className="text-gray-700 text-base">
+                <p className="text-gray text-sm pt-4">{service.Category}</p>
+                {/* <p className="text-gray text-base">
                   {new Date(service.Date).toLocaleDateString()}
               </p> */}
             </div>

@@ -12,7 +12,12 @@ import { FaUserTie } from "react-icons/fa";
 import { TbLogout } from "react-icons/tb";
 import { useState } from "react";
 import Swal from "sweetalert2";
-function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar, Logout,LogoutClicked }) {
+function Mobile_Nav_Items({
+    MobileNav_Open,
+    Toogle_Menu_Bar,
+    Logout,
+    LogoutClicked,
+}) {
     const { isAuth } = useAppContext();
     const handleSettingsClick = () => {
         Swal.fire({
@@ -20,7 +25,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar, Logout,LogoutClicke
             html: `
                 <div className="flex flex-col gap-4 justify-start items-start w-[200px]">
                     <div class="mb-4 flex items-center justify-center gap-4 w-[200px] m-auto">
-                        <label for="language" class=" text-sm font-medium text-gray-700">Language:</label>
+                        <label for="language" class=" text-sm font-medium text-gray">Language:</label>
                         <select id="language" class="mt-1  w-[100px] m-auto py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             <option value="English">English</option>
                             <option value="Spanish">Spanish</option>
@@ -28,7 +33,7 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar, Logout,LogoutClicke
                         </select>
                     </div>
                     <div clasName='flex gap-3 w-[200px] items-center justify-start'>
-                        <label for="darkMode" class="text-sm font-medium text-gray-700">Dark Mode</label>
+                        <label for="darkMode" class="text-sm font-medium text-gray">Dark Mode</label>
                         <input type="checkbox" id="darkMode" class="mr-2 h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
                     </div>
                 </div>
@@ -39,7 +44,6 @@ function Mobile_Nav_Items({ MobileNav_Open, Toogle_Menu_Bar, Logout,LogoutClicke
             preConfirm: () => {
                 const language = document.getElementById("language").value;
                 const darkMode = document.getElementById("darkMode").checked;
-                
             },
         });
     };

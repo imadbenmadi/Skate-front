@@ -51,7 +51,7 @@ function Blogs_item() {
             <h2 className="text-2xl font-bold mb-2 m-auto">{blog.Title}</h2>
             <div className="flex justify-center gap-6 m-auto ">
                 <img src={img} alt="" className=" w-[400px]" />
-                <p className="text-gray-700">
+                <p className="text-gray">
                     {blog.Text &&
                         blog.Text.slice(0, 120) +
                             (blog.Text.length > 120 ? "..." : "")}

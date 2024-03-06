@@ -178,14 +178,14 @@ function ServiceItem() {
                             service.Title.slice(0, 80) +
                                 (service.Title.length > 80 ? "..." : "")}
                     </h2>
-                    <p className="text-gray-700">
+                    <p className="text-gray">
                         {service.Text &&
                             service.Text.slice(0, 80) +
                                 (service.Text.length > 80 ? "..." : "")}
                     </p>
-                    <p className="text-gray-700">{service.Price}DA</p>
-                    <p className="text-gray-700">Category: Web Development</p>
-                    <p className="text-gray-700">Date: January 1, 2024</p>
+                    <p className="text-gray">{service.Price}DA</p>
+                    <p className="text-gray">Category: Web Development</p>
+                    <p className="text-gray">Date: January 1, 2024</p>
                 </div>
             </div>
 

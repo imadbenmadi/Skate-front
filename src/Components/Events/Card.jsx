@@ -24,13 +24,13 @@ function Card({ event }) {
                 )}
 
                 {event.Text && (
-                    <p className="text-gray-700 text-base">
+                    <p className="text-gray text-base">
                         {event.Text.slice(0, 150) +
                             (event.Text.length > 150 ? "..." : "")}
                     </p>
                 )}
 
-                <p className="text-gray-700 text-sm pt-4">{event.Category}</p>
+                <p className="text-gray text-sm pt-4">{event.Category}</p>
             </div>
         </Link>
     );

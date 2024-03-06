@@ -24,18 +24,18 @@ function Card({ course }) {
                 )}
 
                 {course.Text && (
-                    <p className="text-gray-700 text-base">
+                    <p className="text-gray text-base">
                         {course.Text.slice(0, 70) +
                             (course.Text.length > 70 ? "..." : "")}
                     </p>
                 )}
 
-                {/* <p className="text-gray-700 text-base">{course.Description}</p> */}
-                <p className="text-gray-700  text-sm absolute top-10 right-5 ">
+                {/* <p className="text-gray text-base">{course.Description}</p> */}
+                <p className="text-gray  text-sm absolute top-10 right-5 ">
                     {course.Price} DA
                 </p>
-                <p className="text-gray-700 text-sm pt-4">{course.Category}</p>
-                {/* <p className="text-gray-700 text-base">
+                <p className="text-gray text-sm pt-4">{course.Category}</p>
+                {/* <p className="text-gray text-base">
                   {new Date(course.Date).toLocaleDateString()}
               </p> */}
             </div>
