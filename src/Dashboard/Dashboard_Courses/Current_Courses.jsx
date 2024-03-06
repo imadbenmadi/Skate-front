@@ -10,7 +10,7 @@ import { MdEdit } from "react-icons/md";
 import { useState } from "react";
 import { FaArrowDown } from "react-icons/fa";
 import { FaArrowUp } from "react-icons/fa";
-
+import swal from "sweetalert2";
 function Current_Courses() {
     const [showDescription, setshowDescription] = useState(false);
     function toogle_showDescription() {
@@ -63,9 +63,7 @@ function Current_Courses() {
                         >
                             {" "}
                             <div>
-                                <div
-                                    className="w-[90%]  relative  overflow-hidden  py-5 px-5 flex shrink-0 justify-start h-fit"
-                                >
+                                <div className="w-[90%]  relative  overflow-hidden  py-5 px-5 flex shrink-0 justify-start h-fit">
                                     <img
                                         className=" w-[30%] h-[200px] object-cover"
                                         src={img}
@@ -128,7 +126,24 @@ function Current_Courses() {
                                 <div className="flex items-center justify-start gap-2 text-white  text-xl bg-green px-2 py-1 rounded w-[100px]  ">
                                     <MdEdit /> Edit
                                 </div>
-                                <div className=" flex items-center justify-start gap-2 text-white bg-red-600 text-xl  px-2 py-1 rounded  w-[100px]">
+                                <div
+                                    className=" flex items-center justify-start gap-2 cursor-pointer text-white bg-red-600 text-xl  px-2 py-1 rounded  w-[100px]"
+                                    onClick={() => {
+                                        swal.fire({
+                                            title: "Are you sure you want to delete this Course ?",
+                                            text: "You won't be able to revert this!",
+                                            icon: "warning",
+                                            showCancelButton: true,
+                                            confirmButtonColor: "red",
+                                            cancelButtonColor: "green",
+                                            confirmButtonText: "Yes Delete it",
+                                        }).then((result) => {
+                                            if (result.isConfirmed) {
+                                                handle_delete_Course(item);
+                                            }
+                                        });
+                                    }}
+                                >
                                     <MdDelete />
                                     Delete
                                 </div>
