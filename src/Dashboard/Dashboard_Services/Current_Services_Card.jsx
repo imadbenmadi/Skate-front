@@ -62,7 +62,7 @@ function Current_Services_Card({ item }) {
     }
 
     return (
-        <div className="w-full flex border-b-4 border-b-gray_white">
+        <div className="w-full flex justify-between border-b-4 border-b-gray_white">
             <div>
                 <div className="relative overflow-hidden py-5 px-5 flex shrink-0 justify-start h-fit">
                     <img
