@@ -63,15 +63,15 @@ function Current_Services_Card({ item }) {
 
     return (
         <div className="w-full flex justify-between border-b-4 border-b-gray_white">
-            <div>
+            <div className=" w-full">
                 <div className="relative overflow-hidden py-5 px-5 flex shrink-0 justify-start h-fit">
                     <img
                         className="w-[30%] h-[200px] object-cover"
                         src={img}
                         alt={item.Title}
                     />
-                    <div className="w-[70%] pl-6 py-4 flex">
-                        <div className="w-[90%]">
+                    <div className="w-[70%] pl-6 py-4 flex justify-between">
+                        <div className="">
                             {item.Title && (
                                 <p className="font-bold text-xl mb-2 overflow-hidden">
                                     {item.Title}
@@ -86,7 +86,7 @@ function Current_Services_Card({ item }) {
                                 {item.Category}
                             </p>
                         </div>
-                        <div className="text-gray text-center text-xl font-semibold top-10 right-5 w-[10%]">
+                        <div className="text-gray text-center text-xl font-semibold top-10 right-5 ">
                             {item.Price} DA
                         </div>
                     </div>

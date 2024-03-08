@@ -63,7 +63,7 @@ function Current_Events_Card({ item }) {
 
     return (
         <div className="w-full flex justify-between border-b-4 border-b-gray_white">
-            <div>
+            <div className=" w-full">
                 <div className="relative overflow-hidden py-5 px-5 flex shrink-0 justify-start h-fit">
                     <img
                         className="w-[30%] h-[200px] object-cover"
