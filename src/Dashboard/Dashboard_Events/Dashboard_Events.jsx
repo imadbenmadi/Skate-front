@@ -15,7 +15,6 @@ function Dashboard_Events() {
                 validateStatus: () => true,
             });
           if (response.status == 200) {
-              console.log(response.data);
                 setEvents(response.data.events);
             } else {
                 setError(response.data);

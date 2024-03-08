@@ -43,6 +43,11 @@ import Current_Skate_Courses from "./Dashboard/Dashboard_Courses/Current_Courses
 import Courses_Requests from "./Dashboard/Dashboard_Courses/Requests"
 import Edit_Course from "./Dashboard/Dashboard_Courses/Edit_Course";
 
+import Dashboard_Services from "./Dashboard/Dashboard_Services/Dashboard_Services";
+import Add_Service from "./Dashboard/Dashboard_Services/Add_Service";
+import Current_Skate_Services from "./Dashboard/Dashboard_Services/Current_Services";
+import Services_Requests from "./Dashboard/Dashboard_Services/Requests";
+import Edit_Service from "./Dashboard/Dashboard_Services/Edit_Service";
 
 import Dashboard_Events from "./Dashboard/Dashboard_Events/Dashboard_Events";
 import Add_Event from "./Dashboard/Dashboard_Events/Add_Event";
@@ -50,7 +55,6 @@ import Current_Skate_Events from "./Dashboard/Dashboard_Events/Current_Events";
 import Edit_Event from "./Dashboard/Dashboard_Events/Edit_Event";
 
 
-import Dashboard_Services from "./Dashboard/Dashboard_Services/Dashboard_Services";
 import Dashboard_Blogs from "./Dashboard/Dashboard_Blogs/Dashboard_Blogs";
 
 
@@ -175,7 +179,22 @@ const routes = createBrowserRouter([
                 ],
             },
 
-            { path: "/Dashboard/Services", element: <Dashboard_Services /> },
+            {
+                path: "/Dashboard/Services",
+                element: <Dashboard_Services />,
+                children: [
+                    { index: true, element: <Current_Skate_Services /> },
+                    { path: "/Dashboard/Services/Add", element: <Add_Service /> },
+                    {
+                        path: "/Dashboard/Services/Requests",
+                        element: <Services_Requests />,
+                    },
+                    {
+                        path: "/Dashboard/Services/:id/Edit",
+                        element: <Edit_Service />,
+                    },
+                ],
+            },
             { path: "/Dashboard/Blogs", element: <Dashboard_Blogs /> },
             {
                 path: "*",
