@@ -146,7 +146,14 @@ const routes = createBrowserRouter([
                 children: [
                     { index: true, element: <Current_Skate_Courses /> },
                     { path: "/Dashboard/Courses/Add", element: <Add_Course /> },
-                    { path: "/Dashboard/Courses/Requests", element:<Courses_Requests/> },
+                    {
+                        path: "/Dashboard/Courses/Requests",
+                        element: <Courses_Requests />,
+                    },
+                    {
+                        path: "/Dashboard/Courses/:id/Edit",
+                        element: <Courses_Requests />,
+                    },
                 ],
             },
 

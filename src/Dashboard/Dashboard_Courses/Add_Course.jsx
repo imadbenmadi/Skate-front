@@ -2,10 +2,20 @@ import React from "react";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import Axios from "axios";
 import Swal from "sweetalert2";
-
+import { FaArrowLeft } from "react-icons/fa";
+import { Link } from "react-router-dom";
 function Add_Course() {
     return (
         <div className=" ">
+            <Link
+                className="bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 w-fit m-auto"
+                to={"/Dashboard/Courses"}
+            >
+                <>
+                    <FaArrowLeft />
+                    <div>Go Back</div>
+                </>
+            </Link>
             {/* Input fields */}
             <div className="border border-gray_white text-black_text shadow-md w-[80%] md:w-[50%] m-auto mt-3 p-5 rounded-lg">
                 <Formik
