@@ -10,12 +10,13 @@ function Dashboard_Events() {
     const fetch_Events = async () => {
         setLoading(true);
         try {
-            const response = await axios.get("http://localhost:3000/Events", {
+            const response = await axios.get("http://localhost:3000/events", {
                 withCredentials: true,
                 validateStatus: () => true,
             });
-            if (response.status == 200) {
-                setEvents(response.data.Events);
+          if (response.status == 200) {
+              console.log(response.data);
+                setEvents(response.data.events);
             } else {
                 setError(response.data);
             }
@@ -37,9 +38,9 @@ function Dashboard_Events() {
         return <ErrorPage />;
     }
     return (
-        <>
+        <div className=" pt-8">
             <Outlet context={Events} />
-        </>
+        </div>
     );
 }
 
