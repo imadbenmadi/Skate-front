@@ -56,6 +56,9 @@ import Edit_Event from "./Dashboard/Dashboard_Events/Edit_Event";
 
 
 import Dashboard_Blogs from "./Dashboard/Dashboard_Blogs/Dashboard_Blogs";
+import Add_Blog from "./Dashboard/Dashboard_Blogs/Add_Blog";
+import Current_Skate_Blogs from "./Dashboard/Dashboard_Blogs/Current_Blogs";
+import Edit_Blog from "./Dashboard/Dashboard_Blogs/Edit_Blog";
 
 
 const routes = createBrowserRouter([
@@ -184,7 +187,10 @@ const routes = createBrowserRouter([
                 element: <Dashboard_Services />,
                 children: [
                     { index: true, element: <Current_Skate_Services /> },
-                    { path: "/Dashboard/Services/Add", element: <Add_Service /> },
+                    {
+                        path: "/Dashboard/Services/Add",
+                        element: <Add_Service />,
+                    },
                     {
                         path: "/Dashboard/Services/Requests",
                         element: <Services_Requests />,
@@ -195,7 +201,18 @@ const routes = createBrowserRouter([
                     },
                 ],
             },
-            { path: "/Dashboard/Blogs", element: <Dashboard_Blogs /> },
+            {
+                path: "/Dashboard/Blogs",
+                element: <Dashboard_Blogs />,
+                children: [
+                    { index: true, element: <Current_Skate_Blogs /> },
+                    { path: "/Dashboard/Blogs/Add", element: <Add_Blog /> },
+                    {
+                        path: "/Dashboard/Blogs/:id/Edit",
+                        element: <Edit_Blog />,
+                    },
+                ],
+            },
             {
                 path: "*",
                 element: <Not_Found />,

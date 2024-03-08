@@ -25,7 +25,6 @@ function Current_Courses_Card({ item }) {
                     validateStatus: () => true,
                 }
             );
-            console.log(response);
             if (response.status == 200) {
                 Navigate("/Dashboard/Courses");
                 swal.fire("Course Deleted Successfully", "", "success");
