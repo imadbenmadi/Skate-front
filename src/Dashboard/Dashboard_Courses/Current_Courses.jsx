@@ -11,15 +11,19 @@ function Current_Courses() {
     if (!Courses) return null;
     else if (Courses.length === 0)
         return (
-            <div>
-                <div className="flex items-center text-gray text-2xl gap-2 py-8">
+            <div className=" flex items-center justify-center gap-4 flex-col">
+                <div className="pl-4 text-gray font-semibold  text-2xl w-full">
+                    <span className="text-green">Skate</span> Courses :
+                </div>
+                <div className="flex items-center  text-gray text-2xl gap-2 py-8">
                     <IoWarning className="text-2xl" />
                     <div className="text-center text-gray">
                         No courses Found
                     </div>
                 </div>
                 <Link
-                    className="bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 w-fit m-auto"
+                    className="bg-green rounded cursor-pointer text-white text-xl
+                     flex items-center gap-2 px-3 py-1 w-fit m-auto"
                     to={"/Dashboard/Courses/Add"}
                 >
                     <>

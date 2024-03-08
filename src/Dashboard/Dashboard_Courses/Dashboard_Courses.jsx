@@ -3,8 +3,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import ErrorPage from "../../Components/ErrorPage";
-import Current_Courses from "./Current_Courses";
-import { FaPlus } from "react-icons/fa";
 import { Outlet } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 function Dashboard_Courses() {
