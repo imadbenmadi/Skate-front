@@ -5,8 +5,9 @@ import swal from "sweetalert2";
 import axios from "axios";
 import img from "../../../public/wallpaper.jpg";
 import { useNavigate } from "react-router";
-
+import { Link } from "react-router-dom";
 function Current_Courses_Card({ item }) {
+    
     const [showDescription, setShowDescription] = useState(false);
     const Navigate = useNavigate();
     function toggleDescription() {
@@ -119,9 +120,12 @@ function Current_Courses_Card({ item }) {
                 )}
             </div>
             <div className="w-[10%] flex flex-col items-center justify-start pt-6 gap-4 pr-5">
-                <div className="flex items-center justify-start gap-2 text-white text-xl bg-green px-2 py-1 rounded w-[100px]">
+                <Link
+                    to={`/Dashboard/Courses/${item._id}/Edit`}
+                    className="flex items-center justify-start gap-2 text-white text-xl bg-green px-2 py-1 rounded w-[100px]"
+                >
                     <MdEdit /> Edit
-                </div>
+                </Link>
                 <div
                     className="flex items-center justify-start gap-2 cursor-pointer text-white bg-red-600 text-xl px-2 py-1 rounded w-[100px]"
                     onClick={() => {

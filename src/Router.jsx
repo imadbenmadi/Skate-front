@@ -41,7 +41,7 @@ import Dashboard_Courses from "./Dashboard/Dashboard_Courses/Dashboard_Courses";
 import Add_Course from "./Dashboard/Dashboard_Courses/Add_Course";
 import Current_Skate_Courses from "./Dashboard/Dashboard_Courses/Current_Courses";
 import Courses_Requests from "./Dashboard/Dashboard_Courses/Requests"
-
+import Edit_Course from "./Dashboard/Dashboard_Courses/Edit_Course";
 
 import Dashboard_Services from "./Dashboard/Dashboard_Services/Dashboard_Services";
 import Dashboard_Events from "./Dashboard/Dashboard_Events/Dashboard_Events";
@@ -152,7 +152,7 @@ const routes = createBrowserRouter([
                     },
                     {
                         path: "/Dashboard/Courses/:id/Edit",
-                        element: <Courses_Requests />,
+                        element: <Edit_Course />,
                     },
                 ],
             },
