@@ -43,8 +43,14 @@ import Current_Skate_Courses from "./Dashboard/Dashboard_Courses/Current_Courses
 import Courses_Requests from "./Dashboard/Dashboard_Courses/Requests"
 import Edit_Course from "./Dashboard/Dashboard_Courses/Edit_Course";
 
-import Dashboard_Services from "./Dashboard/Dashboard_Services/Dashboard_Services";
+
 import Dashboard_Events from "./Dashboard/Dashboard_Events/Dashboard_Events";
+import Add_Event from "./Dashboard/Dashboard_Events/Add_Event";
+import Current_Skate_Events from "./Dashboard/Dashboard_Events/Current_Events";
+import Edit_Event from "./Dashboard/Dashboard_Events/Edit_Event";
+
+
+import Dashboard_Services from "./Dashboard/Dashboard_Services/Dashboard_Services";
 import Dashboard_Blogs from "./Dashboard/Dashboard_Blogs/Dashboard_Blogs";
 
 
@@ -156,9 +162,20 @@ const routes = createBrowserRouter([
                     },
                 ],
             },
+            {
+                path: "/Dashboard/Events",
+                element: <Dashboard_Events />,
+                children: [
+                    { index: true, element: <Current_Skate_Events /> },
+                    { path: "/Dashboard/Events/Add", element: <Add_Event /> },
+                    {
+                        path: "/Dashboard/Events/:id/Edit",
+                        element: <Edit_Event />,
+                    },
+                ],
+            },
 
             { path: "/Dashboard/Services", element: <Dashboard_Services /> },
-            { path: "/Dashboard/Events", element: <Dashboard_Events /> },
             { path: "/Dashboard/Blogs", element: <Dashboard_Blogs /> },
             {
                 path: "*",

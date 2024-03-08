@@ -60,7 +60,7 @@ function Dashboard_Courses() {
                             : "text-gray"
                     }`}
                 >
-                    Current Cureses
+                    Current Courses
                 </Link>
                 <Link
                     to={"/Dashboard/Courses/Requests"}
