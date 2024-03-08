@@ -28,7 +28,7 @@ function ServiceItem() {
         try {
             setRequestLoading(true);
             const response = await axios.post(
-                `https://localhost:3000/Services/request`,
+                `http://localhost:3000/Services/request`,
                 {
                     userId: _id,
                     ServiceId: location.pathname.split("/")[2],
@@ -87,7 +87,7 @@ function ServiceItem() {
 
         try {
             const response = await axios.get(
-                `https://localhost:3000/Services/${
+                `http://localhost:3000/Services/${
                     location.pathname.split("/")[2]
                 }`,
                 {

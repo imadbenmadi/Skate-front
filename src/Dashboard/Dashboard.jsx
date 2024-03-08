@@ -16,7 +16,7 @@ function Dashboard() {
 
         try {
             const response = await axios.get(
-                "https://localhost:3000/Dashboard/check_Auth",
+                "http://localhost:3000/Dashboard/check_Auth",
                 {
                     withCredentials: true,
                     validateStatus: () => true,

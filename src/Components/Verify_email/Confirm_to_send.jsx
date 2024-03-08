@@ -12,7 +12,7 @@ function Confirm_to_send({ setConfirm_to_send_state, startResendTimer }) {
         setloading_toSend(true);
         try {
             const response = await axios.post(
-                "https://localhost:3000/Send_Verification_Email",
+                "http://localhost:3000/Send_Verification_Email",
                 {
                     userId,
                 },

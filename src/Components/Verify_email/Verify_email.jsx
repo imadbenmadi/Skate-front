@@ -71,7 +71,7 @@ function Verify_email() {
     const handleSubmit = async () => {
         setSubmitLoading(true);
         let response = await Axios.post(
-            "https://localhost:3000/VerifyAccount",
+            "http://localhost:3000/VerifyAccount",
             {
                 Code: code,
                 userId: _id,
@@ -106,7 +106,7 @@ function Verify_email() {
     const handleResendClick = async () => {
         setResendLoading(true);
         let response = await Axios.post(
-            "https://localhost:3000/ReSend_Verification_Email",
+            "http://localhost:3000/ReSend_Verification_Email",
             {
                 userId: _id,
             },

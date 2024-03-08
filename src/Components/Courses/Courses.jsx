@@ -14,7 +14,7 @@ function Courses() {
         setLoading(true);
 
         try {
-            const response = await axios.get("https://localhost:3000/Courses", {
+            const response = await axios.get("http://localhost:3000/Courses", {
                 withCredentials: true,
                 validateStatus: () => true,
             });
@@ -27,7 +27,7 @@ function Courses() {
             if (isAuth) {
                 const userId = _id;
                 const response = await axios.get(
-                    `https://localhost:3000/Courses/userCourses/${_id}`,
+                    `http://localhost:3000/Courses/userCourses/${_id}`,
                     {
                         withCredentials: true,
                         validateStatus: () => true,

@@ -14,7 +14,7 @@ function Blogs_item() {
         setLoading(true);
         try {
             const response = await axios.get(
-                `https://localhost:3000/Blogs/${
+                `http://localhost:3000/Blogs/${
                     location.pathname.split("/")[2]
                 }.com`,
                 {

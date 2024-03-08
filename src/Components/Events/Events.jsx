@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { IoSearchOutline, IoWarning } from "react-icons/io5";
 import Card from "./Card";
 import axios from "axios";
-
+import ErrorPage from "../ErrorPage";
 function Event() {
     const [loading, setLoading] = useState(false);
     const [search, setSearch] = useState("");
@@ -28,7 +28,7 @@ function Event() {
         setLoading(true);
 
         try {
-            const response = await axios.get("https://localhost:3000/Events", {
+            const response = await axios.get("http://localhost:3000/Events", {
                 withCredentials: true,
                 validateStatus: () => true,
             });

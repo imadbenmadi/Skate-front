@@ -22,7 +22,7 @@ function Table() {
 
         try {
             const response = await axios.get(
-                "https://localhost:3000/Dashboard/User",
+                "http://localhost:3000/Dashboard/User",
                 {
                     withCredentials: true,
                     validateStatus: () => true,

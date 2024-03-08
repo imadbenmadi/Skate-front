@@ -61,7 +61,7 @@ function Notifications() {
                     onSubmit={async (values, { setSubmitting }) => {
                         try {
                             let response = await Axios.post(
-                                "https://localhost:3000/Dashboard/User/" +
+                                "http://localhost:3000/Dashboard/User/" +
                                     userId +
                                     "/Notify",
                                 values,

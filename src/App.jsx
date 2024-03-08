@@ -15,7 +15,7 @@ function App() {
 
         try {
             const response = await axios.get(
-                "https://localhost:3000/check_Auth",
+                "http://localhost:3000/check_Auth",
                 {
                     withCredentials: true,
                     validateStatus: () => true,
