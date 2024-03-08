@@ -72,7 +72,9 @@ function Edit_Course() {
                                 }
                                 if (!values.Price) {
                                     errors.Price = "Price is required.";
-                                }
+                                } else if (isNaN(values.Price))
+                                    errors.Price = "Invalid Price";
+                           
                                 if (!values.Category) {
                                     errors.Category = "Category is required.";
                                 }

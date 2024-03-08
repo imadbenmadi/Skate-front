@@ -44,6 +44,9 @@ function Add_Course() {
                         if (!values.Price) {
                             errors.Price = "Price is required.";
                         }
+                        else if (isNaN(values.Price))
+                            errors.Price = "Invalid Price";
+                            
                         // Validate Category
                         if (!values.Category) {
                             errors.Category = "Category is required.";
@@ -76,65 +79,67 @@ function Add_Course() {
                     }}
                 >
                     {({ isSubmitting }) => (
-                        <Form className="flex flex-col text-sm md:text-lg md:mx-5 gap-4">
-                            <div className=" flex flex-col items-center justify-center gap-4 flex-wrap ">
+                        <Form className="flex flex-col text-sm md:text-lg  gap-4 items-center justify-center flex-wrap">
+                            <div className=" w-full ">
                                 <div>
-                                    <div>
-                                        Title{" "}
-                                        <span className="text-red-600 font-semibold">
-                                            *
-                                        </span>
-                                    </div>
-                                    <Field
-                                        type="text"
-                                        name="Title"
-                                        className="border border-gray_white px-2 py-1 rounded shadow-sm"
-                                        disabled={isSubmitting}
-                                    />
-                                    <ErrorMessage
-                                        name="Title"
-                                        component="div"
-                                        style={errorInputMessage}
-                                    />
+                                    Title{" "}
+                                    <span className="text-red-600 font-semibold">
+                                        *
+                                    </span>
                                 </div>
+                                <Field
+                                    as="textarea"
+                                    name="Title"
+                                    className="border border-gray_white px-2 py-1 rounded shadow-sm w-full "
+                                    disabled={isSubmitting}
+                                />
+                                <ErrorMessage
+                                    name="Title"
+                                    component="div"
+                                    style={errorInputMessage}
+                                />
+                            </div>
+                            <div className=" w-full ">
                                 <div>
-                                    <div>
-                                        Text{" "}
-                                        <span className="text-red-600 font-semibold">
-                                            *
-                                        </span>
-                                    </div>
-                                    <Field
-                                        type="text"
-                                        name="Text"
-                                        className="border border-gray_white px-2 py-1 rounded shadow-sm"
-                                        disabled={isSubmitting}
-                                    />
-                                    <ErrorMessage
-                                        name="Text"
-                                        component="div"
-                                        style={errorInputMessage}
-                                    />
+                                    Text{" "}
+                                    <span className="text-red-600 font-semibold">
+                                        *
+                                    </span>
                                 </div>
+                                <Field
+                                    as="textarea"
+                                    name="Text"
+                                    className="border border-gray_white px-2 py-1 rounded shadow-sm w-full"
+                                    disabled={isSubmitting}
+                                    rows={4}
+                                />
+                                <ErrorMessage
+                                    name="Text"
+                                    component="div"
+                                    style={errorInputMessage}
+                                />
+                            </div>
+                            <div className=" w-full h-fit ">
                                 <div>
-                                    <div>
-                                        Description{" "}
-                                        <span className="text-red-600 font-semibold">
-                                            *
-                                        </span>
-                                    </div>
-                                    <Field
-                                        type="text"
-                                        name="Description"
-                                        className="border border-gray_white px-2 py-1 rounded shadow-sm"
-                                        disabled={isSubmitting}
-                                    />
-                                    <ErrorMessage
-                                        name="Description"
-                                        component="div"
-                                        style={errorInputMessage}
-                                    />
+                                    Description{" "}
+                                    <span className="text-red-600 font-semibold">
+                                        *
+                                    </span>
                                 </div>
+                                <Field
+                                    as="textarea"
+                                    name="Description"
+                                    className="border border-gray_white px-2 py-1 rounded shadow-sm w-full"
+                                    disabled={isSubmitting}
+                                    rows={10}
+                                />
+                                <ErrorMessage
+                                    name="Description"
+                                    component="div"
+                                    style={errorInputMessage}
+                                />
+                            </div>
+                            <div className=" flex gap-3 items-center justify-center w-[70%]">
                                 <div>
                                     <div>
                                         Price{" "}
@@ -173,22 +178,19 @@ function Add_Course() {
                                         style={errorInputMessage}
                                     />
                                 </div>
-                                <button
-                                    type="submit"
-                                    className={` ${
-                                        isSubmitting
-                                            ? "bg-gray_white text-gray"
-                                            : " bg-green text-white"
-                                    } w-fit m-auto px-4 py-2 rounded font-semibold `}
-                                    disabled={isSubmitting}
-                                >
-                                    {isSubmitting ? (
-                                        <div>loading</div>
-                                    ) : (
-                                        "Submit"
-                                    )}
-                                </button>
                             </div>
+
+                            <button
+                                type="submit"
+                                className={` ${
+                                    isSubmitting
+                                        ? "bg-gray_white text-gray"
+                                        : " bg-green text-white"
+                                } w-fit m-auto px-4 py-2 rounded font-semibold `}
+                                disabled={isSubmitting}
+                            >
+                                {isSubmitting ? <div>loading</div> : "Submit"}
+                            </button>
                         </Form>
                     )}
                 </Formik>
