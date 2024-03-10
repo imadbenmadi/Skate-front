@@ -6,7 +6,7 @@ import { useOutletContext } from "react-router";
 import Current_Services_Card from "./Current_Services_Card";
 
 function Current_Services() {
-    const Services = useOutletContext();
+    const {Services} = useOutletContext();
 
     if (!Services) return null;
     else if (Services.length === 0)

@@ -40,6 +40,7 @@ function Dashboard_Services() {
                 }
             );
             if (response.status == 200) {
+                console.log(response.data.requests);
                 setRequests(response.data.requests);
             } else {
                 setError(response.data);
@@ -103,7 +104,7 @@ function Dashboard_Services() {
                     Services Requests
                 </Link>
             </div>
-            <Outlet context={Services} />
+            <Outlet context={{Services , Requests}} />
         </div>
     );
 }
