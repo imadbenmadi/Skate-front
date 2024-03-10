@@ -7,6 +7,7 @@ import { Outlet } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 function Dashboard_Services() {
     const [Services, setServices] = useState(null);
+    const [Requests, setRequests] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const [active, setActive] = useState("Current");
@@ -17,8 +18,39 @@ function Dashboard_Services() {
             setActive("Requests");
         else setActive("Current");
     }, [location.pathname]);
-    const fetch_Services = async () => {
+    const fetch_data = async () => {
         setLoading(true);
+        try {
+
+            await fetch_Requests();
+            await fetch_Services();
+        } catch (error) {
+            setError(error);
+        }
+        setLoading(false);
+    };
+    const fetch_Requests = async () => {
+        
+        try {
+            const response = await axios.get(
+                "http://localhost:3000/Dashboard/Services/Requests",
+                {
+                    withCredentials: true,
+                    validateStatus: () => true,
+                }
+            );
+            if (response.status == 200) {
+                setRequests(response.data.requests);
+            } else {
+                setError(response.data);
+            }
+        } catch (error) {
+            setError(error);
+        }
+        
+    };
+    const fetch_Services = async () => {
+        
         try {
             const response = await axios.get("http://localhost:3000/Services", {
                 withCredentials: true,
@@ -32,10 +64,10 @@ function Dashboard_Services() {
         } catch (error) {
             setError(error);
         }
-        setLoading(false);
+        
     };
     useEffect(() => {
-        fetch_Services();
+        fetch_data();
     }, []);
     if (loading)
         return (
