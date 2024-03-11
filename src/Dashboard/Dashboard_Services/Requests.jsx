@@ -3,6 +3,45 @@ import { useOutletContext } from "react-router";
 import { IoWarning } from "react-icons/io5";
 import { Link } from "react-router-dom";
 function Requests() {
+    async function handle_accept_request(id) {
+        try {
+            const response = await axios.post(
+                "http://localhost:3000/Dashboard/Services/Requests/Accept",
+                { id },
+                {
+                    withCredentials: true,
+                    validateStatus: () => true,
+                }
+            );
+            if (response.status == 200) {
+                fetch_Requests();
+            } else {
+                setError(response.data);
+            }
+        } catch (error) {
+            setError(error);
+        }
+    }
+    async function handle_reject_request(id) {
+        try {
+            const response = await axios.post(
+                "http://localhost:3000/Dashboard/Services/Requests/Reject",
+                { id },
+                {
+                    withCredentials: true,
+                    validateStatus: () => true,
+                }
+            );
+            if (response.status == 200) {
+                fetch_Requests();
+            } else {
+                setError(response.data);
+            }
+        } catch (error) {
+            setError(error);
+        }
+    }
+
     const { Requests, Services } = useOutletContext();
 
     if (Requests == undefined || Services == undefined) {
@@ -126,10 +165,16 @@ function Requests() {
                                 "
                             >
                                 <div className="flex  justify-center gap-1 items-center m-auto ">
-                                    <div className="w-fit items-center m-auto flex gap-1 bg-green text-white p-1 rounded">
+                                    <div
+                                        className="w-fit items-center m-auto flex gap-1 bg-green text-white p-1 rounded"
+                                        onClick={handle_accept_request}
+                                    >
                                         Accept
                                     </div>
-                                    <div className="w-fit items-center m-auto flex gap-1 bg-red-600 text-white p-1 rounded">
+                                    <div
+                                        className="w-fit items-center m-auto flex gap-1 bg-red-600 text-white p-1 rounded"
+                                        onClick={handle_reject_request}
+                                    >
                                         Reject
                                     </div>
                                 </div>
