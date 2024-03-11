@@ -40,7 +40,6 @@ function Dashboard_Services() {
                 }
             );
             if (response.status == 200) {
-                console.log(response.data.requests);
                 setRequests(response.data.requests);
             } else {
                 setError(response.data);
