@@ -43,10 +43,9 @@ function Add_Course() {
                         // Validate Price
                         if (!values.Price) {
                             errors.Price = "Price is required.";
-                        }
-                        else if (isNaN(values.Price))
+                        } else if (isNaN(values.Price))
                             errors.Price = "Invalid Price";
-                            
+
                         // Validate Category
                         if (!values.Category) {
                             errors.Category = "Category is required.";
@@ -56,21 +55,77 @@ function Add_Course() {
                     onSubmit={async (values, { setSubmitting, resetForm }) => {
                         try {
                             setSubmitting(true);
-                            // Call your Axios POST request here
-                            // Example:
-                            // const response = await Axios.post("your_api_endpoint", values);
-                            // Handle response accordingly
-                            // Example:
-                            // if (response.status === 200) {
-                            //     resetForm();
-                            //     Swal.fire("Success!", "Course added successfully.", "success");
-                            // } else {
-                            //     Swal.fire("Error!", "Failed to add course.", "error");
-                            // }
+
+                            let response = await Axios.post(
+                                "http://localhost:3000/Dashboard/Courses",
+                                values,
+                                {
+                                    withCredentials: true,
+                                    validateStatus: () => true,
+                                }
+                            );
+                            console.log(response);
+                            if (response.status == 200) {
+                                resetForm();
+                                Swal.fire(
+                                    "Done!",
+                                    "Course has been created Successfully",
+                                    "success"
+                                );
+                            } else if (response.status == 404) {
+                                Swal.fire(
+                                    "Error",
+                                    `${response.data.message}`,
+                                    "error"
+                                );
+                            } else if (response.status == 400) {
+                                Swal.fire(
+                                    "Error!",
+                                    `Internal server error : ${response.data.message}`,
+                                    "error"
+                                );
+                            } else if (response.status == 401) {
+                                Swal.fire({
+                                    title: "Unauthorised Action",
+                                    text: "You should Login again ",
+                                    icon: "error",
+                                    confirmButtonColor: "#3085d6",
+
+                                    confirmButtonText: "Go to Admin Login Page",
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        Navigate("/Dashboard_Login");
+                                    }
+                                });
+                            } else if (response.status == 409) {
+                                Swal.fire(
+                                    "Error!",
+                                    `${response.data.message}`,
+                                    "error"
+                                );
+                            } else if (response.status == 429) {
+                                Swal.fire(
+                                    "Error!",
+                                    `Too many Requests , ${response.data.message}`,
+                                    "error"
+                                );
+                            } else if (response.status == 500) {
+                                Swal.fire(
+                                    "Error!",
+                                    `Internal server error : ${response.data.message}`,
+                                    "error"
+                                );
+                            } else {
+                                Swal.fire(
+                                    "Error!",
+                                    `Something Went Wrong. Please try again , ${response.data.message}`,
+                                    "error"
+                                );
+                            }
                         } catch (error) {
                             Swal.fire(
                                 "Error!",
-                                "Failed to add course.",
+                                "Failed to add Course.",
                                 "error"
                             );
                         } finally {
@@ -139,47 +194,44 @@ function Add_Course() {
                                     style={errorInputMessage}
                                 />
                             </div>
-                            <div className=" flex gap-3 items-center justify-center w-[70%]">
+                            <div className=" w-full h-fit ">
                                 <div>
-                                    <div>
-                                        Price{" "}
-                                        <span className="text-red-600 font-semibold">
-                                            *
-                                        </span>
-                                    </div>
-                                    <Field
-                                        type="text"
-                                        name="Price"
-                                        className="border border-gray_white px-2 py-1 rounded shadow-sm"
-                                        disabled={isSubmitting}
-                                    />
-                                    <ErrorMessage
-                                        name="Price"
-                                        component="div"
-                                        style={errorInputMessage}
-                                    />
+                                    Price{" "}
+                                    <span className="text-red-600 font-semibold">
+                                        *
+                                    </span>
                                 </div>
-                                <div>
-                                    <div>
-                                        Category{" "}
-                                        <span className="text-red-600 font-semibold">
-                                            *
-                                        </span>
-                                    </div>
-                                    <Field
-                                        type="text"
-                                        name="Category"
-                                        className="border border-gray_white px-2 py-1 rounded shadow-sm"
-                                        disabled={isSubmitting}
-                                    />
-                                    <ErrorMessage
-                                        name="Category"
-                                        component="div"
-                                        style={errorInputMessage}
-                                    />
-                                </div>
+                                <Field
+                                    type="text"
+                                    name="Price"
+                                    className="border border-gray_white px-2 py-1 rounded shadow-sm w-full"
+                                    disabled={isSubmitting}
+                                />
+                                <ErrorMessage
+                                    name="Price"
+                                    component="div"
+                                    style={errorInputMessage}
+                                />
                             </div>
-
+                            <div className=" w-full h-fit ">
+                                <div>
+                                    Category{" "}
+                                    <span className="text-red-600 font-semibold">
+                                        *
+                                    </span>
+                                </div>
+                                <Field
+                                    type="text"
+                                    name="Category"
+                                    className="border border-gray_white px-2 py-1 rounded shadow-sm w-full"
+                                    disabled={isSubmitting}
+                                />
+                                <ErrorMessage
+                                    name="Category"
+                                    component="div"
+                                    style={errorInputMessage}
+                                />
+                            </div>
                             <button
                                 type="submit"
                                 className={` ${
