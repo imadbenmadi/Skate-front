@@ -128,7 +128,7 @@ function Add_user() {
                                     `Internal server error : ${response.data.message}`,
                                     "error"
                                 );
-                            } else if (401) {
+                            } else if (response.status == 401) {
                                 Swal.fire({
                                     title: "Unauthorised Action",
                                     text: "You should Login again ",

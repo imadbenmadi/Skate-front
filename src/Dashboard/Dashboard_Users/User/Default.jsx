@@ -40,7 +40,7 @@ function Default() {
                     " Refresh the page please",
                     "info"
                 );
-            } else if (401) {
+            } else if (response.status == 401) {
                 swal.fire({
                     title: "Unauthorised Action",
                     text: "You should Login again ",

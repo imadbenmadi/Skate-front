@@ -27,7 +27,6 @@ import Dashboard from "./Dashboard/Dashboard";
 import Dashboard_Login from "./Dashboard/Dashboard_Login";
 import Dashboard_home from "./Dashboard/Dashboard_home/Dashboard_home";
 
-
 import Dashboard_Users from "./Dashboard/Dashboard_Users/Dashboard_Users";
 import Default_user from "./Dashboard/Dashboard_Users/User/Default";
 import Edit_user from "./Dashboard/Dashboard_Users/User/Edit";
@@ -40,7 +39,7 @@ import Table from "./Dashboard/Dashboard_Users/Table/Table";
 import Dashboard_Courses from "./Dashboard/Dashboard_Courses/Dashboard_Courses";
 import Add_Course from "./Dashboard/Dashboard_Courses/Add_Course";
 import Current_Skate_Courses from "./Dashboard/Dashboard_Courses/Current_Courses";
-import Courses_Requests from "./Dashboard/Dashboard_Courses/Requests"
+import Courses_Requests from "./Dashboard/Dashboard_Courses/Requests";
 import Edit_Course from "./Dashboard/Dashboard_Courses/Edit_Course";
 
 import Dashboard_Services from "./Dashboard/Dashboard_Services/Dashboard_Services";
@@ -54,62 +53,12 @@ import Add_Event from "./Dashboard/Dashboard_Events/Add_Event";
 import Current_Skate_Events from "./Dashboard/Dashboard_Events/Current_Events";
 import Edit_Event from "./Dashboard/Dashboard_Events/Edit_Event";
 
-
 import Dashboard_Blogs from "./Dashboard/Dashboard_Blogs/Dashboard_Blogs";
 import Add_Blog from "./Dashboard/Dashboard_Blogs/Add_Blog";
 import Current_Skate_Blogs from "./Dashboard/Dashboard_Blogs/Current_Blogs";
 import Edit_Blog from "./Dashboard/Dashboard_Blogs/Edit_Blog";
 
-
 const routes = createBrowserRouter([
-    {
-        path: "/",
-        element: <App />,
-        children: [
-            { index: true, element: <Home /> },
-            { path: "/Services", element: <Services /> },
-            { path: "/Services/:id", element: <Service_item /> },
-            { path: "/Courses", element: <Courses /> },
-            { path: "/Courses/:id", element: <Course_item /> },
-            { path: "/Events", element: <Events /> },
-            { path: "/Events/:id", element: <Events_item /> },
-            { path: "/Contact", element: <Contact /> },
-            { path: "/Blogs", element: <Blogs /> },
-            { path: "/Blogs/:id", element: <Blogs_item /> },
-            {
-                path: "/Profile",
-                element: <Not_Finished />,
-                children: [
-                    { index: true, element: <Info /> },
-                    {
-                        path: "/Profile/Notifications",
-                        element: <Not_Finished />,
-                    },
-                    {
-                        path: "/Profile/Notifications/:id",
-                        element: <Not_Finished />,
-                    },
-                    {
-                        path: "/Profile/Courses",
-                        element: <Not_Finished />,
-                    },
-                    {
-                        path: "/Profile/Services",
-                        element: <Not_Finished />,
-                    },
-                ],
-            },
-            // { path: "/Notifications/:id", element: <Not_Finished /> },
-            {
-                path: "/verifyEmail",
-                element: <VerifyEmail />,
-            },
-            {
-                path: "*",
-                element: <Not_Found />,
-            },
-        ],
-    },
     {
         path: "/Dashboard",
         element: <Dashboard />,
@@ -219,6 +168,55 @@ const routes = createBrowserRouter([
             },
         ],
     },
+    {
+        path: "/",
+        element: <App />,
+        children: [
+            { index: true, element: <Home /> },
+            { path: "/Services", element: <Services /> },
+            { path: "/Services/:id", element: <Service_item /> },
+            { path: "/Courses", element: <Courses /> },
+            { path: "/Courses/:id", element: <Course_item /> },
+            { path: "/Events", element: <Events /> },
+            { path: "/Events/:id", element: <Events_item /> },
+            { path: "/Contact", element: <Contact /> },
+            { path: "/Blogs", element: <Blogs /> },
+            { path: "/Blogs/:id", element: <Blogs_item /> },
+            {
+                path: "/Profile",
+                element: <Not_Finished />,
+                children: [
+                    { index: true, element: <Info /> },
+                    {
+                        path: "/Profile/Notifications",
+                        element: <Not_Finished />,
+                    },
+                    {
+                        path: "/Profile/Notifications/:id",
+                        element: <Not_Finished />,
+                    },
+                    {
+                        path: "/Profile/Courses",
+                        element: <Not_Finished />,
+                    },
+                    {
+                        path: "/Profile/Services",
+                        element: <Not_Finished />,
+                    },
+                ],
+            },
+            // { path: "/Notifications/:id", element: <Not_Finished /> },
+            {
+                path: "/verifyEmail",
+                element: <VerifyEmail />,
+            },
+            {
+                path: "*",
+                element: <Not_Found />,
+            },
+        ],
+    },
+
     {
         path: "/Dashboard_Login",
         element: <Dashboard_Login />,

@@ -24,7 +24,7 @@ function Current_Blogs_Card({ item }) {
                     validateStatus: () => true,
                 }
             );
-            
+
             if (response.status == 200) {
                 Navigate("/Dashboard/Blogs");
                 swal.fire("Blog Deleted Successfully", "", "success");
@@ -32,7 +32,7 @@ function Current_Blogs_Card({ item }) {
             // else if (response.status == 404) {
             //     swal.fire(" Blog Not found ", " Refresh the page please", "info");
             // }
-            else if (401) {
+            else if (response.status == 401) {
                 swal.fire({
                     title: "Unauthorised Action",
                     text: "You should Login again ",
