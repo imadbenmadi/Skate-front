@@ -2,12 +2,44 @@ import React from "react";
 import { IoWarning } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { FaPlus } from "react-icons/fa";
-import { useOutletContext } from "react-router";
 import Current_Services_Card from "./Current_Services_Card";
-
+import { useEffect, useState } from "react";
+import axios from "axios";
+import ErrorPage from "../../Components/ErrorPage";
 function Current_Services() {
-    const {Services} = useOutletContext();
-
+    const [Services, setServices] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const fetch_Services = async () => {
+        setLoading(true);
+        try {
+            const response = await axios.get("http://localhost:3000/Services", {
+                withCredentials: true,
+                validateStatus: () => true,
+            });
+            if (response.status == 200) {
+                setServices(response.data.services);
+            } else {
+                setError(response.data);
+            }
+        } catch (error) {
+            setError(error);
+        } finally {
+            setLoading(false);
+        }
+    };
+    useEffect(() => {
+        fetch_Services();
+    }, []);
+    if (loading)
+        return (
+            <div className=" w-[100%] h-[200px] flex items-center justify-center">
+                <span className="loader"></span>
+            </div>
+        );
+     if (error) {
+         return <ErrorPage />;
+     }
     if (!Services) return null;
     else if (Services.length === 0)
         return (

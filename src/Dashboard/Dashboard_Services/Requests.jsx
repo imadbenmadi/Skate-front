@@ -2,7 +2,61 @@ import React from "react";
 import { useOutletContext } from "react-router";
 import { IoWarning } from "react-icons/io5";
 import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import ErrorPage from "../../Components/ErrorPage";
 function Requests() {
+    const [Requests, setRequests] = useState(null);
+    const [Services, setServices] = useState(null);
+    const [error, setError] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const fetch_Requests = async () => {
+        try {
+            const response = await axios.get(
+                "http://localhost:3000/Dashboard/Services/Requests",
+                {
+                    withCredentials: true,
+                    validateStatus: () => true,
+                }
+            );
+            if (response.status == 200) {
+                setRequests(response.data.requests);
+            } else {
+                setError(response.data);
+            }
+        } catch (error) {
+            setError(error);
+        }
+    };
+    const fetch_Services = async () => {
+        try {
+            const response = await axios.get("http://localhost:3000/Services", {
+                withCredentials: true,
+                validateStatus: () => true,
+            });
+            if (response.status == 200) {
+                setServices(response.data.services);
+            } else {
+                setError(response.data);
+            }
+        } catch (error) {
+            setError(error);
+        }
+    };
+    const fetch_data = async () => {
+        setLoading(true);
+        try {
+            await fetch_Requests();
+            await fetch_Services();
+        } catch (error) {
+            setError(error);
+        } finally {
+            setLoading(false);
+        }
+    };
+    useEffect(() => {
+        fetch_data();
+    }, []);
     async function handle_accept_request(id) {
         try {
             const response = await axios.post(
@@ -42,12 +96,16 @@ function Requests() {
         }
     }
 
-    const { Requests, Services } = useOutletContext();
-
-    if (Requests == undefined || Services == undefined) {
-        return null;
+    if (loading)
+        return (
+            <div className=" w-[100%] h-[200px] flex items-center justify-center">
+                <span className="loader"></span>
+            </div>
+        );
+    if (error) {
+        return <ErrorPage />;
     }
-    console.log(Requests);
+    if(!Requests) return null;
     if (Requests.length === 0)
         return (
             <div className=" flex justify-center items-center gap-1 text-2xl text-gray pt-8">
