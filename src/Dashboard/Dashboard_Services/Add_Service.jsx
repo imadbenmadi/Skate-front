@@ -138,45 +138,43 @@ function Add_Service() {
                                     style={errorInputMessage}
                                 />
                             </div>
-                            <div className=" flex gap-3 items-center justify-center w-[70%]">
+                            <div className=" w-full h-fit ">
                                 <div>
-                                    <div>
-                                        Price{" "}
-                                        <span className="text-red-600 font-semibold">
-                                            *
-                                        </span>
-                                    </div>
-                                    <Field
-                                        type="text"
-                                        name="Price"
-                                        className="border border-gray_white px-2 py-1 rounded shadow-sm"
-                                        disabled={isSubmitting}
-                                    />
-                                    <ErrorMessage
-                                        name="Price"
-                                        component="div"
-                                        style={errorInputMessage}
-                                    />
+                                    Price{" "}
+                                    <span className="text-red-600 font-semibold">
+                                        *
+                                    </span>
                                 </div>
+                                <Field
+                                    type="text"
+                                    name="Price"
+                                    className="border border-gray_white px-2 py-1 rounded shadow-sm w-full"
+                                    disabled={isSubmitting}
+                                />
+                                <ErrorMessage
+                                    name="Price"
+                                    component="div"
+                                    style={errorInputMessage}
+                                />
+                            </div>
+                            <div className=" w-full h-fit ">
                                 <div>
-                                    <div>
-                                        Category{" "}
-                                        <span className="text-red-600 font-semibold">
-                                            *
-                                        </span>
-                                    </div>
-                                    <Field
-                                        type="text"
-                                        name="Category"
-                                        className="border border-gray_white px-2 py-1 rounded shadow-sm"
-                                        disabled={isSubmitting}
-                                    />
-                                    <ErrorMessage
-                                        name="Category"
-                                        component="div"
-                                        style={errorInputMessage}
-                                    />
+                                    Category{" "}
+                                    <span className="text-red-600 font-semibold">
+                                        *
+                                    </span>
                                 </div>
+                                <Field
+                                    type="text"
+                                    name="Category"
+                                    className="border border-gray_white px-2 py-1 rounded shadow-sm w-full"
+                                    disabled={isSubmitting}
+                                />
+                                <ErrorMessage
+                                    name="Category"
+                                    component="div"
+                                    style={errorInputMessage}
+                                />
                             </div>
 
                             <button

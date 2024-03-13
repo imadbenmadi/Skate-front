@@ -11,18 +11,18 @@ import { Formate_Date } from "../../../Logic/Formate_Date"; // Import your date 
 import { Link } from "react-router-dom";
 const Notifications_items = () => {
     const { Notifications } = useAppContext();
+    if (Notifications == undefined) return null;
+    Notifications.sort((a, b) => {
+        if (a.Readed !== b.Readed) {
+            return a.Readed ? 1 : -1; // Unread notifications first
+        }
+        // Within each category, sort by newest first
+        return new Date(b.Date) - new Date(a.Date);
+    });
     return (
         <div className=" w-full bg-white">
             <div className=" flex items-center justify-between px-3 pb-2 border-b border-gray">
                 <h2 className="text-lg font-bold">Notifications</h2>
-                <div className=" text-sm">
-                    {
-                        Notifications.filter(
-                            (notification) => !notification.Readed
-                        ).length
-                    }{" "}
-                    unreded
-                </div>
             </div>
             <div>
                 {Notifications.length == 0 ? (

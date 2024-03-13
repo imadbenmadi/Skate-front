@@ -18,7 +18,6 @@ function Laptop_Nav_Items({
     LogoutClicked,
 }) {
     const { Notifications } = useAppContext();
-
     const [User_menu_open, setUser_menu_open] = useState(false);
     const [Notifications_open, setNotifications_open] = useState(false);
     const handleSettingsClick = () => {
@@ -126,20 +125,17 @@ function Laptop_Nav_Items({
                 </div>
                 {isAuth ? (
                     <>
-                        <Link
-                            to={"/Profile/Notifications"}
+                        <div
                             className=" h-full"
                             onMouseEnter={() => setNotifications_open(true)}
                             onMouseLeave={() => setNotifications_open(false)}
                         >
-                            <div className="relative flex items-center h-full">
+                            <Link
+                                to={"/Profile/Notifications"}
+                                className="flex items-center h-full"
+                            >
                                 <MdNotificationsNone className="text-gray text-2xl cursor-pointer h-full" />
-                                {Notifications.filter(
-                                    (notification) => !notification.Readed
-                                ).length > 0 && (
-                                    <div className=" w-2 h-2 bg-green rounded-full absolute top-[30%] -right-[5%]"></div>
-                                )}
-                            </div>
+                            </Link>
                             {Notifications_open && (
                                 <div
                                     className="absolute py-2 top-full md:right-[4vw] lg:right-[8vw]  xl:right-[10vw] 2xl:right-[12vw] bg-white w-[300px] shadow-md rounded border border-gray flex flex-col items-start"
@@ -153,7 +149,7 @@ function Laptop_Nav_Items({
                                     <Notifications_items />
                                 </div>
                             )}
-                        </Link>
+                        </div>
                         <Link
                             to={"/Profile"}
                             className=" h-full"
@@ -161,7 +157,7 @@ function Laptop_Nav_Items({
                             onMouseLeave={() => setUser_menu_open(false)}
                         >
                             <FaUserTie className="text-gray text-md cursor-pointer h-full" />
-                            
+
                             {User_menu_open && (
                                 <div
                                     className="absolute py-2 top-full  md:right-[1vw] lg:right-[1vw]  xl:right-[4vw] 2xl:right-[8vw]  bg-white w-[160px] shadow-md rounded border border-gray flex flex-col items-start"
@@ -170,7 +166,6 @@ function Laptop_Nav_Items({
                                         setUser_menu_open(false)
                                     }
                                 >
-                                    
                                     <Link
                                         to={`/Profile`}
                                         className="flex items-center gap-3 pl-4 mb-1 "
@@ -185,7 +180,6 @@ function Laptop_Nav_Items({
                                                 <span className="text-sm break-all">
                                                     {FirstName}
                                                 </span>{" "}
-                                                
                                             </span>
                                         </div>
                                     </Link>
