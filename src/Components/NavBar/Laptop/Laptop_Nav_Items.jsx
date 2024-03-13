@@ -161,7 +161,7 @@ function Laptop_Nav_Items({
                             onMouseLeave={() => setUser_menu_open(false)}
                         >
                             <FaUserTie className="text-gray text-md cursor-pointer h-full" />
-                            {/* Laptop user small menu */}
+                            
                             {User_menu_open && (
                                 <div
                                     className="absolute py-2 top-full  md:right-[1vw] lg:right-[1vw]  xl:right-[4vw] 2xl:right-[8vw]  bg-white w-[160px] shadow-md rounded border border-gray flex flex-col items-start"
@@ -170,7 +170,7 @@ function Laptop_Nav_Items({
                                         setUser_menu_open(false)
                                     }
                                 >
-                                    {/* <div className="triangle-up"></div> */}
+                                    
                                     <Link
                                         to={`/Profile`}
                                         className="flex items-center gap-3 pl-4 mb-1 "
@@ -185,10 +185,7 @@ function Laptop_Nav_Items({
                                                 <span className="text-sm break-all">
                                                     {FirstName}
                                                 </span>{" "}
-                                                {/* <span className="text-sm break-all">
-                                                    {" "}
-                                                    {LastName}
-                                                </span> */}
+                                                
                                             </span>
                                         </div>
                                     </Link>
