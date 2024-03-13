@@ -2,12 +2,44 @@ import React from "react";
 import { IoWarning } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { FaPlus } from "react-icons/fa";
-import { useOutletContext } from "react-router";
 import Current_Courses_Card from "./Current_Courses_Card";
-
+import { useEffect, useState } from "react";
+import axios from "axios";
+import ErrorPage from "../../Components/ErrorPage";
 function Current_Courses() {
-    const Courses = useOutletContext();
-
+    const [Courses, setCourses] = useState(null);
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const fetch_Courses = async () => {
+        setLoading(true);
+        try {
+            const response = await axios.get("http://localhost:3000/Courses", {
+                withCredentials: true,
+                validateStatus: () => true,
+            });
+            if (response.status == 200) {
+                setCourses(response.data.courses);
+            } else {
+                setError(response.data);
+            }
+        } catch (error) {
+            setError(error);
+        } finally {
+            setLoading(false);
+        }
+    };
+    useEffect(() => {
+        fetch_Courses();
+    }, []);
+    if (loading)
+        return (
+            <div className=" w-[100%] h-[200px] flex items-center justify-center">
+                <span className="loader"></span>
+            </div>
+        );
+    if (error) {
+        return <ErrorPage />;
+    }
     if (!Courses) return null;
     else if (Courses.length === 0)
         return (
