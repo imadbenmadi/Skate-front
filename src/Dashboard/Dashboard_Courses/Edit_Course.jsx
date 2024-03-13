@@ -26,7 +26,6 @@ function Edit_Course() {
                     validateStatus: () => true,
                 }
             );
-            console.log(response);
             if (response.status == 200) {
                 setCourse(response.data);
             } else {
@@ -86,6 +85,7 @@ function Edit_Course() {
                 <div className="border border-gray_white text-black_text shadow-md w-[80%] md:w-[50%] m-auto mt-3 p-5 rounded-lg">
                     <Formik
                         initialValues={{
+                            // CourseId: Course._id || "",
                             Title: Course.Title || "",
                             Text: Course.Text || "",
                             Description: Course.Description || "",
@@ -119,25 +119,79 @@ function Edit_Course() {
                         ) => {
                             try {
                                 setSubmitting(true);
-                                // Call your Axios POST request here
-                                // Example:
-                                // const response = await Axios.post("your_api_endpoint", values);
-                                // Handle response accordingly
-                                // Example:
-                                // if (response.status === 200) {
-                                //     resetForm();
-                                //     Swal.fire("Success!", "Course added successfully.", "success");
-                                // } else {
-                                //     Swal.fire("Error!", "Failed to add Course.", "error");
-                                // }
+                                let response = await Axios.put(
+                                    `http://localhost:3000/Dashboard/Courses/${Course_id}`,
+                                    values,
+                                    {
+                                        withCredentials: true,
+                                        validateStatus: () => true,
+                                    }
+                                );
+                                setSubmitting(false);
+                                console.log(response.data);
+                                if (response.status == 404) {
+                                    Swal.fire(
+                                        "Error",
+                                        `${response.data.message}`,
+                                        "error"
+                                    );
+                                } else if (response.status == 200) {
+                                    Swal.fire(
+                                        "Done!",
+                                        "Course has been Modified Successfully",
+                                        "success"
+                                    );
+                                } else if (response.status == 400) {
+                                    Swal.fire(
+                                        "Error!",
+                                        `Internal server error : ${response.data.message}`,
+                                        "error"
+                                    );
+                                } else if (response.status == 401) {
+                                    Swal.fire({
+                                        title: "Unauthorised Action",
+                                        text: "You should login again ",
+                                        icon: "error",
+                                        confirmButtonColor: "#3085d6",
+
+                                        confirmButtonText:
+                                            "Go to Admin login Page",
+                                    }).then((result) => {
+                                        if (result.isConfirmed) {
+                                            Navigate("/Dashboard_login");
+                                        }
+                                    });
+                                } else if (response.status == 409) {
+                                    Swal.fire(
+                                        "Error!",
+                                        `${response.data.message}`,
+                                        "error"
+                                    );
+                                } else if (response.status == 429) {
+                                    Swal.fire(
+                                        "Error!",
+                                        `Too many Requests , ${response.data.message}`,
+                                        "error"
+                                    );
+                                } else if (response.status == 500) {
+                                    Swal.fire(
+                                        "Error!",
+                                        `Internal server error : ${response.data.message}`,
+                                        "error"
+                                    );
+                                } else {
+                                    Swal.fire(
+                                        "Error!",
+                                        `Something Went Wrong. Please try again , ${response.data.message}`,
+                                        "error"
+                                    );
+                                }
                             } catch (error) {
                                 Swal.fire(
                                     "Error!",
-                                    "Failed to add Course.",
+                                    `Something Went Wrong. Please try again , ${error.message}`,
                                     "error"
                                 );
-                            } finally {
-                                setSubmitting(false);
                             }
                         }}
                     >
