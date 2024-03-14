@@ -51,19 +51,13 @@ function Courses() {
                                 <div className="w-[60%] pl-6 py-4 ">
                                     {course.Title && (
                                         <p className="font-bold text-xl mb-2 overflow-hidden">
-                                            {course.Title.slice(0, 60) +
-                                                (course.Title.length > 60
-                                                    ? "..."
-                                                    : "")}
+                                            {course.Title}
                                         </p>
                                     )}
 
                                     {course.Text && (
                                         <p className="text-gray text-base">
-                                            {course.Text.slice(0, 70) +
-                                                (course.Text.length > 70
-                                                    ? "..."
-                                                    : "")}
+                                            {course.Text}
                                         </p>
                                     )}
 

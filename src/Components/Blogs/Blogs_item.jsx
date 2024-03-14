@@ -53,8 +53,7 @@ function Blogs_item() {
                 <img src={img} alt="" className=" w-[400px]" />
                 <p className="text-gray">
                     {blog.Text &&
-                        blog.Text.slice(0, 120) +
-                            (blog.Text.length > 120 ? "..." : "")}
+                        blog.Text}
                 </p>
             </div>
             <div className=" w-[90vw] m-auto my-6 p-4 rounded ">

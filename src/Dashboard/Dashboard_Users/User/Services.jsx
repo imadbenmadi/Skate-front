@@ -33,19 +33,13 @@ function Services() {
                             <div className="w-[60%] pl-6 py-4 ">
                                 {service.Title && (
                                     <p className="font-bold text-xl mb-2 overflow-hidden">
-                                        {service.Title.slice(0, 60) +
-                                            (service.Title.length > 60
-                                                ? "..."
-                                                : "")}
+                                        {service.Title}
                                     </p>
                                 )}
 
                                 {service.Text && (
                                     <p className="text-gray text-base">
-                                        {service.Text.slice(0, 70) +
-                                            (service.Text.length > 70
-                                                ? "..."
-                                                : "")}
+                                        {service.Text}
                                     </p>
                                 )}
 
