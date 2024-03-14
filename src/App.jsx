@@ -21,8 +21,22 @@ function App() {
                     validateStatus: () => true,
                 }
             );
-
-            if (response.status == 200) {
+            console.log("response : ", response.data);
+            if (response.status == 200 && response.data.userData._id == null) {
+                store_login({
+                    FirstName: "",
+                    LastName: "",
+                    Email: "",
+                    Gender: null,
+                    Courses: [],
+                    Services: [],
+                    Notifications: [],
+                    IsEmailVerified: null,
+                    _id: null,
+                });
+                set_Auth(false);
+                setLoading(false);
+            } else if (response.status == 200) {
                 const _id = response.data.userData._id;
                 const Email = response.data.userData.Email;
                 const FirstName = response.data.userData.FirstName;
