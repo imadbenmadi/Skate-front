@@ -25,7 +25,7 @@ function Navbar({ Active_nav, setActive_nav }) {
             {/* nav items */}
 
             <div className=" w-[95%]  md:w-[80%] m-auto text-white text-sm md:text-xl  lg:text-2xl flex flex-col gap-10 mt-8">
-                <Link
+                {/* <Link
                     to={"/Dashboard"}
                     className={` flex items-center cursor-pointer ${
                         !location.pathname.split("/")[2] && "text-green "
@@ -33,7 +33,7 @@ function Navbar({ Active_nav, setActive_nav }) {
                 >
                     <MdSpaceDashboard />
                     <div>Dashboard</div>
-                </Link>
+                </Link> */}
                 <Link
                     to={"/Dashboard/Users"}
                     className={` flex items-center gap-3 cursor-pointer ${

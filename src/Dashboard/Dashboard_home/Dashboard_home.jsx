@@ -1,9 +1,12 @@
-import React from 'react'
-
+import React from "react";
+import { useNavigate } from "react-router";
+import { useEffect } from "react";
 function Dashboard_home() {
-  return (
-    <div>Dashboard_home</div>
-  )
+    const Navigate = useNavigate();
+    useEffect(() => {
+        Navigate("/Dashboard/Users");
+    }, []);
+    return null;
 }
 
-export default Dashboard_home
+export default Dashboard_home;
