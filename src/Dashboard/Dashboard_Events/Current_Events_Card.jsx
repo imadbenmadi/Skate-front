@@ -6,6 +6,7 @@ import axios from "axios";
 import img from "../../../public/wallpaper.jpg";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import { Formate_Date } from "../../Logic/Formate_Date";
 function Current_Events_Card({ item }) {
     const [showDescription, setShowDescription] = useState(false);
     const Navigate = useNavigate();
@@ -82,11 +83,8 @@ function Current_Events_Card({ item }) {
                                 </p>
                             )}
                             <p className="text-gray font-semibold text-xl pt-4">
-                                {item.Category}
+                                {Formate_Date(item.Date)}
                             </p>
-                        </div>
-                        <div className="text-gray text-center text-xl font-semibold top-10 right-5 w-[10%]">
-                            {item.Price} DA
                         </div>
                     </div>
                 </div>
