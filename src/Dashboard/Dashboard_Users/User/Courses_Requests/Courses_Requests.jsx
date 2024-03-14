@@ -4,15 +4,15 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import ErrorPage from "../../../../Components/ErrorPage";
 import { useOutletContext } from "react-router";
-
-import Requests_item from "./Card";
+import { Link } from "react-router-dom";
+import { IoMdArrowRoundBack } from "react-icons/io";
+import Card from "./Card";
 function Courses_Requests() {
     const [Requests, setRequests] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
     const [user, setUser] = useOutletContext();
-  if (!user) return null;
-  
+    if (!user) return null;
     const fetch_Requests = async () => {
         try {
             setLoading(true);
@@ -24,7 +24,7 @@ function Courses_Requests() {
                 }
             );
             if (response.status == 200) {
-                setRequests(response.data.courseRequests);
+                setRequests(response.data);
             } else {
                 setError(response.data);
             }
@@ -53,16 +53,31 @@ function Courses_Requests() {
     if (error) {
         return <ErrorPage />;
     }
-    if (!Requests) return null;
-    if (Requests.length === 0)
+    if (!Requests || Requests.length == 0)
         return (
-            <div className=" flex justify-center items-center gap-1 text-2xl text-gray pt-8">
-                <IoWarning />
-                No Courses Requests for this user
+            <div className=" pt-4">
+                <Link
+                    to={`/Dashboard/Users/${user._id}`}
+                    className="mb-4 w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 "
+                >
+                    <IoMdArrowRoundBack />
+                    <div>Back to user</div>
+                </Link>
+                <div className=" flex justify-center items-center gap-1 text-2xl text-gray pt-8">
+                    <IoWarning />
+                    No Courses Requests from this user
+                </div>
             </div>
         );
     return (
         <div className="relative shadow-md mt-[20px]">
+            <Link
+                to={`/Dashboard/Users/${user._id}`}
+                className="mb-4 w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 "
+            >
+                <IoMdArrowRoundBack />
+                <div>Back to user</div>
+            </Link>
             <table className="w-full text-sm rtl:text-right text-black_text relative  ">
                 <thead className="text-xs uppercase text-center h-[40px] sticky top-0 bg-white">
                     <tr className="border-y-2">
@@ -104,7 +119,7 @@ function Courses_Requests() {
                         </tr>
                     )}
                     {Requests.map((request, index) => (
-                        <Requests_item
+                        <Card
                             request={request}
                             key={index}
                             onDelete={() => handleDeleteRequest(request._id)}
