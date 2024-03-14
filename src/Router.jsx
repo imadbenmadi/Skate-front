@@ -37,7 +37,7 @@ import User from "./Dashboard/Dashboard_Users/User/User";
 import Table from "./Dashboard/Dashboard_Users/Table/Table";
 import Dashboard_User_Courses from "./Dashboard/Dashboard_Users/User/Courses/Courses";
 import Dashboard_User_Courses_Requests from "./Dashboard/Dashboard_Users/User/Courses_Requests";
-import Dashboard_User_Services from "./Dashboard/Dashboard_Users/User/Services";
+import Dashboard_User_Services from "./Dashboard/Dashboard_Users/User/Services/Services";
 import Dashboard_User_Services_Requests from "./Dashboard/Dashboard_Users/User/Services_Requests";
 
 import Dashboard_Courses from "./Dashboard/Dashboard_Courses/Dashboard_Courses";
