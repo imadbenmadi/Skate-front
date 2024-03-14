@@ -8,8 +8,11 @@ import { FaHandshake } from "react-icons/fa6";
 import { FaCalendarCheck } from "react-icons/fa6";
 import { IoIosPaper } from "react-icons/io";
 import { useLocation } from "react-router-dom";
+import swal from "sweetalert2";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 function Navbar({ Active_nav, setActive_nav }) {
+    const Navigate = useNavigate();
     const location = useLocation();
     useEffect(() => {
         setActive_nav(location.pathname.split("/")[2]);
@@ -80,13 +83,27 @@ function Navbar({ Active_nav, setActive_nav }) {
                     <IoIosPaper />
                     <div>Blogs</div>
                 </Link>
-                <Link
-                    to={"/"}
+                <div
                     className={` flex items-center gap-3 cursor-pointer text-xl pt-28 `}
+                    onClick={() => {
+                        swal.fire({
+                            title: "Leaving the Dashboard ?",
+                            text: "You will be obliged to reLogin to access the Dashboard again",
+                            icon: "warning",
+                            showCancelButton: true,
+                            confirmButtonColor: "red",
+                            cancelButtonColor: "green",
+                            confirmButtonText: "Yes Leave it",
+                        }).then((result) => {
+                            if (result.isConfirmed) {
+                                Navigate("/");
+                            }
+                        });
+                    }}
                 >
                     <TbWorld />
                     <div>Go to the Website</div>
-                </Link>
+                </div>
             </div>
         </div>
     );
