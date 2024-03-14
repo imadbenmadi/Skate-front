@@ -3,6 +3,7 @@ import { IoWarning } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ErrorPage from "../../Components/ErrorPage";
+import Requests_item from "./Requests_item";
 function Requests() {
     const [Requests, setRequests] = useState(null);
     const [error, setError] = useState(null);
@@ -32,44 +33,11 @@ function Requests() {
     useEffect(() => {
         fetch_Requests();
     }, []);
-    async function handle_accept_request(id) {
-        try {
-            const response = await axios.post(
-                "http://localhost:3000/Dashboard/Courses/Requests/Accept",
-                { id },
-                {
-                    withCredentials: true,
-                    validateStatus: () => true,
-                }
-            );
-            if (response.status == 200) {
-                fetch_Requests();
-            } else {
-                setError(response.data);
-            }
-        } catch (error) {
-            setError(error);
-        }
-    }
-    async function handle_reject_request(id) {
-        try {
-            const response = await axios.post(
-                "http://localhost:3000/Dashboard/Courses/Requests/Reject",
-                { id },
-                {
-                    withCredentials: true,
-                    validateStatus: () => true,
-                }
-            );
-            if (response.status == 200) {
-                fetch_Requests();
-            } else {
-                setError(response.data);
-            }
-        } catch (error) {
-            setError(error);
-        }
-    }
+    const handleDeleteRequest = (RequestId) => {
+        setRequests((prevRequests) =>
+            prevRequests.filter((Request) => Request._id !== RequestId)
+        );
+    };
 
     if (loading)
         return (
@@ -130,89 +98,12 @@ function Requests() {
                             </td>
                         </tr>
                     )}
-                    {Requests.map((request) => (
-                        <tr
-                            key={request._id}
-                            className="bg-gray_white hover:bg-white cursor-pointer h-[40px] text-center"
-                        >
-                            <td
-                                style={{ maxWidth: "180px" }}
-                                className="w-[180px] whitespace-nowrap border overflow-auto scrollbar-thumb-rounded-full scrollbar-thin scrollbar-thumb-green scrollbar-track-slate-300"
-                            >
-                                {request.User.FirstName !== undefined
-                                    ? request.User.FirstName
-                                    : "none"}{" "}
-                                {request.User.LastName
-                                    ? request.User.LastName
-                                    : "none"}
-                            </td>
-                            <td
-                                style={{ maxWidth: "90px" }}
-                                className="w-[90px] whitespace-nowrap break-words border overflow-auto scrollbar-thumb-rounded-full scrollbar-thin scrollbar-thumb-green scrollbar-track-slate-300"
-                            >
-                                {request.User.Telephone
-                                    ? request.User.Telephone
-                                    : "none"}
-                            </td>
-                            <td
-                                style={{ maxWidth: "150px" }}
-                                className="w-[150px] whitespace-nowrap border overflow-auto scrollbar-thumb-rounded-full scrollbar-thin scrollbar-thumb-green scrollbar-track-slate-300"
-                            >
-                                {request.User.Email
-                                    ? request.User.Email
-                                    : "none"}
-                            </td>
-                            <td
-                                style={{ maxWidth: "90px" }}
-                                className={`w-[90px] whitespace-nowrap border overflow-auto scrollbar-thumb-rounded-full scrollbar-thin scrollbar-thumb-green scrollbar-track-slate-300 ${
-                                    request.User.IsEmailVerified
-                                        ? "text-green"
-                                        : "text-red-600"
-                                }`}
-                            >
-                                {request.User.IsEmailVerified
-                                    ? "Verified"
-                                    : "Not Verified"}
-                            </td>
-
-                            <td
-                                style={{ maxWidth: "150px" }}
-                                className="w-[150px] whitespace-nowrap border overflow-auto scrollbar-thumb-rounded-full scrollbar-thin scrollbar-thumb-green scrollbar-track-slate-300"
-                            >
-                                {request.Course.Title
-                                    ? request.Course.Title
-                                    : "none"}
-                            </td>
-                            <td
-                                style={{ maxWidth: "70px" }}
-                                className="w-[70px] whitespace-nowrap border overflow-auto scrollbar-thumb-rounded-full scrollbar-thin scrollbar-thumb-green scrollbar-track-slate-300"
-                            >
-                                {request.Course.Price
-                                    ? request.Course.Price + " DA"
-                                    : "none"}
-                            </td>
-                            <td
-                                style={{ maxWidth: "150px" }}
-                                className="w-[150px] whitespace-nowrap border overflow-auto 
-                                scrollbar-thumb-rounded-full scrollbar-thin scrollbar-thumb-green scrollbar-track-slate-300
-                                "
-                            >
-                                <div className="flex  justify-center gap-1 items-center m-auto ">
-                                    <div
-                                        className="w-fit items-center m-auto flex gap-1 bg-green text-white p-1 rounded"
-                                        onClick={handle_accept_request}
-                                    >
-                                        Accept
-                                    </div>
-                                    <div
-                                        className="w-fit items-center m-auto flex gap-1 bg-red-600 text-white p-1 rounded"
-                                        onClick={handle_reject_request}
-                                    >
-                                        Reject
-                                    </div>
-                                </div>
-                            </td>
-                        </tr>
+                    {Requests.map((request , index) => (
+                        <Requests_item
+                            request={request}
+                            key={index}
+                            onDelete={() => handleDeleteRequest(request._id)}
+                        />
                     ))}
                 </tbody>
             </table>
