@@ -10,7 +10,7 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 function Notifications() {
     const user = useOutletContext();
     if (!user) return null;
-    const userId = location.pathname.split("/")[3];
+    const userId = user._id
 
     const Navigate = useNavigate();
     return (
