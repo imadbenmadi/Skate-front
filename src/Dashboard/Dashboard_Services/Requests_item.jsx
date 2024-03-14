@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
 
 import { useState } from "react";
-function Requests_item({ request, onDelete}) {
+function Requests_item({ request, onDelete }) {
     const Navigate = useNavigate();
     const [Accept_Loading, setAccept_Loading] = useState(false);
     const [Reject_Loading, setReject_Loading] = useState(false);
@@ -194,10 +194,22 @@ function Requests_item({ request, onDelete}) {
                         <div
                             className="w-fit items-center m-auto flex gap-1 bg-green text-white p-1 rounded"
                             onClick={() =>
-                                handle_accept_request(
-                                    request.User._id,
-                                    request.Service._id
-                                )
+                                Swal.fire({
+                                    title: "Are you sure you want to Accept this Request ?",
+                                    text: " You won't be able to revert this!",
+                                    icon: "warning",
+                                    showCancelButton: true,
+                                    confirmButtonColor: "#3085d6",
+                                    cancelButtonColor: "#d33",
+                                    confirmButtonText: "Yes, Accept it!",
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        handle_accept_request(
+                                            request.User._id,
+                                            request.Service._id
+                                        );
+                                    }
+                                })
                             }
                         >
                             Accept
@@ -211,10 +223,22 @@ function Requests_item({ request, onDelete}) {
                         <div
                             className="w-fit items-center m-auto flex gap-1 bg-red-600 text-white p-1 rounded"
                             onClick={() =>
-                                handle_reject_request(
-                                    request.User._id,
-                                    request.Service._id
-                                )
+                                Swal.fire({
+                                    title: "Are you sure you want to Reject this Request ?",
+                                    text: "You won't be able to revert this!",
+                                    icon: "warning",
+                                    showCancelButton: true,
+                                    confirmButtonColor: "#3085d6",
+                                    cancelButtonColor: "#d33",
+                                    confirmButtonText: "Yes, Reject it!",
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        handle_reject_request(
+                                            request.User._id,
+                                            request.Service._id
+                                        );
+                                    }
+                                })
                             }
                         >
                             Reject
