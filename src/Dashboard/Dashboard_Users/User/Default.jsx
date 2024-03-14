@@ -12,7 +12,7 @@ import { IoIosNotifications } from "react-icons/io";
 import { FaMessage } from "react-icons/fa6";
 import { IoMdArrowRoundBack } from "react-icons/io";
 function Default() {
-    const user = useOutletContext();
+    const [user, setUser] = useOutletContext();
     if (!user) return null;
     const location = useLocation();
     const Navigate = useNavigate();

@@ -11,7 +11,7 @@ import logo from ".././../../../../public/logo.png";
 import { useNavigate } from "react-router-dom";
 import { IoMdArrowRoundBack } from "react-icons/io";
 function Current_Notifications() {
-    const user = useOutletContext();
+    const [user, setUser] = useOutletContext();
     if (!user) return null;
     const Notifications = user.Notifications;
     const userId = location.pathname.split("/")[3];

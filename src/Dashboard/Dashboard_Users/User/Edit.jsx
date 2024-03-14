@@ -12,7 +12,7 @@ import { useOutletContext } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 
 function Edit() {
-    const user = useOutletContext();
+    const [user, setUser] = useOutletContext();
     if (!user) return null;
     const Navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);

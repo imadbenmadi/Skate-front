@@ -9,62 +9,72 @@ import { useState } from "react";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import swal from "sweetalert2";
+import axios from "axios";
 function Courses() {
-    const user = useOutletContext();
+    const [user,setUser] = useOutletContext();
     if (!user) return null;
     const userId = user._id;
 
+    const [deleteLoading, setDeleteLoading] = useState(false);
     const [showDescription, setShowDescription] = useState(false);
     const Navigate = useNavigate();
-     function toggleDescription() {
-         setShowDescription(!showDescription);
+    function toggleDescription() {
+        setShowDescription(!showDescription);
     }
-    async function handle_delete_Course(Service) {
-        // try {
-        //     const response = await axios.delete(
-        //         `http://localhost:3000/Dashboard/Services/${Service._id}`,
-        //         {
-        //             withCredentials: true,
-        //             validateStatus: () => true,
-        //         }
-        //     );
-        //     if (response.status == 200) {
-        //         onDelete();
-        //         swal.fire("Service Deleted Successfully", "", "success");
-        //     } else if (response.status == 404) {
-        //         swal.fire(
-        //             " Service Not found ",
-        //             " Refresh the page please",
-        //             "info"
-        //         );
-        //     } else if (response.status == 401) {
-        //         swal.fire({
-        //             title: "Unauthorised Action",
-        //             text: "You should Login again ",
-        //             icon: "error",
-        //             confirmButtonColor: "#3085d6",
+    async function handle_delete_Course(Course) {
+        try {
+            setDeleteLoading(true);
+            const response = await axios.delete(
+                `http://localhost:3000/Dashboard/User/${userId}/Courses/${Course._id}`,
+                {
+                    withCredentials: true,
+                    validateStatus: () => true,
+                }
+            );
+            if (response.status == 200) {
+                swal.fire("Course Deleted Successfully", "", "success");
+                setUser((prevUser) => ({
+                    ...prevUser,
+                    Courses: prevUser.Courses.filter(
+                        (c) => c._id !== Course._id
+                    ),
+                }));
+            } else if (response.status == 404) {
+                swal.fire(
+                    " Course Not found ",
+                    " Refresh the page please",
+                    "info"
+                );
+            } else if (response.status == 401) {
+                swal.fire({
+                    title: "Unauthorised Action",
+                    text: "You should Login again ",
+                    icon: "error",
+                    confirmButtonColor: "#3085d6",
 
-        //             confirmButtonText: "Go to Admin Login Page",
-        //         }).then((result) => {
-        //             if (result.isConfirmed) {
-        //                 Navigate("/Dashboard_Login");
-        //             }
-        //         });
-        //     } else {
-        //         swal.fire(
-        //             "Could not delete Service",
-        //             `${response.data.message}`,
-        //             "error"
-        //         );
-        //     }
-        // } catch (error) {
-        //     swal.fire(
-        //         "Could not delete Service",
-        //         "Please Try again Latter",
-        //         "error"
-        //     );
-        // }
-        swal.fire("user dedvelopment");
+                    confirmButtonText: "Go to Admin Login Page",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Navigate("/Dashboard_Login");
+                    }
+                });
+            } else {
+                swal.fire(
+                    "Could not delete Course",
+                    `${response.data.message}`,
+                    "error"
+                );
+            }
+        } catch (error) {
+            console.log("error : ", error);
+            swal.fire(
+                "Could not delete Course",
+                "Please Try again Latter",
+                "error"
+            );
+        }finally{
+            setDeleteLoading(false);
+        }
     }
     if (user.Courses && Array.isArray(user.Courses)) {
         if (user.Courses.length === 0)
@@ -160,27 +170,38 @@ function Courses() {
                                 )}
                             </div>
                             <div className="w-[10%] flex flex-col items-center justify-start pt-6 gap-4 pr-5">
-                                <div
-                                    className="flex items-center justify-start gap-2 cursor-pointer text-white bg-red-600 text-xl px-2 py-1 rounded w-[100px]"
-                                    onClick={() => {
-                                        swal.fire({
-                                            title: "Are you sure you want to delete this Course from this user ?",
-                                            text: "You won't be able to revert this!",
-                                            icon: "warning",
-                                            showCancelButton: true,
-                                            confirmButtonColor: "red",
-                                            cancelButtonColor: "green",
-                                            confirmButtonText: "Yes Delete it",
-                                        }).then((result) => {
-                                            if (result.isConfirmed) {
-                                                handle_delete_Course(course);
-                                            }
-                                        });
-                                    }}
-                                >
-                                    <MdDelete />
-                                    Delete
-                                </div>
+                                {deleteLoading ? (
+                                    <div
+                                        className="flex items-center justify-start gap-2 cursor-pointer text-white bg-red-600 opacity-50 text-xl px-2 py-1 rounded w-[100px]"
+                                    >
+                                        <MdDelete />
+                                        Loading
+                                    </div>
+                                ) : (
+                                    <div
+                                        className="flex items-center justify-start gap-2 cursor-pointer text-white bg-red-600 text-xl px-2 py-1 rounded w-[100px]"
+                                        onClick={() => {
+                                            swal.fire({
+                                                title: "Are you sure you want to delete this Course from this user ?",
+                                                text: "You won't be able to revert this!",
+                                                icon: "warning",
+                                                showCancelButton: true,
+                                                confirmButtonColor: "red",
+                                                cancelButtonColor: "green",
+                                                confirmButtonText:
+                                                    "Yes Delete it",
+                                            }).then((result) => {
+                                                if (result.isConfirmed) {
+                                                    handle_delete_Course(
+                                                        course
+                                                    );
+                                                }
+                                            });
+                                        }}
+                                    >
+                                        Delete
+                                    </div>
+                                )}
                             </div>
                         </div>
                     ))}

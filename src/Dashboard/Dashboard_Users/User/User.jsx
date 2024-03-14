@@ -22,7 +22,7 @@ function User() {
                     validateStatus: () => true,
                 }
             );
-            console.log("user : ",response.data);
+            console.log("user : ", response.data);
             if (response.status == 200) {
                 setUser(response.data);
             } else {
@@ -46,7 +46,7 @@ function User() {
     if (error) {
         return <ErrorPage />;
     }
-    return <Outlet context={user} />;
+    return <Outlet context={[user,setUser]} />;
 }
 
 export default User;

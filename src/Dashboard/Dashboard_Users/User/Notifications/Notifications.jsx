@@ -8,7 +8,7 @@ import { useOutletContext } from "react-router-dom";
 import Current_Notifications from "./Current_Notifications";
 import { IoMdArrowRoundBack } from "react-icons/io";
 function Notifications() {
-    const user = useOutletContext();
+    const [user, setUser] = useOutletContext();
     if (!user) return null;
     const userId = user._id
 
