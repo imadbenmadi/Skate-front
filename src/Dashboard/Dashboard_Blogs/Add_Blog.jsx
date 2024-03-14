@@ -111,11 +111,7 @@ function Add_Blog() {
                                 );
                             }
                         } catch (error) {
-                            Swal.fire(
-                                "Error!",
-                                "Failed to add Blog.",
-                                "error"
-                            );
+                            Swal.fire("Error!", "Failed to add Blog.", "error");
                         } finally {
                             setSubmitting(false);
                         }
@@ -133,7 +129,7 @@ function Add_Blog() {
                                 <Field
                                     as="textarea"
                                     name="Title"
-                                    className="border border-gray_white  px-2 py-1 rounded shadow w-full "
+                                    className="border border-gray_white  px-2 py-1 rounded shadow w-full overflow-auto custom-overflow"
                                     disabled={isSubmitting}
                                 />
                                 <ErrorMessage
@@ -152,7 +148,7 @@ function Add_Blog() {
                                 <Field
                                     as="textarea"
                                     name="Text"
-                                    className="border border-gray_white px-2 py-1 rounded shadow w-full"
+                                    className="border border-gray_white px-2 py-1 rounded shadow w-full overflow-auto custom-overflow"
                                     disabled={isSubmitting}
                                     rows={4}
                                 />
@@ -172,7 +168,7 @@ function Add_Blog() {
                                 <Field
                                     as="textarea"
                                     name="Description"
-                                    className="border border-gray_white px-2 py-1 rounded shadow w-full"
+                                    className="border border-gray_white px-2 py-1 rounded shadow w-full overflow-auto custom-overflow"
                                     disabled={isSubmitting}
                                     rows={10}
                                 />

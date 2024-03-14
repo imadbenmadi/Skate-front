@@ -206,7 +206,7 @@ function Edit_Course() {
                                     <Field
                                         as="textarea"
                                         name="Title"
-                                        className="border border-gray_white px-2 py-1 rounded shadow w-full "
+                                        className="border border-gray_white px-2 py-1 rounded shadow w-full overflow-auto custom-overflow"
                                         disabled={isSubmitting}
                                     />
                                     <ErrorMessage
@@ -225,7 +225,7 @@ function Edit_Course() {
                                     <Field
                                         as="textarea"
                                         name="Text"
-                                        className="border border-gray_white px-2 py-1 rounded shadow w-full"
+                                        className="border border-gray_white px-2 py-1 rounded shadow w-full overflow-auto custom-overflow"
                                         disabled={isSubmitting}
                                         rows={4}
                                     />
@@ -245,7 +245,7 @@ function Edit_Course() {
                                     <Field
                                         as="textarea"
                                         name="Description"
-                                        className="border border-gray_white px-2 py-1 rounded shadow w-full"
+                                        className="border border-gray_white px-2 py-1 rounded shadow w-full overflow-auto custom-overflow"
                                         disabled={isSubmitting}
                                         rows={10}
                                     />
@@ -266,7 +266,7 @@ function Edit_Course() {
                                         <Field
                                             type="text"
                                             name="Price"
-                                            className="border border-gray_white px-2 py-1 rounded shadow w-full"
+                                            className="border border-gray_white px-2 py-1 rounded shadow w-full "
                                             disabled={isSubmitting}
                                         />
                                         <ErrorMessage
@@ -285,7 +285,7 @@ function Edit_Course() {
                                         <Field
                                             type="text"
                                             name="Category"
-                                            className="border border-gray_white px-2 py-1 rounded shadow w-full"
+                                            className="border border-gray_white px-2 py-1 rounded shadow w-full "
                                             disabled={isSubmitting}
                                         />
                                         <ErrorMessage
