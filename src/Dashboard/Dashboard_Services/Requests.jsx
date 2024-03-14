@@ -3,6 +3,7 @@ import { IoWarning } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ErrorPage from "../../Components/ErrorPage";
+import Swal from "sweetalert2";
 function Requests() {
     const [Requests, setRequests] = useState(null);
     const [error, setError] = useState(null);
@@ -24,7 +25,7 @@ function Requests() {
             }
         } catch (error) {
             setError(error);
-        }finally{
+        } finally {
             setLoading(false);
         }
     };
@@ -32,42 +33,123 @@ function Requests() {
     useEffect(() => {
         fetch_Requests();
     }, []);
-    async function handle_accept_request(id) {
+    async function handle_accept_request(UserId, ServiceId) {
         try {
             const response = await axios.post(
                 "http://localhost:3000/Dashboard/Services/Requests/Accept",
-                { id },
+                { UserId, ServiceId },
                 {
                     withCredentials: true,
                     validateStatus: () => true,
                 }
             );
+            console.log(response);
             if (response.status == 200) {
-                fetch_Requests();
+                Swal.fire({ icon: "success", title: "Request Accepted" });
+            } else if (response.status == 404) {
+                Swal.fire("Error", `${response.data.message}`, "error");
+            } else if (response.status == 400) {
+                Swal.fire(
+                    "Error!",
+                    `Internal server error : ${response.data.message}`,
+                    "error"
+                );
+            } else if (response.status == 401) {
+                Swal.fire({
+                    title: "Unauthorised Action",
+                    text: "You should Login again ",
+                    icon: "error",
+                    confirmButtonColor: "#3085d6",
+
+                    confirmButtonText: "Go to Admin Login Page",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Navigate("/Dashboard_Login");
+                    }
+                });
+            } else if (response.status == 409) {
+                Swal.fire("Error!", `${response.data}`, "error");
+            } else if (response.status == 429) {
+                Swal.fire(
+                    "Error!",
+                    `Too many Requests , ${response.data.message}`,
+                    "error"
+                );
+            } else if (response.status == 500) {
+                Swal.fire(
+                    "Error!",
+                    `Internal server error : ${response.data.message}`,
+                    "error"
+                );
             } else {
-                setError(response.data);
+                Swal.fire(
+                    "Error!",
+                    `Something Went Wrong. Please try again , ${response.data.message}`,
+                    "error"
+                );
             }
         } catch (error) {
-            setError(error);
+            Swal.fire("Error!", "Failed to Accept the Request.", "error");
         }
     }
-    async function handle_reject_request(id) {
+    async function handle_reject_request(UserId, ServiceId) {
         try {
             const response = await axios.post(
                 "http://localhost:3000/Dashboard/Services/Requests/Reject",
-                { id },
+                { UserId, ServiceId },
                 {
                     withCredentials: true,
                     validateStatus: () => true,
                 }
             );
+
             if (response.status == 200) {
+                Swal.fire({ icon: "success", title: "Request Rejected" });
                 fetch_Requests();
+            } else if (response.status == 404) {
+                Swal.fire("Error", `${response.data.message}`, "error");
+            } else if (response.status == 400) {
+                Swal.fire(
+                    "Error!",
+                    `Internal server error : ${response.data.message}`,
+                    "error"
+                );
+            } else if (response.status == 401) {
+                Swal.fire({
+                    title: "Unauthorised Action",
+                    text: "You should Login again ",
+                    icon: "error",
+                    confirmButtonColor: "#3085d6",
+
+                    confirmButtonText: "Go to Admin Login Page",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Navigate("/Dashboard_Login");
+                    }
+                });
+            } else if (response.status == 409) {
+                Swal.fire("Error!", `${response.data}`, "error");
+            } else if (response.status == 429) {
+                Swal.fire(
+                    "Error!",
+                    `Too many Requests , ${response.data.message}`,
+                    "error"
+                );
+            } else if (response.status == 500) {
+                Swal.fire(
+                    "Error!",
+                    `Internal server error : ${response.data.message}`,
+                    "error"
+                );
             } else {
-                setError(response.data);
+                Swal.fire(
+                    "Error!",
+                    `Something Went Wrong. Please try again , ${response.data.message}`,
+                    "error"
+                );
             }
         } catch (error) {
-            setError(error);
+            Swal.fire("Error!", "Failed to Reject the Request", "error");
         }
     }
 
@@ -200,7 +282,12 @@ function Requests() {
                                 <div className="flex  justify-center gap-1 items-center m-auto ">
                                     <div
                                         className="w-fit items-center m-auto flex gap-1 bg-green text-white p-1 rounded"
-                                        onClick={handle_accept_request}
+                                        onClick={() =>
+                                            handle_accept_request(
+                                                request.User._id,
+                                                request.Service._id
+                                            )
+                                        }
                                     >
                                         Accept
                                     </div>
