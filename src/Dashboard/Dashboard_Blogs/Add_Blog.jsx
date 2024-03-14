@@ -17,7 +17,7 @@ function Add_Blog() {
                 </>
             </Link>
             {/* Input fields */}
-            <div className="border border-gray_white text-black_text shadow-md w-[80%] md:w-[50%] m-auto mt-3 p-5 rounded-lg">
+            <div className="border border-gray_white text-black_text shadow-md w-[80%] md:w-[98%] m-auto mt-3 p-5 rounded-lg">
                 <Formik
                     initialValues={{
                         Title: "",
@@ -133,7 +133,7 @@ function Add_Blog() {
                                 <Field
                                     as="textarea"
                                     name="Title"
-                                    className="border border-gray_white px-2 py-1 rounded shadow-sm w-full "
+                                    className="border border-gray_white  px-2 py-1 rounded shadow w-full "
                                     disabled={isSubmitting}
                                 />
                                 <ErrorMessage
@@ -152,7 +152,7 @@ function Add_Blog() {
                                 <Field
                                     as="textarea"
                                     name="Text"
-                                    className="border border-gray_white px-2 py-1 rounded shadow-sm w-full"
+                                    className="border border-gray_white px-2 py-1 rounded shadow w-full"
                                     disabled={isSubmitting}
                                     rows={4}
                                 />
@@ -172,7 +172,7 @@ function Add_Blog() {
                                 <Field
                                     as="textarea"
                                     name="Description"
-                                    className="border border-gray_white px-2 py-1 rounded shadow-sm w-full"
+                                    className="border border-gray_white px-2 py-1 rounded shadow w-full"
                                     disabled={isSubmitting}
                                     rows={10}
                                 />

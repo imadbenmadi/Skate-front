@@ -82,7 +82,7 @@ function Edit_Service() {
                     </>
                 </Link>
                 {/* Input fields */}
-                <div className="border border-gray_white text-black_text shadow-md w-[80%] md:w-[50%] m-auto mt-3 p-5 rounded-lg">
+                <div className="border border-gray_white text-black_text shadow-md w-[80%] md:w-[98%] m-auto mt-3 p-5 rounded-lg">
                     <Formik
                         initialValues={{
                             // serviceId: Service._id || "",
@@ -206,7 +206,7 @@ function Edit_Service() {
                                     <Field
                                         as="textarea"
                                         name="Title"
-                                        className="border border-gray_white px-2 py-1 rounded shadow-sm w-full "
+                                        className="border border-gray_white px-2 py-1 rounded shadow w-full "
                                         disabled={isSubmitting}
                                     />
                                     <ErrorMessage
@@ -225,7 +225,7 @@ function Edit_Service() {
                                     <Field
                                         as="textarea"
                                         name="Text"
-                                        className="border border-gray_white px-2 py-1 rounded shadow-sm w-full"
+                                        className="border border-gray_white px-2 py-1 rounded shadow w-full"
                                         disabled={isSubmitting}
                                         rows={4}
                                     />
@@ -245,7 +245,7 @@ function Edit_Service() {
                                     <Field
                                         as="textarea"
                                         name="Description"
-                                        className="border border-gray_white px-2 py-1 rounded shadow-sm w-full"
+                                        className="border border-gray_white px-2 py-1 rounded shadow w-full"
                                         disabled={isSubmitting}
                                         rows={10}
                                     />
@@ -255,43 +255,45 @@ function Edit_Service() {
                                         style={errorInputMessage}
                                     />
                                 </div>
-                                <div className=" w-full h-fit ">
-                                    <div>
-                                        Price{" "}
-                                        <span className="text-red-600 font-semibold">
-                                            *
-                                        </span>
+                                <div className=" flex gap-4 w-full">
+                                    <div className=" w-[180px] h-fit ">
+                                        <div>
+                                            Price{" "}
+                                            <span className="text-red-600 font-semibold">
+                                                *
+                                            </span>
+                                        </div>
+                                        <Field
+                                            type="text"
+                                            name="Price"
+                                            className="border border-gray_white px-2 py-1 rounded shadow w-full"
+                                            disabled={isSubmitting}
+                                        />
+                                        <ErrorMessage
+                                            name="Price"
+                                            component="div"
+                                            style={errorInputMessage}
+                                        />
                                     </div>
-                                    <Field
-                                        type="text"
-                                        name="Price"
-                                        className="border border-gray_white px-2 py-1 rounded shadow-sm w-full"
-                                        disabled={isSubmitting}
-                                    />
-                                    <ErrorMessage
-                                        name="Price"
-                                        component="div"
-                                        style={errorInputMessage}
-                                    />
-                                </div>
-                                <div className=" w-full h-fit ">
-                                    <div>
-                                        Category{" "}
-                                        <span className="text-red-600 font-semibold">
-                                            *
-                                        </span>
+                                    <div className=" w-[280px] h-fit ">
+                                        <div>
+                                            Category{" "}
+                                            <span className="text-red-600 font-semibold">
+                                                *
+                                            </span>
+                                        </div>
+                                        <Field
+                                            type="text"
+                                            name="Category"
+                                            className="border border-gray_white px-2 py-1 rounded shadow w-full"
+                                            disabled={isSubmitting}
+                                        />
+                                        <ErrorMessage
+                                            name="Category"
+                                            component="div"
+                                            style={errorInputMessage}
+                                        />
                                     </div>
-                                    <Field
-                                        type="text"
-                                        name="Category"
-                                        className="border border-gray_white px-2 py-1 rounded shadow-sm w-full"
-                                        disabled={isSubmitting}
-                                    />
-                                    <ErrorMessage
-                                        name="Category"
-                                        component="div"
-                                        style={errorInputMessage}
-                                    />
                                 </div>
 
                                 <button
