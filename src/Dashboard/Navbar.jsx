@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-import logo from "../../../public/skate_circle.png";
+import logo from "../../public/skate_circle.png";
 import { MdSpaceDashboard } from "react-icons/md";
 import { TbWorld } from "react-icons/tb";
 import { HiMiniUsers } from "react-icons/hi2";
