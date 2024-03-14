@@ -52,7 +52,6 @@ function Current_Events_Card({ item, onDelete }) {
                 );
             }
         } catch (error) {
-            console.log(error);
             swal.fire(
                 "Could not delete Event",
                 "Please Try again Latter",

@@ -65,7 +65,6 @@ function Requests_item({ request, onDelete }) {
                 );
             }
         } catch (error) {
-            console.log(error);
             Swal.fire("Error!", "Failed to Accept the Request.", "error");
         } finally {
             setAccept_Loading(false);
@@ -129,7 +128,6 @@ function Requests_item({ request, onDelete }) {
                 );
             }
         } catch (error) {
-            console.log(error);
             Swal.fire("Error!", "Failed to Reject the Request", "error");
         } finally {
             setReject_Loading(false);

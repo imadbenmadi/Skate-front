@@ -26,7 +26,6 @@ function Edit_Event() {
                     validateStatus: () => true,
                 }
             );
-            console.log(response);
             if (response.status == 200) {
                 setEvent(response.data);
             } else {
@@ -119,7 +118,6 @@ function Edit_Event() {
                                     }
                                 );
                                 setSubmitting(false);
-                                console.log(response);
                                 if (response.status == 404) {
                                     Swal.fire(
                                         "Error",

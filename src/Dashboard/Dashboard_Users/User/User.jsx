@@ -22,7 +22,6 @@ function User() {
                     validateStatus: () => true,
                 }
             );
-            console.log("user : ", response.data);
             if (response.status == 200) {
                 setUser(response.data);
             } else {

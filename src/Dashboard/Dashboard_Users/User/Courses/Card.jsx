@@ -65,7 +65,6 @@ function Card({course}) {
                 );
             }
         } catch (error) {
-            console.log("error : ", error);
             swal.fire(
                 "Could not delete Course",
                 "Please Try again Latter",

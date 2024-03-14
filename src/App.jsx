@@ -21,7 +21,6 @@ function App() {
                     validateStatus: () => true,
                 }
             );
-            console.log("response : ", response.data);
             if (response.status == 200 && response.data.userData._id == null) {
                 store_login({
                     FirstName: "",

@@ -18,7 +18,6 @@ function Courses() {
                 withCredentials: true,
                 validateStatus: () => true,
             });
-            console.log(response.data);
             if (response.status == 200) {
                 setCourses(response.data);
             } else {

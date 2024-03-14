@@ -53,7 +53,6 @@ function Current_Blogs_Card({ item , onDelete}) {
                 );
             }
         } catch (error) {
-            console.log(error);
             swal.fire(
                 "Could not delete Blog",
                 "Please Try again Latter",

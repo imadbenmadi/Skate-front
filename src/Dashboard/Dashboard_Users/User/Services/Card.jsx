@@ -65,7 +65,6 @@ function Card({ Service }) {
                 );
             }
         } catch (error) {
-            console.log("error : ", error);
             swal.fire(
                 "Could not delete Service",
                 "Please Try again Latter",
