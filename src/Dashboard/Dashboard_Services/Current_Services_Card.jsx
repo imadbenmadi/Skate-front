@@ -6,7 +6,7 @@ import axios from "axios";
 import img from "../../../public/wallpaper.jpg";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-function Current_Services_Card({ item }) {
+function Current_Services_Card({ item , onDelete}) {
     const [showDescription, setShowDescription] = useState(false);
     const Navigate = useNavigate();
     function toggleDescription() {
@@ -15,10 +15,7 @@ function Current_Services_Card({ item }) {
     async function handle_delete_Service(Service) {
         try {
             const response = await axios.delete(
-                `http://localhost:3000/Dashboard/Services`,
-                {
-                    ServiceId: Service._id,
-                },
+                `http://localhost:3000/Dashboard/Services/${Service._id}`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,
@@ -26,8 +23,9 @@ function Current_Services_Card({ item }) {
             );
             console.log(response);
             if (response.status == 200) {
-                Navigate("/Dashboard/Services");
+                onDelete(); 
                 swal.fire("Service Deleted Successfully", "", "success");
+                
             }
             // else if (response.status == 404) {
             //     swal.fire(" Service Not found ", " Refresh the page please", "info");
@@ -53,6 +51,7 @@ function Current_Services_Card({ item }) {
                 );
             }
         } catch (error) {
+            console.log(error);
             swal.fire(
                 "Could not delete Service",
                 "Please Try again Latter",

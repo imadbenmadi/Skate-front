@@ -6,7 +6,7 @@ import axios from "axios";
 import img from "../../../public/wallpaper.jpg";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-function Current_Courses_Card({ item }) {
+function Current_Courses_Card({ item , onDelete})  {
     const [showDescription, setShowDescription] = useState(false);
     const Navigate = useNavigate();
     function toggleDescription() {
@@ -15,17 +15,15 @@ function Current_Courses_Card({ item }) {
     async function handle_delete_Course(course) {
         try {
             const response = await axios.delete(
-                `http://localhost:3000/Dashboard/Courses`,
-                {
-                    courseId: course._id,
-                },
+                `http://localhost:3000/Dashboard/Courses/${course._id}`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,
                 }
             );
+            console.log(response);
             if (response.status == 200) {
-                Navigate("/Dashboard/Courses");
+                onDelete();
                 swal.fire("Course Deleted Successfully", "", "success");
             }
             // else if (response.status == 404) {
@@ -52,6 +50,7 @@ function Current_Courses_Card({ item }) {
                 );
             }
         } catch (error) {
+            console.log(error);
             swal.fire(
                 "Could not delete Course",
                 "Please Try again Latter",

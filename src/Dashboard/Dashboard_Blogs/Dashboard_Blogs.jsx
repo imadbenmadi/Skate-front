@@ -15,7 +15,6 @@ function Dashboard_Blogs() {
                 validateStatus: () => true,
             });
           if (response.status == 200) {
-              console.log(response.data);
                 setBlogs(response.data.blogs);
             } else {
                 setError(response.data);

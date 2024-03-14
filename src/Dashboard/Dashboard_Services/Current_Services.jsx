@@ -31,6 +31,11 @@ function Current_Services() {
     useEffect(() => {
         fetch_Services();
     }, []);
+    const handleDeleteService = (serviceId) => {
+        setServices((prevServices) =>
+            prevServices.filter((service) => service._id !== serviceId)
+        );
+    };
     if (loading)
         return (
             <div className=" w-[100%] h-[200px] flex items-center justify-center">
@@ -84,7 +89,11 @@ function Current_Services() {
                 </div>
                 <div>
                     {Services.map((item, index) => (
-                        <Current_Services_Card key={index} item={item} />
+                        <Current_Services_Card
+                            key={index}
+                            item={item}
+                            onDelete={() => handleDeleteService(item._id)}
+                        />
                     ))}
                 </div>
             </div>

@@ -31,6 +31,11 @@ function Current_Courses() {
     useEffect(() => {
         fetch_Courses();
     }, []);
+    const handleDeleteCourse = (CourseId) => {
+        setCourses((prevCourses) =>
+            prevCourses.filter((Course) => Course._id !== CourseId)
+        );
+    };
     if (loading)
         return (
             <div className=" w-[100%] h-[200px] flex items-center justify-center">
@@ -84,7 +89,11 @@ function Current_Courses() {
                 </div>
                 <div>
                     {Courses.map((item, index) => (
-                        <Current_Courses_Card key={index} item={item} />
+                        <Current_Courses_Card
+                            key={index}
+                            item={item}
+                            onDelete={() => handleDeleteCourse(item._id)}
+                        />
                     ))}
                 </div>
             </div>
