@@ -11,12 +11,52 @@ import { useOutletContext } from "react-router-dom";
 import { IoIosNotifications } from "react-icons/io";
 import { FaMessage } from "react-icons/fa6";
 import { IoMdArrowRoundBack } from "react-icons/io";
+import { useState, useEffect } from "react";
+import ErrorPage from "../../../Components/ErrorPage";
 function Default() {
+    const [userData, setUserData] = useState(null);
     const [user, setUser] = useOutletContext();
-    if (!user) return null;
-    const location = useLocation();
     const Navigate = useNavigate();
+
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
+    const location = useLocation();
+
     const userId = location.pathname.split("/")[3];
+    const fetchUser = async () => {
+        setLoading(true);
+
+        try {
+            const response = await axios.get(
+                `http://localhost:3000/Dashboard/Users/${userId}`,
+                {
+                    withCredentials: true,
+                    validateStatus: () => true,
+                }
+            );
+            if (response.status == 200) {
+                setUserData(response.data);
+                setUser(response.data);
+            } else {
+                setError(response.data);
+            }
+        } catch (error) {
+            setError(error);
+        }
+        setLoading(false);
+    };
+    useEffect(() => {
+        fetchUser();
+    }, []);
+    // if (loading)
+    //     return (
+    //         <div className=" w-[100%] h-[200px] flex items-center justify-center">
+    //             <span className="loader"></span>
+    //         </div>
+    //     );
+    // if (error) {
+    //     return <ErrorPage />;
+    // }
     async function handle_delete_user() {
         try {
             const response = await axios.delete(
@@ -68,149 +108,168 @@ function Default() {
     }
 
     return (
-        <div className=" ">
-            <Link
-                to={"/Dashboard/Users"}
-                className=" mt-4 w-fit  m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 "
-            >
-                <IoMdArrowRoundBack />
-                <div>Back to table</div>
-            </Link>
-            <div className=" flex gap-10  pt-6 justify-center text-xl ">
-                <Link
-                    to={"/Dashboard/Users/" + userId + "/Notification"}
-                    className="flex items-center  cursor-pointer  gap-1 bg-gray text-white px-3 py-1 rounded"
-                >
-                    <IoIosNotifications />
-                    Send Notification
-                </Link>
-                <Link
-                    to={"/Dashboard/Users/" + userId + "/Edit"}
-                    className="flex items-center   gap-1 bg-green text-white px-3 py-1 rounded"
-                >
-                    <FaPen />
-                    Edit user
-                </Link>
-                <div
-                    onClick={() => {
-                        swal.fire({
-                            title: "Are you sure you want to delete this user ?",
-                            text: "You won't be able to revert this!",
-                            icon: "warning",
-                            showCancelButton: true,
-                            confirmButtonColor: "red",
-                            cancelButtonColor: "green",
-                            confirmButtonText: "Yes Delete it",
-                        }).then((result) => {
-                            if (result.isConfirmed) {
-                                handle_delete_user();
-                            }
-                        });
-                    }}
-                    className="flex items-center  cursor-pointer  gap-1 bg-red-500 text-white px-3 py-1 rounded"
-                >
-                    <MdOutlineDeleteForever />
-                    Delete user
+        <div>
+            {error ?<ErrorPage /> :
+                loading ? (
+                <div className="w-[100%] h-[200px] flex items-center justify-center">
+                    <span className="loader"></span>
                 </div>
-            </div>
+            ) : (
+                <div className="">
+                    <Link
+                        to={"/Dashboard/Users"}
+                        className="mt-4 w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1"
+                    >
+                        <IoMdArrowRoundBack />
+                        <div>Back to table</div>
+                    </Link>
+                    <div className="flex gap-10 pt-6 justify-center text-xl">
+                        <Link
+                            to={"/Dashboard/Users/" + userId + "/Notification"}
+                            className="flex items-center cursor-pointer gap-1 bg-gray text-white px-3 py-1 rounded"
+                        >
+                            <IoIosNotifications />
+                            Send Notification
+                        </Link>
+                        <Link
+                            to={"/Dashboard/Users/" + userId + "/Edit"}
+                            className="flex items-center gap-1 bg-green text-white px-3 py-1 rounded"
+                        >
+                            <FaPen />
+                            Edit user
+                        </Link>
+                        <div
+                            onClick={() => {
+                                swal.fire({
+                                    title: "Are you sure you want to delete this user ?",
+                                    text: "You won't be able to revert this!",
+                                    icon: "warning",
+                                    showCancelButton: true,
+                                    confirmButtonColor: "red",
+                                    cancelButtonColor: "green",
+                                    confirmButtonText: "Yes Delete it",
+                                }).then((result) => {
+                                    if (result.isConfirmed) {
+                                        handle_delete_user();
+                                    }
+                                });
+                            }}
+                            className="flex items-center cursor-pointer gap-1 bg-red-500 text-white px-3 py-1 rounded"
+                        >
+                            <MdOutlineDeleteForever />
+                            Delete user
+                        </div>
+                    </div>
 
-            <div className=" flex  items-center justify-center gap-4 text-2xl ">
-                <div className="bg-gray_white rounded mt-8 w-fit">
-                    {user && (
-                        <table className="w-full ">
-                            <tbody>
-                                <tr className="">
-                                    <th className="text-left pr-4 border  p-2 ">
-                                        First name:
-                                    </th>
-                                    <td className=" border border-gray p-3">
-                                        {user.FirstName}
-                                    </td>
-                                </tr>
-                                <tr className="">
-                                    <th className="text-left pr-4 border  p-2 ">
-                                        Last name:
-                                    </th>
-                                    <td className=" border border-gray p-3">
-                                        {user.LastName}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th className="text-left pr-4 border  p-2">
-                                        Email:
-                                    </th>
-                                    <td className=" border border-gray p-3">
-                                        {user.Email}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th className="text-left pr-4 border  p-2">
-                                        Telephone:
-                                    </th>
-                                    <td className=" border border-gray p-3">
-                                        {user.Telephone}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th className="text-left pr-4 border  p-2">
-                                        Gender:
-                                    </th>
-                                    <td className=" border border-gray p-3">
-                                        {user.Gender}
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th className="text-left pr-4 border  p-2">
-                                        Status:
-                                    </th>
-                                    <td className=" border border-gray p-3">
-                                        {user.IsEmailVerified == true
-                                            ? "Verified "
-                                            : "Not Verified"}
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    )}
-                </div>
-            </div>
+                    <div className="flex items-center justify-center gap-4 text-2xl">
+                        <div className="bg-gray_white rounded mt-8 w-fit">
+                            {userData && (
+                                <table className="w-full">
+                                    <tbody>
+                                        <tr className="">
+                                            <th className="text-left pr-4 border p-2">
+                                                First name:
+                                            </th>
+                                            <td className="border border-gray p-3">
+                                                {userData.FirstName}
+                                            </td>
+                                        </tr>
+                                        <tr className="">
+                                            <th className="text-left pr-4 border p-2">
+                                                Last name:
+                                            </th>
+                                            <td className="border border-gray p-3">
+                                                {userData.LastName}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th className="text-left pr-4 border p-2">
+                                                Email:
+                                            </th>
+                                            <td className="border border-gray p-3">
+                                                {userData.Email}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th className="text-left pr-4 border p-2">
+                                                Telephone:
+                                            </th>
+                                            <td className="border border-gray p-3">
+                                                {userData.Telephone}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th className="text-left pr-4 border p-2">
+                                                Gender:
+                                            </th>
+                                            <td className="border border-gray p-3">
+                                                {userData.Gender}
+                                            </td>
+                                        </tr>
+                                        <tr>
+                                            <th className="text-left pr-4 border p-2">
+                                                Status:
+                                            </th>
+                                            <td className="border border-gray p-3">
+                                                {userData.IsEmailVerified ==
+                                                true
+                                                    ? "Verified"
+                                                    : "Not Verified"}
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            )}
+                        </div>
+                    </div>
 
-            <div className=" flex gap-10  pt-10 justify-center text-xl text-center ">
-                <div>
-                    <Link
-                        to={"/Dashboard/Users/" + userId + "/Courses"}
-                        className="flex items-center mb-7 justify-center  cursor-pointer  gap-1 bg-gray text-white px-3 py-1 rounded"
-                    >
-                        {/* <IoIosNotifications /> */}
-                        User Courses
-                    </Link>
-                    <Link
-                        to={"/Dashboard/Users/" + userId + "/Courses_Requests"}
-                        className="flex items-center justify-center  cursor-pointer  gap-1 bg-gray text-white px-3 py-1 rounded"
-                    >
-                        {/* <IoIosNotifications /> */}
-                        User Courses Requests
-                    </Link>
+                    <div className="flex gap-10 pt-10 justify-center text-xl text-center">
+                        <div>
+                            <Link
+                                to={"/Dashboard/Users/" + userId + "/Courses"}
+                                className="flex items-center mb-7 justify-center cursor-pointer gap-1 bg-gray text-white px-3 py-1 rounded"
+                            >
+                                {/* <IoIosNotifications /> */}
+                                User Courses
+                            </Link>
+                            <Link
+                                to={
+                                    "/Dashboard/Users/" +
+                                    userId +
+                                    "/Courses_Requests"
+                                }
+                                className="flex items-center justify-center cursor-pointer gap-1 bg-gray text-white px-3 py-1 rounded"
+                            >
+                                {/* <IoIosNotifications /> */}
+                                User Courses Requests
+                            </Link>
+                        </div>
+                        <div>
+                            <Link
+                                to={"/Dashboard/Users/" + userId + "/Services"}
+                                className="flex items-center justify-center mb-7 gap-1 bg-gray text-white px-3 py-1 rounded"
+                            >
+                                {/* <FaPen /> */}
+                                User Services
+                            </Link>
+                            <Link
+                                to={
+                                    "/Dashboard/Users/" +
+                                    userId +
+                                    "/Services_Requests"
+                                }
+                                className="flex items-center justify-center gap-1 bg-gray text-white px-3 py-1 rounded"
+                            >
+                                {/* <FaPen /> */}
+                                User Services Requests
+                            </Link>
+                        </div>
+                    </div>
                 </div>
-                <div>
-                    <Link
-                        to={"/Dashboard/Users/" + userId + "/Services"}
-                        className="flex items-center justify-center mb-7   gap-1 bg-gray text-white px-3 py-1 rounded"
-                    >
-                        {/* <FaPen /> */}
-                        User Services
-                    </Link>
-                    <Link
-                        to={"/Dashboard/Users/" + userId + "/Services_Requests"}
-                        className="flex items-center justify-center   gap-1 bg-gray text-white px-3 py-1 rounded"
-                    >
-                        {/* <FaPen /> */}
-                        User Services Requests
-                    </Link>
-                </div>
-            </div>
+            )}
         </div>
     );
+
 }
 
 export default Default;
