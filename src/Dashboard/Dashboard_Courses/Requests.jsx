@@ -81,7 +81,6 @@ function Requests() {
         return <ErrorPage />;
     }
     if (!Requests) return null;
-    console.log(Requests);
     if (Requests.length === 0)
         return (
             <div className=" flex justify-center items-center gap-1 text-2xl text-gray pt-8">

@@ -26,7 +26,6 @@ function Edit_Service() {
                     validateStatus: () => true,
                 }
             );
-            console.log(response);
             if (response.status == 200) {
                 setService(response.data);
             } else {

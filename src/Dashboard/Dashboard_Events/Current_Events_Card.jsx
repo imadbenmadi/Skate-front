@@ -24,7 +24,6 @@ function Current_Events_Card({ item }) {
                     validateStatus: () => true,
                 }
             );
-            console.log(response);
             if (response.status == 200) {
                 Navigate("/Dashboard/Events");
                 swal.fire("Event Deleted Successfully", "", "success");

@@ -21,7 +21,6 @@ function Current_Courses_Card({ item , onDelete})  {
                     validateStatus: () => true,
                 }
             );
-            console.log(response);
             if (response.status == 200) {
                 onDelete();
                 swal.fire("Course Deleted Successfully", "", "success");
@@ -50,7 +49,6 @@ function Current_Courses_Card({ item , onDelete})  {
                 );
             }
         } catch (error) {
-            console.log(error);
             swal.fire(
                 "Could not delete Course",
                 "Please Try again Latter",

@@ -21,7 +21,6 @@ function Current_Services_Card({ item , onDelete}) {
                     validateStatus: () => true,
                 }
             );
-            console.log(response);
             if (response.status == 200) {
                 onDelete(); 
                 swal.fire("Service Deleted Successfully", "", "success");
@@ -51,7 +50,6 @@ function Current_Services_Card({ item , onDelete}) {
                 );
             }
         } catch (error) {
-            console.log(error);
             swal.fire(
                 "Could not delete Service",
                 "Please Try again Latter",

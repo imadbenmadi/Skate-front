@@ -128,7 +128,6 @@ function Edit_Course() {
                                     }
                                 );
                                 setSubmitting(false);
-                                console.log(response.data);
                                 if (response.status == 404) {
                                     Swal.fire(
                                         "Error",
