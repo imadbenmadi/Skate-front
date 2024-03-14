@@ -114,16 +114,16 @@ function Default() {
                 </div>
             </div>
 
-            <div className=" flex  items-center justify-center gap-4">
+            <div className=" flex  items-center justify-center gap-4 text-2xl ">
                 <div className="bg-gray_white rounded mt-8 w-fit">
                     {user && (
-                        <table className="w-full">
+                        <table className="w-full ">
                             <tbody>
                                 <tr className="">
                                     <th className="text-left pr-4 border  p-2 ">
                                         First name:
                                     </th>
-                                    <td className=" border border-gray pl-3">
+                                    <td className=" border border-gray p-3">
                                         {user.FirstName}
                                     </td>
                                 </tr>
@@ -131,7 +131,7 @@ function Default() {
                                     <th className="text-left pr-4 border  p-2 ">
                                         Last name:
                                     </th>
-                                    <td className=" border border-gray pl-3">
+                                    <td className=" border border-gray p-3">
                                         {user.LastName}
                                     </td>
                                 </tr>
@@ -139,7 +139,7 @@ function Default() {
                                     <th className="text-left pr-4 border  p-2">
                                         Email:
                                     </th>
-                                    <td className=" border border-gray pl-3">
+                                    <td className=" border border-gray p-3">
                                         {user.Email}
                                     </td>
                                 </tr>
@@ -147,7 +147,7 @@ function Default() {
                                     <th className="text-left pr-4 border  p-2">
                                         Telephone:
                                     </th>
-                                    <td className=" border border-gray pl-3">
+                                    <td className=" border border-gray p-3">
                                         {user.Telephone}
                                     </td>
                                 </tr>
@@ -155,7 +155,7 @@ function Default() {
                                     <th className="text-left pr-4 border  p-2">
                                         Gender:
                                     </th>
-                                    <td className=" border border-gray pl-3">
+                                    <td className=" border border-gray p-3">
                                         {user.Gender}
                                     </td>
                                 </tr>
@@ -163,7 +163,7 @@ function Default() {
                                     <th className="text-left pr-4 border  p-2">
                                         Status:
                                     </th>
-                                    <td className=" border border-gray pl-3">
+                                    <td className=" border border-gray p-3">
                                         {user.IsEmailVerified == true
                                             ? "Verified "
                                             : "Not Verified"}
@@ -175,10 +175,40 @@ function Default() {
                 </div>
             </div>
 
-            {/* <div className="  pt-8 flex w-full ">
-                <Current_Courses />
-                <Current_Service />
-            </div> */}
+            <div className=" flex gap-10  pt-10 justify-center text-xl text-center ">
+                <div>
+                    <Link
+                        to={"/Dashboard/Users/" + userId + "/Courses"}
+                        className="flex items-center mb-7 justify-center  cursor-pointer  gap-1 bg-gray text-white px-3 py-1 rounded"
+                    >
+                        {/* <IoIosNotifications /> */}
+                        User Courses
+                    </Link>
+                    <Link
+                        to={"/Dashboard/Users/" + userId + "/Courses_Requests"}
+                        className="flex items-center justify-center  cursor-pointer  gap-1 bg-gray text-white px-3 py-1 rounded"
+                    >
+                        {/* <IoIosNotifications /> */}
+                        User Courses Requests
+                    </Link>
+                </div>
+                <div>
+                    <Link
+                        to={"/Dashboard/Users/" + userId + "/Services"}
+                        className="flex items-center justify-center mb-7   gap-1 bg-gray text-white px-3 py-1 rounded"
+                    >
+                        {/* <FaPen /> */}
+                        User Services
+                    </Link>
+                    <Link
+                        to={"/Dashboard/Users/" + userId + "/Services_Requests"}
+                        className="flex items-center justify-center   gap-1 bg-gray text-white px-3 py-1 rounded"
+                    >
+                        {/* <FaPen /> */}
+                        User Services Requests
+                    </Link>
+                </div>
+            </div>
         </div>
     );
 }
