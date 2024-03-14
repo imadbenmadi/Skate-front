@@ -10,8 +10,6 @@ import { useNavigate } from "react-router";
 import { useOutletContext } from "react-router-dom";
 import { IoIosNotifications } from "react-icons/io";
 import { FaMessage } from "react-icons/fa6";
-import Current_Courses from "./Current Courses/Current Courses";
-import Current_Service from "./Current Services/Current Services";
 import { IoMdArrowRoundBack } from "react-icons/io";
 function Default() {
     const user = useOutletContext();
@@ -177,10 +175,10 @@ function Default() {
                 </div>
             </div>
 
-            <div className="  pt-8 flex w-full ">
+            {/* <div className="  pt-8 flex w-full ">
                 <Current_Courses />
                 <Current_Service />
-            </div>
+            </div> */}
         </div>
     );
 }

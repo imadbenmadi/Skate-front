@@ -1,7 +1,9 @@
 import React from "react";
 import { useOutletContext } from "react-router";
+import img from "../../../../public/wallpaper.jpg";
 import { IoWarning } from "react-icons/io5";
-import img from "../../../../../public/wallpaper.jpg";
+
+
 function Services() {
     const user = useOutletContext();
     if (!user) return null;
@@ -17,6 +19,9 @@ function Services() {
             );
         return (
             <div className=" ">
+                <div className=" text-2xl text-gray underline">
+                    User Services
+                </div>
                 {user.Services.map((service, index) => (
                     <div key={index} className="w-full ">
                         <div className="w-full relative rounded overflow-hidden border-b border-gray py-5 px-5 flex shrink-0 justify-start h-[200px]">
@@ -65,6 +70,7 @@ function Services() {
             </div>
         </div>
     );
+    
 }
 
 export default Services;

@@ -1,7 +1,7 @@
 import React from "react";
 import { useOutletContext } from "react-router";
 import { IoWarning } from "react-icons/io5";
-import img from "../../../../../public/wallpaper.jpg";
+import img from "../../../../public/wallpaper.jpg";
 
 function Courses() {
     const user = useOutletContext();
@@ -19,6 +19,9 @@ function Courses() {
         else {
             return (
                 <div className=" ">
+                    <div className=" text-2xl text-gray underline">
+                        Enrolled Courses
+                    </div>
                     {user.Courses.map((course, index) => (
                         <div key={index} className="w-full ">
                             <div className="w-full relative rounded overflow-hidden border-b border-gray py-5 px-5 flex shrink-0 justify-start h-[200px]">

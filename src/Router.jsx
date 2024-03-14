@@ -35,6 +35,10 @@ import Current_Notifications from "./Dashboard/Dashboard_Users/User/Notification
 import Add_user from "./Dashboard/Dashboard_Users/Add_user";
 import User from "./Dashboard/Dashboard_Users/User/User";
 import Table from "./Dashboard/Dashboard_Users/Table/Table";
+import Dashboard_User_Courses from "./Dashboard/Dashboard_Users/User/Courses";
+import Dashboard_User_Courses_Requests from "./Dashboard/Dashboard_Users/User/Courses_Requests";
+import Dashboard_User_Services from "./Dashboard/Dashboard_Users/User/Services";
+import Dashboard_User_Services_Requests from "./Dashboard/Dashboard_Users/User/Services_Requests";
 
 import Dashboard_Courses from "./Dashboard/Dashboard_Courses/Dashboard_Courses";
 import Add_Course from "./Dashboard/Dashboard_Courses/Add_Course";
@@ -92,11 +96,19 @@ const routes = createBrowserRouter([
                             },
                             {
                                 path: "/Dashboard/Users/:id/Courses",
-                                element: <UserCourses />,
+                                element: <Dashboard_User_Courses />,
                             },
                             {
                                 path: "/Dashboard/Users/:id/Services",
-                                element: <UserServices />,
+                                element: <Dashboard_User_Services />,
+                            },
+                            {
+                                path: "/Dashboard/Users/:id/Courses_Requests",
+                                element: <Dashboard_User_Courses_Requests />,
+                            },
+                            {
+                                path: "/Dashboard/Users/:id/Services_Requests",
+                                element: <Dashboard_User_Services_Requests />,
                             },
                         ],
                     },
