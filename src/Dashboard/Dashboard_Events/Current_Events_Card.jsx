@@ -7,7 +7,7 @@ import img from "../../../public/wallpaper.jpg";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 import { Formate_Date } from "../../Logic/Formate_Date";
-function Current_Events_Card({ item }) {
+function Current_Events_Card({ item, onDelete }) {
     const [showDescription, setShowDescription] = useState(false);
     const Navigate = useNavigate();
     function toggleDescription() {
@@ -16,23 +16,22 @@ function Current_Events_Card({ item }) {
     async function handle_delete_Event(Event) {
         try {
             const response = await axios.delete(
-                `http://localhost:3000/Dashboard/Events`,
-                {
-                    eventId: Event._id,
-                },
+                `http://localhost:3000/Dashboard/Events/${Event._id}`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,
                 }
             );
             if (response.status == 200) {
-                Navigate("/Dashboard/Events");
+                onDelete();
                 swal.fire("Event Deleted Successfully", "", "success");
-            }
-            // else if (response.status == 404) {
-            //     swal.fire(" Event Not found ", " Refresh the page please", "info");
-            // }
-            else if (response.status == 401) {
+            } else if (response.status == 404) {
+                swal.fire(
+                    " Event Not found ",
+                    " Refresh the page please",
+                    "info"
+                );
+            } else if (response.status == 401) {
                 swal.fire({
                     title: "Unauthorised Action",
                     text: "You should Login again ",
@@ -53,6 +52,7 @@ function Current_Events_Card({ item }) {
                 );
             }
         } catch (error) {
+            console.log(error);
             swal.fire(
                 "Could not delete Event",
                 "Please Try again Latter",

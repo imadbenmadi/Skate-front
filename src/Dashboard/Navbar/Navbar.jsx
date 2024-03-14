@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import logo from "../../../public/skate_circle.png";
 import { MdSpaceDashboard } from "react-icons/md";
+import { TbWorld } from "react-icons/tb";
 import { HiMiniUsers } from "react-icons/hi2";
 import { FaBook } from "react-icons/fa";
 import { FaHandshake } from "react-icons/fa6";
@@ -78,6 +79,13 @@ function Navbar({ Active_nav, setActive_nav }) {
                 >
                     <IoIosPaper />
                     <div>Blogs</div>
+                </Link>
+                <Link
+                    to={"/"}
+                    className={` flex items-center gap-3 cursor-pointer text-xl pt-28 `}
+                >
+                    <TbWorld />
+                    <div>Go to the Website</div>
                 </Link>
             </div>
         </div>

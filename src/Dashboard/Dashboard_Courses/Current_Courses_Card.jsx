@@ -25,9 +25,9 @@ function Current_Courses_Card({ item , onDelete})  {
                 onDelete();
                 swal.fire("Course Deleted Successfully", "", "success");
             }
-            // else if (response.status == 404) {
-            //     swal.fire(" Course Not found ", " Refresh the page please", "info");
-            // }
+            else if (response.status == 404) {
+                swal.fire(" Course Not found ", " Refresh the page please", "info");
+            }
             else if (response.status == 401) {
                 swal.fire({
                     title: "Unauthorised Action",

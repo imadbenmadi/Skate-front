@@ -30,6 +30,11 @@ function Current_Events() {
     useEffect(() => {
         fetch_Events();
     }, []);
+    const handleDeleteEvent = (EventId) => {
+        setEvents((prevEvents) =>
+            prevEvents.filter((Event) => Event._id !== EventId)
+        );
+    };
     if (loading)
         return (
             <div className=" w-[100%] h-[200px] flex items-center justify-center">
@@ -81,7 +86,11 @@ function Current_Events() {
                 </div>
                 <div>
                     {Events.map((item, index) => (
-                        <Current_Events_Card key={index} item={item} />
+                        <Current_Events_Card
+                            key={index}
+                            item={item}
+                            onDelete={() => handleDeleteEvent(item._id)}
+                        />
                     ))}
                 </div>
             </div>

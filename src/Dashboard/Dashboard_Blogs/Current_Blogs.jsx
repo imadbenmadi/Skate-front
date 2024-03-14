@@ -30,6 +30,11 @@ function Current_Blogs() {
     useEffect(() => {
         fetch_Blogs();
     }, []);
+    const handleDeleteBlog = (BlogId) => {
+        setBlogs((prevBlogs) =>
+            prevBlogs.filter((Blog) => Blog._id !== BlogId)
+        );
+    };
     if (loading)
         return (
             <div className=" w-[100%] h-[200px] flex items-center justify-center">
@@ -82,7 +87,11 @@ function Current_Blogs() {
                 </div>
                 <div>
                     {Blogs.map((item, index) => (
-                        <Current_Blogs_Card key={index} item={item} />
+                        <Current_Blogs_Card
+                            key={index}
+                            item={item}
+                            onDelete={() => handleDeleteBlog(item._id)}
+                        />
                     ))}
                 </div>
             </div>
