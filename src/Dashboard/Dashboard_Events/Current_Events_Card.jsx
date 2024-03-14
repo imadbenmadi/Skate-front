@@ -82,9 +82,11 @@ function Current_Events_Card({ item }) {
                                     {item.Text}
                                 </p>
                             )}
-                            <p className="text-gray font-semibold text-xl pt-4">
-                                {Formate_Date(item.Date)}
-                            </p>
+                            {item.Date && (
+                                <p className="text-gray font-semibold text-xl pt-4">
+                                    {Formate_Date(item.Date)}
+                                </p>
+                            )}
                         </div>
                     </div>
                 </div>
