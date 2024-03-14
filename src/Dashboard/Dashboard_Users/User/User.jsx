@@ -16,7 +16,7 @@ function User() {
 
         try {
             const response = await axios.get(
-                `http://localhost:3000/Dashboard/User/${userId}`,
+                `http://localhost:3000/Dashboard/Users/${userId}`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,
@@ -46,7 +46,7 @@ function User() {
     if (error) {
         return <ErrorPage />;
     }
-    return <Outlet context={[user,setUser]} />;
+    return <Outlet context={[user, setUser]} />;
 }
 
 export default User;

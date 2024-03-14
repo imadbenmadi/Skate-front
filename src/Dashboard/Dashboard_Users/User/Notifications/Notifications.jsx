@@ -10,7 +10,7 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 function Notifications() {
     const [user, setUser] = useOutletContext();
     if (!user) return null;
-    const userId = user._id
+    const userId = user._id;
 
     const Navigate = useNavigate();
     return (
@@ -61,7 +61,7 @@ function Notifications() {
                     onSubmit={async (values, { setSubmitting }) => {
                         try {
                             let response = await Axios.post(
-                                "http://localhost:3000/Dashboard/User/" +
+                                "http://localhost:3000/Dashboard/Users/" +
                                     userId +
                                     "/Notify",
                                 values,

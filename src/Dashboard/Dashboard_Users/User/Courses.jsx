@@ -11,7 +11,7 @@ import { MdDelete } from "react-icons/md";
 import swal from "sweetalert2";
 import axios from "axios";
 function Courses() {
-    const [user,setUser] = useOutletContext();
+    const [user, setUser] = useOutletContext();
     if (!user) return null;
     const userId = user._id;
 
@@ -25,7 +25,7 @@ function Courses() {
         try {
             setDeleteLoading(true);
             const response = await axios.delete(
-                `http://localhost:3000/Dashboard/User/${userId}/Courses/${Course._id}`,
+                `http://localhost:3000/Dashboard/Users/${userId}/Courses/${Course._id}`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,
@@ -72,7 +72,7 @@ function Courses() {
                 "Please Try again Latter",
                 "error"
             );
-        }finally{
+        } finally {
             setDeleteLoading(false);
         }
     }
@@ -135,7 +135,7 @@ function Courses() {
                                                 </p>
                                             )}
                                             {course.Price && (
-                                                <div className="text-gray pt-4 text-center text-xl font-semibold top-10 right-5 ">
+                                                <div className="text-gray pt-4  text-xl font-semibold top-10 right-5 ">
                                                     {course.Price} DA
                                                 </div>
                                             )}
@@ -171,10 +171,7 @@ function Courses() {
                             </div>
                             <div className="w-[10%] flex flex-col items-center justify-start pt-6 gap-4 pr-5">
                                 {deleteLoading ? (
-                                    <div
-                                        className="flex items-center justify-start gap-2 cursor-pointer text-white bg-red-600 opacity-50 text-xl px-2 py-1 rounded w-[100px]"
-                                    >
-                                        <MdDelete />
+                                    <div className="flex items-center justify-start gap-2 cursor-pointer text-white bg-red-600 opacity-50 text-xl px-2 py-1 rounded w-[100px]">
                                         Loading
                                     </div>
                                 ) : (
@@ -199,6 +196,7 @@ function Courses() {
                                             });
                                         }}
                                     >
+                                        <MdDelete />
                                         Delete
                                     </div>
                                 )}

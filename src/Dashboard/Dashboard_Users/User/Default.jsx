@@ -20,7 +20,7 @@ function Default() {
     async function handle_delete_user() {
         try {
             const response = await axios.delete(
-                `http://localhost:3000/Dashboard/User/${userId}`,
+                `http://localhost:3000/Dashboard/Users/${userId}`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,
