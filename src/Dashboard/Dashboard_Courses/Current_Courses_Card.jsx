@@ -6,7 +6,7 @@ import axios from "axios";
 import img from "../../../public/wallpaper.jpg";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-function Current_Courses_Card({ item , onDelete})  {
+function Current_Courses_Card({ item, onDelete }) {
     const [showDescription, setShowDescription] = useState(false);
     const Navigate = useNavigate();
     function toggleDescription() {
@@ -24,11 +24,13 @@ function Current_Courses_Card({ item , onDelete})  {
             if (response.status == 200) {
                 onDelete();
                 swal.fire("Course Deleted Successfully", "", "success");
-            }
-            else if (response.status == 404) {
-                swal.fire(" Course Not found ", " Refresh the page please", "info");
-            }
-            else if (response.status == 401) {
+            } else if (response.status == 404) {
+                swal.fire(
+                    " Course Not found ",
+                    " Refresh the page please",
+                    "info"
+                );
+            } else if (response.status == 401) {
                 swal.fire({
                     title: "Unauthorised Action",
                     text: "You should Login again ",
@@ -78,13 +80,17 @@ function Current_Courses_Card({ item , onDelete})  {
                                     {item.Text}
                                 </p>
                             )}
-                            <p className="text-gray font-semibold text-xl pt-4">
-                                {item.Category}
-                            </p>
+                            {item.Category && (
+                                <p className="text-gray font-semibold text-xl pt-4">
+                                    {item.Category}
+                                </p>
+                            )}
                         </div>
-                        <div className="text-gray text-center text-xl font-semibold top-10 right-5 w-[10%]">
-                            {item.Price} DA
-                        </div>
+                        {item.Price && (
+                            <div className="text-gray text-center text-xl font-semibold top-10 right-5 w-[10%]">
+                                {item.Price} DA
+                            </div>
+                        )}
                     </div>
                 </div>
                 {showDescription ? (

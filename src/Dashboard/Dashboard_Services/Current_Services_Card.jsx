@@ -83,9 +83,11 @@ function Current_Services_Card({ item , onDelete}) {
                                 {item.Category}
                             </p>
                         </div>
-                        <div className="text-gray text-center text-xl font-semibold top-10 right-5 ">
-                            {item.Price} DA
-                        </div>
+                        {item.Price && (
+                            <div className="text-gray text-center text-xl font-semibold top-10 right-5 w-[10%]">
+                                {item.Price} DA
+                            </div>
+                        )}
                     </div>
                 </div>
                 {showDescription ? (
