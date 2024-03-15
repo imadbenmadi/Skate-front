@@ -6,10 +6,10 @@ function Card({ service }) {
     return (
         <Link
             to={`/Services/${service._id}`}
-            className="select-none w-full relative rounded overflow-hidden border-b border-gray py-5 px-5 flex shrink-0 justify-start h-[200px]"
+            className="select-none w-full relative rounded overflow-hidden border-b border-gray py-5 px-5 flex shrink-0 justify-start h-fit"
         >
             <img
-                className=" w-[30%] object-cover"
+                className=" w-[30%] h-[120px] object-cover"
                 src={img}
                 alt={service.Title}
             />
