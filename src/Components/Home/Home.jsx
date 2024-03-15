@@ -6,7 +6,7 @@ import { AboutUs } from "./AboutUS/AboutUs";
 import Services from "./Services/Services";
 import Courses from "./Courses/Courses";
 import Founder from "./Founder/Founder";
-import Footer from "../Footer/Footer";
+import Footer from "../Footer";
 function Home() {
     return (
         <div className="  max-w-8xl m-auto overflow-x-hidden">

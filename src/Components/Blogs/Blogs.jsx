@@ -3,6 +3,7 @@ import { IoSearchOutline, IoWarning } from "react-icons/io5";
 import Card from "./Card";
 import axios from "axios";
 import ErrorPage from "../ErrorPage";
+import Footer from "../Footer";
 function Blogs() {
     const [loading, setLoading] = useState(false);
     const [search, setSearch] = useState("");
@@ -112,7 +113,8 @@ function Blogs() {
                                 </div>
                             ))
                         )}
-                    </div>
+                        </div>
+                        <Footer />
                 </div>
             )}
         </div>

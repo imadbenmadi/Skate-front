@@ -5,7 +5,7 @@ import App from "./App";
 import Not_Finished from "./Components/Not_Finished";
 import Blogs from "./Components/Blogs/Blogs";
 import Blogs_item from "./Components/Blogs/Blogs_item";
-import Login from "./Components/Login/Login";
+import Login from "./Components/Login";
 import Register from "./Components/Register/Register";
 import Services from "./Components/Servicecs/Services";
 import Courses from "./Components/Courses/Courses";

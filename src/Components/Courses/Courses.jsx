@@ -4,6 +4,7 @@ import { useAppContext } from "../../Context/AppContext";
 import Current_Courses from "./Current/Current_Courses";
 import Explore from "./Explore/Explore";
 import ErrorPage from "../ErrorPage";
+import Footer from "../Footer";
 function Courses() {
     const [loading, setLoading] = useState(false);
     const [courses, setCourses] = useState([]);
@@ -65,6 +66,7 @@ function Courses() {
                 <div className="pt-[60px]">
                     <Current_Courses userCourses={userCourses} />
                     <Explore courses={courses} />
+                    <Footer />
                 </div>
             )}
         </div>

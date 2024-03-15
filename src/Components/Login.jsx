@@ -1,5 +1,5 @@
 import React from "react";
-import Logo from "../../../public/Logo.png";
+import Logo from "../../public/Logo.png";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -8,6 +8,7 @@ import { IoMdEye } from "react-icons/io";
 import { IoMdEyeOff } from "react-icons/io";
 import Axios from "axios";
 import Swal from "sweetalert2";
+import Footer from "./Footer";
 function Login() {
     const Navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
@@ -180,7 +181,7 @@ function Login() {
                     )}
                 </Formik>
             </div>
-            <div className=" text-center mt-4 text-black_text">
+            <div className=" text-center  text-xl my-4 text-black_text">
                 Don't Have an Account ?{" "}
                 <Link
                     to={"/Register"}
@@ -189,7 +190,9 @@ function Login() {
                     Register
                 </Link>
             </div>
+            <Footer />
         </div>
+
     );
 }
 const errorInputMessage = {

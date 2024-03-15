@@ -5,6 +5,7 @@ import { useAppContext } from "../../Context/AppContext";
 import { useNavigate } from "react-router";
 import { handleContact } from "./handleContact";
 import Links from "./Links";
+import Footer from "../Footer";
 function Contact() {
   const Navigate = useNavigate();
     const { isAuth, _id } = useAppContext();
@@ -19,7 +20,7 @@ function Contact() {
             <Links />
 
             {/* input fields */}
-            <div className=" border border-gray_white text-black_text shadow-md w-[80%] md:w-[50%] m-auto mt-3 p-5 rounded-lg  ">
+            <div className="  border border-gray_white text-black_text shadow-md w-[80%] md:w-[50%] m-auto mt-3 p-5 rounded-lg  ">
                 <div className=" text-lg font-semibold mb-4 ">
                     Send a message
                 </div>
@@ -143,6 +144,8 @@ function Contact() {
                     )}
                 </Formik>
             </div>
+            <div className="pt-6"></div>
+            <Footer />
         </div>
     );
 }

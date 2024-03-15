@@ -59,21 +59,38 @@ function Footer() {
                     </a>
                 </div>
             </div>
-            <div className=" flex gap-5 justify-between mx-auto self-center  mt-7 w-full max-w-[1200px] max-md:flex-wrap max-md:max-w-full">
-                <div className=" max-md:hidden  flex gap-5 justify-between my-auto text-base font-bold leading-6 text-neutral-600 max-md:flex-wrap max-md:max-w-full">
-                    <Link to={"/Services"} className="flex-auto select-none">
-                        Services
-                    </Link>
-                    <Link to={"/Courses"} className=" select-none">
-                        Courses
-                    </Link>
-                    <Link to={"/Events"} className=" select-none">
-                        Events
-                    </Link>
-                    <Link to={"Contact"} className=" select-none">
-                        Contact Us
-                    </Link>
+            <div className=" flex  gap-5 justify-between mx-auto self-center  mt-7 w-full max-w-[1200px] max-md:flex-wrap max-md:max-w-full">
+                <div className=" flex flex-col gap-2  items-start">
+                    <div className=" max-md:hidden  flex gap-5 justify-between my-auto text-base font-bold leading-6 text-neutral-600 max-md:flex-wrap max-md:max-w-full">
+                        <Link
+                            to={"/Services"}
+                            className="flex-auto select-none"
+                        >
+                            Home
+                        </Link>
+                        <Link to={"Contact"} className=" select-none">
+                            Contact Us
+                        </Link>
+                    </div>
+                    <div className=" max-md:hidden  flex gap-5 justify-between my-auto text-base font-bold leading-6 text-neutral-600 max-md:flex-wrap max-md:max-w-full">
+                        <Link
+                            to={"/Services"}
+                            className="flex-auto select-none"
+                        >
+                            Services
+                        </Link>
+                        <Link to={"/Courses"} className=" select-none">
+                            Courses
+                        </Link>
+                        <Link to={"/Events"} className=" select-none">
+                            Events
+                        </Link>
+                        <Link to={"/Blogs"} className=" select-none">
+                            Blogs
+                        </Link>
+                    </div>
                 </div>
+
                 <div className="flex gap-2 md:w-[40%]  items-center justify-between text-sm font-semibold text-black">
                     <FaPhoneAlt className=" text-green text-2xl" />
                     <div className="flex flex-col gap-1 flex-1 text-gray">
@@ -82,7 +99,32 @@ function Footer() {
                     </div>
                 </div>
             </div>
-            <div className="self-center pt-10  text-xl font-medium leading-6 whitespace-nowrap text-neutral-500 max-md:ml-2.5">
+            <div className=" md:hidden pt-8  flex ml-6 gap-6 text-neutral-600 font-semibold ">
+                <div className=" ">
+                    <Link to={"/"} className="block select-none mb-2">
+                        Home
+                    </Link>
+                    <Link to={"/Services"} className="block select-none mb-2">
+                        Services
+                    </Link>
+                    <Link to={"/Events"} className="block select-none mb-2">
+                        Events
+                    </Link>
+                </div>
+                <div className=" ">
+                    <Link to={"Contact"} className="block select-none mb-2">
+                        Contact Us
+                    </Link>
+                    <Link to={"/Courses"} className="block select-none mb-2">
+                        Courses
+                    </Link>
+
+                    <Link to={"/Blogs"} className="block select-none mb-2">
+                        Blogs
+                    </Link>
+                </div>
+            </div>
+            <div className="self-center pt-6 text-xl font-medium leading-6 whitespace-nowrap text-neutral-500 max-md:ml-2.5">
                 © 2024 Skate. All Rights Reserved.{" "}
             </div>
         </div>

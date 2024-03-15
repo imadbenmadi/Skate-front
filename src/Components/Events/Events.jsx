@@ -3,6 +3,7 @@ import { IoSearchOutline, IoWarning } from "react-icons/io5";
 import Card from "./Card";
 import axios from "axios";
 import ErrorPage from "../ErrorPage";
+import Footer from "../Footer";
 function Event() {
     const [loading, setLoading] = useState(false);
     const [search, setSearch] = useState("");
@@ -109,6 +110,7 @@ function Event() {
                             ))
                         )}
                     </div>
+                    <Footer />
                 </div>
             )}
         </div>

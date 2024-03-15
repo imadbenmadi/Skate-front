@@ -4,6 +4,7 @@ import Current_Services from "./Current/Current_Services";
 import Explore from "./Explore/Explore";
 import axios from "axios";
 import ErrorPage from "../ErrorPage";
+import Footer from "../Footer";
 function Services() {
     const [loading, setLoading] = useState(false);
     const [services, setServices] = useState([]);
@@ -63,6 +64,7 @@ function Services() {
                 <div className=" pt-[60px]">
                     <Current_Services userServicecs={userServices} />
                     <Explore services={services} />
+                    <Footer />
                 </div>
             )}
         </div>

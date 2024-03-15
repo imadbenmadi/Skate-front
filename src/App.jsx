@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import { useAppContext } from "./Context/AppContext";
 import axios from "axios";
 import Activate_account from "./Components/Alerts/Activate_account";
+import Footer from "./Components/Footer";
 function App() {
     const { set_Auth, store_login, isAuth, IsEmailVerified, Notifications } =
         useAppContext();

@@ -8,6 +8,7 @@ import { IoMdEye } from "react-icons/io";
 import { IoMdEyeOff } from "react-icons/io";
 import { handleRegistration } from "./handleRegistration";
 import { useEffect } from "react";
+import Footer from "../Footer";
 import VerifyEmail from "./VerifyEmail";
 function Register() {
     const [open_verify, setOpen_verify] = useState(false);
@@ -321,7 +322,7 @@ function Register() {
                             )}
                         </Formik>
                     </div>
-                    <div className=" text-center mt-4 text-black_text">
+                    <div className=" text-center my-4 text-xl text-black_text">
                         Already Have an Account ?{" "}
                         <Link
                             to={"/Login"}
@@ -341,6 +342,7 @@ function Register() {
                     rigester_Date={rigester_Date}
                 />
             )}
+            <Footer />
         </div>
     );
 }
