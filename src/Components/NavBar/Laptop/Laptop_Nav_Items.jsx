@@ -53,13 +53,24 @@ function Laptop_Nav_Items({
             <div className="flex gap-5">
                 <div className=" hover:text-green transition-colors cursor-pointer">
                     <Link
+                        to={"/"}
+                        className={
+                            Active_nav == ""
+                                ? "text-green hover:text-green"
+                                : "text-black_text hover:text-green"
+                        }
+                    >
+                        Home
+                    </Link>
+                </div>
+                <div className=" hover:text-green transition-colors cursor-pointer">
+                    <Link
                         to={"/Services"}
                         className={
                             Active_nav == "Services"
                                 ? "text-green hover:text-green"
                                 : "text-black_text hover:text-green"
                         }
-                        // onClick={() => setActive_nav("Services")}
                     >
                         Services
                     </Link>
@@ -84,7 +95,6 @@ function Laptop_Nav_Items({
                                 ? "text-green hover:text-green"
                                 : "text-black_text hover:text-green"
                         }
-                        // onClick={() => setActive_nav("Events")}
                     >
                         Events
                     </Link>
@@ -97,7 +107,6 @@ function Laptop_Nav_Items({
                                 ? "text-green hover:text-green"
                                 : "text-black_text hover:text-green"
                         }
-                        // onClick={() => setActive_nav("Blogs")}
                     >
                         Blogs
                     </Link>
@@ -110,19 +119,18 @@ function Laptop_Nav_Items({
                                 ? "text-green hover:text-green"
                                 : "text-black_text hover:text-green"
                         }`}
-                        // onClick={() => setActive_nav("Contact")}
                     >
                         Contact
                     </Link>
                 </div>
             </div>
             <div className="flex gap-4 justify-center items-center h-full">
-                <div className=" ">
+                {/* <div className=" ">
                     <TbSettings
                         onClick={handleSettingsClick}
                         className="text-2xl text-gray cursor-pointer "
                     />
-                </div>
+                </div> */}
                 {isAuth ? (
                     <>
                         <div
@@ -207,9 +215,14 @@ function Laptop_Nav_Items({
                         </Link>
                     </>
                 ) : (
-                    <span className="bg-green text-[#fff] px-3 py-1 text-xl rounded-lg cursor-pointer">
-                        <Link to={"/Login"}>Login</Link>
-                    </span>
+                    <>
+                        <span className="bg-green text-[#fff] px-3 py-1 text-xl rounded-lg cursor-pointer">
+                            <Link to={"/Login"}>Login</Link>
+                        </span>
+                        <span className="bg-blue text-[#fff] px-3 py-1 text-xl rounded-lg cursor-pointer">
+                            <Link to={"/Register"}>Get Started</Link>
+                        </span>
+                    </>
                 )}
             </div>
         </div>
