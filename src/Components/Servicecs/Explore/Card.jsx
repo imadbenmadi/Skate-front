@@ -2,6 +2,7 @@ import React from "react";
 import img from "../../../../public/wallpaper.jpg";
 import { Link } from "react-router-dom";
 function Card({ service }) {
+    console.log(window.innerWidth);
     return (
         <Link
             to={`/Services/${service._id}`}
@@ -12,32 +13,40 @@ function Card({ service }) {
                 src={img}
                 alt={service.Title}
             />
-            <div className="w-[60%] pl-6 py-4 ">
-                {/* <div className="font-bold text-xl mb-2 overflow-hidden w-[550px]">
-                    {service.Title}
-                </div> */}
+            <div className="w-[60%] pl-6  ">
                 {service.Title && (
-                    <p className="font-bold text-xl mb-2 overflow-hidden">
-                        {service.Title.slice(0, 60) +
-                            (service.Title.length > 60 ? "..." : "")}
+                    <p className="font-bold text-lg md:text-xl  overflow-hidden">
+                        {window.innerWidth > 640
+                            ? service.Title.slice(0, 60)
+                            : service.Title.slice(0, 20)}
+                        {service.Title.length >
+                        (window.innerWidth > 640 ? 60 : 20)
+                            ? "..."
+                            : ""}
                     </p>
                 )}
-
                 {service.Text && (
                     <p className="text-gray text-base">
-                        {service.Text.slice(0, 70) +
-                            (service.Text.length > 70 ? "..." : "")}
+                        {window.innerWidth > 640
+                            ? service.Text.slice(0, 70)
+                            : service.Text.slice(0, 35)}
+                        {service.Text.length >
+                        (window.innerWidth > 640 ? 70 : 35)
+                            ? "..."
+                            : ""}
                     </p>
                 )}
 
-                {/* <p className="text-gray text-base">{service.Description}</p> */}
-                <p className="text-gray  text-sm absolute top-10 right-5 ">
-                    {service.Price} DA
-                </p>
-                <p className="text-gray text-sm pt-4">{service.Category}</p>
-                {/* <p className="text-gray text-base">
-                  {new Date(service.Date).toLocaleDateString()}
-              </p> */}
+                {service.Price ? (
+                    <p className="text-gray text-lg font-semibold py-1">
+                        {service.Price} DA
+                    </p>
+                ) : null}
+                {service.Category ? (
+                    <p className="text-gray text-sm font-semibold ">
+                        {service.Category}
+                    </p>
+                ) : null}
             </div>
         </Link>
     );

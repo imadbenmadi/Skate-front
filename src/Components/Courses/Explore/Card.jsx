@@ -2,6 +2,7 @@ import React from "react";
 import img from "../../../../public/wallpaper.jpg";
 import { Link } from "react-router-dom";
 function Card({ course }) {
+    console.log(window.innerWidth);
     return (
         <Link
             to={`/Courses/${course._id}`}
@@ -12,32 +13,38 @@ function Card({ course }) {
                 src={img}
                 alt={course.Title}
             />
-            <div className="w-[60%] pl-6 py-4 ">
-                {/* <div className="font-bold text-xl mb-2 overflow-hidden w-[550px]">
-                    {course.Title}
-                </div> */}
+            <div className="w-[60%] pl-6  ">
                 {course.Title && (
-                    <p className="font-bold text-xl mb-2 overflow-hidden">
-                        {course.Title.slice(0, 60) +
-                            (course.Title.length > 60 ? "..." : "")}
+                    <p className="font-bold text-lg md:text-xl  overflow-hidden">
+                        {window.innerWidth > 640
+                            ? course.Title.slice(0, 60)
+                            : course.Title.slice(0, 20)}
+                        {course.Title.length >
+                        (window.innerWidth > 640 ? 60 : 20)
+                            ? "..."
+                            : ""}
                     </p>
                 )}
-
                 {course.Text && (
                     <p className="text-gray text-base">
-                        {course.Text.slice(0, 70) +
-                            (course.Text.length > 70 ? "..." : "")}
+                        {window.innerWidth > 640
+                            ? course.Text.slice(0, 70)
+                            : course.Text.slice(0, 35)}
+                        {course.Text.length >
+                        (window.innerWidth > 640 ? 70 : 35)
+                            ? "..."
+                            : ""}
                     </p>
                 )}
 
-                {/* <p className="text-gray text-base">{course.Description}</p> */}
-                <p className="text-gray  text-sm  ">
-                    {course.Price} DA
-                </p>
-                <p className="text-gray text-sm pt-4">{course.Category}</p>
-                {/* <p className="text-gray text-base">
-                  {new Date(course.Date).toLocaleDateString()}
-              </p> */}
+                {course.Price ? (
+                    <p className="text-gray text-lg font-semibold py-1">
+                        {course.Price} DA
+                    </p>
+                ) : null}
+                {course.Category ? (
+                    <p className="text-gray text-sm font-semibold ">{course.Category}</p>
+                ) : null}
             </div>
         </Link>
     );
