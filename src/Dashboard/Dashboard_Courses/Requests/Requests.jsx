@@ -37,6 +37,9 @@ function Requests() {
     useEffect(() => {
         fetch_Requests();
     }, []);
+    useEffect(() => {
+        console.log(Requests);
+    }, [Requests]);
     const handleDeleteRequest = (RequestId) => {
         setRequests((prevRequests) =>
             prevRequests.filter((Request) => Request._id !== RequestId)
@@ -78,7 +81,7 @@ function Requests() {
                             Email
                         </th>
                         <th scope="col" className="border">
-                            Status
+                            Date
                         </th>
                         <th scope="col" className=" border">
                             Course Title

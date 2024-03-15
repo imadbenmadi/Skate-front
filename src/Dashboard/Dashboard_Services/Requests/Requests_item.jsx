@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
-
+import { Formate_Date_NoYear } from "../../../Logic/Formate_Date"; 
 import { useState } from "react";
 function Requests_item({ request, onDelete }) {
     const Navigate = useNavigate();
@@ -162,11 +162,9 @@ function Requests_item({ request, onDelete }) {
             </td>
             <td
                 style={{ maxWidth: "90px" }}
-                className={`w-[90px] whitespace-nowrap border overflow-auto scrollbar-thumb-rounded-full scrollbar-thin scrollbar-thumb-green scrollbar-track-slate-300 ${
-                    request.User.IsEmailVerified ? "text-green" : "text-red-600"
-                }`}
+                className={`w-[90px] whitespace-nowrap border overflow-auto scrollbar-thumb-rounded-full scrollbar-thin scrollbar-thumb-green scrollbar-track-slate-300 }`}
             >
-                {request.User.IsEmailVerified ? "Verified" : "Not Verified"}
+                {request.Date ? Formate_Date_NoYear(request.Date) : "none"}
             </td>
 
             <td
