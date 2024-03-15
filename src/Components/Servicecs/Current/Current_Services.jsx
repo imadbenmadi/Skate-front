@@ -1,13 +1,15 @@
 import React from "react";
 import Card from "./Card";
+import { useAppContext } from "../../../Context/AppContext";
 
 function Current_Services({ userServices }) {
-    return userServices != undefined && userServices.length !== 0 ? (
+    const { isAuth } = useAppContext();
+    return isAuth && userServices.length !== 0 ? (
         <div>
-            <div>Your Current Courses : </div>
-            <div className="flex gap-4 w-screen overflow-auto">
-                {userServices.map(() => (
-                    <Card  />
+            <div>Your Current Services:</div>
+            <div className="flex gap-4 w-screen">
+                {userServices.map((item) => (
+                    <Card key={item.id} />
                 ))}
             </div>
         </div>

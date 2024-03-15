@@ -59,15 +59,16 @@ function Courses() {
     return (
         <div>
             {loading ? (
-                <div className="w-screen h-screen flex items-center justify-center">
+                <div className="w-screen  flex items-center justify-center">
                     <span className="loader"></span>
                 </div>
             ) : (
-                <div className="pt-[60px]">
-                    <Current_Courses userCourses={userCourses} />
-                    <Explore courses={courses} />
-                    <Footer />
-                </div>
+                <>
+                    <div className="pt-[50px] overflow-y-hidden ">
+                        <Current_Courses userCourses={userCourses} />
+                        <Explore courses={courses} />
+                    </div>
+                </>
             )}
         </div>
     );

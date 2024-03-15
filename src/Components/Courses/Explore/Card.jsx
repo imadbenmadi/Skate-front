@@ -31,7 +31,7 @@ function Card({ course }) {
                 )}
 
                 {/* <p className="text-gray text-base">{course.Description}</p> */}
-                <p className="text-gray  text-sm absolute top-10 right-5 ">
+                <p className="text-gray  text-sm  ">
                     {course.Price} DA
                 </p>
                 <p className="text-gray text-sm pt-4">{course.Category}</p>

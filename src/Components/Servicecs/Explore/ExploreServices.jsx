@@ -31,7 +31,7 @@ function ExploreServices({ search, filter, services }) {
 
         if ((!filter || filter.length == 0) && search == "") {
             return (
-                <div className=" ">
+                <div className="md:h-[80vh] overflow-auto custom-overflow  ">
                     {services.services.map((service, index) => (
                         <div key={index} className="w-full ">
                             <Card service={service} />

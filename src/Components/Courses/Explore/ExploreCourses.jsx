@@ -31,7 +31,7 @@ function ExploreCourses({ search, filter, courses }) {
 
         if ((!filter || filter.length == 0) && search == "") {
             return (
-                <div className=" ">
+                <div className=" md:h-[80vh] overflow-auto custom-overflow  ">
                     {courses.courses.map((course, index) => (
                         <div key={index} className="w-full ">
                             <Card course={course} />

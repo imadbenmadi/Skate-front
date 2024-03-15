@@ -61,10 +61,9 @@ function Services() {
                     <span className="loader"></span>
                 </div>
             ) : (
-                <div className=" pt-[60px]">
+                <div className=" pt-[50px] overflow-y-hidden">
                     <Current_Services userServicecs={userServices} />
                     <Explore services={services} />
-                    <Footer />
                 </div>
             )}
         </div>

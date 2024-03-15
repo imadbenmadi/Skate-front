@@ -12,7 +12,7 @@ function Footer() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
     return (
-        <div className="  px-8 flex py-4 w-full  md:px-10  bg-slate-200 flex-col  pt-4">
+        <div className="   px-8 flex py-4 w-full  md:px-10  bg-slate-200 flex-col  pt-4">
             <div
                 ref={ref}
                 style={{
