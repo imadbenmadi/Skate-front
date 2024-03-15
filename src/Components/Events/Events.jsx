@@ -11,18 +11,13 @@ function Event() {
     const [error, setError] = useState(null);
     const [filteredEvents, setFilteredEvents] = useState([]);
 
-    const handleSearch = () => {
-        const searchInput = document.getElementById("searchInput");
-        if (searchInput) {
-            setSearch(searchInput.value);
-            const filtered = events.filter(
-                (event) =>
-                    event.Title.toLowerCase().includes(searchInput) ||
-                    event.Text.toLowerCase().includes(searchInput) ||
-                    event.Description.toLowerCase().includes(searchInput)
-            );
-            setFilteredEvents(filtered);
-        }
+    const handleSearch = (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        setSearch(searchTerm);
+        const filtered = events.filter((event) =>
+            event.Title.toLowerCase().includes(searchTerm)
+        );
+        setFilteredEvents(filtered);
     };
 
     const fetchEvents = async () => {
@@ -72,7 +67,8 @@ function Event() {
                             <input
                                 type="text"
                                 className="pl-2 py-1 w-[150px] md:w-[300px] focus:outline-none"
-                                id="searchInput"
+                                value={search}
+                                onChange={handleSearch}
                             />
                             <button
                                 className="px-2 border-l-2"
@@ -83,7 +79,7 @@ function Event() {
                         </div>
                     </div>
 
-                    <div className="">
+                    <div className=" min-h-[45vh]">
                         {events.length == 0 ? (
                             <div className="w-[80%] m-auto h-fit text-center py-6 flex gap-1 text-2xl justify-center items-center text-gray">
                                 <IoWarning />
@@ -106,7 +102,7 @@ function Event() {
                             filteredEvents.map((event) => (
                                 <div
                                     key={event._id}
-                                    className="w-[80vw] m-auto"
+                                    className="w-[90vw] m-auto"
                                 >
                                     <Card event={event} />
                                 </div>

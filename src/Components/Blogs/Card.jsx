@@ -10,7 +10,7 @@ function Card({ blog }) {
             className="select-none w-full relative  overflow-hidden border-b border-gray py-5 flex shrink-0 justify-start h-fit"
         >
             <img
-                className="w-[30%] object-cover h-[120px]"
+                className="w-[30%] object-cover h-[120px] md:h-[150px]"
                 src={img}
                 alt={blog.Title}
             />

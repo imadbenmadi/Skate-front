@@ -9,7 +9,7 @@ function Card({ event }) {
             to={`/Events/${event._id}`}
             className="select-none w-full relative  overflow-hidden border-b border-gray py-5 flex shrink-0 justify-start h-fit"
         >
-            <img className="w-[30%] object-cover h-[120px]" src={img} alt={event.Title} />
+            <img className="w-[30%] object-cover h-[120px] md:h-[150px]" src={img} alt={event.Title} />
             <div className="w-[60%] pl-6 ">
                 {event.Title && (
                     <p className="font-bold  text-lg md:text-xl  overflow-hidden">

@@ -9,7 +9,7 @@ function Card({ service }) {
             className="select-none w-full relative rounded overflow-hidden border-b border-gray py-5 px-5 flex shrink-0 justify-start h-fit"
         >
             <img
-                className=" w-[30%] h-[120px] object-cover"
+                className=" w-[30%] h-[120px] md:h-[150px] object-cover"
                 src={img}
                 alt={service.Title}
             />

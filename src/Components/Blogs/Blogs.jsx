@@ -13,19 +13,16 @@ function Blogs() {
 
     const [filteredBlogs, setFilteredBlogs] = useState([]);
 
-    const handleSearch = () => {
-        const searchInput = document.getElementById("searchInput");
-        if (searchInput) {
-            setSearch(searchInput.value);
-            const filtered = blogs.filter(
-                (Blog) =>
-                    Blog.Title.toLowerCase().includes(searchInput) ||
-                    Blog.Text.toLowerCase().includes(searchInput) ||
-                    Blog.Description.toLowerCase().includes(searchInput)
-            );
-            setFilteredBlogs(filtered);
-        }
+    const handleSearch = (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+        setSearch(searchTerm);
+        const filtered = blogs.filter(
+            (blog) =>
+                blog.Title.toLowerCase().includes(searchTerm) 
+        );
+        setFilteredBlogs(filtered);
     };
+
 
     const fetchBlogs = async () => {
         setLoading(true);
@@ -73,7 +70,8 @@ function Blogs() {
                             <input
                                 type="text"
                                 className="pl-2 py-1 w-[150px] md:w-[300px] focus:outline-none"
-                                id="searchInput"
+                                value={search}
+                                onChange={handleSearch}
                             />
                             <button
                                 className="px-2 border-l-2"
@@ -84,7 +82,7 @@ function Blogs() {
                         </div>
                     </div>
 
-                    <div className="">
+                    <div className=" min-h-[45vh]">
                         {blogs.length == 0 ? (
                             <div className="w-[80%] m-auto h-fit text-center py-6 flex gap-1 text-2xl justify-center items-center text-gray">
                                 <IoWarning />
@@ -108,7 +106,7 @@ function Blogs() {
                             </div>
                         ) : (
                             filteredBlogs.map((blog) => (
-                                <div key={blog._id} className="w-[80vw] m-auto">
+                                <div key={blog._id} className="w-[90vw] m-auto">
                                     <Card blog={blog} />
                                 </div>
                             ))
