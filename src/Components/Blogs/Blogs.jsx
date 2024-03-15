@@ -103,7 +103,7 @@ function Blogs() {
                                 </>
                             ))
                         ) : filteredBlogs.length == 0 ? (
-                            <div className="text-center text-gray-500">
+                            <div className="text-center text-gray">
                                 No blogs match the selected filter.
                             </div>
                         ) : (
@@ -113,8 +113,8 @@ function Blogs() {
                                 </div>
                             ))
                         )}
-                        </div>
-                        <Footer />
+                    </div>
+                    <Footer />
                 </div>
             )}
         </div>

@@ -44,7 +44,7 @@ function ExploreServices({ search, filter, services }) {
         return (
             <div>
                 {filteredservices.length == 0 ? (
-                    <div className="text-center text-gray-500">
+                    <div className="text-center text-gray">
                         No services match the selected filter.
                     </div>
                 ) : (

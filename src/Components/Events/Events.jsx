@@ -99,7 +99,7 @@ function Event() {
                                 </div>
                             ))
                         ) : filteredEvents.length == 0 ? (
-                            <div className="text-center text-gray-500">
+                            <div className="text-center text-gray">
                                 No blogs match the selected filter.
                             </div>
                         ) : (

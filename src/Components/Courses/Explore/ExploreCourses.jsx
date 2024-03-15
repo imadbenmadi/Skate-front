@@ -44,7 +44,7 @@ function ExploreCourses({ search, filter, courses }) {
         return (
             <div>
                 {filteredCourses.length == 0 ? (
-                    <div className="text-center text-gray-500">
+                    <div className="text-center text-gray">
                         No courses match the selected filter.
                     </div>
                 ) : (
