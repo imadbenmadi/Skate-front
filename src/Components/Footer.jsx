@@ -4,130 +4,109 @@ import { IoMdMail } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { IoLogoWhatsapp } from "react-icons/io";
 import { FaFacebookSquare } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
 import { FaInstagram } from "react-icons/fa";
 import { FaPhoneAlt } from "react-icons/fa";
 
 function Footer() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
+
     return (
-        <div className="   px-8 flex py-4 w-full  md:px-10  bg-slate-200 flex-col  pt-4">
+        <footer className="flex flex-col justify-between  md:px-10 bg-slate-200">
             <div
                 ref={ref}
                 style={{
-                    transform: isInView ? "none " : "translateY(10%)",
+                    transform: isInView ? "none" : "translateY(10%)",
                     opacity: isInView ? 1 : 0,
                     transition:
                         "all 0.9s cubic-bezier(0.17, 0.55, 0.55, 1) 0.1s",
                 }}
-                className="flex   gap-5 justify-between  self-center mt-8 w-full max-w-[1200px] max-md:flex-wrap  max-md:mt-10 max-md:max-w-full"
+                className="flex flex-col gap-5 justify-between self-center max-w-[1200px] mx-auto"
             >
-                <div className="flex gap-3 justify-center mt-2 ">
-                    <a
-                        href="https://api.whatsapp.com/send?phone=+213658335232"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <IoLogoWhatsapp className=" text-green text-4xl" />
-                    </a>
-                    <br />
-                    <a
-                        href="https://www.facebook.com/Skate.consult"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <FaFacebookSquare className=" text-blue  text-4xl" />
-                    </a>
-                    <br />
-                    <a
-                        href="https://www.instagram.com/skate_consult/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        <FaInstagram className=" text-red-500  text-4xl" />
-                    </a>
-                </div>
-                <div className="flex  md:w-[40%] gap-1 justify-between items-center my-auto text-xl font-medium leading-6 text-black whitespace-nowrap">
-                    <IoMdMail className="text-green text-2xl " />
-                    <a
-                        href="mailto:skate.consult@gmail.com"
-                        className="grow self-end text-gray break-words text-[16px]"
-                        style={{ wordBreak: "break-all" }}
-                    >
-                        skate.consult@gmail.com
-                    </a>
-                </div>
-            </div>
-            <div className=" flex  gap-5 justify-between mx-auto self-center  mt-7 w-full max-w-[1200px] max-md:flex-wrap max-md:max-w-full">
-                <div className=" flex flex-col gap-2  items-start">
-                    <div className=" max-md:hidden  flex gap-5 justify-between my-auto text-base font-bold leading-6 text-neutral-600 max-md:flex-wrap max-md:max-w-full">
-                        <Link
-                            to={"/Services"}
-                            className="flex-auto select-none"
+                <div className="flex flex-col md:flex-row gap-5 justify-between mt-8 max-w-[1200px] mx-auto">
+                    <div className="flex gap-3 justify-center mt-2 ">
+                        <a
+                            href="https://api.whatsapp.com/send?phone=+213658335232"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-green"
                         >
-                            Home
-                        </Link>
-                        <Link to={"Contact"} className=" select-none">
-                            Contact Us
-                        </Link>
-                    </div>
-                    <div className=" max-md:hidden  flex gap-5 justify-between my-auto text-base font-bold leading-6 text-neutral-600 max-md:flex-wrap max-md:max-w-full">
-                        <Link
-                            to={"/Services"}
-                            className="flex-auto select-none"
+                            <IoLogoWhatsapp className="text-4xl" />
+                        </a>
+                        <a
+                            href="https://www.facebook.com/Skate.consult"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue"
                         >
-                            Services
-                        </Link>
-                        <Link to={"/Courses"} className=" select-none">
-                            Courses
-                        </Link>
-                        <Link to={"/Events"} className=" select-none">
-                            Events
-                        </Link>
-                        <Link to={"/Blogs"} className=" select-none">
-                            Blogs
-                        </Link>
+                            <FaFacebookSquare className="text-4xl" />
+                        </a>
+                        <a
+                            href="https://www.instagram.com/skate_consult/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-red-500"
+                        >
+                            <FaInstagram className="text-4xl" />
+                        </a>
+                        <a
+                            href="mailto:skate.consult@gmail.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                        >
+                            <IoMdMail className="text-green text-4xl" />
+                        </a>
+                    </div>
+                    <div className="flex items-center">
+                        <a
+                            href="mailto:skate.consult@gmail.com"
+                            className="ml-2 text-gray break-words text-[16px] md:text-[24px]"
+                            style={{ wordBreak: "break-all" }}
+                        >
+                            skate.consult@gmail.com
+                        </a>
                     </div>
                 </div>
-
-                <div className="flex gap-2 md:w-[40%]  items-center justify-between text-sm font-semibold text-black">
-                    <FaPhoneAlt className=" text-green text-2xl" />
-                    <div className="flex flex-col gap-1 flex-1 text-gray">
-                        <a href="tel:+213657653349">+213 657653349</a>
-                        <a href="tel:+213657653349">+213 657653349</a>
+                <div className="flex flex-col gap-5 md:flex-row md:justify-between self-center max-w-[1200px] mx-auto">
+                    <div className="hidden md:flex flex-col gap-2 items-start">
+                        <div className="flex flex-col gap-2 md:flex-row md:gap-5 justify-between text-base font-bold text-neutral-600">
+                            <Link to={"/"}>Home</Link>
+                            <Link to={"Contact"}>Contact Us</Link>
+                        </div>
+                        <div className="flex flex-col gap-2 md:flex-row md:gap-5 justify-between text-base font-bold text-neutral-600">
+                            <Link to={"/Services"}>Services</Link>
+                            <Link to={"/Courses"}>Courses</Link>
+                            <Link to={"/Events"}>Events</Link>
+                            <Link to={"/Blogs"}>Blogs</Link>
+                        </div>
+                    </div>
+                    <div className="flex items-center">
+                        <FaPhoneAlt className="text-green text-2xl" />
+                        <div className="flex flex-col gap-1 ml-2 text-gray">
+                            <a href="tel:+213657653349">+213 657653349</a>
+                            <a href="tel:+213657653349">+213 657653349</a>
+                        </div>
+                    </div>
+                </div>
+                <div className="md:hidden pt-8 flex flex-col  gap-2 text-neutral-600 font-semibold ">
+                    <div className="flex flex-col items-center gap-2">
+                        <Link to={"/"}>Home</Link>
+                        <Link to={"/Services"}>Services</Link>
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                        <Link to={"Contact"}>Contact Us</Link>
+                        <Link to={"/Courses"}>Courses</Link>
+                    </div>
+                    <div className="flex flex-col items-center gap-2">
+                        <Link to={"/Events"}>Events</Link>
+                        <Link to={"/Blogs"}>Blogs</Link>
                     </div>
                 </div>
             </div>
-            <div className=" md:hidden pt-8  flex ml-6 gap-6 text-neutral-600 font-semibold ">
-                <div className=" ">
-                    <Link to={"/"} className="block select-none mb-2">
-                        Home
-                    </Link>
-                    <Link to={"/Services"} className="block select-none mb-2">
-                        Services
-                    </Link>
-                    <Link to={"/Events"} className="block select-none mb-2">
-                        Events
-                    </Link>
-                </div>
-                <div className=" ">
-                    <Link to={"Contact"} className="block select-none mb-2">
-                        Contact Us
-                    </Link>
-                    <Link to={"/Courses"} className="block select-none mb-2">
-                        Courses
-                    </Link>
-
-                    <Link to={"/Blogs"} className="block select-none mb-2">
-                        Blogs
-                    </Link>
-                </div>
+            <div className="self-center py-6 text-xl font-medium leading-6 whitespace-nowrap text-neutral-500 max-md:ml-2.5">
+                © 2024 Skate. All Rights Reserved.
             </div>
-            <div className="self-center pt-6 text-xl font-medium leading-6 whitespace-nowrap text-neutral-500 max-md:ml-2.5">
-                © 2024 Skate. All Rights Reserved.{" "}
-            </div>
-        </div>
+        </footer>
     );
 }
 
