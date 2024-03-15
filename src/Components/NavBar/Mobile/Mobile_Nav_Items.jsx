@@ -106,7 +106,7 @@ function Mobile_Nav_Items({
                         </>
                     )}
 
-                    <div
+                    {/* <div
                         className=" flex gap-2 mb-4 "
                         onClick={() => {
                             Toogle_Menu_Bar();
@@ -115,7 +115,7 @@ function Mobile_Nav_Items({
                     >
                         <IoSettingsOutline className=" text-3xl" />
                         Settings
-                    </div>
+                    </div> */}
                     <div className=" w-full h-1 bg-gray mb-4"></div>
                     <Link
                         onClick={Toogle_Menu_Bar}
