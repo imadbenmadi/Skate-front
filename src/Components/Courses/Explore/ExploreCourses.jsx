@@ -7,7 +7,7 @@ function ExploreCourses({ search, filter, courses }) {
             return (
                 <div className=" flex text-gray items-center gap-2 p-3">
                     <IoWarning className=" text-2xl" />
-                    <div className="text-center text-gray">
+                    <div className="text-center text-gray py-2">
                         No courses for the moment
                     </div>
                 </div>
@@ -44,7 +44,7 @@ function ExploreCourses({ search, filter, courses }) {
         return (
             <div>
                 {filteredCourses.length == 0 ? (
-                    <div className="text-center text-gray">
+                    <div className="text-center text-gray py-2">
                         No courses match the selected filter.
                     </div>
                 ) : (
@@ -60,7 +60,7 @@ function ExploreCourses({ search, filter, courses }) {
     return (
         <div className=" flex text-gray items-center gap-2 p-3">
             <IoWarning className=" text-2xl" />
-            <div className="text-center text-gray">
+            <div className="text-center text-gray py-2">
                 No courses for the moment
             </div>
         </div>

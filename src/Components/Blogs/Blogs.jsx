@@ -86,7 +86,7 @@ function Blogs() {
 
                     <div className="">
                         {blogs.length == 0 ? (
-                            <div className="w-[80%] m-auto h-fit text-center pt-6 flex gap-1 text-2xl justify-center items-center text-gray">
+                            <div className="w-[80%] m-auto h-fit text-center py-6 flex gap-1 text-2xl justify-center items-center text-gray">
                                 <IoWarning />
                                 No Blogs Found
                             </div>
@@ -103,8 +103,8 @@ function Blogs() {
                                 </>
                             ))
                         ) : filteredBlogs.length == 0 ? (
-                            <div className="text-center text-gray">
-                                No blogs match the selected filter.
+                            <div className="text-center text-gray py-4">
+                                No blogs match the Search Query.
                             </div>
                         ) : (
                             filteredBlogs.map((blog) => (

@@ -85,7 +85,7 @@ function Event() {
 
                     <div className="">
                         {events.length == 0 ? (
-                            <div className="w-[80%] m-auto h-fit text-center pt-6 flex gap-1 text-2xl justify-center items-center text-gray">
+                            <div className="w-[80%] m-auto h-fit text-center py-6 flex gap-1 text-2xl justify-center items-center text-gray">
                                 <IoWarning />
                                 No Events Found
                             </div>
@@ -99,13 +99,16 @@ function Event() {
                                 </div>
                             ))
                         ) : filteredEvents.length == 0 ? (
-                            <div className="text-center text-gray">
-                                No blogs match the selected filter.
+                            <div className="text-center text-gray  py-4">
+                                No events match the selected filter.
                             </div>
                         ) : (
-                            filteredEvents.map((blog) => (
-                                <div key={blog._id} className="w-[80vw] m-auto">
-                                    <Card blog={blog} />
+                            filteredEvents.map((event) => (
+                                <div
+                                    key={event._id}
+                                    className="w-[80vw] m-auto"
+                                >
+                                    <Card event={event} />
                                 </div>
                             ))
                         )}
