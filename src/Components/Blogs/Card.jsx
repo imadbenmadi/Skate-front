@@ -5,7 +5,7 @@ function Card({ blog }) {
     return (
         <Link
             to={`/Blogs/${blog._id}`}
-            className="w-full h-fit relative rounded overflow-hidden border-b border-gray py-5 px-5 flex shrink-0 justify-start "
+            className="select-none w-full h-fit relative rounded overflow-hidden border-b border-gray py-5 px-5 flex shrink-0 justify-start "
         >
             <img
                 className=" w-[40%] h-[50%]  md:h-full object-cover"

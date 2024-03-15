@@ -70,7 +70,7 @@ function Mobile_Nav_Items({
                             <Link
                                 onClick={Toogle_Menu_Bar}
                                 to={"/Profile"}
-                                className=" flex  items-center gap-2 mb-4 "
+                                className="select-none flex  items-center gap-2 mb-4 "
                             >
                                 <FaUserTie className="text-2xl" />
                                 Profile
@@ -79,7 +79,7 @@ function Mobile_Nav_Items({
                             <Link
                                 onClick={Toogle_Menu_Bar}
                                 to={"/Profile/Notifications"}
-                                className=" flex mb-4 "
+                                className="select-none flex mb-4 "
                             >
                                 <MdNotificationsNone className=" text-3xl" />
                                 Notifications
@@ -91,14 +91,14 @@ function Mobile_Nav_Items({
                                 <Link
                                     onClick={Toogle_Menu_Bar}
                                     to={"/Login"}
-                                    className=" bg-green text-[#fff] px-3 py-2 rounded-lg "
+                                    className="select-none bg-green text-[#fff] px-3 py-2 rounded-lg "
                                 >
                                     Login
                                 </Link>
                                 <Link
                                     onClick={Toogle_Menu_Bar}
                                     to={"/Register"}
-                                    className=" bg-gray_white text-black_text px-3 py-2 rounded-lg"
+                                    className="select-none bg-gray_white text-black_text px-3 py-2 rounded-lg"
                                 >
                                     Register
                                 </Link>
@@ -120,7 +120,7 @@ function Mobile_Nav_Items({
                     <Link
                         onClick={Toogle_Menu_Bar}
                         to={"/Services"}
-                        className=" flex gap-2  mb-4 "
+                        className="select-none flex gap-2  mb-4 "
                     >
                         <FaRegHandshake className=" text-3xl" />
                         Services
@@ -128,7 +128,7 @@ function Mobile_Nav_Items({
                     <Link
                         onClick={Toogle_Menu_Bar}
                         to={"/Courses"}
-                        className=" flex  gap-2  mb-4"
+                        className="select-none flex  gap-2  mb-4"
                     >
                         <FaBookReader className=" text-3xl" />
                         Courses
@@ -137,7 +137,7 @@ function Mobile_Nav_Items({
                     <Link
                         onClick={Toogle_Menu_Bar}
                         to={"/Events"}
-                        className=" flex  gap-2 mb-4"
+                        className="select-none flex  gap-2 mb-4"
                     >
                         <MdEventAvailable className=" text-3xl" />
                         Events
@@ -145,7 +145,7 @@ function Mobile_Nav_Items({
                     <Link
                         onClick={Toogle_Menu_Bar}
                         to={"/Blogs"}
-                        className=" flex  gap-2 mb-4"
+                        className="select-none flex  gap-2 mb-4"
                     >
                         <RiArticleFill className=" text-3xl" />
                         Blogs
@@ -153,7 +153,7 @@ function Mobile_Nav_Items({
                     <Link
                         onClick={Toogle_Menu_Bar}
                         to={"/Contact"}
-                        className=" flex  gap-2 "
+                        className="select-none flex  gap-2 "
                     >
                         <IoCall className=" text-3xl" />
                         Contact

@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "./Card";
-import { Link } from "react-router-dom";
 import { IoWarning } from "react-icons/io5";
 function ExploreServices({ search, filter, services }) {
     if (services.services && Array.isArray(services.services)) {

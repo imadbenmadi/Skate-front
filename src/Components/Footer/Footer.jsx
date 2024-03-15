@@ -61,12 +61,18 @@ function Footer() {
             </div>
             <div className=" flex gap-5 justify-between mx-auto self-center  mt-7 w-full max-w-[1200px] max-md:flex-wrap max-md:max-w-full">
                 <div className=" max-md:hidden  flex gap-5 justify-between my-auto text-base font-bold leading-6 text-neutral-600 max-md:flex-wrap max-md:max-w-full">
-                    <Link to={"/Services"} className="flex-auto">
+                    <Link to={"/Services"} className="flex-auto select-none">
                         Services
                     </Link>
-                    <Link to={"/Courses"}>Courses</Link>
-                    <Link to={"/Events"}>Events</Link>
-                    <Link to={"Contact"}>Contact Us</Link>
+                    <Link to={"/Courses"} className=" select-none">
+                        Courses
+                    </Link>
+                    <Link to={"/Events"} className=" select-none">
+                        Events
+                    </Link>
+                    <Link to={"Contact"} className=" select-none">
+                        Contact Us
+                    </Link>
                 </div>
                 <div className="flex gap-2 md:w-[40%]  items-center justify-between text-sm font-semibold text-black">
                     <FaPhoneAlt className=" text-green text-2xl" />

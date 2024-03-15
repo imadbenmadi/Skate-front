@@ -14,7 +14,7 @@ function Dashboard_Courses() {
 
     return (
         <div>
-            <div className=" flex items-center justify-center gap-10 py-6 text-2xl">
+            <div className="select-none flex items-center justify-center gap-10 py-6 text-2xl">
                 <Link
                     to={"/Dashboard/Courses"}
                     className={`${
@@ -27,7 +27,7 @@ function Dashboard_Courses() {
                 </Link>
                 <Link
                     to={"/Dashboard/Courses/Requests"}
-                    className={`${
+                    className={`select-none ${
                         active == "Requests"
                             ? "underline text-green"
                             : "text-gray"

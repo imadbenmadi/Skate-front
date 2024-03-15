@@ -22,7 +22,7 @@ function Not_Found() {
                 />
                 <p className="text-sm text-gray-600">
                     Double-check the URL or go back to the{" "}
-                    <Link to={"/"} className=" text-green">
+                    <Link to={"/"} className=" text-green select-none">
                         home page.
                     </Link>
                 </p>

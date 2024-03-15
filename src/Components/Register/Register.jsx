@@ -29,7 +29,7 @@ function Register() {
         <div>
             {!open_verify && (
                 <div>
-                    <Link to={"/"} className=" w-fit flex m-auto">
+                    <Link to={"/"} className="select-none w-fit flex m-auto">
                         <img className=" w-20 m-auto pt-5 " src={Logo} alt="" />
                     </Link>
                     <div className=" m-auto text-center pt-5 text-2xl font-semibold text-blue ">
@@ -325,7 +325,7 @@ function Register() {
                         Already Have an Account ?{" "}
                         <Link
                             to={"/Login"}
-                            className=" text-green font-semibold cursor-pointer"
+                            className="select-none text-green font-semibold cursor-pointer"
                         >
                             Login
                         </Link>

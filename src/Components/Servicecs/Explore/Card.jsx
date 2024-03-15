@@ -5,7 +5,7 @@ function Card({ service }) {
     return (
         <Link
             to={`/Services/${service._id}`}
-            className="w-full relative rounded overflow-hidden border-b border-gray py-5 px-5 flex shrink-0 justify-start h-[200px]"
+            className="select-none w-full relative rounded overflow-hidden border-b border-gray py-5 px-5 flex shrink-0 justify-start h-[200px]"
         >
             <img
                 className=" w-[30%] object-cover"

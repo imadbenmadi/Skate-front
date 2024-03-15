@@ -17,7 +17,7 @@ function Notifications() {
         <div className="pt-4">
             <Link
                 to={`/Dashboard/Users/${userId}`}
-                className="mb-4 w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 "
+                className="select-none mb-4 w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 "
             >
                 <IoMdArrowRoundBack />
                 <div>Back to user</div>
@@ -251,7 +251,7 @@ function Notifications() {
             <div className=" m-auto w-fit mt-12">
                 <Link
                     to={`/Dashboard/Users/${userId}/Current_Notifications`}
-                    className="bg-green text-white font-bold py-2 px-4 rounded"
+                    className="select-none bg-green text-white font-bold py-2 px-4 rounded"
                 >
                     View User Current Notifications
                 </Link>

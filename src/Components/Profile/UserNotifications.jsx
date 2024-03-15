@@ -33,7 +33,7 @@ function UserNotifications() {
                                         : `/Notifications/${notification._id}`
                                 }
                                 key={index}
-                                className={`notification flex items-center justify-start gap-2 px-2 py-5  border-b border-gray
+                                className={`select-none notification flex items-center justify-start gap-2 px-2 py-5  border-b border-gray
                                 ${
                                     notification.Type == "verify"
                                         ? "bg-red-200"

@@ -40,7 +40,7 @@ function Navbar({ Active_nav, setActive_nav }) {
                 </Link> */}
                 <Link
                     to={"/Dashboard/Users"}
-                    className={` flex items-center gap-3 cursor-pointer ${
+                    className={`select-none flex items-center gap-3 cursor-pointer ${
                         Active_nav == "Users" && "text-green"
                     }`}
                 >
@@ -49,7 +49,7 @@ function Navbar({ Active_nav, setActive_nav }) {
                 </Link>
                 <Link
                     to={"/Dashboard/Services"}
-                    className={` flex items-center gap-3 cursor-pointer ${
+                    className={`select-none flex items-center gap-3 cursor-pointer ${
                         Active_nav == "Services" && "text-green"
                     }`}
                 >
@@ -58,7 +58,7 @@ function Navbar({ Active_nav, setActive_nav }) {
                 </Link>
                 <Link
                     to={"/Dashboard/Courses"}
-                    className={` flex items-center gap-3 cursor-pointer ${
+                    className={`select-none flex items-center gap-3 cursor-pointer ${
                         Active_nav == "Courses" && "text-green"
                     }`}
                 >
@@ -67,7 +67,7 @@ function Navbar({ Active_nav, setActive_nav }) {
                 </Link>
                 <Link
                     to={"/Dashboard/Events"}
-                    className={` flex items-center gap-3 cursor-pointer ${
+                    className={`select-none flex items-center gap-3 cursor-pointer ${
                         Active_nav == "Events" && "text-green"
                     }`}
                 >
@@ -76,7 +76,7 @@ function Navbar({ Active_nav, setActive_nav }) {
                 </Link>
                 <Link
                     to={"/Dashboard/Blogs"}
-                    className={` flex items-center gap-3 cursor-pointer ${
+                    className={`select-none flex items-center gap-3 cursor-pointer ${
                         Active_nav == "Blogs" && "text-green"
                     }`}
                 >

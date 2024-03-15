@@ -62,7 +62,7 @@ function Current_Services() {
                 </div>
                 <Link
                     className="bg-green rounded cursor-pointer text-white text-xl
-                     flex items-center gap-2 px-3 py-1 w-fit m-auto"
+                     select-none flex items-center gap-2 px-3 py-1 w-fit m-auto"
                     to={"/Dashboard/Services/Add"}
                 >
                     <>
@@ -83,7 +83,7 @@ function Current_Services() {
                         <Search setSearch={setSearch} />
                     </div>
                     <Link
-                        className="bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1"
+                        className="select-none bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1"
                         to={"/Dashboard/Services/Add"}
                     >
                         <>
@@ -98,7 +98,9 @@ function Current_Services() {
                             <Current_Services_Card
                                 item={Service}
                                 key={index}
-                                onDelete={() => handleDeleteService(Service._id)}
+                                onDelete={() =>
+                                    handleDeleteService(Service._id)
+                                }
                             />
                         ))}
 
@@ -111,7 +113,9 @@ function Current_Services() {
                             <Current_Services_Card
                                 item={Service}
                                 key={index}
-                                onDelete={() => handleDeleteService(Service._id)}
+                                onDelete={() =>
+                                    handleDeleteService(Service._id)
+                                }
                             />
                         ))}
                     {search &&

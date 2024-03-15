@@ -5,7 +5,7 @@ function Card({ event }) {
     return (
         <Link
             to={`/Events/${event._id}`}
-            className="w-full relative rounded overflow-hidden border-b border-gray py-5 px-5 flex shrink-0 justify-start h-[300px]"
+            className="select-none w-full relative rounded overflow-hidden border-b border-gray py-5 px-5 flex shrink-0 justify-start h-[300px]"
         >
             <img
                 className=" w-[30%] object-cover"

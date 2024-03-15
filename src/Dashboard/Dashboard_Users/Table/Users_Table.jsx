@@ -115,7 +115,7 @@ function Users_Table({ users }) {
                                 <td className="w-[50px] whitespace-nowrap overflow-x-auto border">
                                     <Link
                                         to={"/Dashboard/Users/" + user._id}
-                                        className="w-fit items-center m-auto flex gap-1 bg-green text-white p-1 rounded"
+                                        className="select-none w-fit items-center m-auto flex gap-1 bg-green text-white p-1 rounded"
                                     >
                                         {/* <FaPen /> */}
                                         View

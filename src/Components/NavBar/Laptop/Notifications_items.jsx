@@ -49,7 +49,7 @@ const Notifications_items = () => {
                                             : `/Profile/Notifications/${notification._id}`
                                     }
                                     key={index}
-                                    className={`notification flex items-center justify-start gap-2 p-2 pb-4 border-b border-gray
+                                    className={`select-none notification flex items-center justify-start gap-2 p-2 pb-4 border-b border-gray
                                 ${
                                     notification.Type == "verify"
                                         ? "bg-red-200"
@@ -104,7 +104,7 @@ const Notifications_items = () => {
                         </div>
                         <Link
                             to={"/Notifications"}
-                            className="flex justify-end mr-6 mt-2"
+                            className="select-none flex justify-end mr-6 mt-2"
                         >
                             <div className="border px-2 py-1">See All</div>
                         </Link>

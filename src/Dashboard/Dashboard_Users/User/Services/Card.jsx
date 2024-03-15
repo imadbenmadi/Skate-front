@@ -1,9 +1,6 @@
 import React from "react";
 import { useOutletContext } from "react-router";
-import { IoWarning } from "react-icons/io5";
 import img from "../../../../../public/wallpaper.jpg";
-import { Link } from "react-router-dom";
-import { IoMdArrowRoundBack } from "react-icons/io";
 import { useNavigate } from "react-router";
 import { useState } from "react";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";

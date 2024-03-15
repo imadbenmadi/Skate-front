@@ -120,7 +120,7 @@ function Current_Services_Card({ item , onDelete}) {
             <div className="w-[10%] flex flex-col items-center justify-start pt-6 gap-4 pr-5">
                 <Link
                     to={`/Dashboard/Services/${item._id}/Edit`}
-                    className="flex items-center justify-start gap-2 text-white text-xl bg-green px-2 py-1 rounded w-[100px]"
+                    className="select-none flex items-center justify-start gap-2 text-white text-xl bg-green px-2 py-1 rounded w-[100px]"
                 >
                     <MdEdit /> Edit
                 </Link>

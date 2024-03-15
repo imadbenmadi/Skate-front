@@ -58,7 +58,7 @@ function Login() {
     return (
         <div>
             <div>
-                <Link to={"/"} className=" flex m-auto w-fit ">
+                <Link to={"/"} className="select-none flex m-auto w-fit ">
                     <img className=" w-20 m-auto pt-5 " src={Logo} alt="" />
                 </Link>
             </div>
@@ -184,7 +184,7 @@ function Login() {
                 Don't Have an Account ?{" "}
                 <Link
                     to={"/Register"}
-                    className=" text-green font-semibold cursor-pointer"
+                    className=" text-green font-semibold cursor-pointer select-none"
                 >
                     Register
                 </Link>

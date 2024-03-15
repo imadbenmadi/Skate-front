@@ -56,8 +56,8 @@ function Laptop_Nav_Items({
                         to={"/"}
                         className={
                             Active_nav == ""
-                                ? "text-green hover:text-green"
-                                : "text-black_text hover:text-green"
+                                ? "text-green hover:text-green select-none"
+                                : "text-black_text hover:text-green select-none"
                         }
                     >
                         Home
@@ -68,8 +68,8 @@ function Laptop_Nav_Items({
                         to={"/Services"}
                         className={
                             Active_nav == "Services"
-                                ? "text-green hover:text-green"
-                                : "text-black_text hover:text-green"
+                                ? "text-green hover:text-green select-none"
+                                : "text-black_text hover:text-green select-none"
                         }
                     >
                         Services
@@ -80,8 +80,8 @@ function Laptop_Nav_Items({
                         to={"/Courses"}
                         className={
                             Active_nav == "Courses"
-                                ? "text-green hover:text-green"
-                                : "text-black_text hover:text-green"
+                                ? "text-green hover:text-green select-none"
+                                : "text-black_text hover:text-green select-none"
                         }
                     >
                         Courses
@@ -92,8 +92,8 @@ function Laptop_Nav_Items({
                         to={"/Events"}
                         className={
                             Active_nav == "Events"
-                                ? "text-green hover:text-green"
-                                : "text-black_text hover:text-green"
+                                ? "text-green hover:text-green select-none"
+                                : "text-black_text hover:text-green select-none"
                         }
                     >
                         Events
@@ -104,8 +104,8 @@ function Laptop_Nav_Items({
                         to={"/Blogs"}
                         className={
                             Active_nav == "Blogs"
-                                ? "text-green hover:text-green"
-                                : "text-black_text hover:text-green"
+                                ? "text-green hover:text-green select-none"
+                                : "text-black_text hover:text-green select-none"
                         }
                     >
                         Blogs
@@ -116,8 +116,8 @@ function Laptop_Nav_Items({
                         to={"/Contact"}
                         className={`${
                             Active_nav == "Contact"
-                                ? "text-green hover:text-green"
-                                : "text-black_text hover:text-green"
+                                ? "text-green hover:text-green select-none"
+                                : "text-black_text hover:text-green select-none"
                         }`}
                     >
                         Contact
@@ -140,7 +140,7 @@ function Laptop_Nav_Items({
                         >
                             <Link
                                 to={"/Profile/Notifications"}
-                                className="flex items-center h-full"
+                                className="flex items-center h-full select-none"
                             >
                                 <MdNotificationsNone className="text-gray text-2xl cursor-pointer h-full" />
                             </Link>
@@ -160,7 +160,7 @@ function Laptop_Nav_Items({
                         </div>
                         <Link
                             to={"/Profile"}
-                            className=" h-full"
+                            className="select-none h-full select-none"
                             onMouseEnter={() => setUser_menu_open(true)}
                             onMouseLeave={() => setUser_menu_open(false)}
                         >
@@ -176,7 +176,7 @@ function Laptop_Nav_Items({
                                 >
                                     <Link
                                         to={`/Profile`}
-                                        className="flex items-center gap-3 pl-4 mb-1 "
+                                        className="select-none flex items-center gap-3 pl-4 mb-1 "
                                         onClick={() => setUser_menu_open(false)}
                                     >
                                         <FaUserTie className="text-gray text-2xl cursor-pointer" />
@@ -217,10 +217,14 @@ function Laptop_Nav_Items({
                 ) : (
                     <>
                         <span className="bg-green text-[#fff] px-3 py-1 text-xl rounded-lg cursor-pointer">
-                            <Link to={"/Login"}>Login</Link>
+                            <Link to={"/Login"} className="select-none">
+                                Login
+                            </Link>
                         </span>
                         <span className="bg-blue text-[#fff] px-3 py-1 text-xl rounded-lg cursor-pointer">
-                            <Link to={"/Register"}>SignUp</Link>
+                            <Link to={"/Register"} className="select-none">
+                                SignUp
+                            </Link>
                         </span>
                     </>
                 )}

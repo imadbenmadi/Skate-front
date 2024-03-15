@@ -58,7 +58,7 @@ function Courses_Requests() {
             <div className=" pt-4">
                 <Link
                     to={`/Dashboard/Users/${user._id}`}
-                    className="mb-4 w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 "
+                    className="select-none mb-4 w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 "
                 >
                     <IoMdArrowRoundBack />
                     <div>Back to user</div>
@@ -73,12 +73,12 @@ function Courses_Requests() {
         <div className="relative shadow-md mt-[20px]">
             <Link
                 to={`/Dashboard/Users/${user._id}`}
-                className="mb-4 w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 "
+                className="select-none mb-4 w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 "
             >
                 <IoMdArrowRoundBack />
                 <div>Back to user</div>
             </Link>
-            <table className="w-full text-sm rtl:text-right text-black_text relative  ">
+            <table className="select-none w-full text-sm rtl:text-right text-black_text relative  ">
                 <thead className="text-xs uppercase text-center h-[40px] sticky top-0 bg-white">
                     <tr className="border-y-2">
                         <th scope="col" className="border">

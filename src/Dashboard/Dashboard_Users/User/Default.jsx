@@ -109,8 +109,9 @@ function Default() {
 
     return (
         <div>
-            {error ?<ErrorPage /> :
-                loading ? (
+            {error ? (
+                <ErrorPage />
+            ) : loading ? (
                 <div className="w-[100%] h-[200px] flex items-center justify-center">
                     <span className="loader"></span>
                 </div>
@@ -118,7 +119,7 @@ function Default() {
                 <div className="">
                     <Link
                         to={"/Dashboard/Users"}
-                        className="mt-4 w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1"
+                        className="select-none mt-4 w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1"
                     >
                         <IoMdArrowRoundBack />
                         <div>Back to table</div>
@@ -126,14 +127,14 @@ function Default() {
                     <div className="flex gap-10 pt-6 justify-center text-xl">
                         <Link
                             to={"/Dashboard/Users/" + userId + "/Notification"}
-                            className="flex items-center cursor-pointer gap-1 bg-gray text-white px-3 py-1 rounded"
+                            className="select-none flex items-center cursor-pointer gap-1 bg-gray text-white px-3 py-1 rounded"
                         >
                             <IoIosNotifications />
                             Send Notification
                         </Link>
                         <Link
                             to={"/Dashboard/Users/" + userId + "/Edit"}
-                            className="flex items-center gap-1 bg-green text-white px-3 py-1 rounded"
+                            className="select-none flex items-center gap-1 bg-green text-white px-3 py-1 rounded"
                         >
                             <FaPen />
                             Edit user
@@ -227,7 +228,7 @@ function Default() {
                         <div>
                             <Link
                                 to={"/Dashboard/Users/" + userId + "/Courses"}
-                                className="flex items-center mb-7 justify-center cursor-pointer gap-1 bg-gray text-white px-3 py-1 rounded"
+                                className="select-none flex items-center mb-7 justify-center cursor-pointer gap-1 bg-gray text-white px-3 py-1 rounded"
                             >
                                 {/* <IoIosNotifications /> */}
                                 User Courses
@@ -238,7 +239,7 @@ function Default() {
                                     userId +
                                     "/Courses_Requests"
                                 }
-                                className="flex items-center justify-center cursor-pointer gap-1 bg-gray text-white px-3 py-1 rounded"
+                                className="select-none flex items-center justify-center cursor-pointer gap-1 bg-gray text-white px-3 py-1 rounded"
                             >
                                 {/* <IoIosNotifications /> */}
                                 User Courses Requests
@@ -247,7 +248,7 @@ function Default() {
                         <div>
                             <Link
                                 to={"/Dashboard/Users/" + userId + "/Services"}
-                                className="flex items-center justify-center mb-7 gap-1 bg-gray text-white px-3 py-1 rounded"
+                                className="select-none flex items-center justify-center mb-7 gap-1 bg-gray text-white px-3 py-1 rounded"
                             >
                                 {/* <FaPen /> */}
                                 User Services
@@ -258,7 +259,7 @@ function Default() {
                                     userId +
                                     "/Services_Requests"
                                 }
-                                className="flex items-center justify-center gap-1 bg-gray text-white px-3 py-1 rounded"
+                                className="select-none flex items-center justify-center gap-1 bg-gray text-white px-3 py-1 rounded"
                             >
                                 {/* <FaPen /> */}
                                 User Services Requests

@@ -23,10 +23,9 @@ const WarningNotification = () => {
                             </div>
                             <Link
                                 to={"/verifyEmail"}
-                                className="  w-fit flex items-end justify-start gap-1"
+                                className="select-none  w-fit flex items-end justify-start gap-1"
                                 onClick={() => {
                                     setIsVisible(false);
-                                    
                                 }}
                             >
                                 <span className=" underline">

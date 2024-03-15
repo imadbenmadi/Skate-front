@@ -54,7 +54,7 @@ export function AboutUs() {
                       <div className="flex gap-5 justify-between pr-7 mt-10 text-2xl text-white whitespace-nowrap max-md:flex-wrap max-md:pr-5 max-md:mt-10 max-md:max-w-full">
                           <Link
                               to={"/Register"}
-                              className="  font-normal h-fit py-3  bg-green rounded-3xl  justify-center items-center px-8  bg-green-500  max-md:px-5"
+                              className=" select-none font-normal h-fit py-3  bg-green rounded-3xl  justify-center items-center px-8  bg-green-500  max-md:px-5"
                           >
                               Get Started
                           </Link>

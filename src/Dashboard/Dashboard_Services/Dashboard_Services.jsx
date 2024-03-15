@@ -16,7 +16,7 @@ function Dashboard_Services() {
             <div className=" flex items-center justify-center  gap-10 py-6 text-2xl">
                 <Link
                     to={"/Dashboard/Services"}
-                    className={`${
+                    className={`select-none ${
                         active == "Current"
                             ? "underline text-green"
                             : "text-gray"
@@ -26,7 +26,7 @@ function Dashboard_Services() {
                 </Link>
                 <Link
                     to={"/Dashboard/Services/Requests"}
-                    className={`${
+                    className={`select-none ${
                         active == "Requests"
                             ? "underline text-green"
                             : "text-gray"

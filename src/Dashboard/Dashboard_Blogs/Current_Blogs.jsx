@@ -61,7 +61,7 @@ function Current_Blogs() {
                     <div className="text-center text-gray">No Blogs Found</div>
                 </div>
                 <Link
-                    className="bg-green rounded cursor-pointer text-white text-xl
+                    className="select-none bg-green rounded cursor-pointer text-white text-xl
                      flex items-center gap-2 px-3 py-1 w-fit m-auto"
                     to={"/Dashboard/Blogs/Add"}
                 >
@@ -83,7 +83,7 @@ function Current_Blogs() {
                         <Search setSearch={setSearch} />
                     </div>
                     <Link
-                        className="bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1"
+                        className="select-none bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1"
                         to={"/Dashboard/Blogs/Add"}
                     >
                         <>

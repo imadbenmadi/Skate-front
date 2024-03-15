@@ -53,7 +53,7 @@ function Edit_Blog() {
         return (
             <>
                 <Link
-                    className="bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 w-fit m-auto"
+                    className="select-none bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 w-fit m-auto"
                     to={"/Dashboard/Blogs"}
                 >
                     <>
@@ -74,7 +74,7 @@ function Edit_Blog() {
         return (
             <div className=" ">
                 <Link
-                    className="bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 w-fit m-auto"
+                    className="select-none bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 w-fit m-auto"
                     to={"/Dashboard/Blogs"}
                 >
                     <>

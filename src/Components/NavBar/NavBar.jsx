@@ -73,10 +73,7 @@ function NavBar({ Active_nav, setActive_nav }) {
         >
             <div className=" h-full  flex shadow-lg bg-white justify-between items-center md:justify-around select-none ">
                 <div className=" p-2 ml-5 md:ml-0">
-                    <Link
-                        to={"/"}
-                        // onClick={() => setActive_nav("Home")}
-                    >
+                    <Link to={"/"} className="select-none">
                         <img
                             src={Logo}
                             alt="Logo"

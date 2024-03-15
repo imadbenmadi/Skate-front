@@ -1,6 +1,5 @@
 import React from "react";
 import Card from "./Card";
-import { Link } from "react-router-dom";
 import { IoWarning } from "react-icons/io5";
 function ExploreCourses({ search, filter, courses }) {
     if (courses.courses && Array.isArray(courses.courses)) {

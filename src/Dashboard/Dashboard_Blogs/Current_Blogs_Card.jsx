@@ -88,7 +88,6 @@ function Current_Blogs_Card({ item , onDelete}) {
                                 </p>
                             )}
                         </div>
-                        
                     </div>
                 </div>
                 {showDescription ? (
@@ -126,7 +125,7 @@ function Current_Blogs_Card({ item , onDelete}) {
                     <MdEdit /> Edit
                 </Link>
                 <div
-                    className="flex items-center justify-start gap-2 cursor-pointer text-white bg-red-600 text-xl px-2 py-1 rounded w-[100px]"
+                    className="select-none flex items-center justify-start gap-2 cursor-pointer text-white bg-red-600 text-xl px-2 py-1 rounded w-[100px]"
                     onClick={() => {
                         swal.fire({
                             title: "Are you sure you want to delete this Blog ?",
