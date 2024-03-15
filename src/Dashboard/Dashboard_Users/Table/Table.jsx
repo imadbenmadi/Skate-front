@@ -15,7 +15,6 @@ function Table() {
     const [error, setError] = useState(null);
     const [search, setSearch] = useState("");
     const [filter, setFilter] = useState("All");
-    const [open_add_user, setopen_add_user] = useState(false);
 
     const fetch_users = async () => {
         setLoading(true);

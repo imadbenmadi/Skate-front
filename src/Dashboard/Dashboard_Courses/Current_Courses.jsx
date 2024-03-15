@@ -6,10 +6,13 @@ import Current_Courses_Card from "./Current_Courses_Card";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import ErrorPage from "../../Components/ErrorPage";
+import Search from "./Search_Courses";
 function Current_Courses() {
     const [Courses, setCourses] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [search, setSearch] = useState("");
+
     const fetch_Courses = async () => {
         setLoading(true);
         try {
@@ -77,6 +80,9 @@ function Current_Courses() {
                     <div className="pl-4 text-gray font-semibold text-2xl">
                         <span className="text-green">Skate</span> Courses :
                     </div>
+                    <div className=" flex items-center">
+                        <Search setSearch={setSearch} />
+                    </div>
                     <Link
                         className="bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1"
                         to={"/Dashboard/Courses/Add"}
@@ -88,13 +94,40 @@ function Current_Courses() {
                     </Link>
                 </div>
                 <div>
-                    {Courses.map((item, index) => (
-                        <Current_Courses_Card
-                            key={index}
-                            item={item}
-                            onDelete={() => handleDeleteCourse(item._id)}
-                        />
-                    ))}
+                    {!search &&
+                        Courses.map((Course, index) => (
+                            <Current_Courses_Card
+                                item={Course}
+                                key={index}
+                                onDelete={() => handleDeleteCourse(Course._id)}
+                            />
+                        ))}
+
+                    {search &&
+                        Courses.filter((Course) =>
+                            Course.Title.toLowerCase().includes(
+                                search.toLowerCase()
+                            )
+                        ).map((Course, index) => (
+                            <Current_Courses_Card
+                                item={Course}
+                                key={index}
+                                onDelete={() => handleDeleteCourse(Course._id)}
+                            />
+                        ))}
+                    {search &&
+                        Courses.filter((Course) =>
+                            Course.Title.toLowerCase().includes(
+                                search.toLowerCase()
+                            )
+                        ).length === 0 && (
+                            <div className=" py-2  text-gray text-xl h-[80px] ">
+                                <div className="flex justify-center items-center w-full text-center gap-1">
+                                    <IoWarning className="text-red-600 text-3xl" />
+                                    No Courses match the search query
+                                </div>
+                            </div>
+                        )}
                 </div>
             </div>
         );

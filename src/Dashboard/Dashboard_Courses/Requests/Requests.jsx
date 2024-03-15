@@ -2,12 +2,16 @@ import React from "react";
 import { IoWarning } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import axios from "axios";
-import ErrorPage from "../../Components/ErrorPage";
+import ErrorPage from "../../../Components/ErrorPage";
 import Requests_item from "./Requests_item";
+import Search from "./Search_Request";
+
 function Requests() {
     const [Requests, setRequests] = useState(null);
     const [error, setError] = useState(null);
     const [loading, setLoading] = useState(false);
+    const [search, setSearch] = useState("");
+
     const fetch_Requests = async () => {
         try {
             setLoading(true);
@@ -58,6 +62,9 @@ function Requests() {
         );
     return (
         <div className="relative shadow-md mt-[20px]">
+            <div className=" flex items-center">
+                <Search setSearch={setSearch} />
+            </div>
             <table className="w-full text-sm rtl:text-right text-black_text relative  ">
                 <thead className="text-xs uppercase text-center h-[40px] sticky top-0 bg-white">
                     <tr className="border-y-2">
@@ -98,13 +105,74 @@ function Requests() {
                             </td>
                         </tr>
                     )}
-                    {Requests.map((request , index) => (
-                        <Requests_item
-                            request={request}
-                            key={index}
-                            onDelete={() => handleDeleteRequest(request._id)}
-                        />
-                    ))}
+                    {!search &&
+                        Requests.map((request, index) => (
+                            <Requests_item
+                                request={request}
+                                key={index}
+                                onDelete={() =>
+                                    handleDeleteRequest(request._id)
+                                }
+                            />
+                        ))}
+                    {search &&
+                        Requests.filter(
+                            (request) =>
+                                request.User.FirstName.toLowerCase().includes(
+                                    search.toLowerCase()
+                                ) ||
+                                request.User.LastName.toLowerCase().includes(
+                                    search.toLowerCase()
+                                ) ||
+                                request.User.Email.toLowerCase().includes(
+                                    search.toLowerCase()
+                                ) ||
+                                request.User.Telephone.toLowerCase().includes(
+                                    search.toLowerCase()
+                                ) ||
+                                request.Course.Title.toLowerCase().includes(
+                                    search.toLowerCase()
+                                )
+                        ).map((request, index) => (
+                            <Requests_item
+                                request={request}
+                                key={index}
+                                onDelete={() =>
+                                    handleDeleteRequest(request._id)
+                                }
+                            />
+                        ))}
+                    {search &&
+                        Requests.filter(
+                            (request) =>
+                                request.User.FirstName.toLowerCase().includes(
+                                    search.toLowerCase()
+                                ) ||
+                                request.User.LastName.toLowerCase().includes(
+                                    search.toLowerCase()
+                                ) ||
+                                request.User.Email.toLowerCase().includes(
+                                    search.toLowerCase()
+                                ) ||
+                                request.User.Telephone.toLowerCase().includes(
+                                    search.toLowerCase()
+                                ) ||
+                                request.Course.Title.toLowerCase().includes(
+                                    search.toLowerCase()
+                                )
+                        ).length === 0 && (
+                            <tr className="  h-[80px] text-center ">
+                                <td
+                                    colSpan="8"
+                                    className=" py-2  text-gray text-xl"
+                                >
+                                    <div className="flex justify-center items-center gap-1">
+                                        <IoWarning className="text-red-600 text-3xl" />
+                                        No Requests match the search query
+                                    </div>
+                                </td>
+                            </tr>
+                        )}
                 </tbody>
             </table>
         </div>

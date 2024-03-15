@@ -43,13 +43,13 @@ import Dashboard_User_Services_Requests from "./Dashboard/Dashboard_Users/User/S
 import Dashboard_Courses from "./Dashboard/Dashboard_Courses/Dashboard_Courses";
 import Add_Course from "./Dashboard/Dashboard_Courses/Add_Course";
 import Current_Skate_Courses from "./Dashboard/Dashboard_Courses/Current_Courses";
-import Courses_Requests from "./Dashboard/Dashboard_Courses/Requests";
+import Courses_Requests from "./Dashboard/Dashboard_Courses/Requests/Requests";
 import Edit_Course from "./Dashboard/Dashboard_Courses/Edit_Course";
 
 import Dashboard_Services from "./Dashboard/Dashboard_Services/Dashboard_Services";
 import Add_Service from "./Dashboard/Dashboard_Services/Add_Service";
 import Current_Skate_Services from "./Dashboard/Dashboard_Services/Current_Services";
-import Services_Requests from "./Dashboard/Dashboard_Services/Requests";
+import Services_Requests from "./Dashboard/Dashboard_Services/Requests/Requests";
 import Edit_Service from "./Dashboard/Dashboard_Services/Edit_Service";
 
 import Dashboard_Events from "./Dashboard/Dashboard_Events/Dashboard_Events";

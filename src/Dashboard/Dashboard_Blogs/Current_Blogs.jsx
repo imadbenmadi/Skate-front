@@ -6,10 +6,14 @@ import Current_Blogs_Card from "./Current_Blogs_Card";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ErrorPage from "../../Components/ErrorPage";
+import Search from "./Search_Blogs";
+
 function Current_Blogs() {
     const [Blogs, setBlogs] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [search, setSearch] = useState("");
+
     const fetch_Blogs = async () => {
         setLoading(true);
         try {
@@ -75,6 +79,9 @@ function Current_Blogs() {
                     <div className="pl-4 text-gray font-semibold text-2xl">
                         <span className="text-green">Skate</span> Blogs :
                     </div>
+                    <div className=" flex items-center">
+                        <Search setSearch={setSearch} />
+                    </div>
                     <Link
                         className="bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1"
                         to={"/Dashboard/Blogs/Add"}
@@ -86,13 +93,40 @@ function Current_Blogs() {
                     </Link>
                 </div>
                 <div>
-                    {Blogs.map((item, index) => (
-                        <Current_Blogs_Card
-                            key={index}
-                            item={item}
-                            onDelete={() => handleDeleteBlog(item._id)}
-                        />
-                    ))}
+                    {!search &&
+                        Blogs.map((Blog, index) => (
+                            <Current_Blogs_Card
+                                item={Blog}
+                                key={index}
+                                onDelete={() => handleDeleteBlog(Blog._id)}
+                            />
+                        ))}
+
+                    {search &&
+                        Blogs.filter((Blog) =>
+                            Blog.Title.toLowerCase().includes(
+                                search.toLowerCase()
+                            )
+                        ).map((Blog, index) => (
+                            <Current_Blogs_Card
+                                item={Blog}
+                                key={index}
+                                onDelete={() => handleDeleteBlog(Blog._id)}
+                            />
+                        ))}
+                    {search &&
+                        Blogs.filter((Blog) =>
+                            Blog.Title.toLowerCase().includes(
+                                search.toLowerCase()
+                            )
+                        ).length === 0 && (
+                            <div className=" py-2  text-gray text-xl h-[80px] ">
+                                <div className="flex justify-center items-center w-full text-center gap-1">
+                                    <IoWarning className="text-red-600 text-3xl" />
+                                    No Blogs match the search query
+                                </div>
+                            </div>
+                        )}
                 </div>
             </div>
         );
