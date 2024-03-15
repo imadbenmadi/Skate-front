@@ -103,7 +103,7 @@ function App() {
                     <span className="loader"></span>
                 </div>
             ) : (
-                <div className="relative h-screen overflow-auto custom-overflow ">
+                <div className="relative h-screen overflow-y-auto custom-overflow overflow-x-hidden ">
                     <NavBar
                         Active_nav={Active_nav}
                         setActive_nav={setActive_nav}
