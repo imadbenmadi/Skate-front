@@ -220,7 +220,7 @@ function Laptop_Nav_Items({
                             <Link to={"/Login"}>Login</Link>
                         </span>
                         <span className="bg-blue text-[#fff] px-3 py-1 text-xl rounded-lg cursor-pointer">
-                            <Link to={"/Register"}>Get Started</Link>
+                            <Link to={"/Register"}>SignUp</Link>
                         </span>
                     </>
                 )}
