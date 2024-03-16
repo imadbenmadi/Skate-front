@@ -208,12 +208,8 @@ function ServiceItem() {
                         )}
                     </div>
                 </div>
-                <div className="   break-all  border-gray pl-4 w-calc(100vw - 400px) text-lg">
-                    <p className="text-gray">
-                        {service.Text &&
-                            service.Text.slice(0, 300) +
-                                (service.Text.length > 300 ? "..." : "")}
-                    </p>
+                <div className="   break-words  border-gray pl-4 w-calc(100vw - 400px) text-lg">
+                    <p className="text-gray">{service.Text && service.Text}</p>
                     <p className="text-gray  text-[16px] ">
                         Category :{" "}
                         <span className="font-semibold">

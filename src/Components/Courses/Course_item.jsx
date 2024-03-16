@@ -24,13 +24,13 @@ function CourseItem() {
 
     useEffect(() => {
         if (Courses) {
-            // console.log("Courses:", Courses);
+            console.log("Courses:", Courses);
             const CourseId = location.pathname.split("/")[2];
             const alreadyHaveCourse = Courses.some(
                 (Course) => Course == CourseId
             );
 
-            // console.log("Already have Course:", alreadyHaveCourse);
+            console.log("Already have Course:", alreadyHaveCourse);
             setAlreadyHaveCourse(alreadyHaveCourse);
         }
     }, [Courses]);
@@ -92,6 +92,7 @@ function CourseItem() {
 
     const fetchCourse = async () => {
         setLoading(true);
+
         try {
             const response = await axios.get(
                 `http://localhost:3000/Courses/${
@@ -140,11 +141,11 @@ function CourseItem() {
                 <IoMdArrowRoundBack />
                 <div>Back to Courses</div>
             </Link>
-            <h2 className="text-xl font-bold mb-4 pl-2 md:pl-6 w-fit m-auto max-w-[80vw]  break-words ">
+            <h2 className="text-xl font-bold mb-4 pl-2 md:pl-6 w-fit m-auto max-w-[80vw]  break-all ">
                 {Course.Title && Course.Title}
             </h2>
-            <div className="flex flex-col md:flex-row    gap-3">
-                <div className="">
+            <div className="flex flex-col md:flex-row     gap-3">
+                <div className="shrink-0">
                     <img
                         src={img}
                         alt=""
@@ -161,9 +162,9 @@ function CourseItem() {
                             <>
                                 <div>
                                     {Course.Price && (
-                                        <div className="text-gray font-semibold text-xl ">
+                                        <p className="text-gray font-semibold text-xl">
                                             {Course.Price}DA
-                                        </div>
+                                        </p>
                                     )}
                                 </div>
                                 <div
@@ -208,12 +209,7 @@ function CourseItem() {
                     </div>
                 </div>
                 <div className="   break-words  border-gray pl-4 w-calc(100vw - 400px) text-lg">
-                    <p className="text-gray">
-                        {Course.Text &&
-                            Course.Text.slice(0, 300) +
-                                (Course.Text.length > 300 ? "..." : "")}
-                    </p>
-
+                    <p className="text-gray">{Course.Text && Course.Text}</p>
                     <p className="text-gray  text-[16px] ">
                         Category :{" "}
                         <span className="font-semibold">

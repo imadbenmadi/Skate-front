@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios"; // Import axios for making HTTP requests
 import { useAppContext } from "../../Context/AppContext";
-import Current_Courses from "./Current/Current_Courses";
 import Explore from "./Explore/Explore";
 import ErrorPage from "../ErrorPage";
 import Footer from "../Footer";
