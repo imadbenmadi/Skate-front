@@ -196,7 +196,7 @@ const routes = createBrowserRouter([
             { path: "/Blogs/:id", element: <Blogs_item /> },
             {
                 path: "/Profile",
-                element: <Not_Finished />,
+                element: <Profile />,
                 children: [
                     { index: true, element: <Info /> },
                     {
