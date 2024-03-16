@@ -18,7 +18,7 @@ function Mobile_Nav_Items({
     Logout,
     LogoutClicked,
 }) {
-    const { isAuth } = useAppContext();
+    const { isAuth , _id } = useAppContext();
     const handleSettingsClick = () => {
         Swal.fire({
             title: "Settings",
@@ -69,7 +69,7 @@ function Mobile_Nav_Items({
                         <>
                             <Link
                                 onClick={Toogle_Menu_Bar}
-                                to={"/Profile"}
+                                to={`/Profile/${_id}`}
                                 className="select-none flex  items-center gap-2 mb-4 "
                             >
                                 <FaUserTie className="text-2xl" />
@@ -78,7 +78,7 @@ function Mobile_Nav_Items({
 
                             <Link
                                 onClick={Toogle_Menu_Bar}
-                                to={"/Profile/Notifications"}
+                                to={`/Profile/${_id}/Notifications`}
                                 className="select-none flex mb-4 "
                             >
                                 <MdNotificationsNone className=" text-3xl" />

@@ -8,10 +8,14 @@ function Profile() {
     const [Active_nav, setActive_nav] = useState(null);
     const [openNav, SetOpenNav] = useState(false);
     const [windowWidth, SetwindowWidth] = useState(window.innerWidth);
+    const [user, setUser] = useState(null)
     useEffect(() => {
-        SetwindowWidth(window.innerWidth);
-        console.log(windowWidth);
-    }, [window.innerWidth]);
+        window.addEventListener("resize", () => {
+            SetwindowWidth(window.innerWidth);
+        });
+    }, []);
+    
+    
     const {
         isAuth,
         _id,
@@ -24,6 +28,8 @@ function Profile() {
         Notifications,
         IsEmailVerified,
     } = useAppContext();
+    if(!_id) return <div>loading</div>
+    
     return (
         <div className=" flex">
             {windowWidth < 768 ? (

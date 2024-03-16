@@ -183,32 +183,32 @@ const routes = createBrowserRouter([
         ],
     },
     {
-        path: "/Profile",
+        path: "/Profile/:id",
         element: <Profile />,
         children: [
             { index: true, element: <ProfileInfo /> },
             {
-                path: "/Profile/Edit",
+                path: "/Profile/:id/Edit",
                 element: <Profile_Edit />,
             },
             {
-                path: "/Profile/Notifications",
+                path: "/Profile/:id/Notifications",
                 element: <Not_Finished />,
             },
             {
-                path: "/Profile/Notifications/:id",
+                path: "/Profile/:id/Notifications/:id",
                 element: <Not_Finished />,
             },
             {
-                path: "/Profile/Courses",
+                path: "/Profile/:id/Courses",
                 element: <Not_Finished />,
             },
             {
-                path: "/Profile/Services",
+                path: "/Profile/:id/Services",
                 element: <Not_Finished />,
             },
             {
-                path: "/Profile/Requests",
+                path: "/Profile/:id/Requests",
                 element: <Profile_Requests />,
             },
         ],

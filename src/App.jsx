@@ -37,6 +37,7 @@ function App() {
                 set_Auth(false);
                 setLoading(false);
             } else if (response.status == 200) {
+                console.log(response.data.userData);
                 const _id = response.data.userData._id;
                 const Email = response.data.userData.Email;
                 const FirstName = response.data.userData.FirstName;

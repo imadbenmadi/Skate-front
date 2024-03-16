@@ -85,7 +85,7 @@ function Navbar({ Active_nav, setActive_nav }) {
                 </Link>
 
                 <div
-                    className={` flex items-center gap-3 cursor-pointer text-xl pt-10 text-green `}
+                    className={` flex items-center gap-3 cursor-pointer text-xl  text-green `}
                     onClick={() => {
                         Navigate("/");
                     }}

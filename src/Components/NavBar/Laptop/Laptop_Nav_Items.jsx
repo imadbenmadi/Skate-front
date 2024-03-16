@@ -17,7 +17,7 @@ function Laptop_Nav_Items({
     Logout,
     LogoutClicked,
 }) {
-    const { Notifications } = useAppContext();
+    const { Notifications, _id } = useAppContext();
     const [User_menu_open, setUser_menu_open] = useState(false);
     const [Notifications_open, setNotifications_open] = useState(false);
     const handleSettingsClick = () => {
@@ -139,7 +139,7 @@ function Laptop_Nav_Items({
                             onMouseLeave={() => setNotifications_open(false)}
                         >
                             <Link
-                                to={"/Profile/Notifications"}
+                                to={`/Profile/${_id}/Notifications`}
                                 className="flex items-center h-full select-none"
                             >
                                 <MdNotificationsNone className="text-gray text-2xl cursor-pointer h-full" />
@@ -159,8 +159,8 @@ function Laptop_Nav_Items({
                             )}
                         </div>
                         <Link
-                            to={"/Profile"}
-                            className="select-none h-full select-none"
+                            to={`/Profile/${_id}`}
+                            className="select-none h-full "
                             onMouseEnter={() => setUser_menu_open(true)}
                             onMouseLeave={() => setUser_menu_open(false)}
                         >
@@ -175,7 +175,7 @@ function Laptop_Nav_Items({
                                     }
                                 >
                                     <Link
-                                        to={`/Profile`}
+                                        to={`/Profile/${_id}`}
                                         className="select-none flex items-center gap-3 pl-4 mb-1 "
                                         onClick={() => setUser_menu_open(false)}
                                     >
