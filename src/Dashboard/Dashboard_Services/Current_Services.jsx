@@ -15,10 +15,13 @@ function Current_Services() {
     const fetch_Services = async () => {
         setLoading(true);
         try {
-            const response = await axios.get("http://localhost:3000/Services", {
-                withCredentials: true,
-                validateStatus: () => true,
-            });
+            const response = await axios.get(
+                "https://backend.skate-consult.com/Services",
+                {
+                    withCredentials: true,
+                    validateStatus: () => true,
+                }
+            );
             if (response.status == 200) {
                 setServices(response.data.services);
             } else {
@@ -44,9 +47,9 @@ function Current_Services() {
                 <span className="loader"></span>
             </div>
         );
-     if (error) {
-         return <ErrorPage />;
-     }
+    if (error) {
+        return <ErrorPage />;
+    }
     if (!Services) return null;
     else if (Services.length === 0)
         return (

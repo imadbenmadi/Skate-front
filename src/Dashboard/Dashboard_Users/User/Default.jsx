@@ -28,7 +28,7 @@ function Default() {
 
         try {
             const response = await axios.get(
-                `http://localhost:3000/Dashboard/Users/${userId}`,
+                `https://backend.skate-consult.com/Dashboard/Users/${userId}`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,
@@ -60,7 +60,7 @@ function Default() {
     async function handle_delete_user() {
         try {
             const response = await axios.delete(
-                `http://localhost:3000/Dashboard/Users/${userId}`,
+                `https://backend.skate-consult.com/Dashboard/Users/${userId}`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,
@@ -270,7 +270,6 @@ function Default() {
             )}
         </div>
     );
-
 }
 
 export default Default;

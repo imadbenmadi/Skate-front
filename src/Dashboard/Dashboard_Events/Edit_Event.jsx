@@ -20,7 +20,7 @@ function Edit_Event() {
         setLoading(true);
         try {
             const response = await axios.get(
-                `http://localhost:3000/Events/${Event_id}`,
+                `https://backend.skate-consult.com/Events/${Event_id}`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,
@@ -110,7 +110,7 @@ function Edit_Event() {
                             try {
                                 setSubmitting(true);
                                 let response = await Axios.put(
-                                    `http://localhost:3000/Dashboard/Events/${Event_id}`,
+                                    `https://backend.skate-consult.com/Dashboard/Events/${Event_id}`,
                                     values,
                                     {
                                         withCredentials: true,

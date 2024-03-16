@@ -20,7 +20,7 @@ function Edit_Course() {
         setLoading(true);
         try {
             const response = await axios.get(
-                `http://localhost:3000/Courses/${Course_id}`,
+                `https://backend.skate-consult.com/Courses/${Course_id}`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,
@@ -120,7 +120,7 @@ function Edit_Course() {
                             try {
                                 setSubmitting(true);
                                 let response = await Axios.put(
-                                    `http://localhost:3000/Dashboard/Courses/${Course_id}`,
+                                    `https://backend.skate-consult.com/Dashboard/Courses/${Course_id}`,
                                     values,
                                     {
                                         withCredentials: true,

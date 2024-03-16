@@ -10,7 +10,7 @@ import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import swal from "sweetalert2";
 import axios from "axios";
-function Card({course}) {
+function Card({ course }) {
     const [user, setUser] = useOutletContext();
     if (!user) return null;
     const userId = user._id;
@@ -24,7 +24,7 @@ function Card({course}) {
         try {
             setDeleteLoading(true);
             const response = await axios.delete(
-                `http://localhost:3000/Dashboard/Users/${userId}/Courses/${Course._id}`,
+                `https://backend.skate-consult.com/Dashboard/Users/${userId}/Courses/${Course._id}`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,

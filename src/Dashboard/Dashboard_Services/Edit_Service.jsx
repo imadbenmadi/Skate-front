@@ -20,7 +20,7 @@ function Edit_Service() {
         setLoading(true);
         try {
             const response = await axios.get(
-                `http://localhost:3000/Services/${Service_id}`,
+                `https://backend.skate-consult.com/Services/${Service_id}`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,
@@ -120,7 +120,7 @@ function Edit_Service() {
                             try {
                                 setSubmitting(true);
                                 let response = await Axios.put(
-                                    `http://localhost:3000/Dashboard/Services/${Service_id}`,
+                                    `https://backend.skate-consult.com/Dashboard/Services/${Service_id}`,
                                     values,
                                     {
                                         withCredentials: true,

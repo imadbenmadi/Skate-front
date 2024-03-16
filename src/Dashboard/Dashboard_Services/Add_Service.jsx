@@ -57,7 +57,7 @@ function Add_Service() {
                             setSubmitting(true);
 
                             let response = await Axios.post(
-                                "http://localhost:3000/Dashboard/Services",
+                                "https://backend.skate-consult.com/Dashboard/Services",
                                 values,
                                 {
                                     withCredentials: true,

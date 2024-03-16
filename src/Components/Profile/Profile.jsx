@@ -13,7 +13,7 @@ function Profile() {
     const [Active_nav, setActive_nav] = useState(null);
     const [openNav, SetOpenNav] = useState(false);
     const [windowWidth, SetwindowWidth] = useState(window.innerWidth);
-    const [user, setUser] = useState(null)
+    const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     useEffect(() => {
@@ -25,7 +25,7 @@ function Profile() {
         setLoading(true);
         try {
             const response = await axios.get(
-                `http://localhost:3000/Profile/${
+                `https://backend.skate-consult.com/Profile/${
                     location.pathname.split("/")[2]
                 }`,
                 {
@@ -34,22 +34,21 @@ function Profile() {
                 }
             );
             if (response.status === 200) {
-                setUser(response.data.userData); 
+                setUser(response.data.userData);
             } else {
                 Navigate("/Login");
             }
         } catch (error) {
-            setError(error); 
+            setError(error);
         } finally {
             setLoading(false);
         }
     };
 
-    
     useEffect(() => {
         fetchData();
     }, []);
-    
+
     if (loading)
         return (
             <div className=" w-screen h-screen flex items-center justify-center">

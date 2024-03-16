@@ -61,7 +61,7 @@ function Notifications() {
                     onSubmit={async (values, { setSubmitting }) => {
                         try {
                             let response = await Axios.post(
-                                "http://localhost:3000/Dashboard/Users/" +
+                                "https://backend.skate-consult.com/Dashboard/Users/" +
                                     userId +
                                     "/Notify",
                                 values,
@@ -248,14 +248,14 @@ function Notifications() {
                     )}
                 </Formik>
             </div>
-            <div className=" m-auto w-fit mt-12">
+            {/* <div className=" m-auto w-fit mt-12">
                 <Link
                     to={`/Dashboard/Users/${userId}/Current_Notifications`}
                     className="select-none bg-green text-white font-bold py-2 px-4 rounded"
                 >
                     View User Current Notifications
                 </Link>
-            </div>
+            </div> */}
         </div>
     );
 }

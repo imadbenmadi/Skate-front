@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
-import { Formate_Date_NoYear } from "../../../Logic/Formate_Date"; 
+import { Formate_Date_NoYear } from "../../../Logic/Formate_Date";
 
 import { useState } from "react";
 function Requests_item({ request, onDelete }) {
@@ -13,7 +13,7 @@ function Requests_item({ request, onDelete }) {
         try {
             setAccept_Loading(true);
             const response = await axios.post(
-                "http://localhost:3000/Dashboard/Courses/Requests/Accept",
+                "https://backend.skate-consult.com/Dashboard/Courses/Requests/Accept",
                 { UserId, CourseId },
                 {
                     withCredentials: true,
@@ -75,7 +75,7 @@ function Requests_item({ request, onDelete }) {
         try {
             setReject_Loading(true);
             const response = await axios.post(
-                "http://localhost:3000/Dashboard/Courses/Requests/Reject",
+                "https://backend.skate-consult.com/Dashboard/Courses/Requests/Reject",
                 { UserId, CourseId },
                 {
                     withCredentials: true,

@@ -45,7 +45,7 @@ function Add_Event() {
                             setSubmitting(true);
 
                             let response = await Axios.post(
-                                "http://localhost:3000/Dashboard/Events",
+                                "https://backend.skate-consult.com/Dashboard/Events",
                                 values,
                                 {
                                     withCredentials: true,
