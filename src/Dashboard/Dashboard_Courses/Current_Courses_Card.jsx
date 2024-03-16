@@ -15,7 +15,7 @@ function Current_Courses_Card({ item, onDelete }) {
     async function handle_delete_Course(course) {
         try {
             const response = await axios.delete(
-                `http://localhost:3000/Dashboard/Courses/${course._id}`,
+                `https://backend.skate-consult.com/Dashboard/Courses/${course._id}`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,

@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
-import { Formate_Date_NoYear } from "../../../Logic/Formate_Date"; 
+import { Formate_Date_NoYear } from "../../../Logic/Formate_Date";
 import { useState } from "react";
 function Requests_item({ request, onDelete }) {
     const Navigate = useNavigate();
@@ -12,7 +12,7 @@ function Requests_item({ request, onDelete }) {
         try {
             setAccept_Loading(true);
             const response = await axios.post(
-                "http://localhost:3000/Dashboard/Services/Requests/Accept",
+                "https://backend.skate-consult.com/Dashboard/Services/Requests/Accept",
                 { UserId, ServiceId },
                 {
                     withCredentials: true,
@@ -74,7 +74,7 @@ function Requests_item({ request, onDelete }) {
         try {
             setReject_Loading(true);
             const response = await axios.post(
-                "http://localhost:3000/Dashboard/Services/Requests/Reject",
+                "https://backend.skate-consult.com/Dashboard/Services/Requests/Reject",
                 { UserId, ServiceId },
                 {
                     withCredentials: true,

@@ -57,7 +57,7 @@ function Add_Course() {
                             setSubmitting(true);
 
                             let response = await Axios.post(
-                                "http://localhost:3000/Dashboard/Courses",
+                                "https://backend.skate-consult.com/Dashboard/Courses",
                                 values,
                                 {
                                     withCredentials: true,

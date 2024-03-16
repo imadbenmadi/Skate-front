@@ -17,7 +17,7 @@ function Blog_item() {
         setLoading(true);
         try {
             const response = await axios.get(
-                `http://localhost:3000/Blogs/${
+                `https://backend.skate-consult.com/Blogs/${
                     location.pathname.split("/")[2]
                 }`,
                 {

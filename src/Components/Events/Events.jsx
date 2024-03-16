@@ -24,10 +24,13 @@ function Event() {
         setLoading(true);
 
         try {
-            const response = await axios.get("http://localhost:3000/Events", {
-                withCredentials: true,
-                validateStatus: () => true,
-            });
+            const response = await axios.get(
+                "https://backend.skate-consult.com/Events",
+                {
+                    withCredentials: true,
+                    validateStatus: () => true,
+                }
+            );
 
             if (response.status == 200) {
                 const { totalPages, events } = response.data;
@@ -87,10 +90,7 @@ function Event() {
                             </div>
                         ) : search == "" ? (
                             events.map((event) => (
-                                <div
-                                    key={event._id}
-                                    className=""
-                                >
+                                <div key={event._id} className="">
                                     <Card event={event} />
                                 </div>
                             ))
@@ -100,10 +100,7 @@ function Event() {
                             </div>
                         ) : (
                             filteredEvents.map((event) => (
-                                <div
-                                    key={event._id}
-                                    className=""
-                                >
+                                <div key={event._id} className="">
                                     <Card event={event} />
                                 </div>
                             ))

@@ -17,7 +17,7 @@ function Courses_Requests() {
         try {
             setLoading(true);
             const response = await axios.get(
-                `http://localhost:3000/Dashboard/Users/${user._id}/Courses/Requests`,
+                `https://backend.skate-consult.com/Dashboard/Users/${user._id}/Courses/Requests`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,

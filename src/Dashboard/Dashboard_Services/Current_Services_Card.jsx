@@ -6,7 +6,7 @@ import axios from "axios";
 import img from "../../../public/wallpaper.jpg";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
-function Current_Services_Card({ item , onDelete}) {
+function Current_Services_Card({ item, onDelete }) {
     const [showDescription, setShowDescription] = useState(false);
     const Navigate = useNavigate();
     function toggleDescription() {
@@ -15,21 +15,22 @@ function Current_Services_Card({ item , onDelete}) {
     async function handle_delete_Service(Service) {
         try {
             const response = await axios.delete(
-                `http://localhost:3000/Dashboard/Services/${Service._id}`,
+                `https://backend.skate-consult.com/Dashboard/Services/${Service._id}`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,
                 }
             );
             if (response.status == 200) {
-                onDelete(); 
+                onDelete();
                 swal.fire("Service Deleted Successfully", "", "success");
-                
-            }
-            else if (response.status == 404) {
-                swal.fire(" Service Not found ", " Refresh the page please", "info");
-            }
-            else if (response.status == 401) {
+            } else if (response.status == 404) {
+                swal.fire(
+                    " Service Not found ",
+                    " Refresh the page please",
+                    "info"
+                );
+            } else if (response.status == 401) {
                 swal.fire({
                     title: "Unauthorised Action",
                     text: "You should Login again ",

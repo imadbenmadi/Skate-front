@@ -16,21 +16,22 @@ function Blogs() {
     const handleSearch = (e) => {
         const searchTerm = e.target.value.toLowerCase();
         setSearch(searchTerm);
-        const filtered = blogs.filter(
-            (blog) =>
-                blog.Title.toLowerCase().includes(searchTerm) 
+        const filtered = blogs.filter((blog) =>
+            blog.Title.toLowerCase().includes(searchTerm)
         );
         setFilteredBlogs(filtered);
     };
 
-
     const fetchBlogs = async () => {
         setLoading(true);
         try {
-            const response = await axios.get("http://localhost:3000/Blogs", {
-                withCredentials: true,
-                validateStatus: () => true,
-            });
+            const response = await axios.get(
+                "https://backend.skate-consult.com/Blogs",
+                {
+                    withCredentials: true,
+                    validateStatus: () => true,
+                }
+            );
 
             if (response.status == 200) {
                 const { totalPages, blogs } = response.data;
@@ -91,10 +92,7 @@ function Blogs() {
                         ) : search == "" ? (
                             blogs.map((blog) => (
                                 <>
-                                    <div
-                                        key={blog._id}
-                                        className=""
-                                    >
+                                    <div key={blog._id} className="">
                                         <Card blog={blog} />
                                     </div>
                                     <div></div>

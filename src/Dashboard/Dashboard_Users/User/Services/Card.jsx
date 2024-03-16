@@ -21,7 +21,7 @@ function Card({ Service }) {
         try {
             setDeleteLoading(true);
             const response = await axios.delete(
-                `http://localhost:3000/Dashboard/Users/${userId}/Services/${Service._id}`,
+                `https://backend.skate-consult.com/Dashboard/Users/${userId}/Services/${Service._id}`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,

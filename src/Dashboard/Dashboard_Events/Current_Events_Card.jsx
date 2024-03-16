@@ -16,7 +16,7 @@ function Current_Events_Card({ item, onDelete }) {
     async function handle_delete_Event(Event) {
         try {
             const response = await axios.delete(
-                `http://localhost:3000/Dashboard/Events/${Event._id}`,
+                `https://backend.skate-consult.com/Dashboard/Events/${Event._id}`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,

@@ -46,7 +46,7 @@ function Add_Blog() {
                             setSubmitting(true);
 
                             let response = await Axios.post(
-                                "http://localhost:3000/Dashboard/Blogs",
+                                "https://backend.skate-consult.com/Dashboard/Blogs",
                                 values,
                                 {
                                     withCredentials: true,
