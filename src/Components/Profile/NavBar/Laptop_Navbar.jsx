@@ -27,10 +27,10 @@ function Navbar({ Active_nav, setActive_nav, userId }) {
             <div className=" w-full h-[1px] bg-white my-6"></div>
             {/* nav items */}
 
-            <div className=" w-[95%]  md:w-[80%] m-auto text-white text-sm md:text-xl  lg:text-2xl flex flex-col gap-10 mt-8">
+            <div className=" w-[95%]  md:w-[80%] m-auto text-white  text-sm md:text-xl  lg:text-2xl flex flex-col gap-10 mt-8">
                 <Link
                     to={`/Profile/${userId}`}
-                    className={` flex items-center cursor-pointer ${
+                    className={` flex items-center cursor-pointer gap-3 ${
                         !location.pathname.split("/")[3] && "text-green "
                     }`}
                 >
@@ -90,7 +90,7 @@ function Navbar({ Active_nav, setActive_nav, userId }) {
                         Navigate("/");
                     }}
                 >
-                    <TbWorld className=" shrink-0"/>
+                    <TbWorld className=" shrink-0" />
                     <div className=" text-sm">Back to the Website</div>
                 </div>
             </div>

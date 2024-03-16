@@ -1,12 +1,14 @@
 import React from "react";
 import Laptop_Navbar from "./NavBar/Laptop_Navbar";
 import Mobile_NavBar from "./NavBar/Mobile_NavBar";
-import { Outlet } from "react-router";
+import { Outlet } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useLocation } from "react-router";
 import ErrorPage from "../ErrorPage";
+import { useNavigate } from "react-router";
 function Profile() {
+    const Navigate = useNavigate();
     const location = useLocation();
     const [Active_nav, setActive_nav] = useState(null);
     const [openNav, SetOpenNav] = useState(false);
@@ -32,9 +34,9 @@ function Profile() {
                 }
             );
             if (response.status === 200) {
-                setUser(response.data.userData.user); 
+                setUser(response.data.userData); 
             } else {
-                console.log(response.data);
+                Navigate("/Login");
             }
         } catch (error) {
             setError(error); 
@@ -85,7 +87,7 @@ function Profile() {
                                 : "w-[85%] h-screen overflow-auto custom-overflow"
                         }
                     >
-                        <Outlet />
+                        <Outlet context={[user, setUser]} />
                     </div>
                 </>
             ) : (
@@ -98,7 +100,7 @@ function Profile() {
                         />
                     </div>
                     <div className="w-[80%]   h-screen overflow-auto custom-overflow  ">
-                        <Outlet context={user} />
+                        <Outlet context={[user, setUser]} />
                     </div>
                 </>
             )}
