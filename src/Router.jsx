@@ -21,7 +21,8 @@ import ProfileInfo from "./Components/Profile/ProfileInfo";
 import Profile_Services from "./Components/Profile/Profile_Services";
 import Profile_Notifications from "./Components/Profile/Profile_Notifications";
 import Profile_Courses from "./Components/Profile/Profile_Courses";
-
+import Profile_Edit from "./Components/Profile/Profile_Edit"; 
+import Profile_Requests from "./Components/Profile/Requests";
 
 import Not_Found from "./Components/Not_Found";
 import Dashboard from "./Dashboard/Dashboard";
@@ -182,6 +183,37 @@ const routes = createBrowserRouter([
         ],
     },
     {
+        path: "/Profile",
+        element: <Profile />,
+        children: [
+            { index: true, element: <ProfileInfo /> },
+            {
+                path: "/Profile/Edit",
+                element: <Profile_Edit />,
+            },
+            {
+                path: "/Profile/Notifications",
+                element: <Not_Finished />,
+            },
+            {
+                path: "/Profile/Notifications/:id",
+                element: <Not_Finished />,
+            },
+            {
+                path: "/Profile/Courses",
+                element: <Not_Finished />,
+            },
+            {
+                path: "/Profile/Services",
+                element: <Not_Finished />,
+            },
+            {
+                path: "/Profile/Requests",
+                element: <Profile_Requests />,
+            },
+        ],
+    },
+    {
         path: "/",
         element: <App />,
         children: [
@@ -195,30 +227,6 @@ const routes = createBrowserRouter([
             { path: "/Contact", element: <Contact /> },
             { path: "/Blogs", element: <Blogs /> },
             { path: "/Blogs/:id", element: <Blogs_item /> },
-            {
-                path: "/Profile",
-                element: <Profile />,
-                children: [
-                    { index: true, element: <ProfileInfo /> },
-                    {
-                        path: "/Profile/Notifications",
-                        element: <Not_Finished />,
-                    },
-                    {
-                        path: "/Profile/Notifications/:id",
-                        element: <Not_Finished />,
-                    },
-                    {
-                        path: "/Profile/Courses",
-                        element: <Not_Finished />,
-                    },
-                    {
-                        path: "/Profile/Services",
-                        element: <Not_Finished />,
-                    },
-                ],
-            },
-            // { path: "/Notifications/:id", element: <Not_Finished /> },
             {
                 path: "/verifyEmail",
                 element: <VerifyEmail />,

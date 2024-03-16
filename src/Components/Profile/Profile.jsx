@@ -1,37 +1,71 @@
-import React, { useState } from "react";
+import React from "react";
+import Laptop_Navbar from "./NavBar/Laptop_Navbar";
+import Mobile_NavBar from "./NavBar/Mobile_NavBar";
 import { Outlet } from "react-router";
-import LeftBar from "./LeftBar";
-import menu from "../../../public/icons8-menu-50.png";
-
-function UserProfile() {
-  const [isOpen, setIsOpen] = useState(false);
-
-  return (
-    <div className=" pt-20 duration-300 max-w-[1200px] mx-auto flex justify-startnode items-start h-screen px-2 ">
-      <div
-        className={`w-1/4 h-full   ${
-          isOpen
-            ? " top-32 left-0 max-md:w-full max-md:fixed"
-            : "max-md:hidden md:block "
-        } `}
-      >
-        <LeftBar isOpen={isOpen} setIsOpen={setIsOpen} />
-      </div>
-      <div className=" w-3/4 h-full max-md:w-full">
-        <div
-          onClick={() => setIsOpen(!isOpen)}
-          className="bg-gray-200 text-center  self-center  mx-auto mb-2  cursor-pointer  w-10 h-10 md:hidden"
-        >
-          {!isOpen ? (
-            <img src={menu} alt="" />
-          ) : (
-            <div className="  text-5xl"> x</div>
-          )}
+import { useState, useEffect } from "react";
+import { useAppContext } from "../../Context/AppContext";
+function Profile() {
+    const [Active_nav, setActive_nav] = useState(null);
+    const [openNav, SetOpenNav] = useState(false);
+    const [windowWidth, SetwindowWidth] = useState(window.innerWidth);
+    useEffect(() => {
+        SetwindowWidth(window.innerWidth);
+    }, [window.innerWidth]);
+    const {
+        isAuth,
+        _id,
+        FirstName,
+        LastName,
+        Email,
+        Gender,
+        Courses,
+        Services,
+        Notifications,
+        IsEmailVerified,
+    } = useAppContext();
+    return (
+        <div className=" flex">
+            {windowWidth < 768 ? (
+                <>
+                    <div
+                        className={
+                            openNav
+                                ? "w-[35%] bg-black h-screen"
+                                : "w-[15%] bg-black h-screen"
+                        }
+                    >
+                        <Mobile_NavBar
+                            Active_nav={Active_nav}
+                            setActive_nav={setActive_nav}
+                            openNav={openNav}
+                            SetOpenNav={SetOpenNav}
+                        />
+                    </div>
+                    <div
+                        className={
+                            openNav
+                                ? "w-[65%] h-screen overflow-auto custom-overflow"
+                                : "w-[85%] h-screen overflow-auto custom-overflow"
+                        }
+                    >
+                        <Outlet />
+                    </div>
+                </>
+            ) : (
+                <>
+                    <div className=" w-[20%] bg-black h-screen">
+                        <Laptop_Navbar
+                            Active_nav={Active_nav}
+                            setActive_nav={setActive_nav}
+                        />
+                    </div>
+                    <div className="w-[80%]   h-screen overflow-auto custom-overflow  ">
+                        <Outlet />
+                    </div>
+                </>
+            )}
         </div>
-        <Outlet />
-      </div>
-    </div>
-  );
+    );
 }
 
-export default UserProfile;
+export default Profile;
