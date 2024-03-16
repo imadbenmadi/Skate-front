@@ -88,7 +88,7 @@ function Contact() {
                                         <Field
                                             type="email"
                                             name="Email"
-                                            className="border border-gray-300 p-2 w-full rounded-md"
+                                            className="border border-gray p-2 w-full rounded-md"
                                         />
                                         <ErrorMessage
                                             name="Email"
@@ -102,7 +102,7 @@ function Contact() {
                                     <Field
                                         type="text"
                                         name="title"
-                                        className="border border-gray-300 p-2 w-full rounded-md"
+                                        className="border border-gray p-2 w-full rounded-md"
                                     />
                                     <ErrorMessage
                                         name="title"
@@ -115,7 +115,7 @@ function Contact() {
                                     <Field
                                         as="textarea"
                                         name="message"
-                                        className="border border-gray-300 p-2 w-full rounded-md"
+                                        className="border border-gray p-2 w-full rounded-md"
                                     />
                                     <ErrorMessage
                                         name="message"

@@ -173,7 +173,7 @@ function Verify_email() {
                             type="text"
                             value={code}
                             onChange={handleChange}
-                            className="form-control border border-gray-300 rounded w-24 h-12 text-center mb-4"
+                            className="form-control border border-gray rounded w-24 h-12 text-center mb-4"
                             maxLength={6}
                         />
 

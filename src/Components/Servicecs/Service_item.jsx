@@ -1,4 +1,3 @@
-import img from "../../../public/wallpaper.jpg";
 import React, { useState, useEffect } from "react";
 import { useAppContext } from "../../Context/AppContext";
 import { useLocation } from "react-router";
@@ -9,22 +8,34 @@ import swal from "sweetalert2";
 import { useNavigate } from "react-router";
 import { MdDone } from "react-icons/md";
 import { IoMdArrowRoundBack } from "react-icons/io";
+import Footer from "../Footer";
+import img from "../../../public/wallpaper.jpg";
+
 function ServiceItem() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const [secces, setsecces] = useState(false);
-    const [service, setservice] = useState([]);
+    const [success, setSuccess] = useState(false);
+    const [service, setService] = useState({});
     const [requestLoading, setRequestLoading] = useState(false);
+    const [alreadyHaveService, setAlreadyHaveService] = useState(false);
     const { isAuth, _id, Services } = useAppContext();
     const location = useLocation();
-    const Navigate = useNavigate();
-    let Already_have_service = null;
-    if (Services) {
-        Already_have_service = Services.some(
-            (service) => service._id == location.pathname.split("/")[2]
-        );
-    }
-    const handle_request_service = async () => {
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if (Services) {
+            console.log("Services:", Services);
+            const serviceId = location.pathname.split("/")[2];
+            const alreadyHaveService = Services.some(
+                (service) => service == serviceId
+            );
+
+            console.log("Already have service:", alreadyHaveService);
+            setAlreadyHaveService(alreadyHaveService);
+        }
+    }, [Services]);
+
+    const handleRequestService = async () => {
         try {
             setRequestLoading(true);
             const response = await axios.post(
@@ -39,50 +50,47 @@ function ServiceItem() {
                 }
             );
 
-            if (response.status == 200) {
-                swal.fire("success", "request sent successfully", "success");
-                setsecces(true);
-            } else if (response.status == 409) {
-                swal.fire(
-                    "Missing Data ",
-                    " Request could not be sendded",
-                    "error"
-                );
-            } else if (service.status == 401) {
+            if (response.status === 200) {
+                swal.fire("success", "Request sent successfully", "success");
+                setSuccess(true);
+            } else if (response.status === 409) {
+                swal.fire("Missing Data", "Request could not be sent", "error");
+            } else if (response.status === 401) {
                 swal.fire({
                     title: "You should login to do that",
-                    text: "Your are Not Authenthicated !",
+                    text: "You are not authenticated!",
                     icon: "warning",
                     confirmButtonColor: "#3085d6",
                     cancelButtonColor: "green",
                     confirmButtonText: "Go to Login Page",
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        Navigate("/Login");
+                        navigate("/Login");
                     }
                 });
             } else if (response.status === 400) {
                 swal.fire(
-                    "You Cannot request the Service",
+                    "You cannot request the service",
                     `${response.data.message}`,
                     "warning"
                 );
-            } else if (response.status == 404) {
+            } else if (response.status === 404) {
                 swal.fire(
-                    "not found",
-                    "Somthing Went wrong PLease try again latter",
+                    "Not found",
+                    "Something went wrong. Please try again later",
                     "warning"
                 );
             } else {
-                swal.fire("error", "internal server error", "error");
+                swal.fire("Error", "Internal server error", "error");
             }
         } catch (error) {
-            // Handle error...
+            swal.fire("Error", "Internal server error", "error");
         } finally {
             setRequestLoading(false);
         }
     };
-    const fetchservice = async () => {
+
+    const fetchService = async () => {
         setLoading(true);
 
         try {
@@ -96,8 +104,8 @@ function ServiceItem() {
                 }
             );
 
-            if (response.status == 200) {
-                setservice(response.data);
+            if (response.status === 200) {
+                setService(response.data);
             } else {
                 setError(true);
             }
@@ -107,18 +115,23 @@ function ServiceItem() {
             setLoading(false);
         }
     };
+
     useEffect(() => {
-        fetchservice();
+        fetchService();
     }, []);
+
     if (error) {
         return <ErrorPage />;
     }
-    if (loading)
+
+    if (loading) {
         return (
             <div className="w-screen h-screen flex items-center justify-center">
                 <span className="loader"></span>
             </div>
         );
+    }
+
     return (
         <div className="pt-[80px]">
             <Link
@@ -128,47 +141,63 @@ function ServiceItem() {
                 <IoMdArrowRoundBack />
                 <div>Back to Services</div>
             </Link>
-            <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-3">
-                <div className="w-[350px]">
-                    <img src={img} alt="" className="w-[400px]" />
+            <h2 className="text-xl font-bold mb-4 pl-2 md:pl-6 w-fit m-auto max-w-[80vw]  break-all ">
+                {service.Title && service.Title}
+            </h2>
+            <div className="flex flex-col md:flex-row    gap-3">
+                <div className="">
+                    <img
+                        src={img}
+                        alt=""
+                        className="w-[400px] m-auto md:ml-4"
+                    />
 
-                    <div className="pt-4 flex justify-center md:justify-end ">
-                        {secces ? (
+                    <div className="pt-4 flex justify-center md:justify-end gap-8 items-center">
+                        {success ? (
                             <div className="flex items-center text-green gap-1 text-xl">
-                                service requested
+                                Service requested
                                 <MdDone className="text-2xl" />
                             </div>
-                        ) : !Already_have_service ? (
-                            <div
-                                className={`bg-green px-4 py-2 w-fit text-white rounded cursor-pointer ${
-                                    requestLoading
-                                        ? "opacity-50 pointer-events-none"
-                                        : ""
-                                }`}
-                                onClick={() => {
-                                    if (!isAuth) {
-                                        swal.fire({
-                                            title: "You should login to do that",
-                                            text: "Your are Not Authenthicated !",
-                                            icon: "warning",
-                                            confirmButtonColor: "#3085d6",
-                                            cancelButtonColor: "green",
-                                            confirmButtonText:
-                                                "Go to Login Page",
-                                        }).then((result) => {
-                                            if (result.isConfirmed) {
-                                                Navigate("/Login");
-                                            }
-                                        });
-                                    } else {
-                                        handle_request_service();
-                                    }
-                                }}
-                            >
-                                {requestLoading
-                                    ? "Requesting..."
-                                    : "Request the service"}
-                            </div>
+                        ) : !alreadyHaveService ? (
+                            <>
+                                <div>
+                                    {service.Price && (
+                                        <p className="text-gray font-semibold text-xl">
+                                            {service.Price}DA
+                                        </p>
+                                    )}
+                                </div>
+                                <div
+                                    className={`bg-green px-4 py-2 w-fit text-white rounded cursor-pointer ${
+                                        requestLoading
+                                            ? "opacity-50 pointer-events-none"
+                                            : ""
+                                    }`}
+                                    onClick={() => {
+                                        if (!isAuth) {
+                                            swal.fire({
+                                                title: "You should login to do that",
+                                                text: "You are not authenticated!",
+                                                icon: "warning",
+                                                confirmButtonColor: "#3085d6",
+                                                cancelButtonColor: "green",
+                                                confirmButtonText:
+                                                    "Go to Login Page",
+                                            }).then((result) => {
+                                                if (result.isConfirmed) {
+                                                    navigate("/Login");
+                                                }
+                                            });
+                                        } else {
+                                            handleRequestService();
+                                        }
+                                    }}
+                                >
+                                    {requestLoading
+                                        ? "Requesting..."
+                                        : "Request the service"}
+                                </div>
+                            </>
                         ) : (
                             <Link
                                 to={"/Profile"}
@@ -179,24 +208,25 @@ function ServiceItem() {
                         )}
                     </div>
                 </div>
-                <div className="w-[90vw] md:w-[350px]  break-words border border-gray-300 rounded p-4">
-                    <h2 className="text-xl font-bold mb-2">
-                        {service.Title && service.Title}
-                    </h2>
+                <div className="   break-all  border-gray pl-4 w-calc(100vw - 400px) text-lg">
                     <p className="text-gray">
                         {service.Text &&
-                            service.Text.slice(0, 200) +
-                                (service.Text.length > 200 ? "..." : "")}
+                            service.Text.slice(0, 300) +
+                                (service.Text.length > 300 ? "..." : "")}
                     </p>
-                    <p className="text-gray">{service.Price}DA</p>
-                    <p className="text-gray">Category: Web Development</p>
-                    <p className="text-gray">Date: January 1, 2024</p>
+                    <p className="text-gray  text-[16px] ">
+                        Category :{" "}
+                        <span className="font-semibold">
+                            {service.Category && service.Category}
+                        </span>
+                    </p>
                 </div>
             </div>
 
             <div className="w-[90vw] m-auto my-6 p-4 rounded bg-gray_white">
                 {service.Description}
             </div>
+            <Footer />
         </div>
     );
 }

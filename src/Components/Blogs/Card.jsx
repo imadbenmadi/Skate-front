@@ -6,7 +6,7 @@ import { Formate_Date } from "../../Logic/Formate_Date"; // Import your date for
 function Card({ blog }) {
     return (
         <Link
-            to={`/blogs/${blog._id}`}
+            to={`/Blogs/${blog._id}`}
             className="select-none w-full relative px-2 md:px-5  overflow-hidden border-b border-gray py-5 flex shrink-0 justify-start h-fit"
         >
             <img

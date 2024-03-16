@@ -5,6 +5,9 @@ import ErrorPage from "../ErrorPage";
 import axios from "axios";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { Link } from "react-router-dom";
+import Footer from "../Footer";
+import { Formate_Date } from "../../Logic/Formate_Date";
+
 function Event_item() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -48,27 +51,31 @@ function Event_item() {
             </div>
         );
     return (
-        <div className=" pt-[80px] flex flex-col items-center w-[90%] m-auto md:items-start justify-center gap-3 ">
-            <Link
-                to={"/Events"}
-                className="select-none w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 mb-4"
-            >
-                <IoMdArrowRoundBack />
-                <div>Back to Events</div>
-            </Link>
-            <h2 className="text-2xl font-bold mb-2 m-auto">{event.Title}</h2>
-            <div className="flex justify-center gap-6 m-auto ">
-                <img src={img} alt="" className=" w-[400px]" />
-                <p className="text-gray">
-                    {event.Text &&
-                        event.Text.slice(0, 120) +
-                            (event.Text.length > 120 ? "..." : "")}
-                </p>
+        <>
+            <div className=" pt-[80px] flex flex-col items-center w-[90%] m-auto md:items-start justify-center gap-3 ">
+                <Link
+                    to={"/Events"}
+                    className="select-none w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 mb-4"
+                >
+                    <IoMdArrowRoundBack />
+                    <div>Back to Events</div>
+                </Link>
+                <h2 className="text-2xl font-bold mb-2 m-auto">
+                    {event.Title}
+                </h2>
+                <img src={img} alt="" className=" w-[400px] m-auto" />
+                <div className="text-gray  text-sm text-center m-auto ">
+                    {event.Date && Formate_Date(event.Date)}
+                </div>
+                <div className="text-gray text-lg py-4">
+                    {event.Text && event.Text}
+                </div>
+                <div className=" w-[90vw] m-auto my-6 p-4 rounded text-lg">
+                    {event.Description}
+                </div>
             </div>
-            <div className=" w-[90vw] m-auto my-6 p-4 rounded ">
-                {event.Description}
-            </div>
-        </div>
+            <Footer />
+        </>
     );
 }
 

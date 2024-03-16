@@ -27,7 +27,7 @@ function Laptop_Nav_Items({
                 <div className="flex flex-col gap-4 justify-start items-start w-[200px]">
                     <div class="mb-4 flex items-center justify-center gap-4 w-[200px] m-auto">
                         <label for="language" class=" text-sm font-medium text-gray">Language:</label>
-                        <select id="language" class="mt-1  w-[100px] m-auto py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        <select id="language" class="mt-1  w-[100px] m-auto py-2 px-3 border border-gray bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
                             <option value="English">English</option>
                             <option value="Spanish">Spanish</option>
                             <option value="French">French</option>
@@ -35,7 +35,7 @@ function Laptop_Nav_Items({
                     </div>
                     <div clasName='flex gap-3 w-[200px] items-center justify-start'>
                         <label for="darkMode" class="text-sm font-medium text-gray">Dark Mode</label>
-                        <input type="checkbox" id="darkMode" class="mr-2 h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                        <input type="checkbox" id="darkMode" class="mr-2 h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray rounded">
                     </div>
                 </div>
         
