@@ -47,6 +47,7 @@ function Profile() {
     useEffect(() => {
         fetchData();
     }, []);
+    
     if (loading)
         return (
             <div className=" w-screen h-screen flex items-center justify-center">
@@ -56,6 +57,8 @@ function Profile() {
     if (error) {
         return <ErrorPage />;
     }
+    if (!user) return null;
+    // console.log(user);
     return (
         <div className=" flex">
             {windowWidth < 768 ? (
@@ -72,6 +75,7 @@ function Profile() {
                             setActive_nav={setActive_nav}
                             openNav={openNav}
                             SetOpenNav={SetOpenNav}
+                            userId={user._id}
                         />
                     </div>
                     <div
@@ -90,6 +94,7 @@ function Profile() {
                         <Laptop_Navbar
                             Active_nav={Active_nav}
                             setActive_nav={setActive_nav}
+                            userId={user._id}
                         />
                     </div>
                     <div className="w-[80%]   h-screen overflow-auto custom-overflow  ">

@@ -14,12 +14,13 @@ import { IoMenu } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
 
 
-function Navbar({ Active_nav, setActive_nav, openNav, SetOpenNav }) {
+function Navbar({ Active_nav, setActive_nav, openNav, SetOpenNav, userId }) {
     const Navigate = useNavigate();
     const location = useLocation();
     useEffect(() => {
-        setActive_nav(location.pathname.split("/")[2]);
+        setActive_nav(location.pathname.split("/")[3]);
     }, [location.pathname]);
+    
     return (
         <div className=" w-full h-full overflow-y-auto custom-overflow">
             {openNav ? (
@@ -32,13 +33,13 @@ function Navbar({ Active_nav, setActive_nav, openNav, SetOpenNav }) {
                         {/* nav items */}
 
                         <Link
-                            to={"/Profile"}
+                            to={`/Profile/${userId}`}
                             onClick={() => SetOpenNav(false)}
                             className={`flex items-center cursor-pointer gap-1 ${
-                                !location.pathname.split("/")[2] &&
+                                !location.pathname.split("/")[3] &&
                                 "text-green "
                             } ${
-                                location.pathname.split("/")[2]
+                                location.pathname.split("/")[3]
                                     ? "text-white"
                                     : ""
                             }`}
@@ -47,7 +48,7 @@ function Navbar({ Active_nav, setActive_nav, openNav, SetOpenNav }) {
                             <div>Profile</div>
                         </Link>
                         <Link
-                            to={"/Profile/Edit"}
+                            to={`/Profile/${userId}/Edit`}
                             onClick={() => SetOpenNav(false)}
                             className={`select-none flex items-center gap-1 cursor-pointer ${
                                 Active_nav == "Edit" && "text-green"
@@ -57,7 +58,7 @@ function Navbar({ Active_nav, setActive_nav, openNav, SetOpenNav }) {
                             <div>Edit Profile</div>
                         </Link>
                         <Link
-                            to={"/Profile/Notifications"}
+                            to={`/Profile/${userId}/Notifications`}
                             onClick={() => SetOpenNav(false)}
                             className={`select-none flex items-center gap-1 cursor-pointer ${
                                 Active_nav == "Notifications" && "text-green"
@@ -71,7 +72,7 @@ function Navbar({ Active_nav, setActive_nav, openNav, SetOpenNav }) {
                             <div className=" text-sm">Notifications</div>
                         </Link>
                         <Link
-                            to={"/Profile/Courses"}
+                            to={`/Profile/${userId}/Courses`}
                             onClick={() => SetOpenNav(false)}
                             className={`select-none flex items-center gap-1 cursor-pointer ${
                                 Active_nav == "Courses" && "text-green"
@@ -81,7 +82,7 @@ function Navbar({ Active_nav, setActive_nav, openNav, SetOpenNav }) {
                             <div>Courses</div>
                         </Link>
                         <Link
-                            to={"/Profile/Services"}
+                            to={`/Profile/${userId}/Services`}
                             onClick={() => SetOpenNav(false)}
                             className={`select-none flex items-center gap-1 cursor-pointer ${
                                 Active_nav == "Services" && "text-green"
@@ -91,7 +92,7 @@ function Navbar({ Active_nav, setActive_nav, openNav, SetOpenNav }) {
                             <div>Services</div>
                         </Link>
                         <Link
-                            to={"/Profile/Requests"}
+                            to={`/Profile/${userId}/Requests`}
                             onClick={() => SetOpenNav(false)}
                             className={`select-none flex items-center gap-1 cursor-pointer ${
                                 Active_nav == "Requests" && "text-green"
@@ -122,9 +123,9 @@ function Navbar({ Active_nav, setActive_nav, openNav, SetOpenNav }) {
                     {/* nav items */}
 
                     <Link
-                        to={"/Profile"}
+                        to={`/Profile/${userId}`}
                         className={`flex items-center cursor-pointer ${
-                            !location.pathname.split("/")[2]
+                            !location.pathname.split("/")[3]
                                 ? "text-green"
                                 : "text-white"
                         }`}
@@ -132,7 +133,7 @@ function Navbar({ Active_nav, setActive_nav, openNav, SetOpenNav }) {
                         <FaUser />
                     </Link>
                     <Link
-                        to={"/Profile/Edit"}
+                        to={`/Profile/${userId}/Edit`}
                         className={`text-lg select-none flex items-center gap-3 cursor-pointer ${
                             Active_nav === "Edit" ? "text-green" : "text-white"
                         }`}
@@ -140,7 +141,7 @@ function Navbar({ Active_nav, setActive_nav, openNav, SetOpenNav }) {
                         <FaPen />
                     </Link>
                     <Link
-                        to={"/Profile/Notifications"}
+                        to={`/Profile/${userId}/Notifications`}
                         className={`text-2xl select-none flex items-center gap-3 cursor-pointer ${
                             Active_nav === "Notifications"
                                 ? "text-green"
@@ -150,7 +151,7 @@ function Navbar({ Active_nav, setActive_nav, openNav, SetOpenNav }) {
                         <IoIosNotifications />
                     </Link>
                     <Link
-                        to={"/Profile/Courses"}
+                        to={`/Profile/${userId}/Courses`}
                         className={`select-none flex items-center gap-3 cursor-pointer ${
                             Active_nav === "Courses"
                                 ? "text-green"
@@ -160,7 +161,7 @@ function Navbar({ Active_nav, setActive_nav, openNav, SetOpenNav }) {
                         <FaBook />
                     </Link>
                     <Link
-                        to={"/Profile/Services"}
+                        to={`/Profile/${userId}/Services`}
                         className={`select-none flex items-center gap-3 cursor-pointer ${
                             Active_nav === "Services"
                                 ? "text-green"
@@ -170,7 +171,7 @@ function Navbar({ Active_nav, setActive_nav, openNav, SetOpenNav }) {
                         <FaHandshake />
                     </Link>
                     <Link
-                        to={"/Profile/Requests"}
+                        to={`/Profile/${userId}/Requests`}
                         className={`select-none flex items-center gap-3 cursor-pointer ${
                             Active_nav === "Requests"
                                 ? "text-green"
