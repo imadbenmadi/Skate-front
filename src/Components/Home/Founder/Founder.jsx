@@ -36,11 +36,13 @@ export default function Founder() {
                         <span className="text-blue-950 text-gray">Benmadi</span>
                     </div>
                     <div className=" px-4 mt-4 text-xl font-medium leading-7 text-gray max-md:mt-4">
-                        In light of the current technological and scientific
-                        revolution, choosing a suitable trainer or instructor
-                        now requires difficult and sometimes complicated
-                        criteria; He/she is one of the main pillars of quality
-                        Vocational education and training program.
+                        Fouzia Benmadi, our visionary founder, is a dynamic
+                        leader with a passion for innovation and excellence.
+                        With a wealth of experience in business and
+                        entrepreneurship, Fouzia has spearheaded our company's
+                        growth and success, inspiring others with her
+                        entrepreneurial spirit and dedication to making a
+                        positive impact.
                     </div>
                 </div>
             </div>

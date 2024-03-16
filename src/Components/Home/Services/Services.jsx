@@ -40,17 +40,17 @@ function Services() {
               <CardService
                   icon={icon1}
                   titleService="Environmental Studies"
-                  desServicce="We have a professional team of photographers who believes in capturing the imagination of audiences..."
+                  desServicce="Skate offers Environmental Studies services, focusing on sustainability, conservation, and environmental policy for a greener tomorrow."
               />
               <CardService
                   icon={icon2}
                   titleService="consultation and support"
-                  desServicce="We have a professional team of photographers who believes in capturing the imagination of audiences..."
+                  desServicce="Skate provides consultation and support services for Environmental Studies, specializing in sustainability, conservation, and environmental policy for a brighter future."
               />
               <CardService
                   icon={icon3}
                   titleService="Enterprise Creation"
-                  desServicce="We have a professional team of photographers who believes in capturing the imagination of audiences..."
+                  desServicce="Skate offers consultation and support services for enterprise creation in the realm of Environmental Studies, guiding you through sustainability, conservation, and environmental policy for a brighter future."
               />
           </div>
 

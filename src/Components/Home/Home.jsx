@@ -11,9 +11,6 @@ function Home() {
     return (
         <div className="  max-w-8xl m-auto overflow-x-hidden">
             <Hero />
-            {/* <Pages_Btns /> */}
-            {/* <div className=" h-[40vh] bg-gray_white w-full"></div>
-             */}
             <AboutUs />
             <Services />
             <Courses />

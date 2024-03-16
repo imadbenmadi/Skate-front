@@ -1,6 +1,9 @@
 import React, { useRef } from "react";
 import CardCours from "./CardCours";
 import img from "../../../../public/CoursImg.png";
+import img1 from "../../../../public/Course1.jpg";
+import img2 from "../../../../public/Course2.jpeg";
+import img3 from "../../../../public/Course3.jpg";
 import { useInView } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
@@ -54,28 +57,22 @@ function Courses() {
             >
                 <div className=" max-w-[1200px] max-md:hidden flex flex-col w-screen  gap-4 md:flex-row md:justify-between ">
                     <CardCours
-                        img={img}
+                        img={img3}
                         title="Financement"
-                        cat="Finance"
-                        dec="Take a finance skkills using skate Courses 
-they are passionated to have an awesome"
-                        price="5.000"
+                        dec="Explore finance with our Financement course. Learn investment strategies, financial planning, and risk management essentials for confident decision-making."
+                        price="0.0"
                     />
                     <CardCours
-                        img={img}
-                        title="Financement"
-                        cat="Finance"
-                        dec="Take a finance skkills using skate Courses 
-they are passionated to have an awesome"
-                        price="5.000"
+                        img={img2}
+                        title="Marketing"
+                        dec="Discover the fundamentals of marketing with our comprehensive course. Learn essential strategies, tactics, and principles to effectively reach your target audience and drive business success."
+                        price="0.0"
                     />
                     <CardCours
-                        img={img}
-                        title="Financement"
-                        cat="Finance"
-                        dec="Take a finance skkills using skate Courses 
-they are passionated to have an awesome"
-                        price="5.000"
+                        img={img1}
+                        title="Management"
+                        dec="Master the art of management with our concise course. Learn essential strategies and techniques to effectively lead teams, streamline processes, and achieve organizational goals."
+                        price="0.0"
                     />{" "}
                 </div>
 
@@ -102,7 +99,7 @@ they are passionated to have an awesome"
                         <SwiperSlide className=" ">
                             {" "}
                             <CardCours
-                                img={img}
+                                img={img3}
                                 title="Financement"
                                 cat="Finance"
                                 dec="Take a finance skkills using skate Courses 
@@ -113,7 +110,7 @@ they are passionated to have an awesome"
                         <SwiperSlide>
                             {" "}
                             <CardCours
-                                img={img}
+                                img={img2}
                                 title="Financement"
                                 cat="Finance"
                                 dec="Take a finance skkills using skate Courses 
@@ -124,7 +121,7 @@ they are passionated to have an awesome"
                         <SwiperSlide>
                             {" "}
                             <CardCours
-                                img={img}
+                                img={img1}
                                 title="Financement"
                                 cat="Finance"
                                 dec="Take a finance skkills using skate Courses 
