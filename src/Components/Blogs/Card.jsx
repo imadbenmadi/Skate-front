@@ -7,21 +7,20 @@ function Card({ blog }) {
     return (
         <Link
             to={`/blogs/${blog._id}`}
-            className="select-none w-full relative  overflow-hidden border-b border-gray py-5 flex shrink-0 justify-start h-fit"
+            className="select-none w-full relative px-2 md:px-5  overflow-hidden border-b border-gray py-5 flex shrink-0 justify-start h-fit"
         >
             <img
-                className="w-[30%] object-cover h-[120px] md:h-[150px]"
+                className="w-[40%] md:w-[300px] object-cover h-[120px] md:h-[150px]"
                 src={img}
                 alt={blog.Title}
             />
-            <div className="w-[60%] pl-6 ">
+            <div className="w-[60%] pl-2 md:pl-6 ">
                 {blog.Title && (
                     <p className="font-bold  text-lg md:text-xl  overflow-hidden">
                         {window.innerWidth > 640
                             ? blog.Title.slice(0, 60)
                             : blog.Title.slice(0, 30)}
-                        {blog.Title.length >
-                        (window.innerWidth > 640 ? 60 : 30)
+                        {blog.Title.length > (window.innerWidth > 640 ? 60 : 30)
                             ? "..."
                             : ""}
                     </p>
@@ -31,8 +30,7 @@ function Card({ blog }) {
                         {window.innerWidth > 640
                             ? blog.Text.slice(0, 150)
                             : blog.Text.slice(0, 75)}
-                        {blog.Text.length >
-                        (window.innerWidth > 640 ? 150 : 75)
+                        {blog.Text.length > (window.innerWidth > 640 ? 150 : 75)
                             ? "..."
                             : ""}
                     </p>

@@ -93,7 +93,7 @@ function Blogs() {
                                 <>
                                     <div
                                         key={blog._id}
-                                        className="w-[90vw] m-auto"
+                                        className=""
                                     >
                                         <Card blog={blog} />
                                     </div>
@@ -106,7 +106,7 @@ function Blogs() {
                             </div>
                         ) : (
                             filteredBlogs.map((blog) => (
-                                <div key={blog._id} className="w-[90vw] m-auto">
+                                <div key={blog._id} className="">
                                     <Card blog={blog} />
                                 </div>
                             ))

@@ -6,6 +6,7 @@ function Card() {
         <div className="flex flex-col shrink-0 mx-auto bg-white w-[150px] h-[150px] rounded-xl overflow-hidden border border-solid shadow-lg border-[color:var(--Neutral-Light-Grey-50,#E9F0F8)]">
             <div className="flex overflow-hidden relative flex-col items-start pt-12 pr-16 pb-6 pl-4 w-full text-sm leading-5 text-green-800 aspect-[1.23]">
                 <img
+                    alt="img"
                     loading="lazy"
                     src={img}
                     className="object-cover absolute inset-0 size-full"

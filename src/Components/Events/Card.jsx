@@ -7,10 +7,14 @@ function Card({ event }) {
     return (
         <Link
             to={`/Events/${event._id}`}
-            className="select-none w-full relative  overflow-hidden border-b border-gray py-5 flex shrink-0 justify-start h-fit"
+            className="select-none w-full relative  overflow-hidden border-b border-gray py-5 px-1 md:px-5 flex shrink-0 justify-start h-fit"
         >
-            <img className="w-[30%] object-cover h-[120px] md:h-[150px]" src={img} alt={event.Title} />
-            <div className="w-[60%] pl-6 ">
+            <img
+                className="w-[40%]  md:w-[300px]  object-cover h-[120px] md:h-[150px]"
+                src={img}
+                alt={event.Title}
+            />
+            <div className="w-[60%] pl-2 md:pl-6 ">
                 {event.Title && (
                     <p className="font-bold  text-lg md:text-xl  overflow-hidden">
                         {window.innerWidth > 640

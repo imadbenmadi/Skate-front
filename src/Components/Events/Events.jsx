@@ -89,7 +89,7 @@ function Event() {
                             events.map((event) => (
                                 <div
                                     key={event._id}
-                                    className="w-[90vw] m-auto"
+                                    className=""
                                 >
                                     <Card event={event} />
                                 </div>
@@ -102,7 +102,7 @@ function Event() {
                             filteredEvents.map((event) => (
                                 <div
                                     key={event._id}
-                                    className="w-[90vw] m-auto"
+                                    className=""
                                 >
                                     <Card event={event} />
                                 </div>

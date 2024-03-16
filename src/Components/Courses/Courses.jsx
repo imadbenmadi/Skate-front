@@ -59,7 +59,7 @@ function Courses() {
     return (
         <div>
             {loading ? (
-                <div className="w-screen  flex items-center justify-center">
+                <div className="w-screen h-screen flex items-center justify-center">
                     <span className="loader"></span>
                 </div>
             ) : (

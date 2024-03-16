@@ -15,12 +15,7 @@ function ExploreServices({ search, filter, services }) {
         const filteredservices = services.services.filter((service) => {
             const matchesSearch =
                 !search ||
-                service.Title.toLowerCase().includes(search.toLowerCase()) ||
-                service.Text.toLowerCase().includes(search.toLowerCase()) ||
-                service.Description.toLowerCase().includes(
-                    search.toLowerCase()
-                ) ||
-                service.Category.toLowerCase().includes(search.toLowerCase());
+                service.Title.toLowerCase().includes(search.toLowerCase()) 
             const matchesFilter =
                 !filter ||
                 filter.length == 0 ||
@@ -45,7 +40,7 @@ function ExploreServices({ search, filter, services }) {
             <div>
                 {filteredservices.length == 0 ? (
                     <div className="text-center text-gray py-2">
-                        No services match the selected filter.
+                        No services match the Query.
                     </div>
                 ) : (
                     filteredservices.map((service, index) => (

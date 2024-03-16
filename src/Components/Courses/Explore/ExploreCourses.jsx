@@ -1,9 +1,10 @@
 import React from "react";
 import Card from "./Card";
 import { IoWarning } from "react-icons/io5";
-function ExploreCourses({ search, filter, courses }) {
+function Explorecourses({ search, filter, courses }) {
+    console.log(courses);
     if (courses.courses && Array.isArray(courses.courses)) {
-        if (courses.courses.length == 0)
+        if (courses.courses.length == 0 || !courses)
             return (
                 <div className=" flex text-gray items-center gap-2 p-3">
                     <IoWarning className=" text-2xl" />
@@ -12,15 +13,10 @@ function ExploreCourses({ search, filter, courses }) {
                     </div>
                 </div>
             );
-        const filteredCourses = courses.courses.filter((course) => {
+        const filteredcourses = courses.courses.filter((course) => {
             const matchesSearch =
                 !search ||
-                course.Title.toLowerCase().includes(search.toLowerCase()) ||
-                course.Text.toLowerCase().includes(search.toLowerCase()) ||
-                course.Description.toLowerCase().includes(
-                    search.toLowerCase()
-                ) ||
-                course.Category.toLowerCase().includes(search.toLowerCase());
+                course.Title.toLowerCase().includes(search.toLowerCase())
             const matchesFilter =
                 !filter ||
                 filter.length == 0 ||
@@ -31,7 +27,7 @@ function ExploreCourses({ search, filter, courses }) {
 
         if ((!filter || filter.length == 0) && search == "") {
             return (
-                <div className=" md:h-[80vh] overflow-auto custom-overflow  ">
+                <div className="md:h-[80vh] overflow-auto custom-overflow  ">
                     {courses.courses.map((course, index) => (
                         <div key={index} className="w-full ">
                             <Card course={course} />
@@ -43,12 +39,12 @@ function ExploreCourses({ search, filter, courses }) {
 
         return (
             <div>
-                {filteredCourses.length == 0 ? (
+                {filteredcourses.length == 0 ? (
                     <div className="text-center text-gray py-2">
-                        No courses match the selected filter.
+                        No courses match the Query.
                     </div>
                 ) : (
-                    filteredCourses.map((course, index) => (
+                    filteredcourses.map((course, index) => (
                         <div key={index} className="w-full ">
                             <Card course={course} />
                         </div>
@@ -67,4 +63,4 @@ function ExploreCourses({ search, filter, courses }) {
     );
 }
 
-export default ExploreCourses;
+export default Explorecourses;
