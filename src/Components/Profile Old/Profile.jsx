@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { Outlet } from "react-router";
 import LeftBar from "./LeftBar";
 import menu from "../../../public/icons8-menu-50.png";

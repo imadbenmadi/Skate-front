@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom"

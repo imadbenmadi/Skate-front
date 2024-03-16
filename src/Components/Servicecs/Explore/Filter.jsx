@@ -1,4 +1,4 @@
-import React from "react";
+
 import { IoFilterSharp } from "react-icons/io5";
 
 function Filter({ filter, setFilter }) {

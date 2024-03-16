@@ -1,5 +1,5 @@
 import { useInView } from "framer-motion";
-import React, { useRef } from "react";
+import  { useRef } from "react";
 import { IoMdMail } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { IoLogoWhatsapp } from "react-icons/io";

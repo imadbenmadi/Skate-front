@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import avater from "../../../public/Founder.png";
 import menu from "../../../public/icons8-menu-50.png";
 function Info() {

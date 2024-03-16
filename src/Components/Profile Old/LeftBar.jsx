@@ -1,4 +1,4 @@
-import React from "react";
+
 import arrow from "../../../public/arrow left.png";
 import edit from "../../../public/edit.png";
 import Help from "../../../public/Help outline.svg";

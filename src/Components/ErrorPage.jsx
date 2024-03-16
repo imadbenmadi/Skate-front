@@ -1,4 +1,4 @@
-import React from "react";
+
 import { IoMdRefresh } from "react-icons/io";
 
 const ErrorPage = () => {

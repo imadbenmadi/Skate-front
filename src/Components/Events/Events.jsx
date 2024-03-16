@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { IoSearchOutline, IoWarning } from "react-icons/io5";
 import Card from "./Card";
 import axios from "axios";

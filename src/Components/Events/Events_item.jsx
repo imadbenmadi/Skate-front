@@ -1,5 +1,5 @@
 import img from "../../../public/wallpaper.jpg";
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import { useLocation } from "react-router";
 import ErrorPage from "../ErrorPage";
 import axios from "axios";

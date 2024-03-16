@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useOutletContext } from "react-router-dom";
 import { PiWarningCircleBold } from "react-icons/pi";
 import { MdOutlineMailOutline } from "react-icons/md";

@@ -1,4 +1,4 @@
-import React from "react";
+
 import { IoSettingsOutline } from "react-icons/io5";
 import { FaRegHandshake } from "react-icons/fa";
 import { FaBookReader } from "react-icons/fa";

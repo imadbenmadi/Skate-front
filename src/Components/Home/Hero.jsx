@@ -1,4 +1,4 @@
-import React from "react";
+
 import wallpaper1 from "../../../public/wallpaper.jpg";
 import wallpaper2 from "../../../public/wllpaper2.jpg";
 import img from "../../../public/Rectangle.png";

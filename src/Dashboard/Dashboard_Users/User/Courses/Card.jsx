@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useOutletContext } from "react-router";
 import { IoWarning } from "react-icons/io5";
 import img from "../../../../../public/wallpaper.jpg";

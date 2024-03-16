@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import  { useState, useEffect } from "react";
 import Logo from "../../../public/skate_circle.png";
 import Axios from "axios";
 import Swal from "sweetalert2";
@@ -26,7 +26,9 @@ function Verify_email() {
                 } else {
                     setError(response);
                 }
-            } catch (error) {}
+            } catch (error) {
+                setError(error);
+            }
             setLoading(false);
         };
 

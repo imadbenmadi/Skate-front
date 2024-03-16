@@ -1,4 +1,4 @@
-import React from "react";
+
 import Not_Found_image from "../../public/NotFound.png";
 import { Link } from "react-router-dom";
 function Not_Found() {

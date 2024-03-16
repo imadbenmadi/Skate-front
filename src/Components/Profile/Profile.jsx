@@ -1,4 +1,4 @@
-import React from "react";
+
 import Laptop_Navbar from "./NavBar/Laptop_Navbar";
 import Mobile_NavBar from "./NavBar/Mobile_NavBar";
 import { Outlet } from "react-router-dom";

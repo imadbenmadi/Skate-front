@@ -1,4 +1,4 @@
-import React, { useRef } from "react";
+import  { useRef } from "react";
 import CardCours from "./CardCours";
 import img from "../../../../public/CoursImg.png";
 import img1 from "../../../../public/Course1.jpg";

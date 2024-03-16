@@ -1,4 +1,4 @@
-import React from "react";
+
 import Comming_Soon from "../../public/Comming_Soon.png";
 
 function Not_Finished() {

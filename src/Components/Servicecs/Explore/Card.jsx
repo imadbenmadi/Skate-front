@@ -1,4 +1,4 @@
-import React from "react";
+
 import img from "../../../../public/wallpaper.jpg";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";

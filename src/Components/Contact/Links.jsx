@@ -1,4 +1,4 @@
-import React from "react";
+
 import { IoLogoWhatsapp } from "react-icons/io";
 import { FaFacebookSquare } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";

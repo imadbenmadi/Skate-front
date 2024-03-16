@@ -1,4 +1,4 @@
-import React from "react";
+
 import Card from "./Card";
 import img from "../../../public/wallpaper.jpg";
 import {

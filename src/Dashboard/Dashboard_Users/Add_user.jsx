@@ -1,4 +1,4 @@
-import React from "react";
+
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -81,9 +81,7 @@ function Add_user() {
                                 "Password must be at least 8 characters long";
                         }
 
-                        // Validate Age
-                        if (!values.Age) {
-                        } else if (
+                        else if (
                             !/^\d+$/.test(values.Age) ||
                             values.Age <= 0
                         ) {

@@ -1,4 +1,4 @@
-import React from "react";
+
 import { useOutletContext } from "react-router";
 import img from "../../../../../public/wallpaper.jpg";
 import { useNavigate } from "react-router";

@@ -1,4 +1,4 @@
-import React from "react";
+
 import Logo from "../../../public/Logo.png";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Link } from "react-router-dom";
@@ -105,12 +105,12 @@ function Register() {
                                 if (!values.ReEnter_Password) {
                                     errors.ReEnter_Password =
                                         "Field is Required";
-                                } else if (values.ReEnter_Password !== values.Password) {
+                                } else if (
+                                    values.ReEnter_Password !== values.Password
+                                ) {
                                     errors.ReEnter_Password =
                                         "Password does not match";
-                                }
-
-                                else if (
+                                } else if (
                                     !/^\d+$/.test(values.Age) ||
                                     values.Age <= 0
                                 ) {
@@ -274,7 +274,6 @@ function Register() {
                                             </span>
                                         </div>
                                         <Field
-
                                             type={
                                                 showPassword
                                                     ? "text"
