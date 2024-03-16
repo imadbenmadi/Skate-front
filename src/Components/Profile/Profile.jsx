@@ -10,6 +10,7 @@ function Profile() {
     const [windowWidth, SetwindowWidth] = useState(window.innerWidth);
     useEffect(() => {
         SetwindowWidth(window.innerWidth);
+        console.log(windowWidth);
     }, [window.innerWidth]);
     const {
         isAuth,

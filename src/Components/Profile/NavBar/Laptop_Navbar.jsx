@@ -40,7 +40,7 @@ function Navbar({ Active_nav, setActive_nav }) {
                 <Link
                     to={"/Profile/Edit"}
                     className={`select-none flex items-center gap-3 cursor-pointer ${
-                        Active_nav == "Notifications" && "text-green"
+                        Active_nav == "Edit" && "text-green"
                     }`}
                 >
                     <FaPen />
