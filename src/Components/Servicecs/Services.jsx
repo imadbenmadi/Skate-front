@@ -62,7 +62,6 @@ function Services() {
                 </div>
             ) : (
                 <div className=" pt-[50px] overflow-y-hidden">
-                    {/* <Current_Services userServicecs={userServices} /> */}
                     <Explore services={services} />
                 </div>
             )}

@@ -65,7 +65,6 @@ function Courses() {
             ) : (
                 <>
                     <div className="pt-[50px] overflow-y-hidden ">
-                        <Current_Courses userCourses={userCourses} />
                         <Explore courses={courses} />
                     </div>
                 </>
