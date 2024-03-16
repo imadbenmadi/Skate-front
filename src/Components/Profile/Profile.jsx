@@ -3,33 +3,59 @@ import Laptop_Navbar from "./NavBar/Laptop_Navbar";
 import Mobile_NavBar from "./NavBar/Mobile_NavBar";
 import { Outlet } from "react-router";
 import { useState, useEffect } from "react";
-import { useAppContext } from "../../Context/AppContext";
+import axios from "axios";
+import { useLocation } from "react-router";
+import ErrorPage from "../ErrorPage";
 function Profile() {
+    const location = useLocation();
     const [Active_nav, setActive_nav] = useState(null);
     const [openNav, SetOpenNav] = useState(false);
     const [windowWidth, SetwindowWidth] = useState(window.innerWidth);
     const [user, setUser] = useState(null)
+    const [loading, setLoading] = useState(false);
+    const [error, setError] = useState(null);
     useEffect(() => {
         window.addEventListener("resize", () => {
             SetwindowWidth(window.innerWidth);
         });
     }, []);
+    const fetchData = async () => {
+        setLoading(true);
+        try {
+            const response = await axios.get(
+                `http://localhost:3000/Profile/${
+                    location.pathname.split("/")[2]
+                }`,
+                {
+                    withCredentials: true,
+                    validateStatus: () => true,
+                }
+            );
+            if (response.status === 200) {
+                setUser(response.data.userData.user); 
+            } else {
+                console.log(response.data);
+            }
+        } catch (error) {
+            setError(error); 
+        } finally {
+            setLoading(false);
+        }
+    };
+
     
-    
-    const {
-        isAuth,
-        _id,
-        FirstName,
-        LastName,
-        Email,
-        Gender,
-        Courses,
-        Services,
-        Notifications,
-        IsEmailVerified,
-    } = useAppContext();
-    if(!_id) return <div>loading</div>
-    
+    useEffect(() => {
+        fetchData();
+    }, []);
+    if (loading)
+        return (
+            <div className=" w-screen h-screen flex items-center justify-center">
+                <span className="loader"></span>
+            </div>
+        );
+    if (error) {
+        return <ErrorPage />;
+    }
     return (
         <div className=" flex">
             {windowWidth < 768 ? (
@@ -67,7 +93,7 @@ function Profile() {
                         />
                     </div>
                     <div className="w-[80%]   h-screen overflow-auto custom-overflow  ">
-                        <Outlet />
+                        <Outlet context={user} />
                     </div>
                 </>
             )}

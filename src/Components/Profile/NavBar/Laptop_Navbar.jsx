@@ -10,7 +10,11 @@ import { FaHandshake } from "react-icons/fa6";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { useOutletContext } from "react-router-dom";
 function Navbar({ Active_nav, setActive_nav }) {
+    const user  = useOutletContext();
+    if (!user) return null;
+    console.log(user);
     const Navigate = useNavigate();
     const location = useLocation();
     useEffect(() => {
