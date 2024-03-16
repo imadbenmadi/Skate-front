@@ -8,7 +8,7 @@ import axios from "axios";
 import swal from "sweetalert2";
 import { useNavigate } from "react-router";
 import { MdDone } from "react-icons/md";
-
+import { IoMdArrowRoundBack } from "react-icons/io";
 function ServiceItem() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -121,6 +121,13 @@ function ServiceItem() {
         );
     return (
         <div className="pt-[80px]">
+            <Link
+                to={"/Services"}
+                className="select-none w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 mb-4"
+            >
+                <IoMdArrowRoundBack />
+                <div>Back to Services</div>
+            </Link>
             <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-3">
                 <div className="w-[350px]">
                     <img src={img} alt="" className="w-[400px]" />
@@ -174,14 +181,12 @@ function ServiceItem() {
                 </div>
                 <div className="w-[90vw] md:w-[350px]  break-words border border-gray-300 rounded p-4">
                     <h2 className="text-xl font-bold mb-2">
-                        {service.Title &&
-                            service.Title.slice(0, 80) +
-                                (service.Title.length > 80 ? "..." : "")}
+                        {service.Title && service.Title}
                     </h2>
                     <p className="text-gray">
                         {service.Text &&
-                            service.Text.slice(0, 80) +
-                                (service.Text.length > 80 ? "..." : "")}
+                            service.Text.slice(0, 200) +
+                                (service.Text.length > 200 ? "..." : "")}
                     </p>
                     <p className="text-gray">{service.Price}DA</p>
                     <p className="text-gray">Category: Web Development</p>

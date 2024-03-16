@@ -8,7 +8,7 @@ import axios from "axios";
 import swal from "sweetalert2";
 import { useNavigate } from "react-router";
 import { MdDone } from "react-icons/md";
-
+import { IoMdArrowRoundBack } from "react-icons/io";
 function CourseItem() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -129,6 +129,13 @@ function CourseItem() {
 
     return (
         <div className="pt-[80px]">
+            <Link
+                to={"/Courses"}
+                className="select-none w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 mb-4"
+            >
+                <IoMdArrowRoundBack />
+                <div>Back to Courses</div>
+            </Link>
             <div className="flex flex-col md:flex-row items-center md:items-start justify-center gap-3">
                 <div className="w-[350px]">
                     <img src={img} alt="" className="w-[400px]" />
