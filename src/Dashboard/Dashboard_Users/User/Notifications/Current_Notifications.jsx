@@ -7,7 +7,7 @@ import { FaBookOpen } from "react-icons/fa";
 import { FaRegHandshake } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { Formate_Date } from "../../../../Logic/Formate_Date";
-import logo from ".././../../../../public/logo.png";
+import logo from "../../../../../../public/logo.png";
 import { useNavigate } from "react-router-dom";
 import { IoMdArrowRoundBack } from "react-icons/io";
 function Current_Notifications() {
