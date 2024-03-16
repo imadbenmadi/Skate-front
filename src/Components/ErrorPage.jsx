@@ -8,7 +8,7 @@ const ErrorPage = () => {
                 Oops! Something went wrong
             </h1>
             <p className="text-lg text-gray">
-                We're sorry, but an error occurred while fetching data. Please
+                We are sorry, but an error occurred while fetching data. Please
                 try again later.
             </p>
             <div
