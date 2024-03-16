@@ -17,10 +17,11 @@ import Contact from "./Components/Contact/Contact";
 import VerifyEmail from "./Components/Verify_email/Verify_email";
 
 import Profile from "./Components/Profile/Profile";
-import Info from "./Components/Profile/Info";
-import UserServices from "./Components/Profile/UserServices";
-import UserNotifications from "./Components/Profile/UserNotifications";
-import UserCourses from "./Components/Profile/UserCourses";
+import ProfileInfo from "./Components/Profile/ProfileInfo";
+import Profile_Services from "./Components/Profile/Profile_Services";
+import Profile_Notifications from "./Components/Profile/Profile_Notifications";
+import Profile_Courses from "./Components/Profile/Profile_Courses";
+
 
 import Not_Found from "./Components/Not_Found";
 import Dashboard from "./Dashboard/Dashboard";
@@ -198,7 +199,7 @@ const routes = createBrowserRouter([
                 path: "/Profile",
                 element: <Profile />,
                 children: [
-                    { index: true, element: <Info /> },
+                    { index: true, element: <ProfileInfo /> },
                     {
                         path: "/Profile/Notifications",
                         element: <Not_Finished />,

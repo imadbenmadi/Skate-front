@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import avater from "../../../public/Founder.png";
 import menu from "../../../public/icons8-menu-50.png";
-function Info() {
+function ProfileInfo() {
   const [isOpen, setIsOpen] =useState(false)
   return (
     <div className="flex flex-col px-5 md:px-10 ">
@@ -68,4 +68,4 @@ function Info() {
   );
 }
 
-export default Info;
+export default ProfileInfo;
