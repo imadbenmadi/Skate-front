@@ -7,9 +7,10 @@ import { FaBookOpen } from "react-icons/fa";
 import { FaRegHandshake } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { Formate_Date } from "../../../../Logic/Formate_Date";
-import logo from "../../../../../public/logo.png";
+// import logo from "../../../../../public/logo.png";
 import { useNavigate } from "react-router-dom";
 import { IoMdArrowRoundBack } from "react-icons/io";
+
 function Current_Notifications() {
     const [user, setUser] = useOutletContext();
     if (!user) return null;
@@ -17,18 +18,18 @@ function Current_Notifications() {
     const userId = location.pathname.split("/")[3];
 
     return (
-        <div className=" pt-4">
+        <div className="pt-4">
             <Link
                 to={`/Dashboard/Users/${userId}`}
-                className="select-none mb-4 w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 "
+                className="select-none mb-4 w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1"
             >
                 <IoMdArrowRoundBack />
                 <div>Back to user</div>
             </Link>
-            <div className=" text-center text-gray font-semibold text-2xl ">
-                Current User Notifications :
+            <div className="text-center text-gray font-semibold text-2xl">
+                Current User Notifications:
             </div>
-            <div className="">
+            <div>
                 {Notifications.map((notification, index) => (
                     <div
                         key={index}
@@ -46,10 +47,10 @@ function Current_Notifications() {
                             ) : notification.Type === "service" ? (
                                 <FaRegHandshake />
                             ) : (
-                                <img src={logo} alt="logo" className="w-14" />
+                                // <img src={logo} alt="logo" className="w-14" />
+                                <span></span>
                             )}
                         </div>
-
                         <div className="flex flex-col w-full relative">
                             <h3 className="font-bold mb-1">
                                 {notification.Title}
