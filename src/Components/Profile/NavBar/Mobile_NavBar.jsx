@@ -22,7 +22,7 @@ function Navbar({ Active_nav, setActive_nav, openNav, SetOpenNav, userId }) {
     }, [location.pathname]);
     
     return (
-        <div className=" w-full h-full overflow-y-auto custom-overflow">
+        <div className=" w-full shrink-0 h-full overflow-y-auto custom-overflow">
             {openNav ? (
                 <>
                     <IoClose
