@@ -8,9 +8,11 @@ import { IoWarning } from "react-icons/io5";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import ErrorPage from "../../Components/ErrorPage";
 import axios from "axios";
 function Edit_Service() {
+    const Navigate = useNavigate();
     const location = useLocation();
     const Service_id = location.pathname.split("/")[3];
     const [Service, setService] = useState(null);

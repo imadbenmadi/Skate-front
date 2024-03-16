@@ -10,7 +10,9 @@ import { useState } from "react";
 import { useEffect } from "react";
 import ErrorPage from "../../Components/ErrorPage";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 function Edit_Course() {
+    const Navigate = useNavigate();
     const location = useLocation();
     const Course_id = location.pathname.split("/")[3];
     const [Course, setCourse] = useState(null);

@@ -38,7 +38,7 @@ function Confirm_to_send({ setConfirm_to_send_state, startResendTimer }) {
                     "Error sending email , Unauthorized action",
                     "error"
                 );
-                setloading_toSend(flase);
+                setloading_toSend(false);
             } else if (response.status == 409) {
                 Swal.fire("Error!", `${response.data.message}`, "error");
                 setloading_toSend(false);

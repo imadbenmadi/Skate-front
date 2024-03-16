@@ -10,7 +10,9 @@ import { useLocation } from "react-router-dom";
 import { IoWarning } from "react-icons/io5";
 import ErrorPage from "../../Components/ErrorPage";
 import axios from "axios";
+import { useNavigate } from "react-router";
 function Edit_Event() {
+    const Navigate = useNavigate();
     const location = useLocation();
     const [Event, setEvent] = useState(null);
     const [loading, setLoading] = useState(false);

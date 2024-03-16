@@ -17,7 +17,7 @@ function Current_Notifications() {
     const Notifications = user.Notifications;
     const userId = location.pathname.split("/")[3];
 
-    return (
+    return (   
         <div className="pt-4">
             <Link
                 to={`/Dashboard/Users/${userId}`}

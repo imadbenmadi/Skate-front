@@ -4,7 +4,9 @@ import Axios from "axios";
 import Swal from "sweetalert2";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 function Add_Event() {
+    const Navigate = useNavigate();
     return (
         <div className=" ">
             <Link

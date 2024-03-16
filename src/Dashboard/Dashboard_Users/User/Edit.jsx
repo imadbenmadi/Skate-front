@@ -88,9 +88,7 @@ function Edit() {
                                 "Password must be at least 8 characters long";
                         }
 
-                        // Validate Age
-                        if (!values.Age) {
-                        } else if (
+                         else if (
                             !/^\d+$/.test(values.Age) ||
                             values.Age <= 0
                         ) {

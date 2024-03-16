@@ -53,13 +53,12 @@ function Profile_Notifications() {
                                         <FaBookOpen />
                                     ) : notification.Type == "service" ? (
                                         <FaRegHandshake />
-                                    ) : (
-                                        <img
-                                            src={logo}
-                                            alt="logo"
-                                            className=" w-14"
-                                        />
-                                    )}
+                                    ) : // <img
+                                    //     src={logo}
+                                    //     alt="logo"
+                                    //     className=" w-14"
+                                    //                     />
+                                    null}
                                 </div>
 
                                 <div className="flex flex-col w-full relative ">

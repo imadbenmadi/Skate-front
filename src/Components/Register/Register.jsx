@@ -110,9 +110,7 @@ function Register() {
                                         "Password does not match";
                                 }
 
-                                // Validate Age
-                                if (!values.Age) {
-                                } else if (
+                                else if (
                                     !/^\d+$/.test(values.Age) ||
                                     values.Age <= 0
                                 ) {

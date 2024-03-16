@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 import { IoMdArrowRoundBack } from "react-icons/io";
 
 function Add_user() {
+    const Navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     function handleShowPassword() {
         setShowPassword(!showPassword);
