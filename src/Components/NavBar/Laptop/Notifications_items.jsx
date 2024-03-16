@@ -10,7 +10,7 @@ import logo from "../../../../public/skate_circle.png";
 import { Formate_Date } from "../../../Logic/Formate_Date"; // Import your date formatting function
 import { Link } from "react-router-dom";
 const Notifications_items = () => {
-    const { Notifications } = useAppContext();
+    const { Notifications, _id } = useAppContext();
     if (Notifications == undefined) return null;
     Notifications.sort((a, b) => {
         if (a.Readed !== b.Readed) {
@@ -46,7 +46,7 @@ const Notifications_items = () => {
                                     to={
                                         notification.Type == "verify"
                                             ? "/verifyEmail"
-                                            : `/Profile/Notifications/${notification._id}`
+                                            : `/Profile/${_id}/Notifications/${notification._id}`
                                     }
                                     key={index}
                                     className={`select-none notification flex items-center justify-start gap-2 p-2 pb-4 border-b border-gray

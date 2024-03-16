@@ -91,7 +91,7 @@ function Navbar({ Active_nav, setActive_nav, userId }) {
                     }}
                 >
                     <TbWorld className=" shrink-0" />
-                    <div className=" text-sm">Back to the Website</div>
+                    <div className=" text-sm md:text-lg">Back to the Website</div>
                 </div>
             </div>
         </div>

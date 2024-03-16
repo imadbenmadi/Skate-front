@@ -189,7 +189,7 @@ const routes = createBrowserRouter([
             { index: true, element: <ProfileInfo /> },
             {
                 path: "/Profile/:id/Edit",
-                element: <Profile_Edit />,
+                element: <Not_Finished />,
             },
             {
                 path: "/Profile/:id/Notifications",
@@ -209,7 +209,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: "/Profile/:id/Requests",
-                element: <Profile_Requests />,
+                element: <Not_Finished />,
             },
         ],
     },
