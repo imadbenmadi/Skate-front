@@ -49,6 +49,7 @@ function Register() {
                                 Telephone: "",
                                 Email: "",
                                 Password: "",
+                                ReEnter_Password: "",
                                 Age: "",
                                 Gender: "male",
                             }}
@@ -100,6 +101,13 @@ function Register() {
                                 } else if (values.Password.length < 8) {
                                     errors.Password =
                                         "Password must be at least 8 characters long";
+                                }
+                                if (!values.ReEnter_Password) {
+                                    errors.ReEnter_Password =
+                                        "Field is Required";
+                                } else if (values.ReEnter_Password !== values.Password) {
+                                    errors.ReEnter_Password =
+                                        "Password does not match";
                                 }
 
                                 // Validate Age
@@ -260,6 +268,31 @@ function Register() {
                                             style={errorInputMessage}
                                         />
                                     </div>
+                                    <div>
+                                        <div>
+                                            ReEnterr The Password{" "}
+                                            <span className=" text-red-600 font-semibold">
+                                                *
+                                            </span>
+                                        </div>
+                                        <Field
+
+                                            type={
+                                                showPassword
+                                                    ? "text"
+                                                    : "password"
+                                            }
+                                            name="ReEnter_Password"
+                                            disabled={isSubmitting}
+                                            className="border border-gray_white px-2 py-1  rounded  shadow-sm w-full"
+                                        />
+                                        <ErrorMessage
+                                            name="ReEnter_Password"
+                                            component="div"
+                                            style={errorInputMessage}
+                                        />
+                                    </div>
+
                                     <div className=" flex gap-10">
                                         <div>
                                             <div>
