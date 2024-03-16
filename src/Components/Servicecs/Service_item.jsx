@@ -199,12 +199,12 @@ function ServiceItem() {
                                 </div>
                             </>
                         ) : (
-                            <Link
-                                to={"/Profile"}
+                            <div
+                                // to={"/Profile"}
                                 className="select-none bg-green px-4 py-2 w-fit text-white rounded cursor-pointer"
                             >
                                 Go to service
-                            </Link>
+                            </div>
                         )}
                     </div>
                 </div>
