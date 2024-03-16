@@ -9,7 +9,7 @@ import { FaRegHandshake } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import ForbiddenRoute from "../ForbiddenRoute";
 import { Formate_Date } from "../../Logic/Formate_Date";
-function UserNotifications() {
+function Profile_Notifications() {
     const { Notifications } = useAppContext();
     if (Notifications == undefined) return <ForbiddenRoute />;
     return (
@@ -92,4 +92,4 @@ function UserNotifications() {
     );
 }
 
-export default UserNotifications;
+export default Profile_Notifications;
