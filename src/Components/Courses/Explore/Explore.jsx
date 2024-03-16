@@ -1,7 +1,7 @@
 import React from "react";
 import Search from "./Search";
 import Filter from "./Filter";
-import Explorecourses from "./Explorecourses";
+import Explorecourses from "./ExploreCourses";
 import { useState } from "react";
 import Mobile_Filter from "./Mobile_Filter";
 import { IoWarning } from "react-icons/io5";
