@@ -2,8 +2,16 @@ import React from "react";
 import img from "../../../public/wallpaper.jpg";
 import { Link } from "react-router-dom";
 import { Formate_Date } from "../../Logic/Formate_Date"; // Import your date formatting function
-
+import { useEffect } from "react";
+import { useState } from "react";
 function Card({ blog }) {
+    const [windowWidth, SetwindowWidth] = useState(window.innerWidth);
+
+     useEffect(() => {
+         window.addEventListener("resize", () => {
+             SetwindowWidth(window.innerWidth);
+         });
+     }, []);
     return (
         <Link
             to={`/Blogs/${blog._id}`}
@@ -17,20 +25,20 @@ function Card({ blog }) {
             <div className="w-[60%] pl-2 md:pl-6 ">
                 {blog.Title && (
                     <p className="font-bold  text-lg md:text-xl  overflow-hidden">
-                        {window.innerWidth > 640
+                        {windowWidth > 640
                             ? blog.Title.slice(0, 60)
                             : blog.Title.slice(0, 30)}
-                        {blog.Title.length > (window.innerWidth > 640 ? 60 : 30)
+                        {blog.Title.length > (windowWidth > 640 ? 60 : 30)
                             ? "..."
                             : ""}
                     </p>
                 )}
                 {blog.Text && (
                     <p className="text-gray text-base">
-                        {window.innerWidth > 640
+                        {windowWidth > 640
                             ? blog.Text.slice(0, 150)
                             : blog.Text.slice(0, 75)}
-                        {blog.Text.length > (window.innerWidth > 640 ? 150 : 75)
+                        {blog.Text.length > (windowWidth > 640 ? 150 : 75)
                             ? "..."
                             : ""}
                     </p>

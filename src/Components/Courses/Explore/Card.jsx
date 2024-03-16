@@ -1,8 +1,15 @@
 import React from "react";
 import img from "../../../../public/wallpaper.jpg";
+import { useEffect } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 function Card({ course }) {
-    console.log(window.innerWidth);
+    const [windowWidth, SetwindowWidth] = useState(window.innerWidth);
+    useEffect(() => {
+        window.addEventListener("resize", () => {
+            SetwindowWidth(window.innerWidth);
+        });
+    }, []);
     return (
         <Link
             to={`/Courses/${course._id}`}
@@ -16,22 +23,22 @@ function Card({ course }) {
             <div className="w-[60%] pl-2 md:pl-6  ">
                 {course.Title && (
                     <p className="font-bold text-lg md:text-xl  overflow-hidden">
-                        {window.innerWidth > 640
+                        {windowWidth > 640
                             ? course.Title.slice(0, 60)
                             : course.Title.slice(0, 20)}
                         {course.Title.length >
-                        (window.innerWidth > 640 ? 60 : 20)
+                        (windowWidth > 640 ? 60 : 20)
                             ? "..."
                             : ""}
                     </p>
                 )}
                 {course.Text && (
                     <p className="text-gray text-base">
-                        {window.innerWidth > 640
+                        {windowWidth > 640
                             ? course.Text.slice(0, 70)
                             : course.Text.slice(0, 35)}
                         {course.Text.length >
-                        (window.innerWidth > 640 ? 70 : 35)
+                        (windowWidth > 640 ? 70 : 35)
                             ? "..."
                             : ""}
                     </p>
@@ -43,7 +50,9 @@ function Card({ course }) {
                     </p>
                 ) : null}
                 {course.Category ? (
-                    <p className="text-gray text-sm font-semibold ">{course.Category}</p>
+                    <p className="text-gray text-sm font-semibold ">
+                        {course.Category}
+                    </p>
                 ) : null}
             </div>
         </Link>

@@ -1,7 +1,16 @@
 import React from "react";
 import img from "../../../../public/wallpaper.jpg";
 import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { useState } from "react";
 function Card({ service }) {
+    const [windowWidth, SetwindowWidth] = useState(window.innerWidth);
+
+    useEffect(() => {
+        window.addEventListener("resize", () => {
+            SetwindowWidth(window.innerWidth);
+        });
+    }, []);
     return (
         <Link
             to={`/Services/${service._id}`}
@@ -15,22 +24,22 @@ function Card({ service }) {
             <div className="w-[60%] pl-2 md:pl-6  ">
                 {service.Title && (
                     <p className="font-bold text-lg md:text-xl  overflow-hidden">
-                        {window.innerWidth > 640
+                        {windowWidth > 640
                             ? service.Title.slice(0, 60)
                             : service.Title.slice(0, 20)}
                         {service.Title.length >
-                        (window.innerWidth > 640 ? 60 : 20)
+                        (windowWidth > 640 ? 60 : 20)
                             ? "..."
                             : ""}
                     </p>
                 )}
                 {service.Text && (
                     <p className="text-gray text-base">
-                        {window.innerWidth > 640
+                        {windowWidth > 640
                             ? service.Text.slice(0, 70)
                             : service.Text.slice(0, 35)}
                         {service.Text.length >
-                        (window.innerWidth > 640 ? 70 : 35)
+                        (windowWidth > 640 ? 70 : 35)
                             ? "..."
                             : ""}
                     </p>

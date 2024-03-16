@@ -2,8 +2,15 @@ import React from "react";
 import img from "../../../public/wallpaper.jpg";
 import { Link } from "react-router-dom";
 import { Formate_Date } from "../../Logic/Formate_Date"; // Import your date formatting function
- 
+ import { useEffect } from "react";
+ import { useState } from "react";
 function Card({ event }) {
+    const [windowWidth, SetwindowWidth] = useState(window.innerWidth);
+    useEffect(() => {
+        window.addEventListener("resize", () => {
+            SetwindowWidth(window.innerWidth);
+        });
+    }, []);
     return (
         <Link
             to={`/Events/${event._id}`}
@@ -17,22 +24,22 @@ function Card({ event }) {
             <div className="w-[60%] pl-2 md:pl-6 ">
                 {event.Title && (
                     <p className="font-bold  text-lg md:text-xl  overflow-hidden">
-                        {window.innerWidth > 640
+                        {windowWidth > 640
                             ? event.Title.slice(0, 60)
                             : event.Title.slice(0, 30)}
                         {event.Title.length >
-                        (window.innerWidth > 640 ? 60 : 30)
+                        (windowWidth > 640 ? 60 : 30)
                             ? "..."
                             : ""}
                     </p>
                 )}
                 {event.Text && (
                     <p className="text-gray text-base">
-                        {window.innerWidth > 640
+                        {windowWidth > 640
                             ? event.Text.slice(0, 150)
                             : event.Text.slice(0, 75)}
                         {event.Text.length >
-                        (window.innerWidth > 640 ? 150 : 75)
+                        (windowWidth > 640 ? 150 : 75)
                             ? "..."
                             : ""}
                     </p>
