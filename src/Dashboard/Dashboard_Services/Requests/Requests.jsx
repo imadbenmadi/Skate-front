@@ -1,4 +1,3 @@
-
 import { IoWarning } from "react-icons/io5";
 import { useEffect, useState } from "react";
 import axios from "axios";
@@ -17,7 +16,7 @@ function Requests() {
         try {
             setLoading(true);
             const response = await axios.get(
-                "https://backend.skate-consult.com/Dashboard/Services/Requests",
+                "http://localhost:3000/Dashboard/Services/Requests",
                 {
                     withCredentials: true,
                     validateStatus: () => true,

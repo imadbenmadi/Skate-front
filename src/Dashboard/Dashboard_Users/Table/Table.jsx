@@ -1,4 +1,3 @@
-
 import Search from "./Search";
 import Filter from "./Filter";
 import { FaPlus } from "react-icons/fa6";
@@ -21,7 +20,7 @@ function Table() {
 
         try {
             const response = await axios.get(
-                "https://backend.skate-consult.com/Dashboard/Users",
+                "http://localhost:3000/Dashboard/Users",
                 {
                     withCredentials: true,
                     validateStatus: () => true,

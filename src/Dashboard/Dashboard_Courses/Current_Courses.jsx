@@ -1,4 +1,3 @@
-
 import { IoWarning } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { FaPlus } from "react-icons/fa";
@@ -16,13 +15,10 @@ function Current_Courses() {
     const fetch_Courses = async () => {
         setLoading(true);
         try {
-            const response = await axios.get(
-                "https://backend.skate-consult.com/Courses",
-                {
-                    withCredentials: true,
-                    validateStatus: () => true,
-                }
-            );
+            const response = await axios.get("http://localhost:3000/Courses", {
+                withCredentials: true,
+                validateStatus: () => true,
+            });
             if (response.status == 200) {
                 setCourses(response.data.courses);
             } else {
@@ -79,7 +75,7 @@ function Current_Courses() {
     else {
         return (
             <div>
-                <div className="flex items-center justify-around my-5">
+                <div className="flex flex-wrap items-center justify-around my-5">
                     <div className="pl-4 text-gray font-semibold text-2xl">
                         <span className="text-green">Skate</span> Courses :
                     </div>

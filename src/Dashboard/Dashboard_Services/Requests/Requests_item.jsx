@@ -1,4 +1,3 @@
-
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router";
@@ -12,7 +11,7 @@ function Requests_item({ request, onDelete }) {
         try {
             setAccept_Loading(true);
             const response = await axios.post(
-                "https://backend.skate-consult.com/Dashboard/Services/Requests/Accept",
+                "http://localhost:3000/Dashboard/Services/Requests/Accept",
                 { UserId, ServiceId },
                 {
                     withCredentials: true,
@@ -74,7 +73,7 @@ function Requests_item({ request, onDelete }) {
         try {
             setReject_Loading(true);
             const response = await axios.post(
-                "https://backend.skate-consult.com/Dashboard/Services/Requests/Reject",
+                "http://localhost:3000/Dashboard/Services/Requests/Reject",
                 { UserId, ServiceId },
                 {
                     withCredentials: true,

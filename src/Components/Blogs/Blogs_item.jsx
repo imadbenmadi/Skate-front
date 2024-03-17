@@ -1,5 +1,5 @@
 import img from "../../../public/wallpaper.jpg";
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useLocation } from "react-router";
 import ErrorPage from "../ErrorPage";
 import axios from "axios";
@@ -17,7 +17,7 @@ function Blog_item() {
         setLoading(true);
         try {
             const response = await axios.get(
-                `https://backend.skate-consult.com/Blogs/${
+                `http://localhost:3000/Blogs/${
                     location.pathname.split("/")[2]
                 }`,
                 {

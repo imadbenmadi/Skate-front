@@ -1,4 +1,3 @@
-
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import Axios from "axios";
 import Swal from "sweetalert2";
@@ -59,7 +58,7 @@ function Add_Course() {
                             setSubmitting(true);
 
                             let response = await Axios.post(
-                                "https://backend.skate-consult.com/Dashboard/Courses",
+                                "http://localhost:3000/Dashboard/Courses",
                                 values,
                                 {
                                     withCredentials: true,

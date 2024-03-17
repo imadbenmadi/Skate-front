@@ -1,4 +1,3 @@
-
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -79,9 +78,7 @@ function Add_user() {
                         } else if (values.Password.length < 8) {
                             errors.Password =
                                 "Password must be at least 8 characters long";
-                        }
-
-                        else if (
+                        } else if (
                             !/^\d+$/.test(values.Age) ||
                             values.Age <= 0
                         ) {
@@ -99,7 +96,7 @@ function Add_user() {
                         try {
                             setSubmitting(true);
                             let response = await Axios.post(
-                                "https://backend.skate-consult.com/Dashboard/Users",
+                                "http://localhost:3000/Dashboard/Users",
                                 values,
                                 {
                                     withCredentials: true,

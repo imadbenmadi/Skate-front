@@ -13,7 +13,7 @@ function Dashboard_Services() {
     }, [location.pathname]);
     return (
         <div>
-            <div className=" flex items-center justify-center  gap-10 py-6 text-2xl">
+            <div className=" flex items-center justify-center gap-2 md:gap-10 py-6  text-lg md:text-2xl">
                 <Link
                     to={"/Dashboard/Services"}
                     className={`select-none ${

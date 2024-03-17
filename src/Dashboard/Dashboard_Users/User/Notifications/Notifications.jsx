@@ -1,4 +1,3 @@
-
 import { useNavigate } from "react-router-dom";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import Axios from "axios";
@@ -61,7 +60,7 @@ function Notifications() {
                     onSubmit={async (values, { setSubmitting }) => {
                         try {
                             let response = await Axios.post(
-                                "https://backend.skate-consult.com/Dashboard/Users/" +
+                                "http://localhost:3000/Dashboard/Users/" +
                                     userId +
                                     "/Notify",
                                 values,

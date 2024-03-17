@@ -1,4 +1,4 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useAppContext } from "../../Context/AppContext";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
@@ -39,7 +39,7 @@ function CourseItem() {
         try {
             setRequestLoading(true);
             const response = await axios.post(
-                `https://backend.skate-consult.com/Courses/request`,
+                `http://localhost:3000/Courses/request`,
                 {
                     userId: _id,
                     CourseId: location.pathname.split("/")[2],
@@ -49,7 +49,7 @@ function CourseItem() {
                     validateStatus: () => true,
                 }
             );
-
+                console.log("Response:", response);
             if (response.status === 200) {
                 swal.fire("success", "Request sent successfully", "success");
                 setSuccess(true);
@@ -95,7 +95,7 @@ function CourseItem() {
 
         try {
             const response = await axios.get(
-                `https://backend.skate-consult.com/Courses/${
+                `http://localhost:3000/Courses/${
                     location.pathname.split("/")[2]
                 }`,
                 {

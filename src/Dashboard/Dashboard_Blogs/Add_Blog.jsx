@@ -1,4 +1,3 @@
-
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import Axios from "axios";
 import Swal from "sweetalert2";
@@ -48,7 +47,7 @@ function Add_Blog() {
                             setSubmitting(true);
 
                             let response = await Axios.post(
-                                "https://backend.skate-consult.com/Dashboard/Blogs",
+                                "http://localhost:3000/Dashboard/Blogs",
                                 values,
                                 {
                                     withCredentials: true,

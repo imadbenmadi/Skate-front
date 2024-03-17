@@ -17,7 +17,7 @@ function Login() {
     async function handleLogin(values, { setSubmitting }) {
         try {
             let response = await Axios.post(
-                "https://backend.skate-consult.com/Login",
+                "http://localhost:3000/Login",
                 values,
                 {
                     withCredentials: true,
@@ -198,9 +198,8 @@ function Login() {
                 </div>
             </div>
             <div className=" min-h-[40vh]  bg-slate-200">
-
                 <Footer />
-                </div>
+            </div>
         </>
     );
 }

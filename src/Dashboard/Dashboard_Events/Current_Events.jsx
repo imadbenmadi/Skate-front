@@ -1,4 +1,3 @@
-
 import { IoWarning } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { FaPlus } from "react-icons/fa";
@@ -15,13 +14,10 @@ function Current_Events() {
     const fetch_Events = async () => {
         setLoading(true);
         try {
-            const response = await axios.get(
-                "https://backend.skate-consult.com/events",
-                {
-                    withCredentials: true,
-                    validateStatus: () => true,
-                }
-            );
+            const response = await axios.get("http://localhost:3000/events", {
+                withCredentials: true,
+                validateStatus: () => true,
+            });
             if (response.status == 200) {
                 setEvents(response.data.events);
             } else {
@@ -52,7 +48,7 @@ function Current_Events() {
     if (!Events) return null;
     else if (Events.length === 0)
         return (
-            <div className=" flex items-center justify-center gap-4 flex-col">
+            <div className=" flex flex-wrap items-center justify-center gap-4 flex-col">
                 <div className="pl-4 text-gray font-semibold  text-2xl w-full">
                     <span className="text-green">Skate</span> Events :
                 </div>
@@ -75,7 +71,7 @@ function Current_Events() {
     else {
         return (
             <div>
-                <div className="flex items-center justify-around my-5">
+                <div className="flex flex-wrap items-center justify-around my-5">
                     <div className="pl-4 text-gray font-semibold text-2xl">
                         <span className="text-green">Skate</span> Events :
                     </div>

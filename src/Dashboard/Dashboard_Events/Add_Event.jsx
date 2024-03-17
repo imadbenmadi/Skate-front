@@ -1,4 +1,3 @@
-
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import Axios from "axios";
 import Swal from "sweetalert2";
@@ -47,7 +46,7 @@ function Add_Event() {
                             setSubmitting(true);
 
                             let response = await Axios.post(
-                                "https://backend.skate-consult.com/Dashboard/Events",
+                                "http://localhost:3000/Dashboard/Events",
                                 values,
                                 {
                                     withCredentials: true,

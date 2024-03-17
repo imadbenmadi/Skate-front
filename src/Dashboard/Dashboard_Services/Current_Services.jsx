@@ -1,4 +1,3 @@
-
 import { IoWarning } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { FaPlus } from "react-icons/fa";
@@ -15,13 +14,10 @@ function Current_Services() {
     const fetch_Services = async () => {
         setLoading(true);
         try {
-            const response = await axios.get(
-                "https://backend.skate-consult.com/Services",
-                {
-                    withCredentials: true,
-                    validateStatus: () => true,
-                }
-            );
+            const response = await axios.get("http://localhost:3000/Services", {
+                withCredentials: true,
+                validateStatus: () => true,
+            });
             if (response.status == 200) {
                 setServices(response.data.services);
             } else {
@@ -53,7 +49,7 @@ function Current_Services() {
     if (!Services) return null;
     else if (Services.length === 0)
         return (
-            <div className=" flex items-center justify-center gap-4 flex-col">
+            <div className=" flex flex-wrap items-center justify-center gap-4 flex-col">
                 <div className="pl-4 text-gray font-semibold  text-2xl w-full">
                     <span className="text-green">Skate</span> Services :
                 </div>
@@ -78,7 +74,7 @@ function Current_Services() {
     else {
         return (
             <div>
-                <div className="flex items-center justify-around my-5">
+                <div className="flex flex-wrap items-center justify-around my-5">
                     <div className="pl-4 text-gray font-semibold text-2xl">
                         <span className="text-green">Skate</span> Services :
                     </div>

@@ -1,4 +1,3 @@
-
 import NavBar from "./Components/NavBar/NavBar";
 import { Outlet } from "react-router";
 import { useState, useEffect } from "react";
@@ -16,7 +15,7 @@ function App() {
 
         try {
             const response = await axios.get(
-                "https://backend.skate-consult.com/check_Auth",
+                "http://localhost:3000/check_Auth",
                 {
                     withCredentials: true,
                     validateStatus: () => true,

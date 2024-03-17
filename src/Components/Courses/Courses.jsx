@@ -1,4 +1,4 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios"; // Import axios for making HTTP requests
 import { useAppContext } from "../../Context/AppContext";
 import Explore from "./Explore/Explore";
@@ -14,13 +14,10 @@ function Courses() {
         setLoading(true);
 
         try {
-            const response = await axios.get(
-                "https://backend.skate-consult.com/Courses",
-                {
-                    withCredentials: true,
-                    validateStatus: () => true,
-                }
-            );
+            const response = await axios.get("http://localhost:3000/Courses", {
+                withCredentials: true,
+                validateStatus: () => true,
+            });
             if (response.status == 200) {
                 setCourses(response.data);
             } else {
@@ -29,7 +26,7 @@ function Courses() {
             if (isAuth) {
                 const userId = _id;
                 const response = await axios.get(
-                    `https://backend.skate-consult.com/Courses/userCourses/${_id}`,
+                    `http://localhost:3000/Courses/userCourses/${_id}`,
                     {
                         withCredentials: true,
                         validateStatus: () => true,

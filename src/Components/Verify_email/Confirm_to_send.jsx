@@ -1,4 +1,3 @@
-
 import { useAppContext } from "../../Context/AppContext";
 import { useState } from "react";
 import axios from "axios";
@@ -12,7 +11,7 @@ function Confirm_to_send({ setConfirm_to_send_state, startResendTimer }) {
         setloading_toSend(true);
         try {
             const response = await axios.post(
-                "https://backend.skate-consult.com/Send_Verification_Email",
+                "http://localhost:3000/Send_Verification_Email",
                 {
                     userId,
                 },

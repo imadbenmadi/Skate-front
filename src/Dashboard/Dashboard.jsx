@@ -21,7 +21,7 @@ function Dashboard() {
         setLoading(true);
         try {
             const response = await axios.get(
-                "https://backend.skate-consult.com/Dashboard/check_Auth",
+                "http://localhost:3000/Dashboard/check_Auth",
                 {
                     withCredentials: true,
                     validateStatus: () => true,
@@ -77,7 +77,7 @@ function Dashboard() {
                                     : "w-[85%] h-screen overflow-auto custom-overflow"
                             }
                         >
-                            <Outlet  />
+                            <Outlet />
                         </div>
                     </>
                 ) : (
@@ -89,7 +89,7 @@ function Dashboard() {
                             />
                         </div>
                         <div className="w-[80%]   h-screen overflow-auto custom-overflow  ">
-                            <Outlet  />
+                            <Outlet />
                         </div>
                     </>
                 )}

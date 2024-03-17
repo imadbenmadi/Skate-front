@@ -1,4 +1,3 @@
-
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import Axios from "axios";
 import Swal from "sweetalert2";
@@ -22,7 +21,7 @@ function Edit_Blog() {
         setLoading(true);
         try {
             const response = await axios.get(
-                `https://backend.skate-consult.com/Blogs/${Blog_id}`,
+                `http://localhost:3000/Blogs/${Blog_id}`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,
@@ -112,7 +111,7 @@ function Edit_Blog() {
                             try {
                                 setSubmitting(true);
                                 let response = await Axios.put(
-                                    `https://backend.skate-consult.com/Dashboard/Blogs/${Blog_id}`,
+                                    `http://localhost:3000/Dashboard/Blogs/${Blog_id}`,
                                     values,
                                     {
                                         withCredentials: true,

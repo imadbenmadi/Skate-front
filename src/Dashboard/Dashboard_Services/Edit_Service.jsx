@@ -1,4 +1,3 @@
-
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import Axios from "axios";
 import Swal from "sweetalert2";
@@ -22,7 +21,7 @@ function Edit_Service() {
         setLoading(true);
         try {
             const response = await axios.get(
-                `https://backend.skate-consult.com/Services/${Service_id}`,
+                `http://localhost:3000/Services/${Service_id}`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,
@@ -122,7 +121,7 @@ function Edit_Service() {
                             try {
                                 setSubmitting(true);
                                 let response = await Axios.put(
-                                    `https://backend.skate-consult.com/Dashboard/Services/${Service_id}`,
+                                    `http://localhost:3000/Dashboard/Services/${Service_id}`,
                                     values,
                                     {
                                         withCredentials: true,

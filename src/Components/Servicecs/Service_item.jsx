@@ -1,4 +1,4 @@
-import  { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useAppContext } from "../../Context/AppContext";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
@@ -39,7 +39,7 @@ function ServiceItem() {
         try {
             setRequestLoading(true);
             const response = await axios.post(
-                `https://backend.skate-consult.com/Services/request`,
+                `http://localhost:3000/Services/request`,
                 {
                     userId: _id,
                     ServiceId: location.pathname.split("/")[2],
@@ -49,7 +49,6 @@ function ServiceItem() {
                     validateStatus: () => true,
                 }
             );
-
             if (response.status === 200) {
                 swal.fire("success", "Request sent successfully", "success");
                 setSuccess(true);
@@ -95,7 +94,7 @@ function ServiceItem() {
 
         try {
             const response = await axios.get(
-                `https://backend.skate-consult.com/Services/${
+                `http://localhost:3000/Services/${
                     location.pathname.split("/")[2]
                 }`,
                 {
