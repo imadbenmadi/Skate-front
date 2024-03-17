@@ -30,11 +30,7 @@ function Login() {
                 Swal.fire("Done!", "Logged in Successfully", "success");
                 Navigate("/");
             } else if (response.status == 401) {
-                Swal.fire(
-                    "Email already exists",
-                    `Username or Password isn't correct  `,
-                    "error"
-                );
+                Swal.fire("Username or Password isn't correct", ``, "error");
             } else if (response.status == 409) {
                 Swal.fire("Error!", `${response.data.message} `, "error");
             } else if (response.status == 500) {

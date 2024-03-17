@@ -34,7 +34,7 @@ function Dashboard_Login() {
             } else if (response.status == 401) {
                 Swal.fire(
                     "Unauthorized!",
-                    `wrong email or password , ${response.data.message}`,
+                    `wrong name or password , ${response.data.message}`,
                     "error"
                 );
             } else if (response.status == 409) {

@@ -84,24 +84,25 @@ function Verify_email() {
             }
         );
 
-        if (response.status == 200) {
+        if (response.status === 200) {
             Swal.fire("Done!", "Email Verified Successfully", "success");
             Navigate("/");
-        } else if (response.status == 401) {
-            Swal.fire("Error!", "Invalid Code", "error");
-        } else if (response.status == 500) {
-            Swal.fire("Error!", "Internal Server Error", "error");
-        } else if (response.status == 409) {
+        } else if (response.status === 404) {
+            Swal.fire("Error!", "Verification token not found", "error");
+        } else if (response.status === 409) {
             Swal.fire("Error!", response.data.message, "error");
-        } else if (response.status == 429) {
+        } else if (response.status === 500) {
+            Swal.fire("Error!", "Internal Server Error", "error");
+        } else if (response.status === 429) {
             Swal.fire(
                 "Error!",
-                `Too many requests ,try again latter\n  ${response.data.message}`,
+                `Too many requests, try again later\n${response.data.message}`,
                 "error"
             );
         } else {
             Swal.fire("Error!", "Something Went Wrong", "error");
         }
+
         setSubmitLoading(false);
         setCode("");
     };

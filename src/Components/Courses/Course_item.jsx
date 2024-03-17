@@ -61,7 +61,7 @@ function CourseItem() {
                     text: "You are not authenticated!",
                     icon: "warning",
                     confirmButtonColor: "#3085d6",
-                    cancelButtonColor: "green",
+                    cancelButtonColor: "#078343",
                     confirmButtonText: "Go to Login Page",
                 }).then((result) => {
                     if (result.isConfirmed) {
