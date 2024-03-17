@@ -124,7 +124,7 @@ function Default() {
                         <IoMdArrowRoundBack />
                         <div>Back to table</div>
                     </Link>
-                    <div className="flex gap-10 pt-6 justify-center text-xl">
+                    <div className="flex flex-wrap gap-4 md:gap-10 pt-6 justify-center text-xl">
                         <Link
                             to={"/Dashboard/Users/" + userId + "/Notification"}
                             className="select-none flex items-center cursor-pointer gap-1 bg-gray text-white px-3 py-1 rounded"
@@ -162,13 +162,13 @@ function Default() {
                         </div>
                     </div>
 
-                    <div className="flex items-center justify-center gap-4 text-2xl">
+                    <div className="flex items-center justify-center gap-4 text-lg md:text-2xl pl-8 mr-4 md:pl-0 md:mr-0">
                         <div className="bg-gray_white rounded mt-8 w-fit">
                             {userData && (
                                 <table className="w-full">
                                     <tbody>
                                         <tr className="">
-                                            <th className="text-left pr-4 border p-2">
+                                            <th className="text-left md:pr-4 border md:p-2">
                                                 First name:
                                             </th>
                                             <td className="border border-gray p-3">
@@ -176,7 +176,7 @@ function Default() {
                                             </td>
                                         </tr>
                                         <tr className="">
-                                            <th className="text-left pr-4 border p-2">
+                                            <th className="text-left md:pr-4 border md:p-2">
                                                 Last name:
                                             </th>
                                             <td className="border border-gray p-3">
@@ -184,7 +184,7 @@ function Default() {
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th className="text-left pr-4 border p-2">
+                                            <th className="text-left md:pr-4 border md:p-2">
                                                 Email:
                                             </th>
                                             <td className="border border-gray p-3">
@@ -192,7 +192,7 @@ function Default() {
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th className="text-left pr-4 border p-2">
+                                            <th className="text-left md:pr-4 border md:p-2">
                                                 Telephone:
                                             </th>
                                             <td className="border border-gray p-3">
@@ -200,7 +200,7 @@ function Default() {
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th className="text-left pr-4 border p-2">
+                                            <th className="text-left md:pr-4 border md:p-2">
                                                 Gender:
                                             </th>
                                             <td className="border border-gray p-3">
@@ -208,7 +208,7 @@ function Default() {
                                             </td>
                                         </tr>
                                         <tr>
-                                            <th className="text-left pr-4 border p-2">
+                                            <th className="text-left md:pr-4 border md:p-2">
                                                 Status:
                                             </th>
                                             <td className="border border-gray p-3">
@@ -224,7 +224,7 @@ function Default() {
                         </div>
                     </div>
 
-                    <div className="flex gap-10 pt-10 justify-center text-xl text-center">
+                    <div className="flex gap-2 md:gap-10 pt-10 justify-center text-lg md:text-xl text-center">
                         <div>
                             <Link
                                 to={"/Dashboard/Users/" + userId + "/Courses"}

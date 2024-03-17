@@ -53,8 +53,8 @@ function Table() {
     return (
         <div className="">
             <div className=" pt-4">
-                <div className=" flex  justify-around">
-                    <div className=" flex items-center">
+                <div className=" flex flex-wrap gap-4 md:gap-0  justify-around">
+                    <div className=" flex  items-center">
                         {/* <Filter filter={filter} setFilter={setFilter} /> */}
                         <Search setSearch={setSearch} />
                     </div>
