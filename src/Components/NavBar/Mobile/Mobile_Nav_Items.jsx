@@ -98,9 +98,9 @@ function Mobile_Nav_Items({
                                 <Link
                                     onClick={Toogle_Menu_Bar}
                                     to={"/Register"}
-                                    className="select-none bg-gray_white text-black_text px-3 py-2 rounded-lg"
+                                    className="select-none bg-blue text-white px-3 py-2 rounded-lg"
                                 >
-                                    Register
+                                    SignUp
                                 </Link>
                             </div>
                         </>
