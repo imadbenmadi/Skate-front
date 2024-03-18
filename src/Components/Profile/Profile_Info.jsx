@@ -17,7 +17,7 @@ function ProfileInfo() {
     return (
         <div>
             <div className="text-2xl w-full md:w-fit pt-4 pl-4  lg:text-3xl mb-2  ">
-                <span className="text-green2">Read </span>
+                <span className="text-green2">Your </span>
                 Profile
             </div>
             <h2 className=" text-center pt-4 text-3xl w-[300px] m-auto break-all">
