@@ -167,7 +167,7 @@ function Add_Blog() {
                                                     values.image
                                                 )} // Create a URL for the selected image
                                                 alt="Selected Image"
-                                                className=" w-80 h-80 object-cover rounded"
+                                                className=" w-full h-[200px] md:w-80 md:h-80 object-cover rounded"
                                             />
                                             <div
                                                 className=" absolute top-0 right-0 bg-blue text-white font-bold text-3xl cursor-pointer"
@@ -180,7 +180,7 @@ function Add_Blog() {
                                         </div>
                                     ) : (
                                         <div
-                                            className="w-80 h-80 bg-gray_white text-gray rounded flex items-center justify-center cursor-pointer"
+                                            className="w-full h-[200px] md:w-80 md:h-80 bg-gray_white text-gray rounded flex items-center justify-center cursor-pointer"
                                             onClick={() =>
                                                 document
                                                     .getElementById("image")
