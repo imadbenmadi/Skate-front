@@ -4,6 +4,9 @@ import Swal from "sweetalert2";
 import { FaArrowLeft } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { FaRegImage } from "react-icons/fa6";
+import { IoClose } from "react-icons/io5";
+
 function Add_Service() {
     const Navigate = useNavigate();
     return (
@@ -26,6 +29,7 @@ function Add_Service() {
                         Description: "",
                         Price: "",
                         Category: "",
+                        image: null,
                     }}
                     validate={(values) => {
                         const errors = {};
@@ -53,13 +57,20 @@ function Add_Service() {
                         }
                         return errors;
                     }}
-                    onSubmit={async (values, { setSubmitting, resetForm }) => {
+                    onSubmit={async (
+                        values,
+                        { setSubmitting, resetForm, setFieldValue }
+                    ) => {
                         try {
                             setSubmitting(true);
-
+                            const formData = new FormData();
+                            formData.append("Title", values.Title);
+                            formData.append("Text", values.Text);
+                            formData.append("Description", values.Description);
+                            formData.append("image", values.image);
                             let response = await Axios.post(
                                 "http://localhost:3000/Dashboard/Services",
-                                values,
+                                formData,
                                 {
                                     withCredentials: true,
                                     validateStatus: () => true,
@@ -133,8 +144,73 @@ function Add_Service() {
                         }
                     }}
                 >
-                    {({ isSubmitting }) => (
+                    {({ isSubmitting, setFieldValue, values }) => (
                         <Form className="flex flex-col text-sm md:text-lg  gap-4 items-center justify-center flex-wrap">
+                            <div className="w-full">
+                                <input
+                                    id="image"
+                                    type="file"
+                                    name="image"
+                                    accept="image/*"
+                                    onChange={(event) => {
+                                        setFieldValue(
+                                            "image",
+                                            event.currentTarget.files[0]
+                                        );
+                                    }}
+                                    disabled={isSubmitting}
+                                    className="hidden" // Hide the default file input button
+                                />
+                                <div className="flex flex-col items-center gap-1">
+                                    <button
+                                        type="button"
+                                        className="bg-blue-500  px-4 py-2 rounded font-semibold"
+                                        onClick={() =>
+                                            document
+                                                .getElementById("image")
+                                                .click()
+                                        }
+                                        disabled={isSubmitting}
+                                    >
+                                        Choose an Image
+                                    </button>
+                                    {values.image ? (
+                                        <div className=" relative ">
+                                            <img
+                                                src={URL.createObjectURL(
+                                                    values.image
+                                                )} // Create a URL for the selected image
+                                                alt="Selected Image"
+                                                className=" w-80 h-80 object-cover rounded"
+                                            />
+                                            <div
+                                                className=" absolute top-0 right-0 bg-blue text-white font-bold text-3xl cursor-pointer"
+                                                onClick={() =>
+                                                    setFieldValue("image", null)
+                                                }
+                                            >
+                                                <IoClose />
+                                            </div>
+                                        </div>
+                                    ) : (
+                                        <div
+                                            className="w-80 h-80 bg-gray_white text-gray rounded flex items-center justify-center cursor-pointer"
+                                            onClick={() =>
+                                                document
+                                                    .getElementById("image")
+                                                    .click()
+                                            }
+                                        >
+                                            <FaRegImage />
+                                        </div>
+                                    )}{" "}
+                                </div>
+                                <ErrorMessage
+                                    name="image"
+                                    component="div"
+                                    style={errorInputMessage}
+                                />
+                            </div>
                             <div className=" w-full ">
                                 <div>
                                     Title{" "}
