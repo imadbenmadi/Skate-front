@@ -60,7 +60,11 @@ function Blog_item() {
                     <div>Back to blogs</div>
                 </Link>
                 <h2 className="text-2xl font-bold mb-2 m-auto">{blog.Title}</h2>
-                <img src={img} alt="" className=" w-[400px] m-auto" />
+                <img
+                    src={`http://localhost:3000/Blogs/${blog.Image}`}
+                    alt=""
+                    className=" w-[400px] m-auto"
+                />
                 <div className="text-gray  text-sm text-center m-auto ">
                     {blog.Date && Formate_Date(blog.Date)}
                 </div>

@@ -18,7 +18,7 @@ function Card({ event }) {
         >
             <img
                 className="w-[40%]  md:w-[300px]  object-cover h-[120px] md:h-[150px]"
-                src={img}
+                src={`http://localhost:3000/Events/${event.Image}`}
                 alt={event.Title}
             />
             <div className="w-[60%] pl-2 md:pl-6 ">
@@ -27,8 +27,7 @@ function Card({ event }) {
                         {windowWidth > 640
                             ? event.Title.slice(0, 60)
                             : event.Title.slice(0, 30)}
-                        {event.Title.length >
-                        (windowWidth > 640 ? 60 : 30)
+                        {event.Title.length > (windowWidth > 640 ? 60 : 30)
                             ? "..."
                             : ""}
                     </p>
@@ -38,8 +37,7 @@ function Card({ event }) {
                         {windowWidth > 640
                             ? event.Text.slice(0, 150)
                             : event.Text.slice(0, 75)}
-                        {event.Text.length >
-                        (windowWidth > 640 ? 150 : 75)
+                        {event.Text.length > (windowWidth > 640 ? 150 : 75)
                             ? "..."
                             : ""}
                     </p>

@@ -17,7 +17,7 @@ function Card({ course }) {
         >
             <img
                 className=" w-[40%] md:w-[300px] h-[120px] md:h-[150px] object-cover"
-                src={img}
+                src={`http://localhost:3000/Courses/${course.Image}`}
                 alt={course.Title}
             />
             <div className="w-[60%] pl-2 md:pl-6  ">
@@ -26,8 +26,7 @@ function Card({ course }) {
                         {windowWidth > 640
                             ? course.Title.slice(0, 60)
                             : course.Title.slice(0, 20)}
-                        {course.Title.length >
-                        (windowWidth > 640 ? 60 : 20)
+                        {course.Title.length > (windowWidth > 640 ? 60 : 20)
                             ? "..."
                             : ""}
                     </p>
@@ -37,8 +36,7 @@ function Card({ course }) {
                         {windowWidth > 640
                             ? course.Text.slice(0, 70)
                             : course.Text.slice(0, 35)}
-                        {course.Text.length >
-                        (windowWidth > 640 ? 70 : 35)
+                        {course.Text.length > (windowWidth > 640 ? 70 : 35)
                             ? "..."
                             : ""}
                     </p>

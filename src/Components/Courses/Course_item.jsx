@@ -24,13 +24,10 @@ function CourseItem() {
 
     useEffect(() => {
         if (Courses) {
-            console.log("Courses:", Courses);
             const CourseId = location.pathname.split("/")[2];
             const alreadyHaveCourse = Courses.some(
                 (Course) => Course == CourseId
             );
-
-            console.log("Already have Course:", alreadyHaveCourse);
             setAlreadyHaveCourse(alreadyHaveCourse);
         }
     }, [Courses]);
@@ -49,7 +46,7 @@ function CourseItem() {
                     validateStatus: () => true,
                 }
             );
-                console.log("Response:", response);
+            console.log("Response:", response);
             if (response.status === 200) {
                 swal.fire("success", "Request sent successfully", "success");
                 setSuccess(true);
@@ -147,7 +144,7 @@ function CourseItem() {
             <div className="flex flex-col md:flex-row     gap-3">
                 <div className="shrink-0">
                     <img
-                        src={img}
+                        src={`http://localhost:3000/Courses/${Course.Image}`}
                         alt=""
                         className="w-[400px] m-auto md:ml-4"
                     />

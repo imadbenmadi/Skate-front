@@ -66,7 +66,7 @@ function Current_Events_Card({ item, onDelete }) {
                 <div className="relative overflow-hidden py-5 px-5 flex flex-col md:flex-row shrink-0 justify-start h-fit">
                     <img
                         className="md:w-[30%]  md:h-[200px] object-cover"
-                        src={img}
+                        src={`http://localhost:3000/Events/${item.Image}`}
                         alt={item.Title}
                     />
                     <div className="md:w-[70%] md:pl-6 py-4 flex break-words">

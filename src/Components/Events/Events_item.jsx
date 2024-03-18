@@ -63,7 +63,11 @@ function Event_item() {
                 <h2 className="text-2xl font-bold mb-2 m-auto">
                     {event.Title}
                 </h2>
-                <img src={img} alt="" className=" w-[400px] m-auto" />
+                <img
+                    src={`http://localhost:3000/Events/${event.Image}`}
+                    alt=""
+                    className=" w-[400px] m-auto"
+                />
                 <div className="text-gray  text-sm text-center m-auto ">
                     {event.Date && Formate_Date(event.Date)}
                 </div>

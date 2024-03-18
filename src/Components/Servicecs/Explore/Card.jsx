@@ -17,8 +17,8 @@ function Card({ service }) {
             className="select-none w-full relative rounded overflow-hidden border-b border-gray py-5 px-1 md:px-5 flex shrink-0 justify-start h-fit"
         >
             <img
-                className=" w-[40%] md:w-[300px] h-[120px] md:h-[150px] object-cover"
-                src={img}
+                className=" w-[40%] md:w-[300px] h-[120px] md:h-[200px] object-cover"
+                src={`http://localhost:3000/Services/${service.Image}`}
                 alt={service.Title}
             />
             <div className="w-[60%] pl-2 md:pl-6  ">
@@ -27,8 +27,7 @@ function Card({ service }) {
                         {windowWidth > 640
                             ? service.Title.slice(0, 60)
                             : service.Title.slice(0, 20)}
-                        {service.Title.length >
-                        (windowWidth > 640 ? 60 : 20)
+                        {service.Title.length > (windowWidth > 640 ? 60 : 20)
                             ? "..."
                             : ""}
                     </p>
@@ -38,8 +37,7 @@ function Card({ service }) {
                         {windowWidth > 640
                             ? service.Text.slice(0, 70)
                             : service.Text.slice(0, 35)}
-                        {service.Text.length >
-                        (windowWidth > 640 ? 70 : 35)
+                        {service.Text.length > (windowWidth > 640 ? 70 : 35)
                             ? "..."
                             : ""}
                     </p>

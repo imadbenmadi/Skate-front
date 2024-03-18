@@ -62,10 +62,10 @@ function Current_Courses_Card({ item, onDelete }) {
     return (
         <div className="w-full flex  justify-between border-b-4 border-b-gray_white">
             <div className=" w-full">
-                <div className="relative overflow-hidden pt-5 px-5 flex flex-col shrink-0 justify-start h-fit">
+                <div className="relative overflow-hidden pt-5 px-5 flex flex-col md:flex-row shrink-0 justify-start h-fit">
                     <img
                         className="md:w-[30%] md:h-[200px] object-cover"
-                        src={img}
+                        src={`http://localhost:3000/Courses/${item.Image}`}
                         alt={item.Title}
                     />
                     <div className="md:w-[70%] md:pl-6 py-4 break-words flex justify-between">

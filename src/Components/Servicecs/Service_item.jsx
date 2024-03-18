@@ -146,7 +146,7 @@ function ServiceItem() {
             <div className="flex flex-col md:flex-row    gap-3">
                 <div className="">
                     <img
-                        src={img}
+                        src={`http://localhost:3000/Services/${service.Image}`}
                         alt=""
                         className="w-[400px] m-auto md:ml-4"
                     />
