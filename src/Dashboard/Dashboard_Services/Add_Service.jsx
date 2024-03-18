@@ -67,6 +67,8 @@ function Add_Service() {
                             formData.append("Title", values.Title);
                             formData.append("Text", values.Text);
                             formData.append("Description", values.Description);
+                            formData.append("Price", values.Price);
+                            formData.append("Category",values.Category)
                             formData.append("image", values.image);
                             let response = await Axios.post(
                                 "http://localhost:3000/Dashboard/Services",
