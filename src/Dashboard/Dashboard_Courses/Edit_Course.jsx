@@ -25,7 +25,7 @@ function Edit_Course() {
         setLoading(true);
         try {
             const response = await axios.get(
-                `http://localhost:3000/Courses/${Course_id}`,
+                `https://backend.skate-consult.com/Courses/${Course_id}`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,
@@ -97,7 +97,7 @@ function Edit_Course() {
                             Price: Course.Price || "",
                             Category: Course.Category || "",
                             image:
-                                `http://localhost:3000/Courses/${Course.Image}` ||
+                                `https://backend.skate-consult.com/Courses/${Course.Image}` ||
                                 null,
                         }}
                         validate={(values) => {
@@ -138,7 +138,7 @@ function Edit_Course() {
                                 formData.append("Category", values.Category);
                                 formData.append("image", values.image);
                                 let response = await Axios.put(
-                                    `http://localhost:3000/Dashboard/Courses/${Course_id}`,
+                                    `https://backend.skate-consult.com/Dashboard/Courses/${Course_id}`,
                                     formData,
                                     {
                                         withCredentials: true,
@@ -257,7 +257,6 @@ function Edit_Course() {
                                         >
                                             Choose an image
                                         </button>
-                                        
                                         {imageUrl ? (
                                             <div
                                                 className=" relative "
@@ -277,7 +276,7 @@ function Edit_Course() {
                                                 </div>
                                             </div>
                                         ) : (
-                                                setImageUrl(values.image)
+                                            setImageUrl(values.image)
                                             // <div
                                             //     className="w-full h-[200px] md:w-80 md:h-80 bg-gray_white text-gray rounded flex items-center justify-center cursor-pointer"
                                             //     onClick={() =>

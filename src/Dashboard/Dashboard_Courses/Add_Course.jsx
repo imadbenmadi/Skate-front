@@ -71,7 +71,7 @@ function Add_Course() {
                             formData.append("Category", values.Category);
                             formData.append("image", values.image);
                             let response = await Axios.post(
-                                "http://localhost:3000/Dashboard/Courses",
+                                "https://backend.skate-consult.com/Dashboard/Courses",
                                 formData,
                                 {
                                     withCredentials: true,

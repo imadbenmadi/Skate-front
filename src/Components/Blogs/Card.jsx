@@ -1,4 +1,3 @@
-
 import img from "../../../public/wallpaper.jpg";
 import { Link } from "react-router-dom";
 import { Formate_Date } from "../../Logic/Formate_Date"; // Import your date formatting function
@@ -7,11 +6,11 @@ import { useState } from "react";
 function Card({ blog }) {
     const [windowWidth, SetwindowWidth] = useState(window.innerWidth);
 
-     useEffect(() => {
-         window.addEventListener("resize", () => {
-             SetwindowWidth(window.innerWidth);
-         });
-     }, []);
+    useEffect(() => {
+        window.addEventListener("resize", () => {
+            SetwindowWidth(window.innerWidth);
+        });
+    }, []);
     return (
         <Link
             to={`/Blogs/${blog._id}`}
@@ -19,7 +18,7 @@ function Card({ blog }) {
         >
             <img
                 className="w-[40%] md:w-[300px] object-cover h-[120px] md:h-[150px]"
-                src={`http://localhost:3000/Blogs/${blog.Image}`}
+                src={`https://backend.skate-consult.com/Blogs/${blog.Image}`}
                 alt={blog.Title}
             />
             <div className="w-[60%] pl-2 md:pl-6 ">

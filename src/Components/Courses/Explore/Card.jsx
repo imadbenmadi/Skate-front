@@ -1,4 +1,3 @@
-
 import img from "../../../../public/wallpaper.jpg";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -17,7 +16,7 @@ function Card({ course }) {
         >
             <img
                 className=" w-[40%] md:w-[300px] h-[120px] md:h-[150px] object-cover"
-                src={`http://localhost:3000/Courses/${course.Image}`}
+                src={`https://backend.skate-consult.com/Courses/${course.Image}`}
                 alt={course.Title}
             />
             <div className="w-[60%] pl-2 md:pl-6  ">
