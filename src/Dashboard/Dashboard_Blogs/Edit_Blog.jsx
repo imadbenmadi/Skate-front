@@ -10,6 +10,8 @@ import { IoWarning } from "react-icons/io5";
 import ErrorPage from "../../Components/ErrorPage";
 import axios from "axios";
 import { useNavigate } from "react-router";
+import { MdDelete } from "react-icons/md";
+import { MdEdit } from "react-icons/md";
 function Edit_Blog() {
     const Navigate = useNavigate();
     const location = useLocation();
@@ -17,6 +19,8 @@ function Edit_Blog() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const Blog_id = location.pathname.split("/")[3];
+    const [imageUrl, setImageUrl] = useState(null);
+
     const fetch_Blog = async () => {
         setLoading(true);
         try {
@@ -90,6 +94,9 @@ function Edit_Blog() {
                             Title: Blog.Title || "",
                             Text: Blog.Text || "",
                             Description: Blog.Description || "",
+                            image:
+                                `http://localhost:3000/Blogs/${Blog.Image}` ||
+                                null,
                         }}
                         validate={(values) => {
                             const errors = {};
@@ -110,9 +117,17 @@ function Edit_Blog() {
                         ) => {
                             try {
                                 setSubmitting(true);
+                                const formData = new FormData();
+                                formData.append("Title", values.Title);
+                                formData.append("Text", values.Text);
+                                formData.append(
+                                    "Description",
+                                    values.Description
+                                );
+                                formData.append("image", values.image);
                                 let response = await Axios.put(
                                     `http://localhost:3000/Dashboard/Blogs/${Blog_id}`,
-                                    values,
+                                    formData,
                                     {
                                         withCredentials: true,
                                         validateStatus: () => true,
@@ -164,6 +179,7 @@ function Edit_Blog() {
                                         "error"
                                     );
                                 } else if (response.status == 500) {
+                                    console.log(response);
                                     Swal.fire(
                                         "Error!",
                                         `Internal server error : ${response.data.message}`,
@@ -185,8 +201,98 @@ function Edit_Blog() {
                             }
                         }}
                     >
-                        {({ isSubmitting }) => (
+                        {({ isSubmitting, setFieldValue, values }) => (
                             <Form className="flex flex-col text-sm md:text-lg  gap-4 items-center justify-center flex-wrap">
+                                <div className="w-full">
+                                    <input
+                                        id="image"
+                                        type="file"
+                                        name="image"
+                                        accept="image/*"
+                                        onChange={(event) => {
+                                            const selectedFile =
+                                                event.currentTarget.files[0];
+                                            if (selectedFile) {
+                                                // Set the value of the image field in Formik to the selected file
+                                                setFieldValue(
+                                                    "image",
+                                                    selectedFile
+                                                );
+                                                setImageUrl(
+                                                    URL.createObjectURL(
+                                                        selectedFile
+                                                    )
+                                                );
+                                            } else {
+                                                // Clear the image field if no file is selected
+                                                setFieldValue("image", null);
+                                                setImageUrl(null);
+                                            }
+                                        }}
+                                        disabled={isSubmitting}
+                                        className="hidden" // Hide the default file input button
+                                    />
+
+                                    <div className="flex flex-col items-center gap-1">
+                                        <button
+                                            type="button"
+                                            className="bg-blue-500  px-4 py-2 rounded font-semibold"
+                                            onClick={() =>
+                                                document
+                                                    .getElementById("image")
+                                                    .click()
+                                            }
+                                            disabled={isSubmitting}
+                                        >
+                                            Choose an image
+                                        </button>
+                                        {imageUrl ? (
+                                            <div
+                                                className=" relative "
+                                                onClick={() =>
+                                                    document
+                                                        .getElementById("image")
+                                                        .click()
+                                                }
+                                            >
+                                                <img
+                                                    src={imageUrl}
+                                                    alt="Selected image"
+                                                    className=" w-full h-[200px] md:w-80 md:h-80 object-cover rounded"
+                                                />
+                                                <div className="  absolute top-0 w-full h-full bg-black opacity-55 z-50  flex items-center justify-center cursor-pointer">
+                                                    <MdEdit className="text-white text-4xl" />
+                                                </div>
+                                            </div>
+                                        ) : (
+                                            setImageUrl(values.image)
+                                            // <div
+                                            //     className="w-full h-[200px] md:w-80 md:h-80 bg-gray_white text-gray rounded flex items-center justify-center cursor-pointer"
+                                            //     onClick={() =>
+                                            //         document
+                                            //             .getElementById("image")
+                                            //             .click()
+                                            //     }
+                                            // >
+                                            //     <FaRegImage />
+                                            // </div>
+                                        )}{" "}
+                                        <div
+                                            className="flex items-center justify-start md:gap-2 cursor-pointer text-white bg-red-600  text-lg md:text-xl px-1 md:px-2 py-1 rounded "
+                                            onClick={() =>
+                                                setFieldValue("image", null)
+                                            }
+                                        >
+                                            <MdDelete />
+                                            Delete image
+                                        </div>
+                                    </div>
+                                    <ErrorMessage
+                                        name="image"
+                                        component="div"
+                                        style={errorInputMessage}
+                                    />
+                                </div>
                                 <div className=" w-full ">
                                     <div>
                                         Title{" "}
