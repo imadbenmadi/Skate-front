@@ -37,7 +37,6 @@ function Requests() {
         fetch_Requests();
     }, []);
     useEffect(() => {
-        console.log(Requests);
     }, [Requests]);
     const handleDeleteRequest = (RequestId) => {
         setRequests((prevRequests) =>

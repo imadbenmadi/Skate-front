@@ -58,7 +58,6 @@ function Profile() {
         return <ErrorPage />;
     }
     if (!user) return null;
-    // console.log(user);
     return (
         <div className=" flex">
             {windowWidth < 768 ? (

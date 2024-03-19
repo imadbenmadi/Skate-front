@@ -202,7 +202,6 @@ function Edit_Service() {
                                     );
                                 }
                             } catch (error) {
-                                console.log(error);
                                 Swal.fire(
                                     "Error!",
                                     `Something Went Wrong. Please try again , ${error.message}`,

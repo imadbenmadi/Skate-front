@@ -13,7 +13,6 @@ function ProfileInfo() {
                 <span className="loader"></span>
             </div>
         );
-    console.log(user);
     return (
         <div>
             <div className="text-2xl w-full md:w-fit pt-4 pl-4  lg:text-3xl mb-2  ">

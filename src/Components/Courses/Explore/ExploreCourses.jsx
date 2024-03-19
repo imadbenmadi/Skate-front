@@ -2,7 +2,6 @@
 import Card from "./Card";
 import { IoWarning } from "react-icons/io5";
 function Explorecourses({ search, filter, courses }) {
-    console.log(courses);
     if (courses.courses && Array.isArray(courses.courses)) {
         if (courses.courses.length == 0 || !courses)
             return (

@@ -7,7 +7,6 @@ import img from "../../../public/wallpaper.jpg";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
 function Current_Services_Card({ item, onDelete }) {
-    console.log(item);
     const [showDescription, setShowDescription] = useState(false);
     const Navigate = useNavigate();
     function toggleDescription() {

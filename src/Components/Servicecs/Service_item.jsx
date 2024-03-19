@@ -24,13 +24,11 @@ function ServiceItem() {
 
     useEffect(() => {
         if (Services) {
-            console.log("Services:", Services);
             const serviceId = location.pathname.split("/")[2];
             const alreadyHaveService = Services.some(
                 (service) => service == serviceId
             );
 
-            console.log("Already have service:", alreadyHaveService);
             setAlreadyHaveService(alreadyHaveService);
         }
     }, [Services]);

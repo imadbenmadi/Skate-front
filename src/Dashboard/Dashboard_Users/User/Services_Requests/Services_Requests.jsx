@@ -22,7 +22,6 @@ function Services_Requests() {
                     validateStatus: () => true,
                 }
             );
-            console.log(response);
             if (response.status == 200) {
                 setRequests(response.data);
             } else {

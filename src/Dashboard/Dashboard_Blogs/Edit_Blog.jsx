@@ -179,7 +179,6 @@ function Edit_Blog() {
                                         "error"
                                     );
                                 } else if (response.status == 500) {
-                                    console.log(response);
                                     Swal.fire(
                                         "Error!",
                                         `Internal server error : ${response.data.message}`,

@@ -46,7 +46,6 @@ function CourseItem() {
                     validateStatus: () => true,
                 }
             );
-            console.log("Response:", response);
             if (response.status === 200) {
                 swal.fire("success", "Request sent successfully", "success");
                 setSuccess(true);
