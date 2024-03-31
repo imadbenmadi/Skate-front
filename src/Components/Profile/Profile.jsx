@@ -24,7 +24,7 @@ function Profile() {
         setLoading(true);
         try {
             const response = await axios.get(
-                `https://backend.skate-consult.com/Profile/${
+                `http://localhost:3000//Profile/${
                     location.pathname.split("/")[2]
                 }`,
                 {

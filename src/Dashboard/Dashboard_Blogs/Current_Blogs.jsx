@@ -16,13 +16,10 @@ function Current_Blogs() {
     const fetch_Blogs = async () => {
         setLoading(true);
         try {
-            const response = await axios.get(
-                "https://backend.skate-consult.com/Blogs",
-                {
-                    withCredentials: true,
-                    validateStatus: () => true,
-                }
-            );
+            const response = await axios.get("http://localhost:3000//Blogs", {
+                withCredentials: true,
+                validateStatus: () => true,
+            });
             if (response.status == 200) {
                 setBlogs(response.data.blogs);
             } else {

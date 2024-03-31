@@ -57,7 +57,7 @@ function Add_Event() {
                             formData.append("Description", values.Description);
                             formData.append("image", values.image);
                             let response = await Axios.post(
-                                "https://backend.skate-consult.com/Dashboard/Events",
+                                "http://localhost:3000//Dashboard/Events",
                                 formData,
                                 {
                                     withCredentials: true,

@@ -15,7 +15,7 @@ function Current_Services() {
         setLoading(true);
         try {
             const response = await axios.get(
-                "https://backend.skate-consult.com/Services",
+                "http://localhost:3000//Services",
                 {
                     withCredentials: true,
                     validateStatus: () => true,

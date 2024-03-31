@@ -4,7 +4,7 @@ import Swal from "sweetalert2";
 export async function handleContact(values, { setSubmitting, onSuccess }) {
     try {
         let response = await Axios.post(
-            "https://backend.skate-consult.com/Contact",
+            "http://localhost:3000//Contact",
             values,
             {
                 withCredentials: true,

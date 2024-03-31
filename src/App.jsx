@@ -15,7 +15,7 @@ function App() {
 
         try {
             const response = await axios.get(
-                "https://backend.skate-consult.com/check_Auth",
+                "http://localhost:3000//check_Auth",
                 {
                     withCredentials: true,
                     validateStatus: () => true,
@@ -91,7 +91,7 @@ function App() {
     };
     useEffect(() => {
         fetchData();
-    }, [isAuth]);
+    }, []);
 
     return (
         <div>
