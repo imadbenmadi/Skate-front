@@ -35,30 +35,39 @@ function ProfileInfo() {
                         </div>
                         <div className=" text-center">Notifications</div>
                     </Link>
-                    <div className=" bg-[#c2549d] px-4 py-2 rounded text-white w-[140px] md:w-[200px]">
+                    <Link
+                        to={`/Profile/${user.user._id}/Requests`}
+                        className=" bg-[#c2549d] px-4 py-2 rounded text-white w-[140px] md:w-[200px]"
+                    >
                         <div className="flex gap-1 items-center justify-center ">
                             <IoNewspaper />
                             {user.Courses_requests.length +
                                 user.Services_requests.length}
                         </div>
                         <div className=" text-center">Requests</div>
-                    </div>
+                    </Link>
                 </div>
                 <div className=" flex gap-4 md:gap-12">
-                    <div className=" bg-[#213059] px-4 py-2 rounded text-white w-[140px] md:w-[200px]">
+                    <Link
+                        to={`/Profile/${user.user._id}/Courses`}
+                        className=" bg-[#213059] px-4 py-2 rounded text-white w-[140px] md:w-[200px]"
+                    >
                         <div className="flex gap-1 items-center justify-center ">
                             <FaBook />
                             {user.user.Courses.length}
                         </div>
                         <div className=" text-center">Courses</div>
-                    </div>
-                    <div className=" bg-[#286a69] px-4 py-2 rounded text-white w-[140px] md:w-[200px]">
+                    </Link>
+                    <Link
+                        to={`/Profile/${user.user._id}/Services`}
+                        className=" bg-[#286a69] px-4 py-2 rounded text-white w-[140px] md:w-[200px]"
+                    >
                         <div className="flex gap-1 items-center justify-center ">
                             <FaHandshake />
                             {user.user.Services.length}
                         </div>
                         <div className=" text-center">Services</div>
-                    </div>
+                    </Link>
                 </div>
             </div>
         </div>
