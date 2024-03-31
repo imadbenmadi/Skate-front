@@ -43,7 +43,7 @@ function Navbar({ Active_nav, setActive_nav, userId }) {
                         Active_nav == "Edit" && "text-green"
                     }`}
                 >
-                    <FaPen />
+                    <FaPen  className=" text-lg"/>
                     <div>Edit Profile</div>
                 </Link>
                 <Link
