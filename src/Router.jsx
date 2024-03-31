@@ -1,4 +1,3 @@
-
 import { createBrowserRouter } from "react-router-dom";
 import Home from "./Components/Home/Home";
 import App from "./App";
@@ -19,9 +18,9 @@ import VerifyEmail from "./Components/Verify_email/Verify_email";
 import Profile from "./Components/Profile/Profile";
 import ProfileInfo from "./Components/Profile/Profile_Info";
 // import Profile_Services from "./Components/Profile/Profile_Services";
-// import Profile_Notifications from "./Components/Profile/Profile_Notifications";
+import Profile_Notifications from "./Components/Profile/Notification/Profile_Notifications";
 // import Profile_Courses from "./Components/Profile/Profile_Courses";
-import Profile_Edit from "./Components/Profile/Profile_Edit"; 
+import Profile_Edit from "./Components/Profile/Profile_Edit";
 // import Profile_Requests from "./Components/Profile/Requests";
 
 import Not_Found from "./Components/Not_Found";
@@ -193,7 +192,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: "/Profile/:id/Notifications",
-                element: <Not_Finished />,
+                element: <Profile_Notifications />,
             },
             {
                 path: "/Profile/:id/Notifications/:id",

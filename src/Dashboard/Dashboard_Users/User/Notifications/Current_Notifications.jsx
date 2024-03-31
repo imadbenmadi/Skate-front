@@ -10,7 +10,10 @@ import { Formate_Date } from "../../../../Logic/Formate_Date";
 import { useNavigate } from "react-router-dom";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { useState } from "react";
+import { LuMailOpen } from "react-icons/lu";
+import { useLocation } from "react-router-dom";
 function Current_Notifications() {
+    const location = useLocation();
     const [user, setUser] = useOutletContext();
     if (!user) return null;
     const Notifications = user.Notifications;
@@ -19,6 +22,24 @@ function Current_Notifications() {
     function toggleDescription() {
         setShowDescription(!showDescription);
     }
+    if (!Notifications) return (
+        <div className="pt-4">
+            <Link
+                to={`/Dashboard/Users/${userId}`}
+                className="select-none mb-4 w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1"
+            >
+                <IoMdArrowRoundBack />
+                <div>Back to user</div>
+            </Link>
+            <div className="text-center text-gray font-semibold text-2xl">
+                Current User Notifications:
+            </div>
+            <div className="text-center text-gray font-semibold text-2xl flex items-center gap-4">
+                <LuMailOpen />
+                No Notifications
+            </div>
+        </div>
+    );
     return (
         <div className="pt-4">
             <Link
@@ -74,7 +95,7 @@ function Current_Notifications() {
                                     className="flex gap-2 items-center justify-start underlined pb-4 cursor-pointer"
                                     onClick={toggleDescription}
                                 >
-                                    Show Description <FaArrowUp />
+                                    Hide Description <FaArrowUp />
                                 </div>
                                 <div className="pb-4">
                                     {item.Description && (
