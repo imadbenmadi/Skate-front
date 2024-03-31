@@ -17,7 +17,7 @@ function Card({ service }) {
         >
             <img
                 className=" w-[40%] md:w-[300px] h-[120px] md:h-[200px] object-cover"
-                src={`http://localhost:3000/Services/${service.Image}`}
+                src={`https://backend.skate.dz/Services/${service.Image}`}
                 alt={service.Title}
             />
             <div className="w-[60%] pl-2 md:pl-6  ">

@@ -17,8 +17,8 @@ function Profile_Edit() {
             <div className="w-full h-screen flex items-center justify-center">
                 <span className="loader"></span>
             </div>
-    );
-  console.log(user);
+        );
+    console.log(user);
     const [showPassword, setShowPassword] = useState(false);
     function handleShowPassword() {
         setShowPassword(!showPassword);
@@ -98,8 +98,8 @@ function Profile_Edit() {
                         try {
                             setSubmitting(true);
                             let response = await Axios.put(
-                                // "http://localhost:3000/Users",
-                                `http://localhost:3000/Profile/${userId}`,
+                                // "https://backend.skate.dz/Users",
+                                `https://backend.skate.dz/Profile/${userId}`,
                                 values,
                                 {
                                     withCredentials: true,
@@ -119,8 +119,8 @@ function Profile_Edit() {
                                     "Done!",
                                     "account has been Modified Successfully",
                                     "success"
-                              );
-                              fetchData();
+                                );
+                                fetchData();
                             } else if (response.status == 400) {
                                 Swal.fire(
                                     "Error!",

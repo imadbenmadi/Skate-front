@@ -18,7 +18,7 @@ function Event_item() {
         setLoading(true);
         try {
             const response = await axios.get(
-                `http://localhost:3000/Events/${
+                `https://backend.skate.dz/Events/${
                     location.pathname.split("/")[2]
                 }`,
                 {
@@ -64,7 +64,7 @@ function Event_item() {
                     {event.Title}
                 </h2>
                 <img
-                    src={`http://localhost:3000/Events/${event.Image}`}
+                    src={`https://backend.skate.dz/Events/${event.Image}`}
                     alt=""
                     className=" w-[400px] m-auto"
                 />
