@@ -108,9 +108,9 @@ function Blogs() {
                                 ))
                             )}
                         </div>
-                        <div className=" min-h-[22vh] bg-slate-200">
-                            <Footer />
-                        </div>
+                    </div>
+                    <div className=" min-h-[22vh] bg-slate-200">
+                        <Footer />
                     </div>
                 </>
             )}
