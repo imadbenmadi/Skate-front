@@ -1,10 +1,10 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { IoIosNotifications } from "react-icons/io";
 import { IoNewspaper } from "react-icons/io5";
 import { FaBook } from "react-icons/fa";
 import { FaHandshake } from "react-icons/fa";
-
+import { Link } from "react-router-dom";
 function ProfileInfo() {
     const [user, setUser] = useOutletContext();
     if (!user)
@@ -13,6 +13,7 @@ function ProfileInfo() {
                 <span className="loader"></span>
             </div>
         );
+    console.log("user", user);
     return (
         <div>
             <div className="text-2xl w-full md:w-fit pt-4 pl-4  lg:text-3xl mb-2  ">
@@ -24,13 +25,16 @@ function ProfileInfo() {
             </h2>
             <div className=" flex items-center justify-center flex-col text-xl md:text-3xl text-gray  gap-10 w-full h-[60vh]">
                 <div className=" flex gap-4 md:gap-12">
-                    <div className=" bg-[#7e549e] px-4 py-2 rounded text-white w-[140px] md:w-[200px]">
+                    <Link
+                        to={`/Profile/${user.user._id}/Notifications`}
+                        className=" bg-[#7e549e] px-4 py-2 rounded text-white w-[140px] md:w-[200px]"
+                    >
                         <div className="flex gap-1 items-center justify-center  ">
                             <IoIosNotifications />
                             {user.user.Notifications.length}
                         </div>
                         <div className=" text-center">Notifications</div>
-                    </div>
+                    </Link>
                     <div className=" bg-[#c2549d] px-4 py-2 rounded text-white w-[140px] md:w-[200px]">
                         <div className="flex gap-1 items-center justify-center ">
                             <IoNewspaper />

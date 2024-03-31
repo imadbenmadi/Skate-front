@@ -32,10 +32,11 @@ function Profile() {
                     validateStatus: () => true,
                 }
             );
+            console.log(response.data);
             if (response.status === 200) {
                 setUser(response.data.userData);
             } else {
-                Navigate("/Login");
+                // Navigate("/Login");
             }
         } catch (error) {
             setError(error);
@@ -74,7 +75,7 @@ function Profile() {
                             setActive_nav={setActive_nav}
                             openNav={openNav}
                             SetOpenNav={SetOpenNav}
-                            userId={user._id}
+                            userId={user.user._id}
                         />
                     </div>
                     <div
@@ -93,7 +94,7 @@ function Profile() {
                         <Laptop_Navbar
                             Active_nav={Active_nav}
                             setActive_nav={setActive_nav}
-                            userId={user._id}
+                            userId={user.user._id}
                         />
                     </div>
                     <div className="w-[80%]   h-screen overflow-auto custom-overflow  ">
