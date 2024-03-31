@@ -15,7 +15,7 @@ function Requests() {
         try {
             setLoading(true);
             const response = await axios.get(
-                "http://localhost:3000//Dashboard/Courses/Requests",
+                "http://localhost:3000/Dashboard/Courses/Requests",
                 {
                     withCredentials: true,
                     validateStatus: () => true,

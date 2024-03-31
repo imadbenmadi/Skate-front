@@ -14,7 +14,7 @@ function Current_Events() {
     const fetch_Events = async () => {
         setLoading(true);
         try {
-            const response = await axios.get("http://localhost:3000//events", {
+            const response = await axios.get("http://localhost:3000/events", {
                 withCredentials: true,
                 validateStatus: () => true,
             });

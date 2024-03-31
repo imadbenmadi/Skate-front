@@ -15,7 +15,7 @@ function Current_Courses() {
     const fetch_Courses = async () => {
         setLoading(true);
         try {
-            const response = await axios.get("http://localhost:3000//Courses", {
+            const response = await axios.get("http://localhost:3000/Courses", {
                 withCredentials: true,
                 validateStatus: () => true,
             });

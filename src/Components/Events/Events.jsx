@@ -24,7 +24,7 @@ function Event() {
         setLoading(true);
 
         try {
-            const response = await axios.get("http://localhost:3000//Events", {
+            const response = await axios.get("http://localhost:3000/Events", {
                 withCredentials: true,
                 validateStatus: () => true,
             });
