@@ -1,4 +1,3 @@
-
 import { useOutletContext } from "react-router-dom";
 import { PiWarningCircleBold } from "react-icons/pi";
 import { MdOutlineMailOutline } from "react-icons/md";
@@ -10,14 +9,17 @@ import { Formate_Date } from "../../../../Logic/Formate_Date";
 // import logo from "../../../../../public/logo.png";
 import { useNavigate } from "react-router-dom";
 import { IoMdArrowRoundBack } from "react-icons/io";
-
+import { useState } from "react";
 function Current_Notifications() {
     const [user, setUser] = useOutletContext();
     if (!user) return null;
     const Notifications = user.Notifications;
     const userId = location.pathname.split("/")[3];
-
-    return (   
+    const [showDescription, setShowDescription] = useState(false);
+    function toggleDescription() {
+        setShowDescription(!showDescription);
+    }
+    return (
         <div className="pt-4">
             <Link
                 to={`/Dashboard/Users/${userId}`}
@@ -65,6 +67,32 @@ function Current_Notifications() {
                         </div>
                         {notification.Description && (
                             <div>{notification.Description}</div>
+                        )}
+                        {showDescription ? (
+                            <div className="w-[80%] pl-8 py-4">
+                                <div
+                                    className="flex gap-2 items-center justify-start underlined pb-4 cursor-pointer"
+                                    onClick={toggleDescription}
+                                >
+                                    Show Description <FaArrowUp />
+                                </div>
+                                <div className="pb-4">
+                                    {item.Description && (
+                                        <p className="text-gray text-base">
+                                            {item.Description}
+                                        </p>
+                                    )}
+                                </div>
+                            </div>
+                        ) : (
+                            <div className="w-[80%] pl-8 py-4">
+                                <div
+                                    className="flex gap-2 items-center justify-start underlined pb-4 cursor-pointer"
+                                    onClick={toggleDescription}
+                                >
+                                    Show Description <FaArrowDown />
+                                </div>
+                            </div>
                         )}
                     </div>
                 ))}
