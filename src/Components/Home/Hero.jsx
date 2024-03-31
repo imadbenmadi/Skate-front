@@ -14,7 +14,7 @@ export default function Hero() {
                 >
                     <img
                         src={`${img}`}
-                        className="z-5 absolute w-full h-full"
+                        className="z-5 absolute w-full h-full object-cover"
                     ></img>{" "}
                     <div className="bg-black z-10 opacity-70 absolute w-full h-full"></div>{" "}
                     <div className=" absolute  font-semibold text-6xl top-24 text-gray font-serif"></div>
