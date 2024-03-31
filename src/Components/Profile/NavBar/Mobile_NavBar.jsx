@@ -29,7 +29,7 @@ function Navbar({ Active_nav, setActive_nav, openNav, SetOpenNav, userId }) {
                         className=" text-4xl text-green  mb-8 cursor-pointer mt-6 text-center m-auto"
                         onClick={() => SetOpenNav(false)}
                     />
-                    <div className=" flex flex-col gap-12 ml-4">
+                    <div className=" flex flex-col gap-10 ml-4">
                         {/* nav items */}
 
                         <Link
@@ -103,7 +103,7 @@ function Navbar({ Active_nav, setActive_nav, openNav, SetOpenNav, userId }) {
                         </Link>
 
                         <div
-                            className={` flex items-center gap-1 cursor-pointer text-xl text-white `}
+                            className={` flex items-center gap-1 cursor-pointer text-xl text-white  `}
                             onClick={() => {
                                 Navigate("/");
                             }}
@@ -182,7 +182,7 @@ function Navbar({ Active_nav, setActive_nav, openNav, SetOpenNav, userId }) {
                     </Link>
 
                     <div
-                        className={` flex items-center gap-3 cursor-pointer text-xl pt-4 text-white  `}
+                        className={` flex items-center gap-3 cursor-pointer text-xl  text-white  `}
                         onClick={() => {
                             Navigate("/");
                         }}
