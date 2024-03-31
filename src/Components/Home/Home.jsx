@@ -2,7 +2,7 @@
 import Pages_Btns from "../Pages_Btns";
 import Hero from "./Hero";
 
-import { AboutUs } from "./AboutUS/AboutUs";
+import { AboutUs } from "./AboutUs";
 import Services from "./Services/Services";
 import Courses from "./Courses/Courses";
 import Founder from "./Founder/Founder";
