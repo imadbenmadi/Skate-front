@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { IoIosNotifications } from "react-icons/io";
 import { IoNewspaper } from "react-icons/io5";
@@ -6,7 +6,11 @@ import { FaBook } from "react-icons/fa";
 import { FaHandshake } from "react-icons/fa";
 import { Link } from "react-router-dom";
 function ProfileInfo() {
-    const [user, setUser] = useOutletContext();
+    const [user, setUser, fetchData] = useOutletContext();
+    // useEffect(() => {
+    //     fetchData();
+    // }, []);
+
     if (!user)
         return (
             <div className="w-full h-screen flex items-center justify-center">
@@ -26,7 +30,7 @@ function ProfileInfo() {
                         User Name :
                     </p>
                     <p className="  break-all">
-                        {user.user.FirstName ? user.user.FirstName : "null"}
+                        {user.user.FirstName ? user.user.FirstName : "null"} {" "}{user.user.LastName ? user.user.LastName : "null"}
                     </p>
                 </span>
                 <span className=" flex md:gap-3">
