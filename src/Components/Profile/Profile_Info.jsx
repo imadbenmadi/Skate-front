@@ -15,15 +15,49 @@ function ProfileInfo() {
         );
     console.log("user", user);
     return (
-        <div>
-            <div className="text-2xl w-full md:w-fit pt-4 pl-4  lg:text-3xl mb-2  ">
+        <div className=" flex flex-col items-start justify-center">
+            <div className="text-2xl pt-4 pl-4  lg:text-3xl mb-8 text-center w-full ">
                 <span className="text-green2">Your </span>
                 Profile
             </div>
-            <h2 className=" text-center pt-4 text-3xl w-[300px] m-auto break-all">
-                {user.user.FirstName ? user.user.FirstName : null}
-            </h2>
-            <div className=" flex items-center justify-center flex-col text-xl md:text-3xl text-gray  gap-10 w-full h-[60vh]">
+            <div className="flex flex-col max-w-[300px] md:max-w-[600px] m-auto    md:text-2xl gap-2 md:gap-7">
+                <span className=" flex  md:gap-3">
+                    <p className=" font-semibold text-gray w-[100px] md:w-[150px] shrink-0">
+                        User Name :
+                    </p>
+                    <p className="  break-all">
+                        {user.user.FirstName ? user.user.FirstName : "null"}
+                    </p>
+                </span>
+                <span className=" flex md:gap-3">
+                    <p className=" font-semibold text-gray w-[70px] md:w-[150px] shrink-0">
+                        Email :
+                    </p>
+                    <p className="  break-all">
+                        {user.user.Email ? user.user.Email : "null"}
+                    </p>
+                </span>
+                <span className=" flex md:gap-3">
+                    <p className=" font-semibold text-gray w-[120px] md:w-[150px] shrink-0">
+                        Email status :{" "}
+                    </p>
+                    <p className="  break-all">
+                        {user.user.IsEmailVerified
+                            ? user.user.IsEmailVerified
+                            : "null"}{" "}
+                    </p>
+                </span>
+                <span className=" flex md:gap-3">
+                    <p className=" font-semibold text-gray w-[70px] md:w-[150px] shrink-0">
+                        Phone :
+                    </p>
+                    <p className="  break-all">
+                        {user.user.Phone ? user.user.Phone : "null"}
+                    </p>
+                </span>
+            </div>
+            {/* <h2 className=" text-center pt-4 text-3xl w-[300px] m-auto break-all"></h2> */}
+            <div className=" flex items-center justify-center flex-col text-xl md:text-3xl text-gray  gap-10 w-full mt-12 ">
                 <div className=" flex gap-4 md:gap-12">
                     <Link
                         to={`/Profile/${user.user._id}/Notifications`}
