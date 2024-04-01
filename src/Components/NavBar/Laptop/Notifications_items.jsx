@@ -1,4 +1,3 @@
-
 import { useAppContext } from "../../../Context/AppContext"; // Import your context hook
 import { PiWarningCircleBold } from "react-icons/pi";
 import { HiOutlineMailOpen } from "react-icons/hi";
@@ -9,6 +8,7 @@ import { FaRegHandshake } from "react-icons/fa6";
 import logo from "../../../../public/skate_circle.png";
 import { Formate_Date } from "../../../Logic/Formate_Date"; // Import your date formatting function
 import { Link } from "react-router-dom";
+
 const Notifications_items = () => {
     const { Notifications, _id } = useAppContext();
     if (Notifications == undefined) return null;
@@ -26,7 +26,7 @@ const Notifications_items = () => {
             </div>
             <div>
                 {Notifications.length == 0 ? (
-                    <div className=" flex items-center justify-center py-6 gap-3">
+                    <div className=" flex  justify-center py-6 gap-3">
                         <HiOutlineMailOpen className=" text-2xl" />
                         <div className=" text-sm text-center  flex items-center">
                             No notifications for the moment .
@@ -46,10 +46,11 @@ const Notifications_items = () => {
                                     to={
                                         notification.Type == "verify"
                                             ? "/verifyEmail"
-                                            : `/Profile/${_id}/Notifications/${notification._id}`
+                                            : // : `/Profile/${_id}/Notifications/${notification._id}`
+                                              `/Profile/${_id}/Notifications`
                                     }
                                     key={index}
-                                    className={`select-none notification flex items-center justify-start gap-2 p-2 pb-4 border-b border-gray
+                                    className={`select-none notification flex justify-start gap-2 p-2 pb-4 border-b border-gray
                                 ${
                                     notification.Type == "verify"
                                         ? "bg-red-200"
@@ -70,23 +71,28 @@ const Notifications_items = () => {
                                         ) : notification.Type == "service" ? (
                                             <FaRegHandshake />
                                         ) : (
-                                            <img
-                                                src={logo}
-                                                alt="logo"
-                                                className=" w-14"
-                                            />
+                                            <MdOutlineMailOutline />
                                         )}
                                     </div>
 
                                     <div className="flex flex-col w-full relative">
-                                        <h3 className="text-base font-bold mb-1">
-                                            {notification.Title}
-                                        </h3>
-                                        <p className="text-sm mb-4">
-                                            {notification.Text.length > 50
+                                        {notification.Title && (
+                                            <h3 className="text-base font-bold mb-1 break-all">
+                                                {/* {console.log(notification.Title.length)} */}
+                                                {notification.Title.length > 150
+                                                    ? `${notification.Title.slice(
+                                                          0,
+                                                          150
+                                                      )}...`
+                                                    : notification.Title}
+                                            </h3>
+                                        )}
+
+                                        <p className="text-sm mb-4 break-all">
+                                            {notification.Text.length > 150
                                                 ? `${notification.Text.slice(
                                                       0,
-                                                      50
+                                                      150
                                                   )}...`
                                                 : notification.Text}
                                         </p>
@@ -103,7 +109,7 @@ const Notifications_items = () => {
                             ))}
                         </div>
                         <Link
-                            to={"/Notifications"}
+                            to={`/Profile/${_id}/Notifications`}
                             className="select-none flex justify-end mr-6 mt-2"
                         >
                             <div className="border px-2 py-1">See All</div>
