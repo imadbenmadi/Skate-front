@@ -65,7 +65,7 @@ function Mobile_Nav_Items({
                         : " translate-x-[200vh] "
                 } absolute  transition-all select-none w-[70vw]  z-50 bg-zinc-100 border-l-4  text-gray font-semibold `}
             >
-                <div className=" w-[80%] m-auto h-screen text-2xl  mt-8 ">
+                <div className=" w-[80%] m-auto h-screen text-xl  mt-8 ">
                     {isAuth ? (
                         <>
                             {/* <Link
@@ -88,7 +88,7 @@ function Mobile_Nav_Items({
                         </>
                     ) : (
                         <>
-                            <div className="flex gap-2 mb-4 ">
+                            <div className="flex gap-2 mb-4 justify-center ">
                                 <Link
                                     onClick={Toogle_Menu_Bar}
                                     to={"/Login"}
