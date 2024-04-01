@@ -198,9 +198,10 @@ function ServiceItem() {
                         ) : (
                             <div
                                 // to={"/Profile"}
-                                className="select-none bg-green px-4 py-2 w-fit text-white rounded cursor-pointer"
+                                className="flex items-center gap-2 select-none text-green w-fit  rounded cursor-pointer"
                             >
-                                Go to service
+                                <MdDone className="text-2xl" />
+                                You own this Service
                             </div>
                         )}
                     </div>
