@@ -166,55 +166,52 @@ function Laptop_Nav_Items({
                             onMouseLeave={() => setUser_menu_open(false)}
                         >
                             <FaUserTie className="text-gray text-md cursor-pointer h-full" />
-
-                            {User_menu_open && (
-                                <div
-                                    className="absolute py-2 top-full  md:right-[1vw] lg:right-[1vw]  xl:right-[4vw] 2xl:right-[8vw] 
-                                     bg-white w-[160px] shadow-md rounded border border-gray flex flex-col items-start"
-                                    onMouseEnter={() => setUser_menu_open(true)}
-                                    onMouseLeave={() =>
-                                        setUser_menu_open(false)
-                                    }
-                                >
-                                    <Link
-                                        to={`/Profile/${_id}`}
-                                        className="select-none flex items-center gap-3 pl-4 mb-1 "
-                                        onClick={() => setUser_menu_open(false)}
-                                    >
-                                        <FaUserTie className="text-gray text-2xl cursor-pointer" />
-                                        <div className="flex flex-col">
-                                            <span className="underline font-semibold text-gray text-xl">
-                                                Profile
-                                            </span>
-                                            <span className="text-sm break-all">
-                                                <span className="text-sm break-all">
-                                                    {FirstName}
-                                                </span>{" "}
-                                            </span>
-                                        </div>
-                                    </Link>
-                                    <div className="bg-gray w-full h-[1px]"></div>
-                                    <>
-                                        {!LogoutClicked ? (
-                                            <div
-                                                className="text-red-600 rounded-b-xl flex items-center gap-2 pl-4 mt-4 mb-2 cursor-pointer"
-                                                onClick={() => {
-                                                    Logout();
-                                                    setUser_menu_open(false);
-                                                }}
-                                            >
-                                                <TbLogout />
-                                                Logout
-                                            </div>
-                                        ) : (
-                                            <div className=" w-full flex items-center justify-center mt-4 mb-2 text-red-600 m-auto">
-                                                <span className="small-loader  w-full m-auto"></span>
-                                            </div>
-                                        )}
-                                    </>
-                                </div>
-                            )}
                         </Link>
+                        {User_menu_open && (
+                            <div
+                                className="absolute py-2 top-full  md:right-[1vw] lg:right-[1vw]  xl:right-[4vw] 2xl:right-[8vw] 
+                                     bg-white w-[160px] shadow-md rounded border border-gray flex flex-col items-start"
+                                onMouseEnter={() => setUser_menu_open(true)}
+                                onMouseLeave={() => setUser_menu_open(false)}
+                            >
+                                <Link
+                                    to={`/Profile/${_id}`}
+                                    className="select-none flex items-center gap-3 pl-4 mb-1 "
+                                    onClick={() => setUser_menu_open(false)}
+                                >
+                                    <FaUserTie className="text-gray text-2xl cursor-pointer" />
+                                    <div className="flex flex-col">
+                                        <span className="underline font-semibold text-gray text-xl">
+                                            Profile
+                                        </span>
+                                        <span className="text-sm break-all">
+                                            <span className="text-sm break-all">
+                                                {FirstName}
+                                            </span>{" "}
+                                        </span>
+                                    </div>
+                                </Link>
+                                <div className="bg-gray w-full h-[1px]"></div>
+                                <>
+                                    {!LogoutClicked ? (
+                                        <div
+                                            className="text-red-600 rounded-b-xl flex items-center gap-2 pl-4 mt-4 mb-2 cursor-pointer"
+                                            onClick={() => {
+                                                Logout();
+                                                setUser_menu_open(false);
+                                            }}
+                                        >
+                                            <TbLogout />
+                                            Logout
+                                        </div>
+                                    ) : (
+                                        <div className=" w-full flex items-center justify-center mt-4 mb-2 text-red-600 m-auto">
+                                            <span className="small-loader  w-full m-auto"></span>
+                                        </div>
+                                    )}
+                                </>
+                            </div>
+                        )}
                     </>
                 ) : (
                     <>
