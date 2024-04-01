@@ -8,6 +8,8 @@ import Menu_Toogler from "./Mobile/Menu_Toogler";
 import Laptop_Nav_Items from "./Laptop/Laptop_Nav_Items";
 import Mobile_Nav_Items from "./Mobile/Mobile_Nav_Items";
 import Swal from "sweetalert2";
+import { FaUserTie } from "react-icons/fa";
+import { MdNotificationsNone } from "react-icons/md";
 function NavBar({ Active_nav, setActive_nav }) {
     const { isAuth, FirstName, LastName, _id } = useAppContext();
     const { set_Auth, store_login } = useAppContext();
@@ -80,12 +82,34 @@ function NavBar({ Active_nav, setActive_nav }) {
                         />
                     </Link>
                 </div>
-                {/* Mobile menu Toogler */}
-                <Menu_Toogler
-                    MobileNav_Open={MobileNav_Open}
-                    set_MobileNav_Open={set_MobileNav_Open}
-                    Toogle_Menu_Bar={Toogle_Menu_Bar}
-                />
+
+                <div className=" flex gap-10 items-center">
+                    <div className=" flex items-center h-full gap-5 text-gray">
+                        <Link
+                            onClick={Toogle_Menu_Bar}
+                            to={`/Profile/${_id}/Notifications`}
+                            className="select-none flex "
+                        >
+                            <MdNotificationsNone className=" text-3xl" />
+                            {/* Notifications */}
+                        </Link>
+                        <Link
+                            onClick={Toogle_Menu_Bar}
+                            to={`/Profile/${_id}`}
+                            className="select-none flex  items-center gap-2 "
+                        >
+                            <FaUserTie className="text-2xl" />
+                            {/* Profile */}
+                        </Link>
+                    </div>
+                    {/* Mobile menu Toogler */}
+                    <Menu_Toogler
+                        MobileNav_Open={MobileNav_Open}
+                        set_MobileNav_Open={set_MobileNav_Open}
+                        Toogle_Menu_Bar={Toogle_Menu_Bar}
+                    />
+                </div>
+
                 {/* Laptop */}
                 <Laptop_Nav_Items
                     Active_nav={Active_nav}
