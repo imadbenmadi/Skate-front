@@ -16,7 +16,7 @@ function Card({ event }) {
             className="select-none w-full relative  overflow-hidden border-b border-gray py-5 px-1 md:px-5 flex shrink-0 justify-start h-fit"
         >
             <img
-                className="w-[40%]  md:w-[300px]  object-cover h-[120px] md:h-[150px]"
+                className="w-[40%]  md:w-[300px]  object-cover h-[150px] md:h-[180px]"
                 src={`https://backend.skate.dz/Events/${event.Image}`}
                 alt={event.Title}
             />

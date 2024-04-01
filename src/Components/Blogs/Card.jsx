@@ -17,7 +17,7 @@ function Card({ blog }) {
             className="select-none w-full relative px-2 md:px-5  overflow-hidden border-b border-gray py-5 flex shrink-0 justify-start h-fit"
         >
             <img
-                className="w-[40%] md:w-[300px] object-cover h-[120px] md:h-[150px]"
+                className="w-[40%] md:w-[300px] object-cover h-[150px] md:h-[180px]"
                 src={`https://backend.skate.dz/Blogs/${blog.Image}`}
                 alt={blog.Title}
             />

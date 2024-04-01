@@ -16,7 +16,7 @@ function Card({ service }) {
             className="select-none w-full relative rounded overflow-hidden border-b border-gray py-5 px-1 md:px-5 flex shrink-0 justify-start h-fit"
         >
             <img
-                className=" w-[40%] md:w-[300px] h-[120px] md:h-[200px] object-cover"
+                className=" w-[40%] md:w-[300px] h-[150px] md:h-[180px] object-cover"
                 src={`https://backend.skate.dz/Services/${service.Image}`}
                 alt={service.Title}
             />
