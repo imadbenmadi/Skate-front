@@ -1,4 +1,4 @@
-import  { useEffect } from "react";
+import { useEffect } from "react";
 import logo from "../../../../public/skate_circle.png";
 import { FaUser } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb";
@@ -43,7 +43,7 @@ function Navbar({ Active_nav, setActive_nav, userId }) {
                         Active_nav == "Edit" && "text-green"
                     }`}
                 >
-                    <FaPen  className=" text-lg"/>
+                    <FaPen className=" text-lg" />
                     <div>Edit Profile</div>
                 </Link>
                 <Link
@@ -54,6 +54,15 @@ function Navbar({ Active_nav, setActive_nav, userId }) {
                 >
                     <IoIosNotifications className=" shrink-0" />
                     <div>Notifications</div>
+                </Link>
+                <Link
+                    to={`/Profile/${userId}/Requests`}
+                    className={`select-none flex items-center gap-3 cursor-pointer ${
+                        Active_nav == "Requests" && "text-green"
+                    }`}
+                >
+                    <IoNewspaper />
+                    <div>Requests</div>
                 </Link>
                 <Link
                     to={`/Profile/${userId}/Courses`}
@@ -74,16 +83,6 @@ function Navbar({ Active_nav, setActive_nav, userId }) {
                     <div>Services</div>
                 </Link>
 
-                <Link
-                    to={`/Profile/${userId}/Requests`}
-                    className={`select-none flex items-center gap-3 cursor-pointer ${
-                        Active_nav == "Requests" && "text-green"
-                    }`}
-                >
-                    <IoNewspaper />
-                    <div>Requests</div>
-                </Link>
-
                 <div
                     className={` flex items-center gap-3 cursor-pointer text-xl  text-white pb-5 `}
                     onClick={() => {
@@ -91,7 +90,9 @@ function Navbar({ Active_nav, setActive_nav, userId }) {
                     }}
                 >
                     <TbWorld className=" shrink-0" />
-                    <div className=" text-sm md:text-lg">Back to the Website</div>
+                    <div className=" text-sm md:text-lg">
+                        Back to the Website
+                    </div>
                 </div>
             </div>
         </div>

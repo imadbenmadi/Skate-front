@@ -1,4 +1,4 @@
-import  { useEffect } from "react";
+import { useEffect } from "react";
 import logo from "../../../../public/skate_circle.png";
 import { FaUser } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb";
@@ -13,14 +13,13 @@ import { useNavigate } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
 
-
 function Navbar({ Active_nav, setActive_nav, openNav, SetOpenNav, userId }) {
     const Navigate = useNavigate();
     const location = useLocation();
     useEffect(() => {
         setActive_nav(location.pathname.split("/")[3]);
     }, [location.pathname]);
-    
+
     return (
         <div className=" w-full shrink-0 h-full overflow-y-auto custom-overflow">
             {openNav ? (
@@ -31,7 +30,6 @@ function Navbar({ Active_nav, setActive_nav, openNav, SetOpenNav, userId }) {
                     />
                     <div className=" flex flex-col gap-10 ml-4">
                         {/* nav items */}
-
                         <Link
                             to={`/Profile/${userId}`}
                             onClick={() => SetOpenNav(false)}
@@ -72,6 +70,16 @@ function Navbar({ Active_nav, setActive_nav, openNav, SetOpenNav, userId }) {
                             <div className=" text-sm">Notifications</div>
                         </Link>
                         <Link
+                            to={`/Profile/${userId}/Requests`}
+                            onClick={() => SetOpenNav(false)}
+                            className={`select-none flex items-center gap-1 cursor-pointer ${
+                                Active_nav == "Requests" && "text-green"
+                            } ${Active_nav !== "Requests" ? "text-white" : ""}`}
+                        >
+                            <IoNewspaper />
+                            <div>Requests</div>
+                        </Link>
+                        <Link
                             to={`/Profile/${userId}/Courses`}
                             onClick={() => SetOpenNav(false)}
                             className={`select-none flex items-center gap-1 cursor-pointer ${
@@ -91,17 +99,6 @@ function Navbar({ Active_nav, setActive_nav, openNav, SetOpenNav, userId }) {
                             <FaHandshake />
                             <div>Services</div>
                         </Link>
-                        <Link
-                            to={`/Profile/${userId}/Requests`}
-                            onClick={() => SetOpenNav(false)}
-                            className={`select-none flex items-center gap-1 cursor-pointer ${
-                                Active_nav == "Requests" && "text-green"
-                            } ${Active_nav !== "Requests" ? "text-white" : ""}`}
-                        >
-                            <IoNewspaper />
-                            <div>Requests</div>
-                        </Link>
-
                         <div
                             className={` flex items-center gap-1 cursor-pointer text-xl text-white  `}
                             onClick={() => {
@@ -151,6 +148,16 @@ function Navbar({ Active_nav, setActive_nav, openNav, SetOpenNav, userId }) {
                         <IoIosNotifications />
                     </Link>
                     <Link
+                        to={`/Profile/${userId}/Requests`}
+                        className={`select-none flex items-center gap-3 cursor-pointer ${
+                            Active_nav === "Requests"
+                                ? "text-green"
+                                : "text-white"
+                        }`}
+                    >
+                        <IoNewspaper />
+                    </Link>
+                    <Link
                         to={`/Profile/${userId}/Courses`}
                         className={`select-none flex items-center gap-3 cursor-pointer ${
                             Active_nav === "Courses"
@@ -169,16 +176,6 @@ function Navbar({ Active_nav, setActive_nav, openNav, SetOpenNav, userId }) {
                         }`}
                     >
                         <FaHandshake />
-                    </Link>
-                    <Link
-                        to={`/Profile/${userId}/Requests`}
-                        className={`select-none flex items-center gap-3 cursor-pointer ${
-                            Active_nav === "Requests"
-                                ? "text-green"
-                                : "text-white"
-                        }`}
-                    >
-                        <IoNewspaper />
                     </Link>
 
                     <div
