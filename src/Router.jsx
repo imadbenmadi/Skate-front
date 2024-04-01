@@ -194,10 +194,10 @@ const routes = createBrowserRouter([
                 path: "/Profile/:id/Notifications",
                 element: <Profile_Notifications />,
             },
-            {
-                path: "/Profile/:id/Notifications/:id",
-                element: <Not_Finished />,
-            },
+            // {
+            //     path: "/Profile/:id/Notifications/:id",
+            //     element: <Not_Finished />,
+            // },
             {
                 path: "/Profile/:id/Courses",
                 element: <Not_Finished />,
@@ -209,6 +209,10 @@ const routes = createBrowserRouter([
             {
                 path: "/Profile/:id/Requests",
                 element: <Not_Finished />,
+            },
+            {
+                path: "*",
+                element: <Not_Found />,
             },
         ],
     },
