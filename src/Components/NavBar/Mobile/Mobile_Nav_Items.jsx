@@ -1,7 +1,8 @@
 
 import { IoSettingsOutline } from "react-icons/io5";
 import { FaRegHandshake } from "react-icons/fa";
-import { FaBookReader } from "react-icons/fa";
+import { FaBook } from "react-icons/fa";
+
 import { MdEventAvailable } from "react-icons/md";
 import { RiArticleFill } from "react-icons/ri";
 import { IoCall } from "react-icons/io5";
@@ -67,23 +68,23 @@ function Mobile_Nav_Items({
                 <div className=" w-[80%] m-auto h-screen text-2xl  mt-8 ">
                     {isAuth ? (
                         <>
-                            <Link
+                            {/* <Link
                                 onClick={Toogle_Menu_Bar}
                                 to={`/Profile/${_id}`}
                                 className="select-none flex  items-center gap-2 mb-4 "
                             >
                                 <FaUserTie className="text-2xl" />
                                 Profile
-                            </Link>
+                            </Link> */}
 
-                            <Link
+                            {/* <Link
                                 onClick={Toogle_Menu_Bar}
                                 to={`/Profile/${_id}/Notifications`}
                                 className="select-none flex mb-4 "
                             >
                                 <MdNotificationsNone className=" text-3xl" />
                                 Notifications
-                            </Link>
+                            </Link> */}
                         </>
                     ) : (
                         <>
@@ -103,6 +104,7 @@ function Mobile_Nav_Items({
                                     SignUp
                                 </Link>
                             </div>
+                            <div className=" w-full h-1 bg-gray mb-4"></div>
                         </>
                     )}
 
@@ -116,7 +118,6 @@ function Mobile_Nav_Items({
                         <IoSettingsOutline className=" text-3xl" />
                         Settings
                     </div> */}
-                    <div className=" w-full h-1 bg-gray mb-4"></div>
                     <Link
                         onClick={Toogle_Menu_Bar}
                         to={"/Services"}
@@ -128,9 +129,9 @@ function Mobile_Nav_Items({
                     <Link
                         onClick={Toogle_Menu_Bar}
                         to={"/Courses"}
-                        className="select-none flex  gap-2  mb-4"
+                        className="select-none flex items-center  gap-2  mb-4"
                     >
-                        <FaBookReader className=" text-3xl" />
+                        <FaBook className=" text-2xl" />
                         Courses
                     </Link>
                     <div className=" w-full h-1 bg-gray mb-4"></div>
