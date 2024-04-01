@@ -83,8 +83,8 @@ function NavBar({ Active_nav, setActive_nav }) {
                     </Link>
                 </div>
 
-                <div className=" flex gap-10 items-center">
-                    <div className=" flex items-center h-full gap-5 text-gray">
+                <div className=" flex gap-10 items-center md:hidden">
+                    <div className=" flex items-center h-full gap-5 text-gray ">
                         <Link
                             onClick={Toogle_Menu_Bar}
                             to={`/Profile/${_id}/Notifications`}
