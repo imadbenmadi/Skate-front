@@ -45,7 +45,7 @@ function Profile_Notifications() {
             <div className=" p-6 text-3xl text-gray font-semibold ">
                 Notifications{" "}
             </div>
-            <div>
+            <div className=" w-full overflow-y-hidden">
                 {Notifications.map((notification, index) => (
                     <Card
                         key={index}

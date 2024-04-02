@@ -80,9 +80,9 @@ function Card({ notification, index }) {
                 )}
             </div>
             <div className=" w-[10%] shrink-0   text-white text-xl mr-2">
-                <div className="bg-red-600 flex gap-2 items-center justify-center px-1 py-2 mt-4 rounded-lg cursor-pointer ">
+                <div className="text-red-600 mt-8 rounded-lg cursor-pointer ">
                     <FaTrashCan />
-                    <div className="  hidden md:block">Delete</div>
+                    
                 </div>
             </div>
         </div>
