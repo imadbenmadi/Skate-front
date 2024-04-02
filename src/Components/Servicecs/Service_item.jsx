@@ -37,7 +37,7 @@ function ServiceItem() {
         try {
             setRequestLoading(true);
             const response = await axios.post(
-                `https://backend.skate.dz/Services/request`,
+                `http://localhost:3000/Services/request`,
                 {
                     userId: _id,
                     ServiceId: location.pathname.split("/")[2],
@@ -92,7 +92,7 @@ function ServiceItem() {
 
         try {
             const response = await axios.get(
-                `https://backend.skate.dz/Services/${
+                `http://localhost:3000/Services/${
                     location.pathname.split("/")[2]
                 }`,
                 {
@@ -144,7 +144,7 @@ function ServiceItem() {
             <div className="flex flex-col md:flex-row    gap-3">
                 <div className="">
                     <img
-                        src={`https://backend.skate.dz/Services/${service.Image}`}
+                        src={`http://localhost:3000/Services/${service.Image}`}
                         alt=""
                         className="w-[400px] m-auto md:ml-4"
                     />

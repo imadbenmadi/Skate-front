@@ -6,7 +6,7 @@ export async function handleRegistration(
 ) {
     try {
         let response = await Axios.post(
-            "https://backend.skate.dz/Register",
+            "http://localhost:3000/Register",
             values,
             {
                 withCredentials: true,

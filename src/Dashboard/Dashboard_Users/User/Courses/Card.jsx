@@ -23,7 +23,7 @@ function Card({ course }) {
         try {
             setDeleteLoading(true);
             const response = await axios.delete(
-                `https://backend.skate.dz/Dashboard/Users/${userId}/Courses/${Course._id}`,
+                `http://localhost:3000/Dashboard/Users/${userId}/Courses/${Course._id}`,
                 {
                     withCredentials: true,
                     validateStatus: () => true,

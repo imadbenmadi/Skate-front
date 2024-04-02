@@ -16,7 +16,7 @@ function Card({ course }) {
         >
             <img
                 className=" w-[40%] md:w-[300px] h-[150px] md:h-[180px] object-cover"
-                src={`https://backend.skate.dz/Courses/${course.Image}`}
+                src={`http://localhost:3000/Courses/${course.Image}`}
                 alt={course.Title}
             />
             <div className="w-[60%] pl-2 md:pl-6  ">

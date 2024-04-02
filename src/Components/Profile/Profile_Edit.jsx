@@ -98,8 +98,8 @@ function Profile_Edit() {
                         try {
                             setSubmitting(true);
                             let response = await Axios.put(
-                                // "https://backend.skate.dz/Users",
-                                `https://backend.skate.dz/Profile/${userId}`,
+                                // "http://localhost:3000/Users",
+                                `http://localhost:3000/Profile/${userId}`,
                                 values,
                                 {
                                     withCredentials: true,

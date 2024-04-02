@@ -14,13 +14,10 @@ function Services() {
     const fetchServices = async () => {
         setLoading(true);
         try {
-            const response = await axios.get(
-                "https://backend.skate.dz/Services",
-                {
-                    withCredentials: true,
-                    validateStatus: () => true,
-                }
-            );
+            const response = await axios.get("http://localhost:3000/Services", {
+                withCredentials: true,
+                validateStatus: () => true,
+            });
 
             if (response.status == 200) {
                 setServices(response.data);
@@ -30,7 +27,7 @@ function Services() {
 
             if (isAuth) {
                 const userResponse = await axios.get(
-                    `https://backend.skate.dz/Courses/userCourses/${_id}`,
+                    `http://localhost:3000/Courses/userCourses/${_id}`,
                     {
                         withCredentials: true,
                         validateStatus: () => true,

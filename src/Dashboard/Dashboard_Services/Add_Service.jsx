@@ -71,7 +71,7 @@ function Add_Service() {
                             formData.append("Category", values.Category);
                             formData.append("image", values.image);
                             let response = await Axios.post(
-                                "https://backend.skate.dz/Dashboard/Services",
+                                "http://localhost:3000/Dashboard/Services",
                                 formData,
                                 {
                                     withCredentials: true,

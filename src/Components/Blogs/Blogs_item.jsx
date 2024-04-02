@@ -17,7 +17,7 @@ function Blog_item() {
         setLoading(true);
         try {
             const response = await axios.get(
-                `https://backend.skate.dz/Blogs/${
+                `http://localhost:3000/Blogs/${
                     location.pathname.split("/")[2]
                 }`,
                 {
@@ -61,7 +61,7 @@ function Blog_item() {
                 </Link>
                 <h2 className="text-2xl font-bold mb-2 m-auto">{blog.Title}</h2>
                 <img
-                    src={`https://backend.skate.dz/Blogs/${blog.Image}`}
+                    src={`http://localhost:3000/Blogs/${blog.Image}`}
                     alt=""
                     className=" w-[400px] m-auto"
                 />
