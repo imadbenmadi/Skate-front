@@ -8,11 +8,81 @@ import { FaRegHandshake } from "react-icons/fa6";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 import { useState } from "react";
 import { FaTrashCan } from "react-icons/fa6";
+import axios from "axios";
+import Swal from "sweetalert2";
+import { useOutletContext } from "react-router-dom";
 
-function Card({ notification, index }) {
+function Card({ user, notification, index, fetchData }) {
+    // fetchData()
+    // const [fetchData] = useOutletContext();
     const [showDescription, setShowDescription] = useState(false);
     function toggleDescription() {
         setShowDescription(!showDescription);
+    }
+    const [Delete_Loading, setDelete_Loading] = useState(false);
+    async function handle_delete_notification(UserId, NotificationId) {
+        try {
+            setDelete_Loading(true);
+            const response = await axios.delete(
+                `http://localhost:3000/Profile/${UserId}/Notifications/${NotificationId}`,
+                //  {  NotificationId },
+                {
+                    withCredentials: true,
+                    validateStatus: () => true,
+                }
+            );
+            console.log(response);
+            if (response.status == 200) {
+                Swal.fire({ icon: "success", title: "Notification Deleted" });
+                fetchData();
+            } else if (response.status == 404) {
+                Swal.fire("Error", `${response.data.message}`, "error");
+            } else if (response.status == 400) {
+                Swal.fire(
+                    "Error!",
+                    `Internal server error : ${response.data.message}`,
+                    "error"
+                );
+            } else if (response.status == 401) {
+                Swal.fire({
+                    title: "Unauthorised Action",
+                    text: "You should Login again ",
+                    icon: "error",
+                    confirmButtonColor: "#3085d6",
+
+                    confirmButtonText: "Go to Admin Login Page",
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        Navigate("/Login");
+                    }
+                });
+            } else if (response.status == 409) {
+                Swal.fire("Error!", `${response.data}`, "error");
+            } else if (response.status == 429) {
+                Swal.fire(
+                    "Error!",
+                    `Too many Requests , ${response.data.message}`,
+                    "error"
+                );
+            } else if (response.status == 500) {
+                Swal.fire(
+                    "Error!",
+                    `Internal server error : ${response.data.message}`,
+                    "error"
+                );
+            } else {
+                Swal.fire(
+                    "Error!",
+                    `Something Went Wrong. Please try again , ${response.data.message}`,
+                    "error"
+                );
+            }
+        } catch (error) {
+            console.log(error);
+            Swal.fire("Error!", "Failed to Reject the Request", "error");
+        } finally {
+            setDelete_Loading(false);
+        }
     }
     return (
         <div className="border-b border-gray flex  ">
@@ -79,12 +149,22 @@ function Card({ notification, index }) {
                     </div>
                 )}
             </div>
-            <div className=" w-[10%] shrink-0   text-white text-xl mr-2">
-                <div className="text-red-600 mt-8 rounded-lg cursor-pointer ">
-                    <FaTrashCan />
-                    
+            {Delete_Loading ? (
+                <div>loading</div>
+            ) : (
+                <div className=" w-[10%] shrink-0   text-white text-xl mr-2">
+                    <div className="text-red-600 mt-8 rounded-lg cursor-pointer ">
+                        <FaTrashCan
+                            onClick={() =>
+                                handle_delete_notification(
+                                    user.user._id,
+                                    notification._id
+                                )
+                            }
+                        />
+                    </div>
                 </div>
-            </div>
+            )}
         </div>
     );
 }

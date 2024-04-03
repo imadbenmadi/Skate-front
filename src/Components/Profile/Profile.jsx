@@ -15,11 +15,13 @@ function Profile() {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
+    const [test, settest] = useState("test");
     useEffect(() => {
         window.addEventListener("resize", () => {
             SetwindowWidth(window.innerWidth);
         });
     }, []);
+
     const fetchData = async () => {
         setLoading(true);
         try {
@@ -49,15 +51,15 @@ function Profile() {
         fetchData();
     }, []);
 
-    if (loading)
-        return (
-            <div className=" w-screen h-screen flex items-center justify-center">
-                <span className="loader"></span>
-            </div>
-        );
-    if (error) {
-        return <ErrorPage />;
-    }
+    // if (loading)
+    //     return (
+    //         <div className=" w-screen h-screen flex items-center justify-center">
+    //             <span className="loader"></span>
+    //         </div>
+    //     );
+    // if (error) {
+    //     return <ErrorPage />;
+    // }
     if (!user) return null;
     return (
         <div className=" flex">
@@ -78,28 +80,51 @@ function Profile() {
                             userId={user.user._id}
                         />
                     </div>
-                    <div
-                        className={
-                            openNav
-                                ? "w-[65%] h-screen overflow-auto custom-overflow"
-                                : "w-[85%] h-screen overflow-auto custom-overflow"
-                        }
-                    >
-                        <Outlet context={[user, setUser]} />
-                    </div>
+                    {loading ? (
+                        // <div></div>
+                        <div
+                            className={
+                                openNav
+                                    ? "w-[65%] h-screen   flex items-center justify-center"
+                                    : "w-[85%]  h-screen flex items-center justify-center"
+                            }
+                        >
+                            <span className="loader"></span>
+                        </div>
+                    ) : error ? (
+                        <ErrorPage />
+                    ) : (
+                        <div
+                            className={
+                                openNav
+                                    ? "w-[65%] h-screen overflow-auto custom-overflow shrink-0"
+                                    : "w-[85%] h-screen overflow-auto custom-overflow shrink-0"
+                            }
+                        >
+                            <Outlet context={{ user, setUser, fetchData }} />
+                        </div>
+                    )}
                 </>
             ) : (
                 <>
-                    <div className=" w-[20%] bg-black h-screen">
+                    <div className=" w-[20%] bg-black h-screen shrink-0">
                         <Laptop_Navbar
                             Active_nav={Active_nav}
                             setActive_nav={setActive_nav}
                             userId={user.user._id}
                         />
                     </div>
-                    <div className="w-[80%]   h-screen overflow-auto custom-overflow  ">
-                        <Outlet context={[user, setUser, fetchData]} />
-                    </div>
+                    {loading ? (
+                        <div className=" w-[80%] h-screen flex items-center justify-center">
+                            <span className="loader"></span>
+                        </div>
+                    ) : error ? (
+                        <ErrorPage />
+                    ) : (
+                        <div className="w-[80%]   h-screen overflow-auto custom-overflow  ">
+                            <Outlet context={{ user, setUser, fetchData }} />
+                        </div>
+                    )}
                 </>
             )}
         </div>

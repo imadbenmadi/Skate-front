@@ -6,18 +6,18 @@ import { FaBook } from "react-icons/fa";
 import { FaHandshake } from "react-icons/fa";
 import { Link } from "react-router-dom";
 function ProfileInfo() {
-    const [user, setUser, fetchData] = useOutletContext();
+    const { user, fetchData } = useOutletContext();
     // useEffect(() => {
     //     fetchData();
     // }, []);
 
-    if (!user)
+    if (!user || !fetchData)
         return (
             <div className="w-full h-screen flex items-center justify-center">
                 <span className="loader"></span>
             </div>
         );
-    console.log("user", user);
+
     return (
         <div className=" flex flex-col items-start justify-center">
             <div className="text-2xl pt-4 pl-4  lg:text-3xl mb-8 text-center w-full ">
@@ -30,7 +30,8 @@ function ProfileInfo() {
                         User Name :
                     </p>
                     <p className="  break-all">
-                        {user.user.FirstName ? user.user.FirstName : "null"} {" "}{user.user.LastName ? user.user.LastName : "null"}
+                        {user.user.FirstName ? user.user.FirstName : "null"}{" "}
+                        {user.user.LastName ? user.user.LastName : "null"}
                     </p>
                 </span>
                 <span className=" flex md:gap-3">

@@ -6,21 +6,25 @@ import { LuMailOpen } from "react-icons/lu";
 // import { location } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-import Card from "./Card"
+import Card from "./Card";
 function Profile_Notifications() {
     const location = useLocation();
 
-    const [user, setUser] = useOutletContext();
-    if (!user)
+    const { user, fetchData } = useOutletContext();
+    // const context = useOutletContext();
+    // console.log(context);
+    if (!user )
         return (
             <div className="w-full h-screen flex items-center justify-center">
                 <span className="loader"></span>
             </div>
         );
+    
+    console.log(fetchData);
     const Notifications = user.user.Notifications;
     // const userId = location.pathname.split("/")[2];
     const userId = user.user._id;
-    
+
     if (!Notifications)
         return (
             <div className="pt-4">
@@ -49,8 +53,10 @@ function Profile_Notifications() {
                 {Notifications.map((notification, index) => (
                     <Card
                         key={index}
+                        user={user}
                         notification={notification}
                         index={index}
+                        fetchData={fetchData}
                     />
                 ))}
             </div>

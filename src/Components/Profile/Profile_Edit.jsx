@@ -11,8 +11,8 @@ import { useOutletContext } from "react-router-dom";
 import { FaArrowLeft } from "react-icons/fa";
 
 function Profile_Edit() {
-    const [user, setUser, fetchData] = useOutletContext();
-    if (!user)
+    const { user, fetchData } = useOutletContext();
+    if (!user || !fetchData)
         return (
             <div className="w-full h-screen flex items-center justify-center">
                 <span className="loader"></span>
