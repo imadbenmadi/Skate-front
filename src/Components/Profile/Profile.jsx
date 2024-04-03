@@ -60,7 +60,12 @@ function Profile() {
     // if (error) {
     //     return <ErrorPage />;
     // }
-    if (!user) return null;
+    if (!user)
+        return (
+            <div className=" w-screen h-screen flex items-center justify-center">
+                <span className="loader"></span>
+            </div>
+        );
     return (
         <div className=" flex">
             {windowWidth < 768 ? (
