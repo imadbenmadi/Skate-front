@@ -84,8 +84,10 @@ function Card({ user, notification, index, fetchData }) {
             setDelete_Loading(false);
         }
     }
+
     return (
-        <div className="border-b border-gray flex  ">
+        // <div className="border-b border-gray flex  ">
+        <div className={`border-b border-gray flex  ${!notification.Readed ? "bg-gray_white " : "bg-white"}`}>
             <div className=" w-[90%]">
                 <div
                     key={index}
