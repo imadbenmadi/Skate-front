@@ -5,6 +5,7 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import { LuMailOpen } from "react-icons/lu";
 // import { location } from "react-router-dom";
 import { useLocation } from "react-router-dom";
+// import { LuMailOpen } from "react-icons/lu";
 
 import Card from "./Card";
 function Profile_Notifications() {
@@ -13,13 +14,13 @@ function Profile_Notifications() {
     const { user, fetchData } = useOutletContext();
     // const context = useOutletContext();
     // console.log(context);
-    if (!user )
+    if (!user)
         return (
             <div className="w-full h-screen flex items-center justify-center">
                 <span className="loader"></span>
             </div>
         );
-    
+
     console.log(fetchData);
     const Notifications = user.user.Notifications;
     // const userId = location.pathname.split("/")[2];
@@ -47,18 +48,25 @@ function Profile_Notifications() {
     return (
         <div>
             <div className=" p-6 text-3xl text-gray font-semibold ">
-                Notifications{" "}
+                Notifications
             </div>
             <div className=" w-full overflow-y-hidden">
-                {Notifications.map((notification, index) => (
-                    <Card
-                        key={index}
-                        user={user}
-                        notification={notification}
-                        index={index}
-                        fetchData={fetchData}
-                    />
-                ))}
+                {Notifications.length === 0 ? (
+                    <div className=" text-gray font-semibold text-xl text-center flex items-center justify-center gap-2 md:gap-4 mt-12">
+                        <LuMailOpen />
+                        No Notifications
+                    </div>
+                ) : (
+                    Notifications.map((notification, index) => (
+                        <Card
+                            key={index}
+                            user={user}
+                            notification={notification}
+                            index={index}
+                            fetchData={fetchData}
+                        />
+                    ))
+                )}
             </div>
         </div>
     );

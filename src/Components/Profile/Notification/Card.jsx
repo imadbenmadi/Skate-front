@@ -149,22 +149,21 @@ function Card({ user, notification, index, fetchData }) {
                     </div>
                 )}
             </div>
-            {Delete_Loading ? (
-                <div>loading</div>
-            ) : (
-                <div className=" w-[10%] shrink-0   text-white text-xl mr-2">
-                    <div className="text-red-600 mt-8 rounded-lg cursor-pointer ">
-                        <FaTrashCan
-                            onClick={() =>
-                                handle_delete_notification(
-                                    user.user._id,
-                                    notification._id
-                                )
-                            }
-                        />
-                    </div>
-                </div>
-            )}
+            <div className=" w-[10%] shrink-0   text-white text-xl mr-2 mt-8">
+                {Delete_Loading ? (
+                    <span className="small-loader  "></span>
+                ) : (
+                    <FaTrashCan
+                        className="cursor-pointer text-red-600 "
+                        onClick={() =>
+                            handle_delete_notification(
+                                user.user._id,
+                                notification._id
+                            )
+                        }
+                    />
+                )}
+            </div>
         </div>
     );
 }
