@@ -84,7 +84,7 @@ function Laptop_NavBar({ Active_nav, setActive_nav }) {
                     <div>Blogs</div>
                 </Link>
                 <div
-                    className={` flex items-center gap-3 cursor-pointer text-xl pt-28 `}
+                    className={` flex items-center gap-3 cursor-pointer text-xl pt-6 `}
                     onClick={() => {
                         swal.fire({
                             title: "Leaving the Dashboard ?",
