@@ -20,8 +20,6 @@ function Profile_Notifications() {
                 <span className="loader"></span>
             </div>
         );
-
-    console.log(fetchData);
     const Notifications = user.user.Notifications;
     // const userId = location.pathname.split("/")[2];
     const userId = user.user._id;

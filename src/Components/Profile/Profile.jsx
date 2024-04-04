@@ -15,7 +15,7 @@ function Profile() {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    const [test, settest] = useState("test");
+    
     useEffect(() => {
         window.addEventListener("resize", () => {
             SetwindowWidth(window.innerWidth);
