@@ -1,39 +1,22 @@
 import React from "react";
-
+import { useOutletContext } from "react-router";
+import { useLocation } from "react-router-dom";
+import { useState, useEffect } from "react";
 function Notification_item() {
-    
-    
-    const [Active_nav, setActive_nav] = useState(null);
-    const [openNav, SetOpenNav] = useState(false);
-    const [windowWidth, SetwindowWidth] = useState(window.innerWidth);
-    const [user, setUser] = useState(null);
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
-    const fetch_Notifications = async () => {
-        setLoading(true);
-        try {
-            const response = await axios.get(
-                `http://localhost:3000/Profile/${
-                    location.pathname.split("/")[2]
-                }`,
-                {
-                    withCredentials: true,
-                    validateStatus: () => true,
-                }
-            );
-            // console.log(response.data);
-            if (response.status === 200) {
-                setUser(response.data.userData);
-            } else {
-                Navigate("/Login");
-            }
-        } catch (error) {
-            setError(error);
-        } finally {
-            setLoading(false);
-        }
-    };
-    return <div>Notification_item</div>;
+    const [notification, setnotification] = useState(null);
+    const location = useLocation();
+    const { user, fetchData } = useOutletContext();
+    if (!user)
+        return (
+            <div className="w-full h-screen flex items-center justify-center">
+                <span className="loader"></span>
+            </div>
+        );
+    const Notifications = user.user.Notifications;
+    const userId = user.user._id;
+    const Notification_id = location.pathname.split("/")[4];
+    console.log(Notifications);
+    return <div></div>;
 }
 
 export default Notification_item;

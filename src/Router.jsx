@@ -22,6 +22,7 @@ import Profile_Notifications from "./Components/Profile/Notification/Profile_Not
 // import Profile_Courses from "./Components/Profile/Profile_Courses";
 import Profile_Edit from "./Components/Profile/Profile_Edit";
 // import Profile_Requests from "./Components/Profile/Requests";
+import Notification_item from "./Components/Profile/Notification/Notification_item";
 
 import Not_Found from "./Components/Not_Found";
 import Dashboard from "./Dashboard/Dashboard";
@@ -194,10 +195,10 @@ const routes = createBrowserRouter([
                 path: "/Profile/:id/Notifications",
                 element: <Profile_Notifications />,
             },
-            // {
-            //     path: "/Profile/:id/Notifications/:id",
-            //     element: <Not_Finished />,
-            // },
+            {
+                path: "/Profile/:id/Notifications/:id",
+                element: <Notification_item />,
+            },
             {
                 path: "/Profile/:id/Courses",
                 element: <Not_Finished />,

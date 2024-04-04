@@ -11,7 +11,7 @@ import { FaTrashCan } from "react-icons/fa6";
 import axios from "axios";
 import Swal from "sweetalert2";
 import { useOutletContext } from "react-router-dom";
-
+import { Link } from "react-router-dom";
 function Card({ user, notification, index, fetchData }) {
     // fetchData()
     // const [fetchData] = useOutletContext();
@@ -87,8 +87,15 @@ function Card({ user, notification, index, fetchData }) {
 
     return (
         // <div className="border-b border-gray flex  ">
-        <div className={`border-b border-gray flex  ${!notification.Readed ? "bg-gray_white " : "bg-white"}`}>
-            <div className=" w-[90%]">
+        <div
+            className={`border-b border-gray flex  ${
+                !notification.Readed ? "bg-gray_white " : "bg-white"
+            }`}
+        >
+            <Link
+                to={`/Profile/${user.user._id}/Notifications/${notification._id}`}
+                className=" w-[95%]"
+            >
                 <div
                     key={index}
                     className={`notification flex  justify-start gap-6 md:gap-2 px-5 py-5 `}
@@ -143,15 +150,15 @@ function Card({ user, notification, index, fetchData }) {
                 ) : (
                     <div className="w-[80%] pl-8 py-4">
                         <div
-                            className="select-none flex gap-2 items-center justify-start underlined pb-4 cursor-pointer"
+                            className="select-none flex gap-2 w-fit items-center justify-start underlined pb-4 cursor-pointer"
                             onClick={toggleDescription}
                         >
                             Show Description <FaArrowDown />
                         </div>
                     </div>
                 )}
-            </div>
-            <div className=" w-[10%] shrink-0   text-white text-xl mr-2 mt-8">
+            </Link>
+            <div className=" w-[5%] shrink-0   text-white text-xl mr-2 mt-8">
                 {Delete_Loading ? (
                     <span className="small-loader  "></span>
                 ) : (
