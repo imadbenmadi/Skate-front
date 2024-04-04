@@ -118,7 +118,7 @@ function Default() {
                     </div>
 
                     <div className="flex items-center justify-center gap-4 text-lg md:text-2xl pl-8 mr-4 md:pl-0 md:mr-0">
-                        <div className=" rounded mt-8 w-fit">
+                        <div className=" rounded mt-8 w-fit max-w-[80%] ">
                             <table className="w-full bg-gray_white">
                                 <tbody>
                                     <tr className="">
@@ -176,7 +176,7 @@ function Default() {
                         </div>
                     </div>
 
-                    <div className="flex gap-2 md:gap-10 pt-10 justify-center text-lg md:text-xl text-center">
+                    <div className="flex gap-2 md:gap-10 pt-10 justify-center text-lg md:text-xl text-center mb-6">
                         <div>
                             <Link
                                 to={"/Dashboard/Users/" + userId + "/Courses"}
