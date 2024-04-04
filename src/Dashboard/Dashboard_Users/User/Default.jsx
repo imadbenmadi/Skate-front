@@ -13,40 +13,38 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import { useState, useEffect } from "react";
 import ErrorPage from "../../../Components/ErrorPage";
 function Default() {
-    const [userData, setUserData] = useState(null);
+    // const [userData, setUserData] = useState(null);
     const [user, setUser] = useOutletContext();
     const Navigate = useNavigate();
-
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
     const location = useLocation();
-
     const userId = location.pathname.split("/")[3];
-    const fetchUser = async () => {
-        setLoading(true);
+    // const fetchUser = async () => {
+    //     setLoading(true);
 
-        try {
-            const response = await axios.get(
-                `http://localhost:3000/Dashboard/Users/${userId}`,
-                {
-                    withCredentials: true,
-                    validateStatus: () => true,
-                }
-            );
-            if (response.status == 200) {
-                setUserData(response.data);
-                setUser(response.data);
-            } else {
-                setError(response.data);
-            }
-        } catch (error) {
-            setError(error);
-        }
-        setLoading(false);
-    };
-    useEffect(() => {
-        fetchUser();
-    }, []);
+    //     try {
+    //         const response = await axios.get(
+    //             `http://localhost:3000/Dashboard/Users/${userId}`,
+    //             {
+    //                 withCredentials: true,
+    //                 validateStatus: () => true,
+    //             }
+    //         );
+    //         if (response.status == 200) {
+    //             setUserData(response.data);
+    //             setUser(response.data);
+    //         } else {
+    //             setError(response.data);
+    //         }
+    //     } catch (error) {
+    //         setError(error);
+    //     }
+    //     setLoading(false);
+    // };
+    // useEffect(() => {
+    //     fetchUser();
+    // }, []);
     // if (loading)
     //     return (
     //         <div className=" w-[100%] h-[200px] flex items-center justify-center">
@@ -114,7 +112,7 @@ function Default() {
                 <div className="w-[100%] h-[200px] flex items-center justify-center">
                     <span className="loader"></span>
                 </div>
-            ) : (
+            ) : user ? (
                 <div className="">
                     <Link
                         to={"/Dashboard/Users"}
@@ -162,64 +160,64 @@ function Default() {
                     </div>
 
                     <div className="flex items-center justify-center gap-4 text-lg md:text-2xl pl-8 mr-4 md:pl-0 md:mr-0">
-                        <div className="bg-gray_white rounded mt-8 w-fit">
-                            {userData && (
-                                <table className="w-full">
-                                    <tbody>
-                                        <tr className="">
-                                            <th className="text-left md:pr-4 border md:p-2">
-                                                First name:
-                                            </th>
-                                            <td className="border border-gray p-3">
-                                                {userData.FirstName}
-                                            </td>
-                                        </tr>
-                                        <tr className="">
-                                            <th className="text-left md:pr-4 border md:p-2">
-                                                Last name:
-                                            </th>
-                                            <td className="border border-gray p-3">
-                                                {userData.LastName}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th className="text-left md:pr-4 border md:p-2">
-                                                Email:
-                                            </th>
-                                            <td className="border border-gray p-3">
-                                                {userData.Email}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th className="text-left md:pr-4 border md:p-2">
-                                                Telephone:
-                                            </th>
-                                            <td className="border border-gray p-3">
-                                                {userData.Telephone}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th className="text-left md:pr-4 border md:p-2">
-                                                Gender:
-                                            </th>
-                                            <td className="border border-gray p-3">
-                                                {userData.Gender}
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <th className="text-left md:pr-4 border md:p-2">
-                                                Status:
-                                            </th>
-                                            <td className="border border-gray p-3">
-                                                {userData.IsEmailVerified ==
-                                                true
-                                                    ? "Verified"
-                                                    : "Not Verified"}
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            )}
+                        <div className=" rounded mt-8 w-fit">
+                            <table className="w-full bg-gray_white">
+                                <tbody>
+                                    <tr className="">
+                                        <th className="text-left md:pr-4 border md:p-2">
+                                            First name:
+                                        </th>
+                                        <td className="border border-gray p-3">
+                                            {user.FirstName}
+                                        </td>
+                                    </tr>
+                                    <tr className="">
+                                        <th className="text-left md:pr-4 border md:p-2">
+                                            Last name:
+                                        </th>
+                                        <td className="border border-gray p-3">
+                                            {user.LastName}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th className="text-left md:pr-4 border md:p-2">
+                                            Email:
+                                        </th>
+                                        <td className="border border-gray p-3">
+                                            {user.Email}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th className="text-left md:pr-4 border md:p-2">
+                                            Telephone:
+                                        </th>
+                                        <td className="border border-gray p-3">
+                                            {user.Telephone}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th className="text-left md:pr-4 border md:p-2">
+                                            Gender:
+                                        </th>
+                                        <td className="border border-gray p-3">
+                                            {user.Gender}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th className="text-left md:pr-4 border md:p-2">
+                                            Status:
+                                        </th>
+                                        <td className="border border-gray p-3">
+                                            {user.IsEmailVerified == true
+                                                ? "Verified"
+                                                : "Not Verified"}
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            {/* ) : (
+                                <div>error getting user informations</div>
+                            )} */}
                         </div>
                     </div>
 
@@ -266,6 +264,8 @@ function Default() {
                         </div>
                     </div>
                 </div>
+            ) : (
+                <ErrorPage />
             )}
         </div>
     );
