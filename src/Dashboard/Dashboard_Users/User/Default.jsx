@@ -16,44 +16,8 @@ function Default() {
     // const [userData, setUserData] = useState(null);
     const [user, setUser] = useOutletContext();
     const Navigate = useNavigate();
-    const [loading, setLoading] = useState(false);
-    const [error, setError] = useState(null);
     const location = useLocation();
     const userId = location.pathname.split("/")[3];
-    // const fetchUser = async () => {
-    //     setLoading(true);
-
-    //     try {
-    //         const response = await axios.get(
-    //             `http://localhost:3000/Dashboard/Users/${userId}`,
-    //             {
-    //                 withCredentials: true,
-    //                 validateStatus: () => true,
-    //             }
-    //         );
-    //         if (response.status == 200) {
-    //             setUserData(response.data);
-    //             setUser(response.data);
-    //         } else {
-    //             setError(response.data);
-    //         }
-    //     } catch (error) {
-    //         setError(error);
-    //     }
-    //     setLoading(false);
-    // };
-    // useEffect(() => {
-    //     fetchUser();
-    // }, []);
-    // if (loading)
-    //     return (
-    //         <div className=" w-[100%] h-[200px] flex items-center justify-center">
-    //             <span className="loader"></span>
-    //         </div>
-    //     );
-    // if (error) {
-    //     return <ErrorPage />;
-    // }
     async function handle_delete_user() {
         try {
             const response = await axios.delete(
@@ -106,13 +70,7 @@ function Default() {
 
     return (
         <div>
-            {error ? (
-                <ErrorPage />
-            ) : loading ? (
-                <div className="w-[100%] h-[200px] flex items-center justify-center">
-                    <span className="loader"></span>
-                </div>
-            ) : user ? (
+            {user ? (
                 <div className="">
                     <Link
                         to={"/Dashboard/Users"}
@@ -215,9 +173,6 @@ function Default() {
                                     </tr>
                                 </tbody>
                             </table>
-                            {/* ) : (
-                                <div>error getting user informations</div>
-                            )} */}
                         </div>
                     </div>
 
