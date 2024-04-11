@@ -94,11 +94,12 @@ function Card({ user, notification, index, fetchData }) {
         >
             <Link
                 to={`/Profile/${user.user._id}/Notifications/${notification._id}`}
-                className=" w-[95%]"
+                className=" "
             >
                 <div
                     key={index}
-                    className={`notification flex  justify-start gap-6 md:gap-2 px-5 py-5 `}
+                    className={`notification flex justify-start md:gap-6
+                    gap-2 px-1 md:px-5 py-5 `}
                 >
                     <div className="text-5xl text-gray">
                         {notification.Type === "verify" ? (
@@ -116,22 +117,23 @@ function Card({ user, notification, index, fetchData }) {
                         )}
                     </div>
                     <div className="flex  flex-col w-full relative">
-                        <div className="font-bold mb-1 text-lg md:text-xl">
-                            {notification.Title}
-                        </div>
-                        <div className="pb-4">{notification.Text}</div>
+                        {notification.Title && (
+                            <div className="font-bold mb-1 text-lg md:text-xl">
+                                {notification.Title}
+                            </div>
+                        )}
                         {notification.Type !== "verify" &&
                             notification.Date && (
                                 <p className="text-sm ">
                                     {Formate_Date(notification.Date)}
                                 </p>
                             )}
+                        {notification.Text && (
+                            <div className="pt-2">{notification.Text}</div>
+                        )}
                     </div>
-                    {notification.Description && (
-                        <div>{notification.Description}</div>
-                    )}
                 </div>
-                {showDescription ? (
+                {/* {showDescription ? (
                     <div className="w-[80%] pl-8 py-4 ">
                         <div
                             className="select-none flex gap-2 items-center justify-start underlined pb-4 cursor-pointer"
@@ -156,9 +158,9 @@ function Card({ user, notification, index, fetchData }) {
                             Show Description <FaArrowDown />
                         </div>
                     </div>
-                )}
+                )} */}
             </Link>
-            <div className=" w-[5%] shrink-0   text-white text-xl mr-2 mt-8">
+            <div className=" w-fit shrink-0   text-white text-xl mr-3 mt-8">
                 {Delete_Loading ? (
                     <span className="small-loader  "></span>
                 ) : (

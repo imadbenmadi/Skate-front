@@ -10,7 +10,7 @@ import { MdOutlineMailOutline } from "react-icons/md";
 import { RiCalendarEventLine } from "react-icons/ri";
 import { FaBook } from "react-icons/fa";
 import { FaRegHandshake } from "react-icons/fa";
-
+import { Formate_Date } from "../../../Logic/Formate_Date";
 function Notification_item() {
     // const [notification, setnotification] = useState(null);
     const location = useLocation();
@@ -27,6 +27,7 @@ function Notification_item() {
     const notification = Notifications.find(
         (notification) => notification._id === notification_id
     );
+    console.log(notification);
     if (!notification)
         return (
             <div className="w-full mt-10 flex flex-col gap-10 items-center justify-center">
@@ -54,10 +55,9 @@ function Notification_item() {
                     <div>Go back</div>
                 </Link>
             </div>
-            <div className=" ">
-                <div>
-                    <div></div>
-                    <div>
+            <div className=" mt-10">
+                <div className="  ">
+                    <div className=" flex items-center justify-center gap-2 md:gap-8">
                         <div className="text-5xl text-gray">
                             {notification.Type === "verify" ? (
                                 <PiWarningCircleBold />
@@ -73,7 +73,32 @@ function Notification_item() {
                                 <MdOutlineMailOutline />
                             )}
                         </div>
-                        <div></div>
+                        {notification.Date && (
+                            <p className="text-md ">
+                                {Formate_Date(notification.Date)}
+                            </p>
+                        )}
+                    </div>
+                    <div className="block  md:hidden pt-6">
+                        {notification.Title ? (
+                            <div className=" text-xl  md:text-2xl font-semibold text-black_text ">
+                                {notification.Title}
+                            </div>
+                        ) : null}
+                    </div>
+                    <div className="block  md:hidden pt-2">
+                        {notification.Text ? (
+                            <div className=" text-lg  md:text-xl  text-black_text ">
+                                {notification.Text}
+                            </div>
+                        ) : null}
+                    </div>
+                    <div className="block  md:hidden pt-2">
+                        {notification.Description ? (
+                            <div className=" text-lg  md:text-xl  text-black_text ">
+                                {notification.Description}
+                            </div>
+                        ) : null}
                     </div>
                 </div>
                 <div></div>
