@@ -14,11 +14,11 @@ const WarningNotification = () => {
             {isVisible && (
                 <div className="fixed z-50 bottom-0 right-0 p-4 m-4 bg-red-100 border border-red-400  rounded-md shadow-lg">
                     <div className="flex justify-between items-start gap-4">
-                        <div className="text-xl text-gray ">
-                            <div className=" text-3xl text-red-700  underline pb-2">
+                        <div className=" text-gray ">
+                            <div className=" text-xl md:text-3xl text-red-700  underline md:pb-2">
                                 Warning! .
                             </div>
-                            <div className=" ">
+                            <div className=" md:text-xl">
                                 you should activate your account
                             </div>
                             <Link
@@ -28,7 +28,7 @@ const WarningNotification = () => {
                                     setIsVisible(false);
                                 }}
                             >
-                                <span className=" underline">
+                                <span className=" underline md:text-xl">
                                     Go to the activation page
                                 </span>
                                 <FaArrowRight />
@@ -36,7 +36,7 @@ const WarningNotification = () => {
                         </div>
 
                         <button
-                            className="text-red-500 hover:text-red-700"
+                            className="text-red-700"
                             onClick={handleClose}
                         >
                             <IoClose className=" text-2xl" />
