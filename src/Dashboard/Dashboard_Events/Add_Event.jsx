@@ -17,7 +17,7 @@ function Add_Event() {
             >
                 <>
                     <FaArrowLeft />
-                    <div>Go Back</div>
+                    <div>Go back</div>
                 </>
             </Link>
             {/* Input fields */}

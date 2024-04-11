@@ -18,7 +18,7 @@ function Add_Blog() {
             >
                 <>
                     <FaArrowLeft />
-                    <div>Go Back</div>
+                    <div>Go back</div>
                 </>
             </Link>
             {/* Input fields */}

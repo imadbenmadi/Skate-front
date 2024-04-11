@@ -63,7 +63,7 @@ function Edit_Event() {
                 >
                     <>
                         <FaArrowLeft />
-                        <div>Go Back</div>
+                        <div>Go back</div>
                     </>
                 </Link>
                 <div
@@ -84,7 +84,7 @@ function Edit_Event() {
                 >
                     <>
                         <FaArrowLeft />
-                        <div>Go Back</div>
+                        <div>Go back</div>
                     </>
                 </Link>
                 {/* Input fields */}

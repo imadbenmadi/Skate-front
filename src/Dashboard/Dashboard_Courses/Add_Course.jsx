@@ -17,7 +17,7 @@ function Add_Course() {
             >
                 <>
                     <FaArrowLeft />
-                    <div>Go Back</div>
+                    <div>Go back</div>
                 </>
             </Link>
             {/* Input fields */}
@@ -48,7 +48,7 @@ function Add_Course() {
                         // Validate Price
                         // if (!values.Price) {
                         //     errors.Price = "Price is required.";
-                        // } 
+                        // }
                         else if (values.Price && isNaN(values.Price))
                             errors.Price = "Invalid Price";
 
