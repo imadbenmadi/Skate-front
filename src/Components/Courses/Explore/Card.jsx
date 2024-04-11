@@ -41,11 +41,11 @@ function Card({ course }) {
                     </p>
                 )}
 
-                {course.Price ? (
+                {/* {course.Price ? (
                     <p className="text-gray text-lg font-semibold py-1">
                         {course.Price} DA
                     </p>
-                ) : null}
+                ) : null} */}
                 {course.Category ? (
                     <p className="text-gray text-sm font-semibold ">
                         {course.Category}

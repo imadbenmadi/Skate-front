@@ -83,11 +83,11 @@ function Current_Services_Card({ item, onDelete }) {
                             <p className="text-gray font-semibold text-xl pt-4">
                                 {item.Category ? item.Category : "No Category"}
                             </p>
-                            {item.Price && (
+                            {/* {item.Price && (
                                 <div className="text-gray pt-2 text-xl font-semibold top-10 right-5 ">
                                     {item.Price} DA
                                 </div>
-                            )}
+                            )} */}
                         </div>
                     </div>
                 </div>

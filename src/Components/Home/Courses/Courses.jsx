@@ -60,19 +60,19 @@ function Courses() {
                         img={img3}
                         title="Financement"
                         dec="Explore finance with our Financement course. Learn investment strategies, financial planning, and risk management essentials for confident decision-making."
-                        price="0.0"
+                        // price="0.0"
                     />
                     <CardCours
                         img={img2}
                         title="Marketing"
                         dec="Discover the fundamentals of marketing with our comprehensive course. Learn essential strategies, tactics, and principles to effectively reach your target audience and drive business success."
-                        price="0.0"
+                        // price="0.0"
                     />
                     <CardCours
                         img={img1}
                         title="Management"
                         dec="Master the art of management with our concise course. Learn essential strategies and techniques to effectively lead teams, streamline processes, and achieve organizational goals."
-                        price="0.0"
+                        // price="0.0"
                     />{" "}
                 </div>
 

@@ -42,11 +42,11 @@ function Card({ service }) {
                     </p>
                 )}
 
-                {service.Price ? (
+                {/* {service.Price ? (
                     <p className="text-gray text-lg font-semibold py-1">
                         {service.Price} DA
                     </p>
-                ) : null}
+                ) : null} */}
                 {service.Category ? (
                     <p className="text-gray text-sm font-semibold ">
                         {service.Category}

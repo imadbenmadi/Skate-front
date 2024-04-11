@@ -111,11 +111,11 @@ function Edit_Course() {
                             if (!values.Description) {
                                 errors.Description = "Description is required.";
                             }
-                            if (!values.Price) {
-                                errors.Price = "Price is required.";
-                            } else if (isNaN(values.Price))
+                            // if (!values.Price) {
+                            //     errors.Price = "Price is required.";
+                            // }
+                            else if (values.Price && isNaN(values.Price))
                                 errors.Price = "Invalid Price";
-
                             if (!values.Category) {
                                 errors.Category = "Category is required.";
                             }

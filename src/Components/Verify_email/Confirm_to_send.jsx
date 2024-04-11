@@ -80,7 +80,7 @@ function Confirm_to_send({ setConfirm_to_send_state, startResendTimer }) {
                 onClick={() => handle_send_email(_id)}
                 disabled={loading_toSend}
             >
-                {loading_toSend ? "Sending..." : "Send Email"}
+                {loading_toSend ? "Loading..." : "Send Email"}
             </button>
         </div>
     );

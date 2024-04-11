@@ -96,11 +96,11 @@ function Card({ Service }) {
                                     {Service.Category}
                                 </p>
                             )}
-                            {Service.Price && (
+                            {/* {Service.Price && (
                                 <div className="text-gray pt-4  text-xl font-semibold top-10 right-5 ">
                                     {Service.Price} DA
                                 </div>
-                            )}
+                            )} */}
                         </div>
                     </div>
                 </div>
