@@ -11,7 +11,8 @@ import Swal from "sweetalert2";
 import { FaUserTie } from "react-icons/fa";
 import { MdNotificationsNone } from "react-icons/md";
 function NavBar({ Active_nav, setActive_nav }) {
-    const { isAuth, FirstName, LastName, _id } = useAppContext();
+    const { isAuth, FirstName, LastName, _id, Notifications } = useAppContext();
+    
     const { set_Auth, store_login } = useAppContext();
     const location = useLocation();
 

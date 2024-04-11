@@ -18,7 +18,6 @@ function Profile_Edit() {
                 <span className="loader"></span>
             </div>
         );
-    console.log(user);
     const [showPassword, setShowPassword] = useState(false);
     function handleShowPassword() {
         setShowPassword(!showPassword);

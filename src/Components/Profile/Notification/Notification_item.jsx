@@ -56,12 +56,10 @@ function Notification_item() {
                     validateStatus: () => true,
                 }
             );
-            console.log(response.data);
             if (response.status === 200) {
                 fetchData();
             }
         } catch (error) {
-            console.log(error);
         }finally{
             setLoading(false);
         }

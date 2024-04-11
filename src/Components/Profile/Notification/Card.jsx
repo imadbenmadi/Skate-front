@@ -31,7 +31,6 @@ function Card({ user, notification, index, fetchData }) {
                     validateStatus: () => true,
                 }
             );
-            console.log(response);
             if (response.status == 200) {
                 Swal.fire({ icon: "success", title: "Notification Deleted" });
                 fetchData();
@@ -78,7 +77,6 @@ function Card({ user, notification, index, fetchData }) {
                 );
             }
         } catch (error) {
-            console.log(error);
             Swal.fire("Error!", "Failed to Reject the Request", "error");
         } finally {
             setDelete_Loading(false);

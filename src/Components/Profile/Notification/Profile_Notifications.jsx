@@ -13,7 +13,6 @@ function Profile_Notifications() {
 
     const { user, fetchData } = useOutletContext();
     // const context = useOutletContext();
-    // console.log(context);
     if (!user)
         return (
             <div className="w-full h-screen flex items-center justify-center">
@@ -50,7 +49,6 @@ function Profile_Notifications() {
         // Within each category, sort by newest first
         return new Date(b.Date) - new Date(a.Date);
     });
-    // console.log(Notifications);
     return (
         <div>
             <div className=" p-6 text-3xl text-gray font-semibold ">

@@ -78,7 +78,6 @@ const Notifications_items = () => {
                                     <div className="flex flex-col w-full relative">
                                         {notification.Title && (
                                             <h3 className="text-base font-bold mb-1 break-all">
-                                                {/* {console.log(notification.Title.length)} */}
                                                 {notification.Title.length > 150
                                                     ? `${notification.Title.slice(
                                                           0,
