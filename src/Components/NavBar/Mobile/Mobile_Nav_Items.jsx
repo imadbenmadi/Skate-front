@@ -48,7 +48,7 @@ function Mobile_Nav_Items({
         });
     };
     return (
-        <div className="flex">
+        <div className="flex ">
             {/* the right nav quitter */}
             <div
                 onClick={Toogle_Menu_Bar}
@@ -120,7 +120,7 @@ function Mobile_Nav_Items({
                     <Link
                         onClick={Toogle_Menu_Bar}
                         to={"/Services"}
-                        className="select-none flex gap-2  mb-4 "
+                        className="select-none flex  gap-2  mb-4 w-[120px] m-auto "
                     >
                         <FaRegHandshake className=" text-3xl" />
                         Services
@@ -128,16 +128,16 @@ function Mobile_Nav_Items({
                     <Link
                         onClick={Toogle_Menu_Bar}
                         to={"/Courses"}
-                        className="select-none flex items-center  gap-2  mb-4"
+                        className="select-none flex items-center   gap-2  mb-4 w-[120px] m-auto"
                     >
                         <FaBook className=" text-2xl" />
                         Courses
                     </Link>
-                    <div className=" w-full h-1 bg-gray mb-4"></div>
+                    <div className=" w-full rounded-xl m-auto h-[2px]  bg-gray mb-4"></div>
                     <Link
                         onClick={Toogle_Menu_Bar}
                         to={"/Events"}
-                        className="select-none flex  gap-2 mb-4"
+                        className="select-none flex  gap-2 mb-4 w-[120px] m-auto"
                     >
                         <MdEventAvailable className=" text-3xl" />
                         Events
@@ -145,7 +145,7 @@ function Mobile_Nav_Items({
                     <Link
                         onClick={Toogle_Menu_Bar}
                         to={"/Blogs"}
-                        className="select-none flex  gap-2 mb-4"
+                        className="select-none flex  gap-2 mb-4 w-[120px] m-auto"
                     >
                         <RiArticleFill className=" text-3xl" />
                         Blogs
@@ -153,7 +153,7 @@ function Mobile_Nav_Items({
                     <Link
                         onClick={Toogle_Menu_Bar}
                         to={"/Contact"}
-                        className="select-none flex  gap-2 "
+                        className="select-none flex   gap-2 w-[120px] m-auto"
                     >
                         <IoCall className=" text-3xl" />
                         Contact
@@ -162,7 +162,7 @@ function Mobile_Nav_Items({
                         <>
                             {!LogoutClicked ? (
                                 <div
-                                    className="text-red-600   flex items-center gap-2 mt-4 "
+                                    className="text-red-600   flex items-center  gap-2 mt-10 w-[120px] m-auto"
                                     onClick={() => {
                                         Logout();
                                     }}
@@ -171,7 +171,7 @@ function Mobile_Nav_Items({
                                     Logout
                                 </div>
                             ) : (
-                                <div className=" w-full flex items-center justify-center mt-4  text-red-600">
+                                <div className=" w-full flex items-center justify-center mt-10  text-red-600">
                                     <span className="small-loader"></span>
                                 </div>
                             )}

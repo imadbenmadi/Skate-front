@@ -12,7 +12,8 @@ import { FaUserTie } from "react-icons/fa";
 import { MdNotificationsNone } from "react-icons/md";
 function NavBar({ Active_nav, setActive_nav }) {
     const { isAuth, FirstName, LastName, _id, Notifications } = useAppContext();
-    
+    const [unReaded_Notif, SetunReaded_Notif] = useState(false);
+
     const { set_Auth, store_login } = useAppContext();
     const location = useLocation();
 
@@ -53,7 +54,6 @@ function NavBar({ Active_nav, setActive_nav }) {
                     _id: null,
                 });
                 set_Auth(false);
-
                 // You can use state or context to handle the logout state in your application
             } else if (response.status == 429) {
                 Swal.fire(
@@ -69,9 +69,20 @@ function NavBar({ Active_nav, setActive_nav }) {
         }
         setLogoutClicked(false);
     };
+    useEffect(() => {
+        // console.log("navbar : ", Notifications);
+        // if (!Notifications) return;
+        if (isAuth) {
+            const hasUnreadNotification = Notifications.some(
+                (notification) => !notification.Readed
+            );
+            SetunReaded_Notif(hasUnreadNotification);
+        }
+    }, [Notifications]);
     return (
         <div
-            className={` fixed  h-[60px] m-0  z-40 w-[97.6vw] md:w-[99vw] xl:w-[99.5vw] `}
+            // className={` fixed  h-[60px] m-0  z-40 w-[97.6vw] md:w-[99vw] xl:w-[99.5vw] `}
+            className={` fixed  h-[60px] m-0  z-40 w-full `}
         >
             <div className=" h-full  flex shadow-lg bg-white justify-between items-center md:justify-around select-none ">
                 <div className=" p-2 ml-5 md:ml-0">
@@ -86,22 +97,33 @@ function NavBar({ Active_nav, setActive_nav }) {
 
                 <div className=" flex gap-10 items-center md:hidden">
                     <div className=" flex items-center h-full gap-5 text-gray ">
-                        <Link
-                            onClick={Toogle_Menu_Bar}
-                            to={`/Profile/${_id}/Notifications`}
-                            className="select-none flex "
-                        >
-                            <MdNotificationsNone className=" text-3xl" />
-                            {/* Notifications */}
-                        </Link>
-                        <Link
-                            onClick={Toogle_Menu_Bar}
-                            to={`/Profile/${_id}`}
-                            className="select-none flex  items-center gap-2 "
-                        >
-                            <FaUserTie className="text-2xl" />
-                            {/* Profile */}
-                        </Link>
+                        {isAuth && (
+                            <>
+                                <div className="relative">
+                                    <Link
+                                        onClick={Toogle_Menu_Bar}
+                                        to={`/Profile/${_id}/Notifications`}
+                                        className="select-none flex "
+                                    >
+                                        <MdNotificationsNone className=" text-3xl  " />
+                                        {isAuth && unReaded_Notif && (
+                                            <div className=" absolute w-2 h-2 rounded-full bg-red-600 right-0">
+                                                {" "}
+                                            </div>
+                                        )}
+                                    </Link>
+                                </div>
+
+                                <Link
+                                    onClick={Toogle_Menu_Bar}
+                                    to={`/Profile/${_id}`}
+                                    className="select-none flex  items-center gap-2 "
+                                >
+                                    <FaUserTie className="text-2xl" />
+                                    {/* Profile */}
+                                </Link>
+                            </>
+                        )}
                     </div>
                     {/* Mobile menu Toogler */}
                     <Menu_Toogler

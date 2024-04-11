@@ -41,6 +41,7 @@ function App() {
                 const FirstName = response.data.userData.FirstName;
                 const LastName = response.data.userData.LastName;
                 const Notifications = response.data.userData.Notifications;
+                // console.log("app.jsx : ",response.data.userData.Notifications);
                 const Courses = response.data.userData.Courses;
                 const Services = response.data.userData.Services;
                 const Gender = response.data.userData.Gender;
