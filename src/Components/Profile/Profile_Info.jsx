@@ -5,11 +5,14 @@ import { IoNewspaper } from "react-icons/io5";
 import { FaBook } from "react-icons/fa";
 import { FaHandshake } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import { FiLogOut } from "react-icons/fi";
+import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
+import axios from "axios";
 function ProfileInfo() {
+    const Navigate = useNavigate();
     const { user, fetchData } = useOutletContext();
-    // useEffect(() => {
-    //     fetchData();
-    // }, []);
+    const [Logout_Loading, setLogout_Loading] = useState(false);
 
     if (!user || !fetchData)
         return (
@@ -17,7 +20,34 @@ function ProfileInfo() {
                 <span className="loader"></span>
             </div>
         );
-
+    const Logout = async () => {
+        setLogout_Loading(true);
+        try {
+            const response = await axios.post(
+                "http://localhost:3000/logout",
+                {},
+                {
+                    withCredentials: true,
+                    validateStatus: () => true,
+                }
+            );
+            console.log(response.data);
+            if (response.status == 204) {
+                Swal.fire("Logout", ``, "success");
+                Navigate("/");
+            } else if (response.status == 401) {
+                Swal.fire("Logout", ``, "success");
+                Navigate("/");
+            } else {
+                Swal.fire("Error!", `Something Went Wrong ,`, "error");
+            }
+        } catch (error) {
+            console.log(error);
+            Swal.fire("Error!", `Something Went Wrong `, "error");
+        } finally {
+            setLogout_Loading(false);
+        }
+    };
     return (
         <div className=" flex flex-col items-start justify-center">
             <div className="text-2xl pt-4 pl-4  lg:text-3xl mb-8 text-center w-full ">
@@ -109,6 +139,19 @@ function ProfileInfo() {
                     </Link>
                 </div>
             </div>
+            {!Logout_Loading ? (
+                <div
+                    className=" flex items-center justify-center gap-2 text-red-600 rounded-lg px-4 py-2
+                     text-xl md:text-3xl font-semibold m-auto my-6 md:mt-12 md:mb-6 cursor-pointer"
+                    onClick={Logout}
+                >
+                    <div>Logout</div>
+                    <FiLogOut />
+                </div>
+            ) : (
+                <span className="small-loader  w-full m-auto   my-6 md:mt-12 md:mb-6 "></span>
+            )}
+            
         </div>
     );
 }
