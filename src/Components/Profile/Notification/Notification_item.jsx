@@ -27,7 +27,7 @@ function Notification_item() {
     const notification = Notifications.find(
         (notification) => notification._id === notification_id
     );
-    console.log(notification);
+
     if (!notification)
         return (
             <div className="w-full mt-10 flex flex-col gap-10 items-center justify-center">
@@ -79,21 +79,21 @@ function Notification_item() {
                             </p>
                         )}
                     </div>
-                    <div className="block  md:hidden pt-6">
+                    <div className="  pt-6 text-center">
                         {notification.Title ? (
                             <div className=" text-xl  md:text-2xl font-semibold text-black_text ">
                                 {notification.Title}
                             </div>
                         ) : null}
                     </div>
-                    <div className="block  md:hidden pt-2">
+                    <div className="   pt-2 md:pt-10 ">
                         {notification.Text ? (
                             <div className=" text-lg  md:text-xl  text-black_text ">
                                 {notification.Text}
                             </div>
                         ) : null}
                     </div>
-                    <div className="block  md:hidden pt-2">
+                    <div className="  pt-2 md:pt-6">
                         {notification.Description ? (
                             <div className=" text-lg  md:text-xl  text-black_text ">
                                 {notification.Description}

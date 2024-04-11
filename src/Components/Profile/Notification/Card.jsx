@@ -94,7 +94,7 @@ function Card({ user, notification, index, fetchData }) {
         >
             <Link
                 to={`/Profile/${user.user._id}/Notifications/${notification._id}`}
-                className=" "
+                className=" w-[95%]"
             >
                 <div
                     key={index}
