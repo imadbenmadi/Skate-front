@@ -8,7 +8,7 @@ import { TbSettings } from "react-icons/tb";
 import Swal from "sweetalert2";
 import Notifications_items from "./Notifications_items";
 import { useAppContext } from "../../../Context/AppContext";
-
+import { useEffect } from "react";
 function Laptop_Nav_Items({
     Active_nav,
     isAuth,
@@ -17,6 +17,7 @@ function Laptop_Nav_Items({
     Logout,
     LogoutClicked,
 }) {
+    const [unReaded_Notif, SetunReaded_Notif] = useState(false);
     const { Notifications, _id } = useAppContext();
     const [User_menu_open, setUser_menu_open] = useState(false);
     const [Notifications_open, setNotifications_open] = useState(false);
@@ -48,6 +49,14 @@ function Laptop_Nav_Items({
             },
         });
     };
+     useEffect(() => {
+         if (isAuth && Notifications) {
+             const hasUnreadNotification = Notifications.some(
+                 (notification) => !notification.Readed
+             );
+             SetunReaded_Notif(hasUnreadNotification);
+         }
+     }, [Notifications]);
     return (
         <div className="hidden  md:flex items-center justify-center gap-7 text-lg text-black_text h-full ">
             <div className="flex gap-5">
@@ -134,16 +143,24 @@ function Laptop_Nav_Items({
                 {isAuth ? (
                     <>
                         <div
-                            className=" h-full"
+                            className=" h-full flex items-center"
                             onMouseEnter={() => setNotifications_open(true)}
                             onMouseLeave={() => setNotifications_open(false)}
                         >
-                            <Link
-                                to={`/Profile/${_id}/Notifications`}
-                                className="flex items-center h-full select-none"
-                            >
-                                <MdNotificationsNone className="text-gray text-2xl cursor-pointer h-full" />
-                            </Link>
+                            <div className=" relative flex items-center justify-center select-none">
+                                <Link
+                                    to={`/Profile/${_id}/Notifications`}
+                                    className=""
+                                >
+                                    <MdNotificationsNone className="text-gray text-2xl cursor-pointer" />
+                                </Link>
+                                {isAuth && unReaded_Notif && (
+                                    <div className=" absolute w-2 h-2 rounded-full bg-red-600 right-0 top-0">
+                                        {" "}
+                                    </div>
+                                )}
+                            </div>
+
                             {Notifications_open && (
                                 <div
                                     className="absolute py-2 top-full md:right-[4vw] lg:right-[8vw] xl:right-[10vw] 2xl:right-[12vw]

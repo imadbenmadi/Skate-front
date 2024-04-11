@@ -12,14 +12,30 @@ import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { IoMenu } from "react-icons/io5";
 import { IoClose } from "react-icons/io5";
+import { useState } from "react";
 
-function Navbar({ Active_nav, setActive_nav, openNav, SetOpenNav, userId }) {
+function Navbar({
+    Active_nav,
+    setActive_nav,
+    openNav,
+    SetOpenNav,
+    userId,
+    user,
+}) {
     const Navigate = useNavigate();
     const location = useLocation();
     useEffect(() => {
         setActive_nav(location.pathname.split("/")[3]);
     }, [location.pathname]);
-
+    const [unReaded_Notif, SetunReaded_Notif] = useState(false);
+    useEffect(() => {
+        if (user) {
+            const hasUnreadNotification = user.user.Notifications.some(
+                (notification) => !notification.Readed
+            );
+            SetunReaded_Notif(hasUnreadNotification);
+        }
+    }, []);
     return (
         <div className=" w-full shrink-0 h-full overflow-y-auto custom-overflow">
             {openNav ? (
@@ -66,7 +82,15 @@ function Navbar({ Active_nav, setActive_nav, openNav, SetOpenNav, userId }) {
                                     : ""
                             }`}
                         >
-                            <IoIosNotifications />
+                            <div className=" relative">
+                                <IoIosNotifications className=" shrink-0" />
+                                {unReaded_Notif &&
+                                    Active_nav != "Notifications" && (
+                                        <div className=" absolute w-2 h-2 rounded-full bg-red-600 right-0 top-0">
+                                            {" "}
+                                        </div>
+                                    )}
+                            </div>
                             <div className=" text-sm">Notifications</div>
                         </Link>
                         <Link
@@ -145,7 +169,15 @@ function Navbar({ Active_nav, setActive_nav, openNav, SetOpenNav, userId }) {
                                 : "text-white"
                         }`}
                     >
-                        <IoIosNotifications />
+                        <div className=" relative">
+                            <IoIosNotifications className=" shrink-0" />
+                            {unReaded_Notif &&
+                                Active_nav != "Notifications" && (
+                                    <div className=" absolute w-2 h-2 rounded-full bg-red-600 right-0 top-0">
+                                        {" "}
+                                    </div>
+                                )}
+                        </div>
                     </Link>
                     <Link
                         to={`/Profile/${userId}/Requests`}

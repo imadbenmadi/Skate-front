@@ -11,6 +11,7 @@ import Swal from "sweetalert2";
 import { FaUserTie } from "react-icons/fa";
 import { MdNotificationsNone } from "react-icons/md";
 function NavBar({ Active_nav, setActive_nav }) {
+    
     const { isAuth, FirstName, LastName, _id, Notifications } = useAppContext();
     const [unReaded_Notif, SetunReaded_Notif] = useState(false);
 
@@ -70,9 +71,7 @@ function NavBar({ Active_nav, setActive_nav }) {
         setLogoutClicked(false);
     };
     useEffect(() => {
-        // console.log("navbar : ", Notifications);
-        // if (!Notifications) return;
-        if (isAuth) {
+        if (isAuth && Notifications) {
             const hasUnreadNotification = Notifications.some(
                 (notification) => !notification.Readed
             );

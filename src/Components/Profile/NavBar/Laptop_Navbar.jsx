@@ -10,12 +10,22 @@ import { FaHandshake } from "react-icons/fa6";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-function Navbar({ Active_nav, setActive_nav, userId }) {
+import { useState } from "react";
+function Navbar({ Active_nav, setActive_nav, userId, user }) {
     const Navigate = useNavigate();
     const location = useLocation();
     useEffect(() => {
         setActive_nav(location.pathname.split("/")[3]);
     }, [location.pathname]);
+    const [unReaded_Notif, SetunReaded_Notif] = useState(false);
+    useEffect(() => {
+        if (user) {
+            const hasUnreadNotification = user.user.Notifications.some(
+                (notification) => !notification.Readed
+            );
+            SetunReaded_Notif(hasUnreadNotification);
+        }
+    }, []);
     return (
         <div className=" w-full h-full shrink-0 overflow-y-auto custom-overflow overflow-x-hidden">
             <div className=" flex gap-3 items-center text-xl md:text-4xl text-green justify-center pt-4 ">
@@ -52,7 +62,14 @@ function Navbar({ Active_nav, setActive_nav, userId }) {
                         Active_nav == "Notifications" && "text-green"
                     }`}
                 >
-                    <IoIosNotifications className=" shrink-0" />
+                    <div className=" relative">
+                        <IoIosNotifications className=" shrink-0" />
+                        {unReaded_Notif && Active_nav != "Notifications" && (
+                            <div className=" absolute w-2 h-2 rounded-full bg-red-600 right-0 top-0">
+                                {" "}
+                            </div>
+                        )}
+                    </div>
                     <div>Notifications</div>
                 </Link>
                 <Link
