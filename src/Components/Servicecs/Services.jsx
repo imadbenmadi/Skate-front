@@ -10,9 +10,8 @@ function Services() {
     const [error, setError] = useState(null);
     const [userServices, setUserServices] = useState([]);
     const { isAuth, _id } = useAppContext();
-
+    const [Services_Categories, SetServices_Categories] = useState([]);
     const fetchServices = async () => {
-        setLoading(true);
         try {
             const response = await axios.get("http://localhost:3000/Services", {
                 withCredentials: true,
@@ -41,18 +40,36 @@ function Services() {
             }
         } catch (error) {
             setError(error);
-        } finally {
-            setLoading(false);
+        } 
+    };
+    const fetch_Services_Categories = async () => {
+        try {
+            const response = await axios.get(
+                "http://localhost:3000/Categories/Services",
+                {
+                    withCredentials: true,
+                    validateStatus: () => true,
+                }
+            );
+            console.log(response.data);
+            if (response.status == 200) {
+                SetServices_Categories(response.data.Categories);
+            } else {
+                SetServices_Categories([]);
+            }
+        } catch (error) {
+            SetServices_Categories([]);
         }
     };
-
     useEffect(() => {
+        setLoading(true);
         fetchServices();
+        fetch_Services_Categories();
+        setLoading(false);
     }, []);
     if (error) {
         return <ErrorPage />;
     }
-
     return (
         <div>
             {loading ? (
@@ -61,7 +78,10 @@ function Services() {
                 </div>
             ) : (
                 <div className=" pt-[50px] overflow-y-hidden">
-                    <Explore services={services} />
+                    <Explore
+                        services={services}
+                        Services_Categories={Services_Categories}
+                    />
                 </div>
             )}
         </div>

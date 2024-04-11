@@ -1,8 +1,8 @@
 
 import { IoFilterSharp } from "react-icons/io5";
 
-function Filter({ filter, setFilter }) {
-    const categories = ["management", "finance", "marketing", "design"];
+function Filter({ filter, setFilter, Courses_Categories }) {
+    const categories = Courses_Categories;
 
     const handleToggleCategory = (category) => {
         const currentIndex = filter.indexOf(category);
@@ -16,6 +16,7 @@ function Filter({ filter, setFilter }) {
 
         setFilter(newfilter); // Update the filter state in the parent component
     };
+    if (!categories || categories.lengh == 0) return null;
 
     return (
         <div className="bg-gray-100 md:p-2 lg:p-6 rounded-lg ">

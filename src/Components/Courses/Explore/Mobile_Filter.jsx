@@ -1,10 +1,9 @@
-
 import { IoFilterSharp } from "react-icons/io5";
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
 
-function Mobile_Filter({ filter, setFilter }) {
-    const categories = ["management", "finance", "marketing", "design"];
+function Mobile_Filter({ filter, setFilter, Courses_Categories }) {
+    const categories = Courses_Categories;
     const [open, setOpen] = useState(false);
     function toogleOpen() {
         setOpen(!open);

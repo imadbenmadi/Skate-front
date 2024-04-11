@@ -1,21 +1,26 @@
-
 import Card from "./Card";
 import { IoWarning } from "react-icons/io5";
 function Explorecourses({ search, filter, courses }) {
     if (courses.courses && Array.isArray(courses.courses)) {
-        if (courses.courses.length == 0 || !courses)
+        if (courses.courses.length == 0)
             return (
-                <div className=" flex text-gray items-center gap-2 p-3">
-                    <IoWarning className=" text-2xl" />
-                    <div className="text-center text-gray py-2">
-                        No courses for the moment
+                <div
+                    className=" flex text-gray justify-center items-start p-3 
+                    text-xl md:text-2xl h-screen"
+                >
+                    <div className=" flex items-center gap-4 ">
+                        <IoWarning className=" " />
+                        <div className="text-center text-gray py-2">
+                            No Courses for the moment
+                        </div>
                     </div>
                 </div>
             );
+
         const filteredcourses = courses.courses.filter((course) => {
             const matchesSearch =
                 !search ||
-                course.Title.toLowerCase().includes(search.toLowerCase())
+                course.Title.toLowerCase().includes(search.toLowerCase());
             const matchesFilter =
                 !filter ||
                 filter.length == 0 ||

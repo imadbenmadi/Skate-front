@@ -1,14 +1,14 @@
-
 import { IoFilterSharp } from "react-icons/io5";
 import { useState } from "react";
 import { IoClose } from "react-icons/io5";
 
-function Mobile_Filter({ filter, setFilter }) {
-    const categories = ["management", "finance", "marketing", "design"];
+function Mobile_Filter({ filter, setFilter, Services_Categories }) {
+    const categories = Services_Categories;
     const [open, setOpen] = useState(false);
     function toogleOpen() {
         setOpen(!open);
     }
+    if (!categories || categories.lengh == 0) return null;
     const handleToggleCategory = (category) => {
         const currentIndex = filter.indexOf(category);
         const newfilter = [...filter];

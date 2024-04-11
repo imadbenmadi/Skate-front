@@ -10,9 +10,8 @@ function Courses() {
     const [error, setError] = useState(null);
     const [userCourses, setUserCourses] = useState([]);
     const { isAuth, _id } = useAppContext();
+    const [Courses_Categories, SetCourses_Categories] = useState([]);
     const fetchCourses = async () => {
-        setLoading(true);
-
         try {
             const response = await axios.get("http://localhost:3000/Courses", {
                 withCredentials: true,
@@ -44,12 +43,32 @@ function Courses() {
             }
         } catch (error) {
             setError(error);
-        } finally {
-            setLoading(false); // Set loading state to false regardless of success or failure
+        }
+    };
+    const fetch_Courses_Categories = async () => {
+        try {
+            const response = await axios.get(
+                "http://localhost:3000/Categories/Courses",
+                {
+                    withCredentials: true,
+                    validateStatus: () => true,
+                }
+            );
+            console.log(response.data);
+            if (response.status == 200) {
+                SetCourses_Categories(response.data.Categories);
+            } else {
+                SetCourses_Categories([]);
+            }
+        } catch (error) {
+            SetCourses_Categories([]);
         }
     };
     useEffect(() => {
+        setLoading(true);
         fetchCourses();
+        fetch_Courses_Categories();
+        setLoading(false);
     }, []);
     if (error) {
         return <ErrorPage />;
@@ -64,7 +83,10 @@ function Courses() {
             ) : (
                 <>
                     <div className="pt-[50px] overflow-y-hidden ">
-                        <Explore courses={courses} />
+                        <Explore
+                            courses={courses}
+                            Courses_Categories={Courses_Categories}
+                        />
                     </div>
                 </>
             )}
