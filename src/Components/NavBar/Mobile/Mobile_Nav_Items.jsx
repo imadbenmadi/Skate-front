@@ -1,4 +1,3 @@
-
 import { IoSettingsOutline } from "react-icons/io5";
 import { FaRegHandshake } from "react-icons/fa";
 import { FaBook } from "react-icons/fa";
@@ -19,7 +18,7 @@ function Mobile_Nav_Items({
     Logout,
     LogoutClicked,
 }) {
-    const { isAuth , _id } = useAppContext();
+    const { isAuth, _id } = useAppContext();
     const handleSettingsClick = () => {
         Swal.fire({
             title: "Settings",
@@ -54,8 +53,8 @@ function Mobile_Nav_Items({
             <div
                 onClick={Toogle_Menu_Bar}
                 className={` md:hidden ${
-                    MobileNav_Open ? " block bg-gray_white " : "hidden"
-                } absolute  transition-all select-none w-[30vw]  z-50 h-screen  opacity-[0.6] `}
+                    MobileNav_Open ? "block  " : "hidden"
+                } absolute  transition-all  select-none w-[30vw]  z-50 h-screen  opacity-[0.6] `}
             ></div>
 
             <div
@@ -63,7 +62,7 @@ function Mobile_Nav_Items({
                     MobileNav_Open
                         ? " translate-x-[30vw]"
                         : " translate-x-[200vh] "
-                } absolute  transition-all select-none w-[70vw]  z-50 bg-zinc-100 border-l-4  text-gray font-semibold `}
+                } absolute  transition-all duration-300 select-none w-[70vw]  z-50 bg-zinc-100 border-l-4  text-gray font-semibold `}
             >
                 <div className=" w-[80%] m-auto h-screen text-xl  mt-8 ">
                     {isAuth ? (
