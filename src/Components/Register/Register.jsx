@@ -66,19 +66,19 @@ function Register() {
                                     if (!values.FirstName) {
                                         errors.FirstName =
                                             "first name is Required ";
-                                    } else if (values.FirstName > 14)
+                                    } else if (values.FirstName.length > 14)
                                         errors.FirstName =
                                             "first name must be less than 14 chars";
-                                    else if (values.FirstName < 3)
+                                    else if (values.FirstName.length < 3)
                                         errors.FirstName =
                                             "first name must be more than 3 chars ";
                                     if (!values.LastName) {
                                         // Validate Last Name
                                         errors.LastName =
                                             "last name is Required";
-                                    } else if (values.LastName > 14) {
+                                    } else if (values.LastName.length > 14) {
                                         ("Last Name must be less than 14 chars");
-                                    } else if (values.LastName < 3)
+                                    } else if (values.LastName.length < 3)
                                         errors.LastName =
                                             "Last Name must be more than 3 chars ";
                                     if (!values.Telephone) {
@@ -121,16 +121,17 @@ function Register() {
                                         errors.ReEnter_Password =
                                             "Password does not match";
                                     } else if (
-                                        !/^\d+$/.test(values.Age) ||
+                                        (values.Age &&
+                                            !/^\d+$/.test(values.Age)) ||
                                         values.Age <= 0
                                     ) {
                                         errors.Age = "Invalid Age";
                                     }
 
                                     // Validate Gender
-                                    if (!values.Gender) {
-                                        errors.Gender = "Required";
-                                    }
+                                    // if (!values.Gender) {
+                                    //     errors.Gender = "Required";
+                                    // }
                                     return errors;
                                 }}
                                 onSubmit={async (values, { setSubmitting }) => {

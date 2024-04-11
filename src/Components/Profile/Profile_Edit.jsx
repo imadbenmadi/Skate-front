@@ -44,18 +44,18 @@ function Profile_Edit() {
                         // Validate First Name
                         if (!values.FirstName) {
                             errors.FirstName = "first name is Required ";
-                        } else if (values.FirstName > 14)
+                        } else if (values.FirstName.length > 14)
                             errors.FirstName =
                                 "first name must be less than 14 chars";
-                        else if (values.FirstName < 3)
+                        else if (values.FirstName.length < 3)
                             errors.FirstName =
                                 "first name must be more than 3 chars ";
                         if (!values.LastName) {
                             // Validate Last Name
                             errors.LastName = "last name is Required";
-                        } else if (values.LastName > 14) {
+                        } else if (values.LastName.length > 14) {
                             ("Last Name must be less than 14 chars");
-                        } else if (values.LastName < 3)
+                        } else if (values.LastName.length < 3)
                             errors.LastName =
                                 "Last Name must be more than 3 chars ";
                         if (!values.Telephone) {
@@ -83,7 +83,7 @@ function Profile_Edit() {
                         //     errors.Password =
                         //         "Password must be at least 8 characters long";
                         // }
-                        else if (!/^\d+$/.test(values.Age) || values.Age <= 0) {
+                        else if (values.Age && !/^\d+$/.test(values.Age) || values.Age <= 0) {
                             errors.Age = "Invalid Age";
                         }
 
