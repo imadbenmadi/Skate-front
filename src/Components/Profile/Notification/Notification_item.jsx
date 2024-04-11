@@ -11,8 +11,10 @@ import { RiCalendarEventLine } from "react-icons/ri";
 import { FaBook } from "react-icons/fa";
 import { FaRegHandshake } from "react-icons/fa";
 import { Formate_Date } from "../../../Logic/Formate_Date";
+import axios from "axios";
+
 function Notification_item() {
-    // const [notification, setnotification] = useState(null);
+    const [Loading, setLoading] = useState(false);
     const location = useLocation();
     const { user, fetchData } = useOutletContext();
     if (!user)
@@ -27,7 +29,6 @@ function Notification_item() {
     const notification = Notifications.find(
         (notification) => notification._id === notification_id
     );
-
     if (!notification)
         return (
             <div className="w-full mt-10 flex flex-col gap-10 items-center justify-center">
@@ -44,7 +45,42 @@ function Notification_item() {
                 </div>
             </div>
         );
+    const change_to_readed = async () => {
+        setLoading(true);
+        try {
+            const response = await axios.post(
+                `http://localhost:3000/Profile/${userId}/Notifications/${notification_id}/Readed`,
+                {},
+                {
+                    withCredentials: true,
+                    validateStatus: () => true,
+                }
+            );
+            console.log(response.data);
+            if (response.status === 200) {
+                fetchData();
+            }
+        } catch (error) {
+            console.log(error);
+        }finally{
+            setLoading(false);
+        }
+    };
+    useEffect(() => {
+        if (!notification.Readed) {
+            change_to_readed();
+        }
+    }, []);
+    if (Loading)
+        return (
+            <div
+                className={`h-screen md:w-[100%] flex items-center justify-center`}
+            >
+                <span className="loader"></span>
+            </div>
+        );
     return (
+
         <div className="w-[90%] m-auto md:w-[70%] mt-6">
             <div className="w-full flex items-center justify-center gap-4">
                 <Link

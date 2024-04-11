@@ -127,7 +127,9 @@ function Profile() {
                         <ErrorPage />
                     ) : (
                         <div className="w-[80%]   h-screen overflow-auto custom-overflow  ">
-                            <Outlet context={{ user, setUser, fetchData }} />
+                            <Outlet
+                                context={{ user, setUser, fetchData }}
+                            />
                         </div>
                     )}
                 </>

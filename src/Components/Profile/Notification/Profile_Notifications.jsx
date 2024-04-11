@@ -50,7 +50,7 @@ function Profile_Notifications() {
         // Within each category, sort by newest first
         return new Date(b.Date) - new Date(a.Date);
     });
-    console.log(Notifications);
+    // console.log(Notifications);
     return (
         <div>
             <div className=" p-6 text-3xl text-gray font-semibold ">
