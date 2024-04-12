@@ -66,6 +66,7 @@ function Blog_item() {
                     onError={(e) => {
                         e.target.src = img; // Set default image source if blog image fails to load
                     }}
+                    loading="lazy"
                     className=" w-[400px] m-auto"
                 />
                 <div className="text-gray  text-sm text-center m-auto ">

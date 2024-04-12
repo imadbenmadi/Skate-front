@@ -23,6 +23,7 @@ function Card({ blog }) {
                 onError={(e) => {
                     e.target.src = img; // Set default image source if blog image fails to load
                 }}
+                loading="lazy"
             />
             <div className="w-[60%] pl-2 md:pl-6 ">
                 {blog.Title && (

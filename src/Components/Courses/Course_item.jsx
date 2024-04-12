@@ -149,6 +149,7 @@ function CourseItem() {
                             onError={(e) => {
                                 e.target.src = img; // Set default image source if blog image fails to load
                             }}
+                            loading="lazy"
                             className="w-[400px] m-auto md:ml-4"
                         />
 

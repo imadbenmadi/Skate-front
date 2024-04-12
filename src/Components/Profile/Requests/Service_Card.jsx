@@ -15,6 +15,7 @@ function Card({ item }) {
                         onError={(e) => {
                             e.target.src = img; // Set default image source if blog image fails to load
                         }}
+                        loading="lazy"
                     />
                     <div className="md:w-[70%] pl-2 break-words flex">
                         <div className="">
