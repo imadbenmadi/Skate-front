@@ -78,7 +78,6 @@ function Notification_item() {
             </div>
         );
     return (
-
         <div className="w-[90%] m-auto md:w-[70%] mt-6">
             <div className="w-full flex items-center justify-center gap-4">
                 <Link
@@ -122,7 +121,7 @@ function Notification_item() {
                     </div>
                     <div className="   pt-2 md:pt-10 ">
                         {notification.Text ? (
-                            <div className=" text-lg  md:text-xl  text-black_text ">
+                            <div className=" text-lg  md:text-xl text-center  text-black_text ">
                                 {notification.Text}
                             </div>
                         ) : null}
