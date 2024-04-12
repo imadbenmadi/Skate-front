@@ -19,7 +19,7 @@ import Profile from "./Components/Profile/Profile";
 import ProfileInfo from "./Components/Profile/Profile_Info";
 // import Profile_Services from "./Components/Profile/Profile_Services";
 import Profile_Notifications from "./Components/Profile/Notification/Profile_Notifications";
-// import Profile_Courses from "./Components/Profile/Profile_Courses";
+import Profile_Courses from "./Components/Profile/Courses/Profile_Courses";
 import Profile_Edit from "./Components/Profile/Profile_Edit";
 // import Profile_Requests from "./Components/Profile/Requests";
 import Notification_item from "./Components/Profile/Notification/Notification_item";
@@ -201,7 +201,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: "/Profile/:id/Courses",
-                element: <Not_Finished />,
+                element: <Profile_Courses />,
             },
             {
                 path: "/Profile/:id/Services",
