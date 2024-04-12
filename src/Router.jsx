@@ -21,7 +21,7 @@ import Profile_Services from "./Components/Profile/Services/Profile_Services";
 import Profile_Notifications from "./Components/Profile/Notification/Profile_Notifications";
 import Profile_Courses from "./Components/Profile/Courses/Profile_Courses";
 import Profile_Edit from "./Components/Profile/Profile_Edit";
-// import Profile_Requests from "./Components/Profile/Requests";
+import Profile_Requests from "./Components/Profile/Requests/Profile_Requests";
 import Notification_item from "./Components/Profile/Notification/Notification_item";
 
 import Not_Found from "./Components/Not_Found";
@@ -209,7 +209,7 @@ const routes = createBrowserRouter([
             },
             {
                 path: "/Profile/:id/Requests",
-                element: <Not_Finished />,
+                element: <Profile_Requests />,
             },
             {
                 path: "*",

@@ -11,7 +11,6 @@ function Card({ item }) {
     function toggleDescription() {
         setShowDescription(!showDescription);
     }
-
     return (
         <div className="w-full flex  justify-between border-b-4 border-b-gray_white">
             <div className=" w-full">
