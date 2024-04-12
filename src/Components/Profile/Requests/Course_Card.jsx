@@ -1,18 +1,16 @@
 import { Formate_Date } from "../../../Logic/Formate_Date";
 import img from "../../../../public/wallpaper.jpg";
-
-
 function Card({ item }) {
     console.log("card", item);
     if (!item.Course) return null;
-    // console.log(item.Course.Category);
+    // console.log(item.Course);
     return (
         <div className="w-full flex  justify-between border-b-4 border-b-gray_white">
             <div className=" w-full">
                 <div className="relative overflow-hidden pt-5 px-5 flex flex-col md:flex-row shrink-0  h-fit mb-6">
                     <img
                         className="md:w-[30%] md:h-[200px] object-cover"
-                        src={`http://localhost:3000/Courses/${item.Image}`}
+                        src={`http://localhost:3000/Courses/${item.Course.Image}`}
                         alt={item.Title}
                         onError={(e) => {
                             e.target.src = img; // Set default image source if blog image fails to load

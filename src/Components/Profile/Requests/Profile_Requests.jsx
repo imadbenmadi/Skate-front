@@ -20,8 +20,12 @@ function Profile_Courses() {
             </div>
         );
     // console.log(user);
-    const Courses_Requests = user.Courses_requests;
-    const Services_Requests = user.Services_requests;
+    const Courses_Requests = user.Courses_requests.filter((course) => {
+        return course.Course;
+    });
+    const Services_Requests = user.Services_requests.filter((service) => {
+        return service.Service;
+    })
 
     return (
         <>
@@ -49,7 +53,8 @@ function Profile_Courses() {
             </div>
             {active == "Services" ? (
                 <div>
-                    {Object.keys(Services_Requests).length === 0 ? (
+                    {!Services_Requests ||
+                    Object.keys(Services_Requests).length === 0 ? (
                         <div className=" flex items-center justify-center gap-4 flex-col">
                             <div className="flex items-center  text-gray text-2xl gap-2 py-8">
                                 <IoWarning className="text-2xl" />
@@ -70,21 +75,25 @@ function Profile_Courses() {
                         <div>
                             <div className="pl-4 text-gray font-semibold  text-2xl mt-6 ">
                                 <span className="text-green m-auto">Your</span>{" "}
-                                Courses :
+                                Services Requests :
                             </div>
-                            {Services_Requests.map((Service, index) => (
-                                <Service_Card
-                                    item={Service}
-                                    key={index}
-                                    type="Service"
-                                />
-                            ))}
+                            {Services_Requests.map(
+                                (Service, index) =>
+                                    Service.Service && (
+                                        <Service_Card
+                                            item={Service}
+                                            key={index}
+                                            type="Service"
+                                        />
+                                    )
+                            )}
                         </div>
                     )}
                 </div>
             ) : (
                 <div>
-                    {Object.keys(Courses_Requests).length === 0 ? (
+                    {!Courses_Requests ||
+                    Object.keys(Courses_Requests).length === 0 ? (
                         <div className=" flex items-center justify-center gap-4 flex-col">
                             <div className="flex items-center  text-gray text-2xl gap-2 py-8">
                                 <IoWarning className="text-2xl" />
@@ -105,23 +114,24 @@ function Profile_Courses() {
                         <div>
                             <div className="pl-4 text-gray font-semibold  text-2xl mt-6 ">
                                 <span className="text-green m-auto">Your</span>{" "}
-                                Courses :
+                                Courses Requests :
                             </div>
-                            {Courses_Requests.map((Course, index) => (
-                                <Course_Card
-                                    item={Course}
-                                    key={index}
-                                    type="Course"
-                                />
-                            ))}
+                            {Courses_Requests.map(
+                                (Course, index) =>
+                                    Course.Course && (
+                                        <Course_Card
+                                            item={Course}
+                                            key={index}
+                                            type="Course"
+                                        />
+                                    )
+                            )}
                         </div>
                     )}
                 </div>
             )}
         </>
     );
-
-    
 }
 
 export default Profile_Courses;
