@@ -5,6 +5,7 @@ import { Formate_Date_NoYear } from "../../../Logic/Formate_Date";
 
 import { useState } from "react";
 function Requests_item({ request, onDelete }) {
+    if (!request.Service) return null;
     const Navigate = useNavigate();
     const [Accept_Loading, setAccept_Loading] = useState(false);
     const [Reject_Loading, setReject_Loading] = useState(false);
@@ -171,13 +172,13 @@ function Requests_item({ request, onDelete }) {
                 style={{ maxWidth: "150px" }}
                 className="w-[150px] whitespace-nowrap border overflow-auto scrollbar-thumb-rounded-full scrollbar-thin scrollbar-thumb-green scrollbar-track-slate-300"
             >
-                {request.Course.Title ? request.Course.Title : "none"}
+                {request.Course?.Title ? request.Course.Title : "none"}
             </td>
             <td
                 style={{ maxWidth: "70px" }}
                 className="w-[70px] whitespace-nowrap border overflow-auto scrollbar-thumb-rounded-full scrollbar-thin scrollbar-thumb-green scrollbar-track-slate-300"
             >
-                {request.Course.Price ? request.Course.Price + " DA" : "none"}
+                {request.Course?.Price ? request.Course.Price + " DA" : "none"}
             </td>
             <td
                 style={{ maxWidth: "150px" }}

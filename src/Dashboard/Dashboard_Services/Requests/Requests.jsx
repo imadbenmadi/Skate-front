@@ -59,6 +59,7 @@ function Requests() {
                 No Services Requests for the moment
             </div>
         );
+    console.log("Requests", Requests);
     return (
         <div className="relative shadow-md mt-[20px]">
             <div className=" flex items-center">

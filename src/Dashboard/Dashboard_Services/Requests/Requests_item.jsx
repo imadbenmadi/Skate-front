@@ -4,6 +4,8 @@ import { useNavigate } from "react-router";
 import { Formate_Date_NoYear } from "../../../Logic/Formate_Date";
 import { useState } from "react";
 function Requests_item({ request, onDelete }) {
+    if (!request.Service)
+        return null
     const Navigate = useNavigate();
     const [Accept_Loading, setAccept_Loading] = useState(false);
     const [Reject_Loading, setReject_Loading] = useState(false);
@@ -142,22 +144,22 @@ function Requests_item({ request, onDelete }) {
                 style={{ maxWidth: "180px" }}
                 className="w-[180px] whitespace-nowrap border overflow-auto scrollbar-thumb-rounded-full scrollbar-thin scrollbar-thumb-green scrollbar-track-slate-300"
             >
-                {request.User.FirstName !== undefined
+                {request.User?.FirstName !== undefined
                     ? request.User.FirstName
                     : "none"}{" "}
-                {request.User.LastName ? request.User.LastName : "none"}
+                {request.User?.LastName ? request.User.LastName : "none"}
             </td>
             <td
                 style={{ maxWidth: "90px" }}
                 className="w-[90px] whitespace-nowrap break-words border overflow-auto scrollbar-thumb-rounded-full scrollbar-thin scrollbar-thumb-green scrollbar-track-slate-300"
             >
-                {request.User.Telephone ? request.User.Telephone : "none"}
+                {request.User?.Telephone ? request.User.Telephone : "none"}
             </td>
             <td
                 style={{ maxWidth: "150px" }}
                 className="w-[150px] whitespace-nowrap border overflow-auto scrollbar-thumb-rounded-full scrollbar-thin scrollbar-thumb-green scrollbar-track-slate-300"
             >
-                {request.User.Email ? request.User.Email : "none"}
+                {request.User?.Email ? request.User.Email : "none"}
             </td>
             <td
                 style={{ maxWidth: "90px" }}
@@ -170,13 +172,15 @@ function Requests_item({ request, onDelete }) {
                 style={{ maxWidth: "150px" }}
                 className="w-[150px] whitespace-nowrap border overflow-auto scrollbar-thumb-rounded-full scrollbar-thin scrollbar-thumb-green scrollbar-track-slate-300"
             >
-                {request.Service.Title ? request.Service.Title : "none"}
+                {request.Service?.Title ? request.Service.Title : "none"}
             </td>
             <td
                 style={{ maxWidth: "70px" }}
                 className="w-[70px] whitespace-nowrap border overflow-auto scrollbar-thumb-rounded-full scrollbar-thin scrollbar-thumb-green scrollbar-track-slate-300"
             >
-                {request.Service.Price ? request.Service.Price + " DA" : "none"}
+                {request.Service?.Price
+                    ? request.Service.Price + " DA"
+                    : "none"}
             </td>
             <td
                 style={{ maxWidth: "150px" }}
