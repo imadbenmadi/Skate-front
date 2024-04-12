@@ -35,15 +35,15 @@ function Explore({ services, Services_Categories }) {
                 </div>
             </div>
 
-            <div className="hidden md:flex h-[calc(100vh-135px)] border-t-2 border-gray_white">
+            <div className="hidden md:flex  h-[calc(100vh-135px)] border-t-2 border-gray_white">
                 {/* {Services_Categories && Services_Categories.length > 0 && ( */}
-                    <div className="hidden md:block w-[20%] bg-gray_white">
-                        <Filter
-                            filter={filter}
-                            setFilter={setFilter}
-                            Services_Categories={Services_Categories}
-                        />
-                    </div>
+                <div className="hidden md:block w-[20%] bg-gray_white">
+                    <Filter
+                        filter={filter}
+                        setFilter={setFilter}
+                        Services_Categories={Services_Categories}
+                    />
+                </div>
                 {/* )} */}
                 {services.length == 0 ? (
                     <div className=" w-[80%] h-fit text-center pt-6 flex gap-1 text-2xl justify-center items-center text-gray">
@@ -51,7 +51,7 @@ function Explore({ services, Services_Categories }) {
                         No Services Founded
                     </div>
                 ) : (
-                    <div className=" w-[80%] m-auto  ">
+                    <div className=" w-[80%] h-full ">
                         <ExploreServices
                             search={search}
                             filter={filter}

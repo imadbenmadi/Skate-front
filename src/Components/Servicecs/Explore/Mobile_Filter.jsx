@@ -39,7 +39,7 @@ function Mobile_Filter({ filter, setFilter, Services_Categories }) {
                 )}
             </div>
             {open && (
-                <div className=" absolute z-50 p-4 w-[200px]  bg-gray_white ">
+                <div className=" absolute z-40 p-4 w-[200px]  bg-gray_white ">
                     {categories.map((category, index) => (
                         <label
                             key={index}
@@ -47,11 +47,15 @@ function Mobile_Filter({ filter, setFilter, Services_Categories }) {
                         >
                             <input
                                 type="checkbox"
-                                checked={filter.includes(category)}
-                                onChange={() => handleToggleCategory(category)}
+                                checked={filter.includes(category.Category)}
+                                onChange={() =>
+                                    handleToggleCategory(category.Category)
+                                }
                                 className="mr-2"
                             />
-                            <span className="text-gray">{category}</span>
+                            <span className="text-gray">
+                                {category.Category}
+                            </span>
                         </label>
                     ))}
                 </div>

@@ -31,7 +31,6 @@ function ProfileInfo() {
                     validateStatus: () => true,
                 }
             );
-            console.log(response.data);
             if (response.status == 204) {
                 Swal.fire("Logout", ``, "success");
                 Navigate("/");
@@ -42,7 +41,6 @@ function ProfileInfo() {
                 Swal.fire("Error!", `Something Went Wrong ,`, "error");
             }
         } catch (error) {
-            console.log(error);
             Swal.fire("Error!", `Something Went Wrong `, "error");
         } finally {
             setLogout_Loading(false);

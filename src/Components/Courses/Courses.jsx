@@ -54,7 +54,6 @@ function Courses() {
                     validateStatus: () => true,
                 }
             );
-            console.log(response.data);
             if (response.status == 200) {
                 SetCourses_Categories(response.data.Categories);
             } else {

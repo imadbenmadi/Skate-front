@@ -51,7 +51,6 @@ function Services() {
                     validateStatus: () => true,
                 }
             );
-            console.log(response.data);
             if (response.status == 200) {
                 SetServices_Categories(response.data.Categories);
             } else {

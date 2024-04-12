@@ -49,7 +49,7 @@ function Explore({ courses, Courses_Categories }) {
                         No courses Founded
                     </div>
                 ) : (
-                    <div className=" w-[80%] m-auto ">
+                    <div className=" w-[80%]  ">
                         <Explorecourses
                             search={search}
                             filter={filter}

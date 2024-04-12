@@ -43,15 +43,17 @@ function ExploreServices({ search, filter, services }) {
         return (
             <div>
                 {filteredservices.length == 0 ? (
-                    <div className="text-center text-gray py-2">
-                        No services match the Query.
+                    <div className=" text-center text-lg text-gray py-8 min-h-[60vh]">
+                        No Service match the Query.
                     </div>
                 ) : (
-                    filteredservices.map((service, index) => (
-                        <div key={index} className="w-full ">
-                            <Card service={service} />
-                        </div>
-                    ))
+                    <div className="md:h-[80vh]">
+                        {filteredservices.map((service, index) => (
+                            <div key={index} className="w-full ">
+                                <Card service={service} />
+                            </div>
+                        ))}
+                    </div>
                 )}
             </div>
         );

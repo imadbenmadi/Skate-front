@@ -1,9 +1,12 @@
 import { IoFilterSharp } from "react-icons/io5";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { IoClose } from "react-icons/io5";
 
 function Mobile_Filter({ filter, setFilter, Courses_Categories }) {
     const categories = Courses_Categories;
+    useEffect(() => {
+        console.log(categories);
+    }, [categories]);
     const [open, setOpen] = useState(false);
     function toogleOpen() {
         setOpen(!open);
@@ -46,11 +49,15 @@ function Mobile_Filter({ filter, setFilter, Courses_Categories }) {
                         >
                             <input
                                 type="checkbox"
-                                checked={filter.includes(category)}
-                                onChange={() => handleToggleCategory(category)}
+                                checked={filter.includes(category.Category)}
+                                onChange={() =>
+                                    handleToggleCategory(category.Category)
+                                }
                                 className="mr-2"
                             />
-                            <span className="text-gray">{category}</span>
+                            <span className="text-gray">
+                                {category.Category}
+                            </span>
                         </label>
                     ))}
                 </div>

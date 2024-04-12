@@ -3,7 +3,6 @@ import { IoFilterSharp } from "react-icons/io5";
 
 function Filter({ filter, setFilter, Services_Categories }) {
     const categories = Services_Categories;
-    // console.log("filter", categories );
     const handleToggleCategory = (category) => {
         const currentIndex = filter.indexOf(category);
         const newfilter = [...filter];
@@ -31,11 +30,13 @@ function Filter({ filter, setFilter, Services_Categories }) {
                     >
                         <input
                             type="checkbox"
-                            checked={filter.includes(category)}
-                            onChange={() => handleToggleCategory(category)}
+                            checked={filter.includes(category.Category)}
+                            onChange={() =>
+                                handleToggleCategory(category.Category)
+                            } // Accessing the "Category" value
                             className="mr-2"
                         />
-                        <span className="text-gray">{category}</span>
+                        <span className="text-gray">{category.Category}</span>
                     </label>
                 ))}
             </div>
