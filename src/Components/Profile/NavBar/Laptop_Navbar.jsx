@@ -30,7 +30,12 @@ function Navbar({ Active_nav, setActive_nav, userId, user }) {
         <div className=" w-full h-full shrink-0 overflow-y-auto custom-overflow overflow-x-hidden">
             <div className=" flex gap-3 items-center text-xl md:text-4xl text-green justify-center pt-4 ">
                 <div>
-                    <img src={logo} alt="logo" className=" w-8 md:w-12" />
+                    <img
+                        src={logo}
+                        alt="logo"
+                        className=" w-8 md:w-12"
+                        loading="lazy"
+                    />
                 </div>
                 <div>Skate</div>
             </div>

@@ -87,6 +87,7 @@ function NavBar({ Active_nav, setActive_nav }) {
                 <div className=" p-2 ml-5 md:ml-0">
                     <Link to={"/"} className="select-none">
                         <img
+                            loading="lazy"
                             src={Logo}
                             alt="Logo"
                             className=" w-14 md:w-[45px] "

@@ -15,6 +15,7 @@ function Not_Found() {
                     has been moved.
                 </p>
                 <img
+                    loading="lazy"
                     src={Not_Found_image}
                     alt="Under Construction"
                     className=" w-32 h-32 md:w-64 md:h-64 mx-auto mb-8"

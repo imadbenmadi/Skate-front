@@ -12,7 +12,12 @@ function Contact() {
         <>
             <div className=" pt-16 min-h-[83vh]  ">
                 <div>
-                    <img className=" w-20 m-auto pt-5 " src={Logo} alt="" />
+                    <img
+                        className=" w-20 m-auto pt-5 "
+                        src={Logo}
+                        alt=""
+                        loading="lazy"
+                    />
                 </div>
                 <div className=" m-auto text-center pt-5 text-2xl font-semibold text-blue ">
                     Contact The Help Center

@@ -26,9 +26,15 @@ export function AboutUs() {
 
                 <motion.div className="flex relative flex-col w-[30%] h-[60%] max-md:ml-0 max-md:w-full">
                     <div className="w-10  max-md:hidden flex justify-center items-center h-10 bg-green rounded-full absolute top-5 -right-5  shadow">
-                        <img src={bxbowl} alt="" className="h-6 w-6" />
+                        <img
+                            src={bxbowl}
+                            alt=""
+                            className="h-6 w-6"
+                            loading="lazy"
+                        />
                     </div>
                     <motion.img
+                        loading="lazy"
                         src={AboutImg}
                         className="grow duration-200  w-[250px]  max-md:self-center aspect-[0.93] max-md:mt-3.5 max-md:max-w-full"
                     />

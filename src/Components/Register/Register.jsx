@@ -35,6 +35,7 @@ function Register() {
                             className="select-none w-fit flex m-auto"
                         >
                             <img
+                                loading="lazy"
                                 className=" w-20 m-auto pt-5 "
                                 src={Logo}
                                 alt=""

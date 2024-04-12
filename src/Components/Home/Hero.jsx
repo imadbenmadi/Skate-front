@@ -13,6 +13,7 @@ export default function Hero() {
                     className={`relative  w-full h-full  bg-cover bg-center flex justify-center items-center gap-10   bg-[url('${img}')] text-black_text`}
                 >
                     <img
+                        loading="lazy"
                         src={`${img}`}
                         className="z-5 absolute w-full h-full object-cover"
                     ></img>{" "}

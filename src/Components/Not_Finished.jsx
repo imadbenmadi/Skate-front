@@ -16,6 +16,7 @@ function Not_Finished() {
                     back later!
                 </p>
                 <img
+                    loading="lazy"
                     src={Comming_Soon}
                     alt="Under Construction"
                     className=" w-32 h-32 md:w-64 md:h-64 mx-auto mb-8"
