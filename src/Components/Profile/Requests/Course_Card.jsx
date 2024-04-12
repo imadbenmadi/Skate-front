@@ -1,4 +1,7 @@
 import { Formate_Date } from "../../../Logic/Formate_Date";
+import img from "../../../../public/wallpaper.jpg";
+
+
 function Card({ item }) {
     console.log("card", item);
     if (!item.Course) return null;
@@ -11,6 +14,9 @@ function Card({ item }) {
                         className="md:w-[30%] md:h-[200px] object-cover"
                         src={`http://localhost:3000/Courses/${item.Image}`}
                         alt={item.Title}
+                        onError={(e) => {
+                            e.target.src = img; // Set default image source if blog image fails to load
+                        }}
                     />
                     <div className="md:w-[70%] pl-2 break-words flex">
                         <div className="">

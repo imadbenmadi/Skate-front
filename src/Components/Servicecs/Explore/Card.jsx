@@ -19,6 +19,9 @@ function Card({ service }) {
                 className=" w-[40%] md:w-[300px] h-[150px] md:h-[180px] object-cover"
                 src={`http://localhost:3000/Services/${service.Image}`}
                 alt={service.Title}
+                onError={(e) => {
+                    e.target.src = img; // Set default image source if blog image fails to load
+                }}
             />
             <div className="w-[60%] pl-2 md:pl-6  ">
                 {service.Title && (

@@ -66,6 +66,9 @@ function Event_item() {
                 <img
                     src={`http://localhost:3000/Events/${event.Image}`}
                     alt=""
+                    onError={(e) => {
+                        e.target.src = img; // Set default image source if blog image fails to load
+                    }}
                     className=" w-[400px] m-auto"
                 />
                 <div className="text-gray  text-sm text-center m-auto ">

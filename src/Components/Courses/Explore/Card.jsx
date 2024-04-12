@@ -17,6 +17,9 @@ function Card({ course }) {
             <img
                 className=" w-[40%] md:w-[300px] h-[150px] md:h-[180px] object-cover"
                 src={`http://localhost:3000/Courses/${course.Image}`}
+                onError={(e) => {
+                    e.target.src = img; // Set default image source if blog image fails to load
+                }}
                 alt={course.Title}
             />
             <div className="w-[60%] pl-2 md:pl-6  ">

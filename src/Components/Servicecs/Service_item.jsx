@@ -148,6 +148,9 @@ function ServiceItem() {
                             src={`http://localhost:3000/Services/${service.Image}`}
                             alt=""
                             className="w-[400px] m-auto md:ml-4"
+                            onError={(e) => {
+                                e.target.src = img; // Set default image source if blog image fails to load
+                            }}
                         />
 
                         <div className="pt-4 flex justify-center md:justify-end gap-8 items-center">

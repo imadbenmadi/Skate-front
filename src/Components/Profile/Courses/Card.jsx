@@ -5,6 +5,8 @@ import swal from "sweetalert2";
 import axios from "axios";
 import { useNavigate } from "react-router";
 import { Link } from "react-router-dom";
+import img from "../../../../public/wallpaper.jpg";
+
 
 function Card({ item }) {
     const [showDescription, setShowDescription] = useState(false);
@@ -19,6 +21,9 @@ function Card({ item }) {
                     <img
                         className="md:w-[30%] md:h-[200px] object-cover"
                         src={`http://localhost:3000/Courses/${item.Image}`}
+                        onError={(e) => {
+                            e.target.src = img; // Set default image source if blog image fails to load
+                        }}
                         alt={item.Title}
                     />
                     <div className="md:w-[70%] md:pl-6 py-4 break-words flex justify-between">
