@@ -5,7 +5,7 @@ import { Formate_Date_NoYear } from "../../../Logic/Formate_Date";
 
 import { useState } from "react";
 function Requests_item({ request, onDelete }) {
-    if (!request.Service) return null;
+    if (!request.Course) return null;
     const Navigate = useNavigate();
     const [Accept_Loading, setAccept_Loading] = useState(false);
     const [Reject_Loading, setReject_Loading] = useState(false);
