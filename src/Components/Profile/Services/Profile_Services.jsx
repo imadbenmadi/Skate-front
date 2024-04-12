@@ -6,7 +6,7 @@ import { IoWarning } from "react-icons/io5";
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Card from "./Card";
-function Profile_Courses() {
+function Profile_Services() {
     const Navigate = useNavigate();
     const { user, fetchData } = useOutletContext();
     if (!user || !fetchData)
@@ -15,22 +15,22 @@ function Profile_Courses() {
                 <span className="loader"></span>
             </div>
         );
-  const userCourses = user.user.Courses;
-    if (!userCourses || Object.keys(userCourses).length === 0)
+    const userServices = user.user.Services;
+    if (!userServices || Object.keys(userServices).length === 0)
         return (
             <div className=" flex items-center justify-center gap-4 flex-col">
                 <div className="flex items-center  text-gray text-2xl gap-2 py-8">
                     <IoWarning className="text-2xl" />
                     <div className="text-center text-gray">
-                        You have No Courses{" "}
+                        You have No Services{" "}
                     </div>
                 </div>
                 <Link
                     className="text-green rounded-md cursor-pointer  text-xl 
                     flex items-center gap-2 px-3 py-1 w-fit mx-auto underline "
-                    to={"/Courses"}
+                    to={"/Services"}
                 >
-                    <div>Exprlore Skate Courses</div>
+                    <div>Exprlore Skate Services</div>
                     <FaArrowRight />
                 </Link>
             </div>
@@ -38,17 +38,17 @@ function Profile_Courses() {
     return (
         <div>
             <div className="pl-4 text-gray font-semibold  text-2xl mt-6 ">
-                <span className="text-green m-auto">Your</span> Courses :
+                <span className="text-green m-auto">Your</span> Services :
             </div>
-            {userCourses.map((Course, index) => (
+            {userServices.map((Service, index) => (
                 <Card
-                    item={Course}
+                    item={Service}
                     key={index}
-                    // onDelete={() => handleDeleteCourse(Course._id)}
+                    // onDelete={() => handleDeleteService(Service._id)}
                 />
             ))}
         </div>
     );
 }
 
-export default Profile_Courses;
+export default Profile_Services;

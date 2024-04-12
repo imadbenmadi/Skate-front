@@ -18,7 +18,7 @@ function Card({ item }) {
                 <div className="relative overflow-hidden pt-5 px-5 flex flex-col md:flex-row shrink-0 justify-start h-fit">
                     <img
                         className="md:w-[30%] md:h-[200px] object-cover"
-                        src={`http://localhost:3000/Courses/${item.Image}`}
+                        src={`http://localhost:3000/Services/${item.Image}`}
                         alt={item.Title}
                     />
                     <div className="md:w-[70%] md:pl-6 py-4 break-words flex justify-between">
@@ -48,7 +48,7 @@ function Card({ item }) {
                 {showDescription ? (
                     <div className="w-[80%] pl-8 py-4">
                         <div
-                            className="select-none flex gap-2 items-center justify-start underlined pb-4 cursor-pointer"
+                            className=" select-none flex gap-2 items-center justify-start underlined pb-4 cursor-pointer"
                             onClick={toggleDescription}
                         >
                             Show Description <FaArrowUp />
