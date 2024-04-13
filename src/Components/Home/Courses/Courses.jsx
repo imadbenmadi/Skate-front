@@ -1,6 +1,5 @@
 import { useRef } from "react";
 import CardCours from "./CardCours";
-import img from "../../../../public/CoursImg.png";
 import img1 from "../../../../public/Course1.jpg";
 import img2 from "../../../../public/Course2.jpg";
 import img3 from "../../../../public/Course3.jpg";

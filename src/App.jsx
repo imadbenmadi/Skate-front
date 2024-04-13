@@ -14,10 +14,9 @@ import pg_image from "../public/Home_Hero_bg.png";
 import AboutUs_img from "../public/Home_AboutUs.png";
 import Logo from "../public/Logo.png";
 import Logo2 from "../public/skate_circle.png";
+import Default_image from "../public/Default.jpg";
 import { useAppContext } from "./Context/AppContext";
 function App() {
-    const [fontLoaded, setFontLoaded] = useState(false);
-    const [imagesLoaded, setImagesLoaded] = useState(false);
     const [loading, setLoading] = useState(true);
     const { set_Auth, store_login, isAuth, IsEmailVerified, Notifications } =
         useAppContext();
@@ -117,6 +116,7 @@ function App() {
                     AboutUs_img,
                     Logo,
                     Logo2,
+                    Default_image,
                 ];
                 let loadedCount = 0;
                 if (images.length === 0) resolve();
@@ -144,7 +144,6 @@ function App() {
                     "https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;500;700;800&display=swap";
                 link.rel = "stylesheet";
                 link.onload = () => {
-                    setFontLoaded(true);
                     resolve(); // Resolve promise when font is loaded
                 };
                 link.onerror = () => {

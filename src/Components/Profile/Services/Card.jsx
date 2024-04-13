@@ -1,11 +1,6 @@
 import { useState } from "react";
-import { FaArrowDown, FaArrowUp } from "react-icons/fa";
-import { MdDelete, MdEdit } from "react-icons/md";
-import swal from "sweetalert2";
-import axios from "axios";
-import { useNavigate } from "react-router";
-import { Link } from "react-router-dom";
-import img from "../../../../public/wallpaper.jpg";
+import { FaArrowDown, FaArrowUp } from "react-icons/fa"
+import img from "../../../../public/Default.jpg";
 
 
 function Card({ item }) {

@@ -1,6 +1,6 @@
 
 import Card from "./Card";
-import img from "../../../public/wallpaper.jpg";
+import img from "../../../public/Default.jpg";
 import {
     Navigation,
     Pagination,

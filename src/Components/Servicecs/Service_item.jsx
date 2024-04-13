@@ -9,7 +9,7 @@ import { useNavigate } from "react-router";
 import { MdDone } from "react-icons/md";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import Footer from "../Footer";
-import img from "../../../public/wallpaper.jpg";
+import img from "../../../public/Default.jpg";
 
 function ServiceItem() {
     const [loading, setLoading] = useState(false);

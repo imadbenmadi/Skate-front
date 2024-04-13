@@ -1,4 +1,4 @@
-import img from "../../../public/wallpaper.jpg";
+import img from "../../../public/Default.jpg";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router";
 import ErrorPage from "../ErrorPage";
