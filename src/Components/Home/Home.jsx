@@ -6,12 +6,29 @@ import Founder from "./Founder/Founder";
 import Footer from "../Footer";
 import pg_image from "../../../public/Home_Hero_bg.png";
 import AboutUs_img from "../../../public/Home_AboutUs.png";
+import Course1 from "../../../public/Course1.jpg";
+import Course2 from "../../../public/Course2.jpg";
+import Course3 from "../../../public/Course3.jpg";
+import iconService1 from "../../../public/iconService1.png";
+import iconService2 from "../../../public/iconService2.png";
+import iconService3 from "../../../public/iconService3.png";
+import Founder_image from "../../../public/Founder.png";
 import React, { useEffect, useState } from "react";
 function Home() {
     const [imagesLoaded, setImagesLoaded] = useState(false);
     useEffect(() => {
         const imageLoader = new Promise((resolve, reject) => {
-            const images = [pg_image, AboutUs_img];
+            const images = [
+                pg_image,
+                AboutUs_img,
+                Course1,
+                Course2,
+                Course3,
+                iconService1,
+                iconService2,
+                iconService3,
+                Founder_image,
+            ];
             let loadedCount = 0;
             if (images.length === 0) resolve();
             images.forEach((imageSrc) => {

@@ -6,6 +6,8 @@ import axios from "axios";
 import Activate_account from "./Components/Alerts/Activate_account";
 import Footer from "./Components/Footer";
 function App() {
+    const [fontLoaded, setFontLoaded] = useState(false);
+
     const { set_Auth, store_login, isAuth, IsEmailVerified, Notifications } =
         useAppContext();
     const [Active_nav, setActive_nav] = useState("Home");
@@ -90,8 +92,27 @@ function App() {
             setLoading(false);
         }
     };
+
+    const fetch_font = () => {
+        const link = document.createElement("link");
+        link.href =
+            "https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;500;700;800&display=swap";
+        link.rel = "stylesheet";
+        link.onload = () => {
+            setFontLoaded(true);
+        };
+        document.head.appendChild(link);
+        // Set a timeout to check if the font is loaded after 5 seconds
+        setTimeout(() => {
+            if (!fontLoaded) {
+                // If the font is not loaded after 5 seconds, set a default font
+                setFontLoaded(true); // Set fontLoaded to true to render with default font
+            }
+        }, 5000); // 5000 milliseconds = 5 seconds
+    };
     useEffect(() => {
         fetchData();
+        fetch_font();
     }, []);
 
     return (
