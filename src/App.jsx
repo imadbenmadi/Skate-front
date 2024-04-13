@@ -15,6 +15,7 @@ import AboutUs_img from "../public/Home_AboutUs.png";
 import Logo from "../public/Logo.png";
 import Logo2 from "../public/skate_circle.png";
 import Default_image from "../public/Default.jpg";
+import NotFound from "../public/NotFound.png";
 import { useAppContext } from "./Context/AppContext";
 function App() {
     const [loading, setLoading] = useState(true);
@@ -117,6 +118,7 @@ function App() {
                     Logo,
                     Logo2,
                     Default_image,
+                    NotFound,
                 ];
                 let loadedCount = 0;
                 if (images.length === 0) resolve();
