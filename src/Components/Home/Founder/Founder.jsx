@@ -5,7 +5,7 @@ export default function Founder() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
     return (
-        <div className=" max-w-[1000px] mx-auto  py-4">
+        <div className=" max-w-[1000px] mx-auto  py-6 md:py-16">
             <div
                 ref={ref}
                 style={{
@@ -16,32 +16,34 @@ export default function Founder() {
                 }}
                 className="flex gap-5  flex-col items-center max-md:gap-0 max-md:"
             >
-                <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
-                    <div className="flex flex-col grow p-4 font-bold max-md:mt-4">
+                <div className="flex flex-col  w-6/12 max-md:ml-0 max-md:w-full">
+                    <div className="flex flex-col grow  font-bold max-md:mt-4">
                         <div className="self-center text-4xl text-emerald-500">
                             FOUNDER
                         </div>
                     </div>
                 </div>
-                <div className="  flex flex-col items-center justify-center   w-[250px]  m-auto">
-                    <img
-                        // loading="lazy"
-                        src={founder}
-                        className=" grow w-full shadow-sm aspect-[0.98] max-md:mt-4"
-                    />
-                </div>
-                <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
-                    <div className=" self-center mt-4 text-2xl text-emerald-500">
-                        Fouzia <span className=" text-gray">Benmadi</span>
+                <div className=" flex flex-col md:flex-row items-center justify-center ">
+                    <div className="  flex  items-center justify-center   w-[250px]  m-auto">
+                        <img
+                            // loading="lazy"
+                            src={founder}
+                            className=" grow w-full shadow-sm aspect-[0.98] max-md:mt-4"
+                        />
                     </div>
-                    <div className=" px-4 mt-4 text-xl font-medium leading-7 text-gray max-md:mt-4">
-                        Fouzia Benmadi, our visionary founder, is a dynamic
-                        leader with a passion for innovation and excellence.
-                        With a wealth of experience in business and
-                        entrepreneurship, Fouzia has spearheaded our company's
-                        growth and success, inspiring others with her
-                        entrepreneurial spirit and dedication to making a
-                        positive impact.
+                    <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
+                        <div className=" self-center mt-4 text-2xl text-emerald-500">
+                            Fouzia <span className=" text-gray">Benmadi</span>
+                        </div>
+                        <div className=" px-4 mt-4 text-lg md:text-xl font-medium leading-7 text-gray max-md:mt-4">
+                            Fouzia Benmadi, our visionary founder, is a dynamic
+                            leader with a passion for innovation and excellence.
+                            With a wealth of experience in business and
+                            entrepreneurship, Fouzia has spearheaded our
+                            company's growth and success, inspiring others with
+                            her entrepreneurial spirit and dedication to making
+                            a positive impact.
+                        </div>
                     </div>
                 </div>
             </div>
