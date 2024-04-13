@@ -83,3 +83,19 @@ body {
 .custom-overflow::-webkit-scrollbar-track {
     background-color: #cfd8dc; /* Change the color as needed */
 }
+.swiper-custom-pagination{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 10px;
+    margin-bottom: 10px;
+
+
+}

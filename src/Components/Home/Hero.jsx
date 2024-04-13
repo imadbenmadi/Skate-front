@@ -1,19 +1,18 @@
-
-import wallpaper1 from "../../../public/wallpaper.jpg";
-import wallpaper2 from "../../../public/wllpaper2.jpg";
-import img from "../../../public/Rectangle.png";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { GrFormNextLink } from "react-icons/gr";
+import img from "../../../public/Home_Hero_bg.png";
+
 export default function Hero() {
     return (
         <div className="max-h-screen h-screen mx-w-[1300px] ">
             <div className=" h-[96%] max-h-screen translate-y-[5%]    ">
                 {/* Set the image as a background */}
                 <div
-                    className={`relative  w-full h-full  bg-cover bg-center flex justify-center items-center gap-10   bg-[url('${img}')] text-black_text`}
+                    className={`relative  w-full h-full  bg-cover bg-center flex justify-center items-center gap-10    text-black_text`}
                 >
                     <img
-                        loading="lazy"
+                        // loading="lazy"
                         src={`${img}`}
                         className="z-5 absolute w-full h-full object-cover"
                     ></img>{" "}

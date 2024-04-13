@@ -25,7 +25,7 @@ export default function Founder() {
                 </div>
                 <div className="  flex flex-col items-center justify-center   w-[250px]  m-auto">
                     <img
-                        loading="lazy"
+                        // loading="lazy"
                         src={founder}
                         className=" grow w-full shadow-sm aspect-[0.98] max-md:mt-4"
                     />

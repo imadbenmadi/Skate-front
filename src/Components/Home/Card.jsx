@@ -6,7 +6,7 @@ function Card({ Title, Image }) {
               src={Image}
               alt="img"
               className="w-full h-[140px]"
-              loading="lazy"
+            //   loading="lazy"
           />
           <div className="flex flex-col items-start py-5 pr-10 pl-2 w-full  bg-green text-white max-md:pr-5">
               <div className="text-xl font-bold leading-8">Safety</div>

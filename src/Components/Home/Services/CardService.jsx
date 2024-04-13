@@ -4,9 +4,9 @@ import { Link } from "react-router-dom";
 function CardService({ icon, titleService, desServicce }) {
   return (
     <Link to={"/Services"} className="flex flex-col mx-auto cursor-pointer  self-center mb-5 justify-center  text-lg max-w-[90%] ">
-      <div className="flex flex-col items-center justify-center px-12 pt-6 pb-12 w-full bg-white rounded-lg border-solid shadow-lg border-[0.5px] border-black border-opacity-10 h-[500px]">
+      <div className="flex flex-col items-center  px-12 pt-6 pb-12 w-full bg-white rounded-lg border-solid shadow-lg border-[0.5px] border-black border-opacity-10 h-[500px]">
         <img
-          loading="lazy"
+          
           src={icon}
           className="shadow-sm aspect-[0.98] w-[60px]"
         />

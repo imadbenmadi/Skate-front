@@ -1,8 +1,8 @@
-import  { useRef } from "react";
+import { useRef } from "react";
 import CardCours from "./CardCours";
 import img from "../../../../public/CoursImg.png";
 import img1 from "../../../../public/Course1.jpg";
-import img2 from "../../../../public/Course2.jpeg";
+import img2 from "../../../../public/Course2.jpg";
 import img3 from "../../../../public/Course3.jpg";
 import { useInView } from "framer-motion";
 import { Link } from "react-router-dom";
@@ -14,7 +14,7 @@ import {
     A11y,
 } from "swiper/modules";
 import "swiper/css/autoplay"; // Autoplay styles (important!)
-
+import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 
 import "swiper/css/autoplay";
@@ -58,27 +58,27 @@ function Courses() {
                 <div className=" max-w-[1200px] max-md:hidden flex flex-col w-screen  gap-4 md:flex-row md:justify-between ">
                     <CardCours
                         img={img3}
-                        title="Financement"
-                        dec="Explore finance with our Financement course. Learn investment strategies, financial planning, and risk management essentials for confident decision-making."
+                        title="Hygiene, Security, Environnement “HSE”"
+                        dec="Training programs in Health, Safety, and Environment (HSE) are designed to meet the needs of both the general public and professionals who want to improve their skills or acquire new knowledge in the field of health, safety, and environmental protection."
                         // price="0.0"
                     />
                     <CardCours
                         img={img2}
-                        title="Marketing"
-                        dec="Discover the fundamentals of marketing with our comprehensive course. Learn essential strategies, tactics, and principles to effectively reach your target audience and drive business success."
+                        title="Communication, Commerce & marketing "
+                        dec="Training in communication, commerce, and marketing is for all professionals, aiming to enhance their skills for better internal communication and smoother interactions with customers and external partners."
                         // price="0.0"
                     />
                     <CardCours
                         img={img1}
                         title="Management"
-                        dec="Master the art of management with our concise course. Learn essential strategies and techniques to effectively lead teams, streamline processes, and achieve organizational goals."
+                        dec="The management training enhances the skills of executives and develops the ability to manage the collective procedures of the company."
                         // price="0.0"
                     />{" "}
                 </div>
 
-                <div className=" md:hidden w-[90vw]  mx-auto h-fit py-7  ">
+                <div className=" md:hidden w-[90vw] relative  h-full mx-auto  py-7  ">
                     <Swiper
-                        className="  h-fit"
+                        className="  h-full"
                         // install Swiper modules
                         modules={[
                             Navigation,
@@ -87,23 +87,27 @@ function Courses() {
                             Scrollbar,
                             A11y,
                         ]}
-                        loop={true}
+                        loop={false}
                         spaceBetween={30}
                         centeredSlides={true}
                         autoplay={{
                             delay: 2500,
-                            disableOnInteraction: false,
+                            disableOnInteraction: true,
                         }}
                         slidesPerView={1}
+                        pagination={{
+                            clickable: true,
+                            type: "bullets",
+                            // el: ".swiper-custom-pagination",
+                        }}
                     >
                         <SwiperSlide className=" ">
                             {" "}
                             <CardCours
                                 img={img3}
-                                title="Financement"
-                                cat="Finance"
-                                dec="Take a finance skkills using skate Courses 
-they are passionated to have an awesome"
+                                title="Hygiene, Security, Environnement “HSE”"
+                                cat=""
+                                dec="Training programs in Health, Safety, and Environment (HSE) are designed to meet the needs of both the general public and professionals who want to improve their skills or acquire new knowledge in the field of health, safety, and environmental protection."
                                 price="5.000"
                             />{" "}
                         </SwiperSlide>
@@ -111,10 +115,9 @@ they are passionated to have an awesome"
                             {" "}
                             <CardCours
                                 img={img2}
-                                title="Financement"
-                                cat="Finance"
-                                dec="Take a finance skkills using skate Courses 
-they are passionated to have an awesome"
+                                title="Communication, Commerce & marketing"
+                                cat=""
+                                dec="Training in communication, commerce, and marketing is for all professionals, aiming to enhance their skills for better internal communication and smoother interactions with customers and external partners."
                                 price="5.000"
                             />{" "}
                         </SwiperSlide>
@@ -122,10 +125,9 @@ they are passionated to have an awesome"
                             {" "}
                             <CardCours
                                 img={img1}
-                                title="Financement"
-                                cat="Finance"
-                                dec="Take a finance skkills using skate Courses 
-they are passionated to have an awesome"
+                                title="Management"
+                                cat=""
+                                dec="The management training enhances the skills of executives and develops the ability to manage the collective procedures of the company."
                                 price="5.000"
                             />{" "}
                         </SwiperSlide>
