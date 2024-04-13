@@ -46,12 +46,12 @@ function Services() {
                 <CardService
                     icon={icon2}
                     titleService="consultation and support"
-                    desServicce="Skate provides consultation and support services for Environmental Studies, specializing in sustainability, conservation, and environmental policy for a brighter future."
+                    desServicce="We specialize in quality certification based on ISO 9001, ISO 14001, and ISO 45001 standards, as well as food safety certification based on HACCP and ISO 22000 standards. Our services also include upgrading businesses, organizing and structuring companies, and implementing management systems and tools."
                 />
                 <CardService
                     icon={icon3}
                     titleService="Enterprise Creation"
-                    desServicce="Skate offers consultation and support services for enterprise creation in the realm of Environmental Studies, guiding you through sustainability, conservation, and environmental policy for a brighter future."
+                    desServicce="During the creation of a business or a private company, it faces several different obstacles such as authorizations, approvals, and compliance. Regarding regulations in the law, these steps must be precise and organized to ensure transparent success and compliance with regulations. SKATE offers services based on understanding client needs to meet standards."
                 />
             </div>
 

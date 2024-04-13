@@ -20,7 +20,7 @@ export function AboutUs() {
             className=" mx-auto py-4 "
         >
             <div className="flex  mx-auto justify-center items-center max-w-[1200px] gap-5 max-md:flex-col max-md:gap-0 max-md:">
-                <div className="md:hidden  mb-5 mt-10 self-center text-4xl text-green whitespace-nowrap">
+                <div className="md:hidden  mt-5 self-center text-4xl text-green whitespace-nowrap">
                     About <span className="text-gray">Skate</span>
                 </div>
 
@@ -34,7 +34,7 @@ export function AboutUs() {
                         />
                     </div>
                     <motion.img
-                        loading="lazy"
+                        // loading="lazy"
                         src={AboutImg}
                         className="grow duration-200  w-[250px]  max-md:self-center aspect-[0.93] max-md:mt-3.5 max-md:max-w-full"
                     />
@@ -44,10 +44,10 @@ export function AboutUs() {
                         <div className=" max-md:hidden self-center text-4xl text-green whitespace-nowrap">
                             About <span className="text-gray">Skate</span>
                         </div>
-                        <div className="mt-10 text-3xl text-neutral-600  max-md:max-w-full">
+                        <div className=" mt-2 md:mt-10 text-xl md:text-3xl text-neutral-600  max-md:max-w-full">
                             Skills Knowledge Attitude, Training Education.
                         </div>
-                        <div className="self-start mt-8 text-xl leading-10 text-black_text text-opacity-70 max-md:max-w-full">
+                        <div className=" mt-2 md:mt-8 text-base md:text-xl leading-7 md:leading-10 text-black_text text-opacity-70 max-md:max-w-full">
                             <span className="font-normal ">
                                 Skate is a center of{" "}
                             </span>
