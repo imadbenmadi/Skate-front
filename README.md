@@ -1,8 +1,21 @@
-# React + Vite
+# SKATE Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to the SKATE website repository! This repository contains the client-side frontend code for the SKATE website built using ReactJs.
 
-Currently, two official plugins are available:
+## About SKATE
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+SKATE is a center of Study, Consultation, Support, Training, and Assistance for individuals, businesses, and public and private organizations. Accredited by the Ministry of Environment.
+
+## Technologies Used
+
+- MongoDB
+- Express.js
+- React.js
+- Node.js
+
+
+## Contact
+
+If you have any questions, concerns, or feedback, please don't hesitate to reach out to benmadi.imadeedin@univ-ouargla.dz.
+
+Thank you for using the SKATE website!
