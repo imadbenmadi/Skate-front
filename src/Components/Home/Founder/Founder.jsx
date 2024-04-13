@@ -1,4 +1,4 @@
-import  { useRef } from "react";
+import { useRef } from "react";
 import founder from "../../../../public/Founder.png";
 import { useInView } from "framer-motion";
 export default function Founder() {
@@ -32,8 +32,7 @@ export default function Founder() {
                 </div>
                 <div className="flex flex-col w-6/12 max-md:ml-0 max-md:w-full">
                     <div className=" self-center mt-4 text-2xl text-emerald-500">
-                        Fouzia{" "}
-                        <span className="text-blue-950 text-gray">Benmadi</span>
+                        Fouzia <span className=" text-gray">Benmadi</span>
                     </div>
                     <div className=" px-4 mt-4 text-xl font-medium leading-7 text-gray max-md:mt-4">
                         Fouzia Benmadi, our visionary founder, is a dynamic

@@ -5,7 +5,7 @@ function CardCours({ img, title, dec, price }) {
   return (
       // <div className="flex flex-col max-w-sm mx-auto bg-white  w-[98%] h-[90%] rounded-xl overflow-hidden border border-solid shadow-lg border-[color:var(--Neutral-Light-Grey-50,#E9F0F8)]">
       <div className="flex flex-col max-w-sm mx-auto bg-white  w-[98%] h-full rounded-xl overflow-hidden border border-solid shadow-lg border-[color:var(--Neutral-Light-Grey-50,#E9F0F8)]">
-          {/* <div className="flex overflow-hidden relative flex-col items-start pt-12 pr-16 pb-6 pl-4 w-full text-sm leading-5 text-green-800 whitespace-nowrap aspect-[1.23]">
+          {/* <div className="flex overflow-hidden relative flex-col items-start pt-12 pr-16 pb-6 pl-4 w-full text-sm leading-5  whitespace-nowrap aspect-[1.23]">
               <img
                   // loading="lazy"
                   src={img}

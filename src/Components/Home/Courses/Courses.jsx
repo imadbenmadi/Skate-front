@@ -16,6 +16,7 @@ import {
 import "swiper/css/autoplay"; // Autoplay styles (important!)
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { FaArrowRight } from "react-icons/fa6";
 
 import "swiper/css/autoplay";
 // Import Swiper styles
@@ -27,22 +28,21 @@ function Courses() {
     const ref = useRef(null);
     const isInView = useInView(ref, { once: true });
     return (
-        <div className=" bg-slate-200 min-h-screen h-fit ">
-            <div className="max-w-[1100px]   py-8 mx-auto h-12 flex justify-between px-10 items-center">
+        <div className=" bg-slate-200 h-fit ">
+            <div className="max-w-[1100px]   py-8 mx-auto h-12 flex justify-between px-10 items-center ">
                 <div className="w-fit max-md:text-center max-mad:text-center max-md:mx-auto max-md:w-full  max-mad:w-full   max-mad:w-full   ">
                     <span className="text-emerald-500 text-4xl font-bold ">
                         OUR{" "}
                     </span>
-                    <span className="text-blue-950 text-4xl  text-gray">
-                        COURSES{" "}
-                    </span>
+                    <span className=" text-4xl  text-gray">COURSES </span>
                 </div>
 
                 <Link
                     to={"/Courses"}
-                    className="select-none w-fit max-md:hidden border border-green px-5 py-2 rounded-md  text-center text-green-800 text-base font-medium  leading-normal"
+                    className="select-none flex  gap-2 items-center w-fit max-md:hidden text-green underline px-5 py-2 rounded-md  text-center  text-base font-medium  leading-normal"
                 >
-                    Veiw All Courses{" "}
+                    <span className=" text-xl">Veiw All Courses</span>{" "}
+                    <FaArrowRight className=" mt-1" />
                 </Link>
             </div>
             <div
@@ -76,7 +76,7 @@ function Courses() {
                     />{" "}
                 </div>
 
-                <div className=" md:hidden w-[90vw] relative  h-full mx-auto  py-7  ">
+                <div className=" md:hidden w-[90vw] relative  h-full mx-auto    ">
                     <Swiper
                         className="  h-full"
                         // install Swiper modules
@@ -137,9 +137,9 @@ function Courses() {
             <div className="w-full pb-10 mx-auto h-fit flex justify-center items-center">
                 <Link
                     to={"/Courses"}
-                    className=" select-none w-fit   mx-auto   md:hidden border border-green px-5 py-2 rounded-md  text-center text-green-800 text-base font-medium  leading-normal"
+                    className=" flex gap-2 items-center select-none w-fit   mx-auto   md:hidden  px-5 py-2 rounded-md  text-center  font-medium  leading-normal underline text-xl text-green "
                 >
-                    Veiw All COURSES{" "}
+                    Veiw All Courses <FaArrowRight className=" mt-1" />
                 </Link>
             </div>
         </div>
