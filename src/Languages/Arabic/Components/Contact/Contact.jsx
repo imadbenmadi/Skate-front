@@ -1,6 +1,6 @@
-import Logo from "../../../public/Logo.png";
+import Logo from "../../../../../public/Logo.png";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useAppContext } from "../../Context/AppContext";
+import { useAppContext } from "../../../../Context/AppContext";
 import { useNavigate } from "react-router";
 import { handleContact } from "./handleContact";
 import Links from "./Links";

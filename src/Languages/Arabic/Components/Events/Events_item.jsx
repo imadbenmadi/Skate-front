@@ -1,4 +1,4 @@
-import img from "../../../public/Default.jpg";
+import img from "../../../../../public/Default.jpg";
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router";
 import ErrorPage from "../ErrorPage";
@@ -6,7 +6,7 @@ import axios from "axios";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 import Footer from "../Footer";
-import { Formate_Date } from "../../Logic/Formate_Date";
+import { Formate_Date } from "../../../../Logic/Formate_Date";
 
 function Event_item() {
     const [loading, setLoading] = useState(false);

@@ -23,8 +23,34 @@ import Profile_Courses from "./Components/Profile/Courses/Profile_Courses";
 import Profile_Edit from "./Components/Profile/Profile_Edit";
 import Profile_Requests from "./Components/Profile/Requests/Profile_Requests";
 import Notification_item from "./Components/Profile/Notification/Notification_item";
-
 import Not_Found from "./Components/Not_Found";
+
+
+
+import ar_Home from "./Languages/Arabic/Components/Home/Home";
+import ar_App from "./App";
+import ar_Not_Finished from "./Languages/Arabic/Components/Not_Finished";
+import ar_Blogs from "./Languages/Arabic/Components/Blogs/Blogs";
+import ar_Blogs_item from "./Languages/Arabic/Components/Blogs/Blogs_item";
+import ar_Login from "./Languages/Arabic/Components/Login";
+import ar_Register from "./Languages/Arabic/Components/Register/Register";
+import ar_Services from "./Languages/Arabic/Components/Servicecs/Services";
+import ar_Courses from "./Languages/Arabic/Components/Courses/Courses";
+import ar_Course_item from "./Languages/Arabic/Components/Courses/Course_item";
+import ar_Service_item from "./Languages/Arabic/Components/Servicecs/Service_item";
+import ar_Events from "./Languages/Arabic/Components/Events/Events";
+import ar_Events_item from "./Languages/Arabic/Components/Events/Events_item";
+import ar_Contact from "./Languages/Arabic/Components/Contact/Contact";
+import ar_VerifyEmail from "./Languages/Arabic/Components/Verify_email/Verify_email";
+import ar_Profile from "./Languages/Arabic/Components/Profile/Profile";
+import ar_ProfileInfo from "./Languages/Arabic/Components/Profile/Profile_Info";
+import ar_Profile_Services from "./Languages/Arabic/Components/Profile/Services/Profile_Services";
+import ar_Profile_Notifications from "./Languages/Arabic/Components/Profile/Notification/Profile_Notifications";
+import ar_Profile_Courses from "./Languages/Arabic/Components/Profile/Courses/Profile_Courses";
+import ar_Profile_Edit from "./Languages/Arabic/Components/Profile/Profile_Edit";
+import ar_Profile_Requests from "./Languages/Arabic/Components/Profile/Requests/Profile_Requests";
+import ar_Notification_item from "./Languages/Arabic/Components/Profile/Notification/Notification_item";
+import ar_Not_Found from "./Languages/Arabic/Components/Not_Found";
 
 const routes = createBrowserRouter([
     {

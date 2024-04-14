@@ -1,8 +1,8 @@
 import { useRef } from "react";
 import CardCours from "./CardCours";
-import img1 from "../../../../public/Course1.jpg";
-import img2 from "../../../../public/Course2.jpg";
-import img3 from "../../../../public/Course3.jpg";
+import img1 from "../../../../../../public/Course1.jpg";
+import img2 from "../../../../../../public/Course2.jpg";
+import img3 from "../../../../../../public/Course3.jpg";
 import { useInView } from "framer-motion";
 import { Link } from "react-router-dom";
 import {

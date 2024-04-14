@@ -1,6 +1,7 @@
-import Not_Found_image from "../../../../public/NotFound.png";
-import { Link } from "react-router-dom";
-function Not_Found() {
+
+import Comming_Soon from "../../public/Comming_Soon.png";
+
+function Not_Finished() {
     return (
         <div
             className="flex items-center justify-center 
@@ -8,27 +9,24 @@ function Not_Found() {
         >
             <div className="p-8 bg-white rounded-md shadow-lg text-center">
                 <h1 className="text-3xl md:text-5xl mb-4 text-gray-800">
-                    Oops! This Page Not Found
+                    Oops! This Page is Not Finished Yet
                 </h1>
                 <p className="text-lg mb-8 text-gray">
-                    The page you're looking for might be under construction or
-                    has been moved.
+                    We're working hard to bring you something awesome. Check
+                    back later!
                 </p>
                 <img
                     loading="lazy"
-                    src={Not_Found_image}
+                    src={Comming_Soon}
                     alt="Under Construction"
                     className=" w-32 h-32 md:w-64 md:h-64 mx-auto mb-8"
                 />
                 <p className="text-sm text-gray-600">
-                    Double-check the URL or Go back to the{" "}
-                    <Link to={"/"} className=" text-green select-none">
-                        home page.
-                    </Link>
+                    Thank you for your patience!
                 </p>
             </div>
         </div>
     );
 }
 
-export default Not_Found;
+export default Not_Finished;
