@@ -1,6 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "./Components/Home/Home";
 import App from "./App";
+import Fetcher from "./Fetcher";
 import Not_Finished from "./Components/Not_Finished";
 import Blogs from "./Components/Blogs/Blogs";
 import Blogs_item from "./Components/Blogs/Blogs_item";
@@ -53,6 +54,9 @@ const routes = createBrowserRouter([
         path: "/",
         element: <App />,
         children: [
+            // { index: true, element: <Fetcher /> },
+            // { path: "/Home", element: <Home /> },
+
             { index: true, element: <Home /> },
             { path: "/Services", element: <Services /> },
             { path: "/Services/:id", element: <Service_item /> },
