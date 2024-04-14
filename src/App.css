@@ -96,6 +96,25 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
     margin-bottom: 10px;
+}
+.skeleton {
+    /* position: absolute; */
+    /* top: 0;
+    left: 0; */
+    width: 100%;
+    height: 100%;
+    background-color: #cbcbcb; /* Light gray background */
+    animation: shimmer 1.5s infinite linear; /* Shimmer animation */
+}
 
-
+@keyframes shimmer {
+    0% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 0.3;
+    }
+    100% {
+        opacity: 0.6;
+    }
 }

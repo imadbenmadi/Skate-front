@@ -7,6 +7,7 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import { Link } from "react-router-dom";
 import Footer from "../Footer";
 import { Formate_Date } from "../../Logic/Formate_Date";
+import ImageComponent from "../Image_Component";
 function Blog_item() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -69,6 +70,13 @@ function Blog_item() {
                     loading="lazy"
                     className=" w-[400px] m-auto"
                 />
+                {/* <div className="w-[400px] m-auto">
+                    <ImageComponent
+                        Image={`http://localhost:3000/Blogs/${blog.Image}`}
+                        // Width='400px'
+                    />
+                </div> */}
+
                 <div className="text-gray  text-sm text-center m-auto ">
                     {blog.Date && Formate_Date(blog.Date)}
                 </div>
