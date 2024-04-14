@@ -24,7 +24,7 @@ function ProfileInfo() {
         setLogout_Loading(true);
         try {
             const response = await axios.post(
-                "http://localhost:3000/logout",
+                "https://backend.skate.dz/logout",
                 {},
                 {
                     withCredentials: true,
@@ -149,7 +149,6 @@ function ProfileInfo() {
             ) : (
                 <span className="small-loader  w-full m-auto   my-6 md:mt-12 md:mb-6 "></span>
             )}
-            
         </div>
     );
 }

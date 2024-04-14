@@ -76,7 +76,10 @@ function Profile_Edit() {
                         //     errors.Password =
                         //         "Password must be at least 8 characters long";
                         // }
-                        else if (values.Age && !/^\d+$/.test(values.Age) || values.Age <= 0) {
+                        else if (
+                            (values.Age && !/^\d+$/.test(values.Age)) ||
+                            values.Age <= 0
+                        ) {
                             errors.Age = "Invalid Age";
                         }
 
@@ -91,8 +94,8 @@ function Profile_Edit() {
                         try {
                             setSubmitting(true);
                             let response = await Axios.put(
-                                // "http://localhost:3000/Users",
-                                `http://localhost:3000/Profile/${userId}`,
+                                // "https://backend.skate.dz/Users",
+                                `https://backend.skate.dz/Profile/${userId}`,
                                 values,
                                 {
                                     withCredentials: true,

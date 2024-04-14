@@ -28,7 +28,7 @@ function Fetcher() {
         const fetchData = async () => {
             try {
                 const response = await axios.get(
-                    "http://localhost:3000/check_Auth",
+                    "https://backend.skate.dz/check_Auth",
                     {
                         withCredentials: true,
                         validateStatus: () => true,

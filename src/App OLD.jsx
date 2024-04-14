@@ -19,13 +19,13 @@ function App() {
     const { set_Auth, store_login, isAuth, IsEmailVerified, Notifications } =
         useAppContext();
     const [Active_nav, setActive_nav] = useState("Home");
-    
+
     const fetchData = async () => {
         setLoading(true);
 
         try {
             const response = await axios.get(
-                "http://localhost:3000/check_Auth",
+                "https://backend.skate.dz/check_Auth",
                 {
                     withCredentials: true,
                     validateStatus: () => true,
@@ -136,7 +136,7 @@ function App() {
             .catch(() => {
                 console.error("Error loading images");
             });
-    }
+    };
     const fetch_font = () => {
         const link = document.createElement("link");
         link.href =

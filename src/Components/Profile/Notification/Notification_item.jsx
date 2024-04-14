@@ -49,7 +49,7 @@ function Notification_item() {
         setLoading(true);
         try {
             const response = await axios.post(
-                `http://localhost:3000/Profile/${userId}/Notifications/${notification_id}/Readed`,
+                `https://backend.skate.dz/Profile/${userId}/Notifications/${notification_id}/Readed`,
                 {},
                 {
                     withCredentials: true,
@@ -60,7 +60,7 @@ function Notification_item() {
                 fetchData();
             }
         } catch (error) {
-        }finally{
+        } finally {
             setLoading(false);
         }
     };

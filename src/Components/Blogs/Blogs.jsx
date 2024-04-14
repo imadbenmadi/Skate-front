@@ -25,7 +25,7 @@ function Blogs() {
     const fetchBlogs = async () => {
         setLoading(true);
         try {
-            const response = await axios.get("http://localhost:3000/Blogs", {
+            const response = await axios.get("https://backend.skate.dz/Blogs", {
                 withCredentials: true,
                 validateStatus: () => true,
             });

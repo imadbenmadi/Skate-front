@@ -41,7 +41,7 @@ function NavBar({ Active_nav, setActive_nav }) {
         try {
             // Send a request to the logout endpoint on the server
             const response = await axios.post(
-                "http://localhost:3000/logout",
+                "https://backend.skate.dz/logout",
                 {},
                 {
                     withCredentials: true,

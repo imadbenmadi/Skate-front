@@ -15,7 +15,7 @@ function Profile() {
     const [user, setUser] = useState(null);
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
-    
+
     useEffect(() => {
         window.addEventListener("resize", () => {
             SetwindowWidth(window.innerWidth);
@@ -26,7 +26,7 @@ function Profile() {
         setLoading(true);
         try {
             const response = await axios.get(
-                `http://localhost:3000/Profile/${
+                `https://backend.skate.dz/Profile/${
                     location.pathname.split("/")[2]
                 }`,
                 {

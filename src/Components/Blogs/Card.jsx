@@ -18,7 +18,7 @@ function Card({ blog }) {
         >
             <img
                 className="w-[40%] md:w-[300px] object-cover h-[150px] md:h-[180px]"
-                src={`http://localhost:3000/Blogs/${blog.Image}`}
+                src={`https://backend.skate.dz/Blogs/${blog.Image}`}
                 alt={blog.Title}
                 onError={(e) => {
                     e.target.src = img; // Set default image source if blog image fails to load

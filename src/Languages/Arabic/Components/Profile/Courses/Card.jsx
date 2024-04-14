@@ -2,8 +2,6 @@ import { useState } from "react";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 import img from "../../../../../../public/Default.jpg";
 
-
-
 function Card({ item }) {
     const [showDescription, setShowDescription] = useState(false);
     function toggleDescription() {
@@ -16,7 +14,7 @@ function Card({ item }) {
                 <div className="relative overflow-hidden pt-5 px-5 flex flex-col md:flex-row shrink-0 justify-start h-fit">
                     <img
                         className="md:w-[30%] md:h-[200px] object-cover"
-                        src={`http://localhost:3000/Courses/${item.Image}`}
+                        src={`https://backend.skate.dz/Courses/${item.Image}`}
                         onError={(e) => {
                             e.target.src = img; // Set default image source if blog image fails to load
                         }}

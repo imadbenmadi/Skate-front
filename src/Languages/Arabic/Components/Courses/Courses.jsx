@@ -13,10 +13,13 @@ function Courses() {
     const [Courses_Categories, SetCourses_Categories] = useState([]);
     const fetchCourses = async () => {
         try {
-            const response = await axios.get("http://localhost:3000/Courses", {
-                withCredentials: true,
-                validateStatus: () => true,
-            });
+            const response = await axios.get(
+                "https://backend.skate.dz/Courses",
+                {
+                    withCredentials: true,
+                    validateStatus: () => true,
+                }
+            );
             if (response.status == 200) {
                 setCourses(response.data);
             } else {
@@ -25,7 +28,7 @@ function Courses() {
             if (isAuth) {
                 const userId = _id;
                 const response = await axios.get(
-                    `http://localhost:3000/Courses/userCourses/${_id}`,
+                    `https://backend.skate.dz/Courses/userCourses/${_id}`,
                     {
                         withCredentials: true,
                         validateStatus: () => true,
@@ -48,7 +51,7 @@ function Courses() {
     const fetch_Courses_Categories = async () => {
         try {
             const response = await axios.get(
-                "http://localhost:3000/Categories/Courses",
+                "https://backend.skate.dz/Categories/Courses",
                 {
                     withCredentials: true,
                     validateStatus: () => true,

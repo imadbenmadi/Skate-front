@@ -18,7 +18,7 @@ function Card({ user, notification, index, fetchData }) {
         try {
             setDelete_Loading(true);
             const response = await axios.delete(
-                `http://localhost:3000/Profile/${UserId}/Notifications/${NotificationId}`,
+                `https://backend.skate.dz/Profile/${UserId}/Notifications/${NotificationId}`,
                 //  {  NotificationId },
                 {
                     withCredentials: true,

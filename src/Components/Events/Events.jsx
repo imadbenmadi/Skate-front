@@ -24,10 +24,13 @@ function Event() {
         setLoading(true);
 
         try {
-            const response = await axios.get("http://localhost:3000/Events", {
-                withCredentials: true,
-                validateStatus: () => true,
-            });
+            const response = await axios.get(
+                "https://backend.skate.dz/Events",
+                {
+                    withCredentials: true,
+                    validateStatus: () => true,
+                }
+            );
 
             if (response.status == 200) {
                 const { totalPages, events } = response.data;

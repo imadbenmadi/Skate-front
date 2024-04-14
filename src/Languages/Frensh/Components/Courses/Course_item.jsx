@@ -11,7 +11,6 @@ import { IoMdArrowRoundBack } from "react-icons/io";
 import Footer from "../Footer";
 import img from "../../../../../public/Default.jpg";
 
-
 function CourseItem() {
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState(null);
@@ -37,7 +36,7 @@ function CourseItem() {
         try {
             setRequestLoading(true);
             const response = await axios.post(
-                `http://localhost:3000/Courses/request`,
+                `https://backend.skate.dz/Courses/request`,
                 {
                     userId: _id,
                     CourseId: location.pathname.split("/")[2],
@@ -92,7 +91,7 @@ function CourseItem() {
 
         try {
             const response = await axios.get(
-                `http://localhost:3000/Courses/${
+                `https://backend.skate.dz/Courses/${
                     location.pathname.split("/")[2]
                 }`,
                 {
@@ -145,7 +144,7 @@ function CourseItem() {
                 <div className="flex flex-col md:flex-row     gap-3">
                     <div className="shrink-0">
                         <img
-                            src={`http://localhost:3000/Courses/${Course.Image}`}
+                            src={`https://backend.skate.dz/Courses/${Course.Image}`}
                             alt=""
                             onError={(e) => {
                                 e.target.src = img; // Set default image source if blog image fails to load
