@@ -81,7 +81,7 @@ function NavBar({ Active_nav, setActive_nav }) {
     return (
         <div
             // className={` fixed  h-[60px] m-0  z-40 w-[97.6vw] md:w-[99vw] xl:w-[99.5vw] `}
-            className={` fixed  h-[60px] m-0  z-40 w-full `}
+            className={` fixed  h-[50px] md:h-[60px] m-0  z-40 w-full `}
         >
             <div className=" h-full  flex shadow-lg bg-white justify-between items-center md:justify-around select-none ">
                 <div className=" p-2 ml-5 md:ml-0">
@@ -90,7 +90,7 @@ function NavBar({ Active_nav, setActive_nav }) {
                             loading="lazy"
                             src={Logo}
                             alt="Logo"
-                            className=" w-14 md:w-[45px] "
+                            className=" w-10 md:w-[45px] "
                         />
                     </Link>
                 </div>
@@ -148,6 +148,7 @@ function NavBar({ Active_nav, setActive_nav }) {
             </div>
             {/* Moblie nav bar */}
             <Mobile_Nav_Items
+                Active_nav={Active_nav}
                 MobileNav_Open={MobileNav_Open}
                 Toogle_Menu_Bar={Toogle_Menu_Bar}
                 Logout={Logout}

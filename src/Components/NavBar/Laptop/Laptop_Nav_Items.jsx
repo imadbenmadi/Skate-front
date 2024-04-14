@@ -3,8 +3,6 @@ import { Link } from "react-router-dom";
 import { TbLogout } from "react-icons/tb";
 import { FaUserTie } from "react-icons/fa";
 import { MdNotificationsNone } from "react-icons/md";
-import { TbSettings } from "react-icons/tb";
-import Swal from "sweetalert2";
 import Notifications_items from "./Notifications_items";
 import { useAppContext } from "../../../Context/AppContext";
 import { useEffect } from "react";
@@ -12,7 +10,6 @@ function Laptop_Nav_Items({
     Active_nav,
     isAuth,
     FirstName,
-
     Logout,
     LogoutClicked,
 }) {
@@ -20,34 +17,6 @@ function Laptop_Nav_Items({
     const { Notifications, _id } = useAppContext();
     const [User_menu_open, setUser_menu_open] = useState(false);
     const [Notifications_open, setNotifications_open] = useState(false);
-    const handleSettingsClick = () => {
-        Swal.fire({
-            title: "Settings",
-            html: `
-                <div className="flex flex-col gap-4 justify-start items-start w-[200px]">
-                    <div class="mb-4 flex items-center justify-center gap-4 w-[200px] m-auto">
-                        <label for="language" class=" text-sm font-medium text-gray">Language:</label>
-                        <select id="language" class="mt-1  w-[100px] m-auto py-2 px-3 border border-gray bg-white rounded-md shadow-sm focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
-                            <option value="English">English</option>
-                            <option value="Spanish">Spanish</option>
-                            <option value="French">French</option>
-                        </select>
-                    </div>
-                    <div clasName='flex gap-3 w-[200px] items-center justify-start'>
-                        <label for="darkMode" class="text-sm font-medium text-gray">Dark Mode</label>
-                        <input type="checkbox" id="darkMode" class="mr-2 h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray rounded">
-                    </div>
-                </div>
-        
-      `,
-            showCancelButton: true,
-            focusConfirm: false,
-            preConfirm: () => {
-                const language = document.getElementById("language").value;
-                const darkMode = document.getElementById("darkMode").checked;
-            },
-        });
-    };
      useEffect(() => {
          if (isAuth && Notifications) {
              const hasUnreadNotification = Notifications.some(
