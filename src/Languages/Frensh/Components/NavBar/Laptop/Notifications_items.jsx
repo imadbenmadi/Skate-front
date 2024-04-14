@@ -1,12 +1,11 @@
-import { useAppContext } from "../../../Context/AppContext"; // Import your context hook
+import { useAppContext } from "../../../../../Context/AppContext"; // Import your context hook
 import { PiWarningCircleBold } from "react-icons/pi";
 import { HiOutlineMailOpen } from "react-icons/hi";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { RiCalendarEventLine } from "react-icons/ri";
 import { FaBookOpen } from "react-icons/fa";
 import { FaRegHandshake } from "react-icons/fa6";
-import logo from "../../../../public/skate_circle.png";
-import { Formate_Date } from "../../../Logic/Formate_Date"; // Import your date formatting function
+import { Formate_Date } from "../../../../../Logic/Formate_Date"; // Import your date formatting function
 import { Link } from "react-router-dom";
 
 const Notifications_items = () => {

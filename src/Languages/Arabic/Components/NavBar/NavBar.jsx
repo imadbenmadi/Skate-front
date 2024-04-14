@@ -1,7 +1,7 @@
-import Logo from "../../../public/Logo.png";
+import Logo from "../../../../../public/Logo.png";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useAppContext } from "../../Context/AppContext";
+import { useAppContext } from "../../../../Context/AppContext";
 import { useLocation } from "react-router";
 import axios from "axios";
 import Menu_Toogler from "./Mobile/Menu_Toogler";

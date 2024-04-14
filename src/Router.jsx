@@ -28,7 +28,7 @@ import Not_Found from "./Components/Not_Found";
 
 
 import ar_Home from "./Languages/Arabic/Components/Home/Home";
-import ar_App from "./App";
+import ar_App from "./Languages/Arabic/App";
 import ar_Not_Finished from "./Languages/Arabic/Components/Not_Finished";
 import ar_Blogs from "./Languages/Arabic/Components/Blogs/Blogs";
 import ar_Blogs_item from "./Languages/Arabic/Components/Blogs/Blogs_item";
