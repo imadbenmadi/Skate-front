@@ -5,12 +5,10 @@ import { MdOutlineMailOutline } from "react-icons/md";
 import { RiCalendarEventLine } from "react-icons/ri";
 import { FaBook } from "react-icons/fa";
 import { FaRegHandshake } from "react-icons/fa6";
-import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 import { useState } from "react";
 import { FaTrashCan } from "react-icons/fa6";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { useOutletContext } from "react-router-dom";
 import { Link } from "react-router-dom";
 function Card({ user, notification, index, fetchData }) {
     // fetchData()

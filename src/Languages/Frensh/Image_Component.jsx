@@ -1,4 +1,3 @@
-import React from "react";
 import DefaultImage from "../../public/Default.jpg";
 import { useState } from "react";
 function ImageComponent({ Image }) {

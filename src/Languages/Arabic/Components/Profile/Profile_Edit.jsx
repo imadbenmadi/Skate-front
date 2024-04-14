@@ -1,15 +1,9 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { IoMdEye } from "react-icons/io";
-import { IoMdEyeOff } from "react-icons/io";
 import Axios from "axios";
 import Swal from "sweetalert2";
-import { IoMdArrowRoundBack } from "react-icons/io";
 import { useOutletContext } from "react-router-dom";
-import { FaArrowLeft } from "react-icons/fa";
-
 function Profile_Edit() {
     const { user, fetchData } = useOutletContext();
     if (!user || !fetchData)

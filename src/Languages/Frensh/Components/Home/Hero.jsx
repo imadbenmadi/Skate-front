@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { GrFormNextLink } from "react-icons/gr";
 import img from "../../../../../public/Home_Hero_bg.png";

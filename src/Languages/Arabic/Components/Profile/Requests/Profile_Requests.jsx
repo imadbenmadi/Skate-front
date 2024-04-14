@@ -1,6 +1,4 @@
-import React from "react";
 import { useOutletContext } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { IoWarning } from "react-icons/io5";
 import { FaArrowRight } from "react-icons/fa";

@@ -1,13 +1,9 @@
-import React from "react";
 import { useOutletContext } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
 import { IoWarning } from "react-icons/io5";
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Card from "./Card";
 function Profile_Services() {
-    const Navigate = useNavigate();
     const { user, fetchData } = useOutletContext();
     if (!user || !fetchData)
         return (

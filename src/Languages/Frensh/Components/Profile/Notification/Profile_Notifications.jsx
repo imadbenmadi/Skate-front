@@ -1,15 +1,12 @@
-import React from "react";
 import { useOutletContext } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import { LuMailOpen } from "react-icons/lu";
 // import { location } from "react-router-dom";
-import { useLocation } from "react-router-dom";
 // import { LuMailOpen } from "react-icons/lu";
 
 import Card from "./Card";
 function Profile_Notifications() {
-    const location = useLocation();
 
     const { user, fetchData } = useOutletContext();
     // const context = useOutletContext();

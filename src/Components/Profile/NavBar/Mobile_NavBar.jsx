@@ -1,5 +1,4 @@
 import { useEffect } from "react";
-import logo from "../../../../public/skate_circle.png";
 import { FaUser } from "react-icons/fa";
 import { TbWorld } from "react-icons/tb";
 import { IoIosNotifications } from "react-icons/io";
