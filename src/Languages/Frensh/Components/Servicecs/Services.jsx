@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useAppContext } from "../../Context/AppContext";
+import { useAppContext } from "../../../../Context/AppContext";
 import Explore from "./Explore/Explore";
 import axios from "axios";
 import ErrorPage from "../ErrorPage";

@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
-import img from "../../../../public/Default.jpg";
+import img from "../../../../../../public/Default.jpg";
+
 
 
 function Card({ item }) {

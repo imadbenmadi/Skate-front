@@ -1,5 +1,6 @@
-import { Formate_Date } from "../../../Logic/Formate_Date";
-import img from "../../../../public/Default.jpg";
+import { Formate_Date } from "../../../../../Logic/Formate_Date";
+import img from "../../../../../../public/Default.jpg";
+
 function Card({ item }) {
     // console.log("card", item);
     if (!item.Service) return null;
