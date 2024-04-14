@@ -10,8 +10,14 @@ import Mobile_Nav_Items from "./Mobile/Mobile_Nav_Items";
 import Swal from "sweetalert2";
 import { FaUserTie } from "react-icons/fa";
 import { MdNotificationsNone } from "react-icons/md";
+import { FaAngleDown } from "react-icons/fa";
+import { FaAngleUp } from "react-icons/fa";
 function NavBar({ Active_nav, setActive_nav }) {
-    
+    const [LanguageClicked, SetLanguageClicked] = useState(false);
+    const toogle_LanguageClicked = () => {
+        SetLanguageClicked(!LanguageClicked);
+    };
+
     const { isAuth, FirstName, LastName, _id, Notifications } = useAppContext();
     const [unReaded_Notif, SetunReaded_Notif] = useState(false);
 
@@ -95,8 +101,49 @@ function NavBar({ Active_nav, setActive_nav }) {
                     </Link>
                 </div>
 
-                <div className=" flex gap-10 items-center md:hidden">
+                <div className=" flex gap-5 items-center md:hidden">
                     <div className=" flex items-center h-full gap-5 text-gray ">
+                        <div
+                            onClick={toogle_LanguageClicked}
+                            className="  relative"
+                        >
+                            <div className=" flex items-center justify-center gap-1">
+                                <p>EN</p>
+                                {LanguageClicked ? (
+                                    <FaAngleUp className=" text-lg" />
+                                ) : (
+                                    <FaAngleDown className=" text-lg" />
+                                )}
+                            </div>
+
+                            {LanguageClicked && (
+                                <div
+                                    className="w-24 h-fit shadow-sm bg-white rounded-b-lg
+                                    absolute -left-8 -bottom-[100px] 
+                                 flex flex-col items-center justify-center "
+                                >
+                                    <Link
+                                        to={"/"}
+                                        className="border-b w-full text-center py-1 "
+                                    >
+                                        English
+                                    </Link>
+                                    <Link
+                                        to={"/fr"}
+                                        className="border-b w-full text-center py-1"
+                                    >
+                                        Français
+                                    </Link>
+                                    <Link
+                                        to={"/ar"}
+                                        className=" w-full text-center  font-sans py-1"
+                                    >
+                                        العربية
+                                    </Link>
+                                </div>
+                            )}
+                        </div>
+
                         {isAuth && (
                             <>
                                 <div className="relative">
@@ -105,7 +152,7 @@ function NavBar({ Active_nav, setActive_nav }) {
                                         to={`/Profile/${_id}/Notifications`}
                                         className="select-none flex "
                                     >
-                                        <MdNotificationsNone className=" text-3xl  " />
+                                        <MdNotificationsNone className=" text-2xl  " />
                                         {isAuth && unReaded_Notif && (
                                             <div className=" absolute w-2 h-2 rounded-full bg-red-600 right-0">
                                                 {" "}
@@ -119,7 +166,7 @@ function NavBar({ Active_nav, setActive_nav }) {
                                     to={`/Profile/${_id}`}
                                     className="select-none flex  items-center gap-2 "
                                 >
-                                    <FaUserTie className="text-2xl" />
+                                    <FaUserTie className="text-xl" />
                                     {/* Profile */}
                                 </Link>
                             </>

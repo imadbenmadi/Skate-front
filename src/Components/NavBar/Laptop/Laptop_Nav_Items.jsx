@@ -1,4 +1,4 @@
-import  { useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { TbLogout } from "react-icons/tb";
 import { FaUserTie } from "react-icons/fa";
@@ -6,6 +6,8 @@ import { MdNotificationsNone } from "react-icons/md";
 import Notifications_items from "./Notifications_items";
 import { useAppContext } from "../../../Context/AppContext";
 import { useEffect } from "react";
+import { FaAngleDown } from "react-icons/fa";
+import { FaAngleUp } from "react-icons/fa";
 function Laptop_Nav_Items({
     Active_nav,
     isAuth,
@@ -17,17 +19,58 @@ function Laptop_Nav_Items({
     const { Notifications, _id } = useAppContext();
     const [User_menu_open, setUser_menu_open] = useState(false);
     const [Notifications_open, setNotifications_open] = useState(false);
-     useEffect(() => {
-         if (isAuth && Notifications) {
-             const hasUnreadNotification = Notifications.some(
-                 (notification) => !notification.Readed
-             );
-             SetunReaded_Notif(hasUnreadNotification);
-         }
-     }, [Notifications]);
+    useEffect(() => {
+        if (isAuth && Notifications) {
+            const hasUnreadNotification = Notifications.some(
+                (notification) => !notification.Readed
+            );
+            SetunReaded_Notif(hasUnreadNotification);
+        }
+    }, [Notifications]);
+    const [LanguageClicked, SetLanguageClicked] = useState(false);
+    const toogle_LanguageClicked = () => {
+        SetLanguageClicked(!LanguageClicked);
+    };
     return (
-        <div className="hidden  md:flex items-center justify-center gap-7 text-lg text-black_text h-full ">
+        <div className="hidden  md:flex  items-center justify-center gap-7 text-lg text-black_text h-full ">
             <div className="flex gap-5">
+                <div onClick={toogle_LanguageClicked} className="  relative pr-6">
+                    <div className=" flex items-center justify-center gap-1 cursor-pointer">
+                        <p>EN</p>
+                        {LanguageClicked ? (
+                            <FaAngleUp className=" text-lg" />
+                        ) : (
+                            <FaAngleDown className=" text-lg" />
+                        )}
+                    </div>
+
+                    {LanguageClicked && (
+                        <div
+                            className="w-24 h-fit shadow-sm bg-white rounded-b-lg
+                                    absolute -left-8 -bottom-[120px] 
+                                 flex flex-col items-center justify-center "
+                        >
+                            <Link
+                                to={"/"}
+                                className="border-b w-full text-center py-1 "
+                            >
+                                English
+                            </Link>
+                            <Link
+                                to={"/fr"}
+                                className="border-b w-full text-center py-1"
+                            >
+                                Français
+                            </Link>
+                            <Link
+                                to={"/ar"}
+                                className=" w-full text-center  font-sans py-1"
+                            >
+                                العربية
+                            </Link>
+                        </div>
+                    )}
+                </div>
                 <div className=" hover:text-green transition-colors cursor-pointer">
                     <Link
                         to={"/"}
