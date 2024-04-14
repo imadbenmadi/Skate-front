@@ -27,7 +27,6 @@ import Not_Found from "./Components/Not_Found";
 
 import Ar_Home from "./Languages/Arabic/Components/Home/Home";
 import Ar_App from "./Languages/Arabic/App";
-import Ar_Not_Finished from "./Languages/Arabic/Components/Not_Finished";
 import Ar_Blogs from "./Languages/Arabic/Components/Blogs/Blogs";
 import Ar_Blogs_item from "./Languages/Arabic/Components/Blogs/Blogs_item";
 import Ar_Login from "./Languages/Arabic/Components/Login";
@@ -48,9 +47,32 @@ import Ar_Profile_Courses from "./Languages/Arabic/Components/Profile/Courses/Pr
 import Ar_Profile_Edit from "./Languages/Arabic/Components/Profile/Profile_Edit";
 import Ar_Profile_Requests from "./Languages/Arabic/Components/Profile/Requests/Profile_Requests";
 import Ar_Notification_item from "./Languages/Arabic/Components/Profile/Notification/Notification_item";
-import Ar_Not_Found from "./Languages/Arabic/Components/Not_Found";
 
 const routes = createBrowserRouter([
+    {
+        path: "/",
+        element: <App />,
+        children: [
+            { index: true, element: <Home /> },
+            { path: "/Services", element: <Services /> },
+            { path: "/Services/:id", element: <Service_item /> },
+            { path: "/Courses", element: <Courses /> },
+            { path: "/Courses/:id", element: <Course_item /> },
+            { path: "/Events", element: <Events /> },
+            { path: "/Events/:id", element: <Events_item /> },
+            { path: "/Contact", element: <Contact /> },
+            { path: "/Blogs", element: <Blogs /> },
+            { path: "/Blogs/:id", element: <Blogs_item /> },
+            {
+                path: "/verifyEmail",
+                element: <VerifyEmail />,
+            },
+            {
+                path: "*",
+                element: <Not_Found />,
+            },
+        ],
+    },
     {
         path: "/Profile/:id",
         element: <Profile />,
@@ -87,30 +109,6 @@ const routes = createBrowserRouter([
         ],
     },
     {
-        path: "/",
-        element: <App />,
-        children: [
-            { index: true, element: <Home /> },
-            { path: "/Services", element: <Services /> },
-            { path: "/Services/:id", element: <Service_item /> },
-            { path: "/Courses", element: <Courses /> },
-            { path: "/Courses/:id", element: <Course_item /> },
-            { path: "/Events", element: <Events /> },
-            { path: "/Events/:id", element: <Events_item /> },
-            { path: "/Contact", element: <Contact /> },
-            { path: "/Blogs", element: <Blogs /> },
-            { path: "/Blogs/:id", element: <Blogs_item /> },
-            {
-                path: "/verifyEmail",
-                element: <VerifyEmail />,
-            },
-            {
-                path: "*",
-                element: <Not_Found />,
-            },
-        ],
-    },
-    {
         path: "/Login",
         element: <Login />,
     },
@@ -138,17 +136,53 @@ const routes = createBrowserRouter([
             },
             {
                 path: "*",
-                element: <Ar_Not_Found />,
+                element: <Not_Found />,
             },
         ],
     },
+    {
+        path: "/ar/Profile/:id",
+        element: <Ar_Profile />,
+        children: [
+            { index: true, element: <Ar_ProfileInfo /> },
+            {
+                path: "/ar/Profile/:id/Edit",
+                element: <Ar_Profile_Edit />,
+            },
+            {
+                path: "/ar/Profile/:id/Notifications",
+                element: <Ar_Profile_Notifications />,
+            },
+            {
+                path: "/ar/Profile/:id/Notifications/:id",
+                element: <Ar_Notification_item />,
+            },
+            {
+                path: "/ar/Profile/:id/Courses",
+                element: <Ar_Profile_Courses />,
+            },
+            {
+                path: "/ar/Profile/:id/Services",
+                element: <Ar_Profile_Services />,
+            },
+            {
+                path: "/ar/Profile/:id/Requests",
+                element: <Ar_Profile_Requests />,
+            },
+            {
+                path: "*",
+                element: <Not_Found />,
+            },
+        ],
+    },
+
     {
         path: "/ar/Login",
         element: <Ar_Login />,
     },
     {
         path: "/ar/Register",
-        element: <Register />,
+        element: <Ar_Register />,
     },
     {
         path: "/fr",
