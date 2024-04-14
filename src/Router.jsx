@@ -25,8 +25,6 @@ import Profile_Requests from "./Components/Profile/Requests/Profile_Requests";
 import Notification_item from "./Components/Profile/Notification/Notification_item";
 import Not_Found from "./Components/Not_Found";
 
-
-
 import Ar_Home from "./Languages/Arabic/Components/Home/Home";
 import Ar_App from "./Languages/Arabic/App";
 import Ar_Not_Finished from "./Languages/Arabic/Components/Not_Finished";
@@ -113,28 +111,44 @@ const routes = createBrowserRouter([
         ],
     },
     {
+        path: "/Login",
+        element: <Login />,
+    },
+    {
+        path: "/Register",
+        element: <Register />,
+    },
+    {
         path: "/ar",
         element: <Ar_App />,
         children: [
-            { index: true, element: <Home /> },
-            { path: "/ar/Services", element: <Services /> },
-            { path: "/ar/Services/:id", element: <Service_item /> },
-            { path: "/ar/Courses", element: <Courses /> },
-            { path: "/ar/Courses/:id", element: <Course_item /> },
-            { path: "/ar/Events", element: <Events /> },
-            { path: "/ar/Events/:id", element: <Events_item /> },
-            { path: "/ar/Contact", element: <Contact /> },
-            { path: "/ar/Blogs", element: <Blogs /> },
-            { path: "/ar/Blogs/:id", element: <Blogs_item /> },
+            { index: true, element: <Ar_Home /> },
+            { path: "/ar/Services", element: <Ar_Services /> },
+            { path: "/ar/Services/:id", element: <Ar_Service_item /> },
+            { path: "/ar/Courses", element: <Ar_Courses /> },
+            { path: "/ar/Courses/:id", element: <Ar_Course_item /> },
+            { path: "/ar/Events", element: <Ar_Events /> },
+            { path: "/ar/Events/:id", element: <Ar_Events_item /> },
+            { path: "/ar/Contact", element: <Ar_Contact /> },
+            { path: "/ar/Blogs", element: <Ar_Blogs /> },
+            { path: "/ar/Blogs/:id", element: <Ar_Blogs_item /> },
             {
                 path: "/ar/verifyEmail",
-                element: <VerifyEmail />,
+                element: <Ar_VerifyEmail />,
             },
             {
                 path: "*",
-                element: <Not_Found />,
+                element: <Ar_Not_Found />,
             },
         ],
+    },
+    {
+        path: "/ar/Login",
+        element: <Ar_Login />,
+    },
+    {
+        path: "/ar/Register",
+        element: <Register />,
     },
     {
         path: "/fr",
@@ -161,11 +175,11 @@ const routes = createBrowserRouter([
         ],
     },
     {
-        path: "/Login",
+        path: "/fr/Login",
         element: <Login />,
     },
     {
-        path: "/Register",
+        path: "/fr/Register",
         element: <Register />,
     },
     {
