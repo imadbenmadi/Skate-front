@@ -8,6 +8,9 @@ import { useAppContext } from "../../../Context/AppContext";
 import { useEffect } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import { FaAngleUp } from "react-icons/fa";
+import en from "../../../../public/en.png";
+import ar from "../../../../public/ar.png";
+import fr from "../../../../public/fr.png";
 function Laptop_Nav_Items({
     Active_nav,
     isAuth,
@@ -33,10 +36,12 @@ function Laptop_Nav_Items({
     };
     return (
         <div className="hidden  md:flex  items-center justify-center gap-7 text-lg text-black_text h-full ">
-            <div className="flex gap-5">
-                <div onClick={toogle_LanguageClicked} className="  relative pr-6">
+            <div className="flex gap-3 lg:gap-5">
+                <div onClick={toogle_LanguageClicked} className="  relative ">
                     <div className=" flex items-center justify-center gap-1 cursor-pointer">
-                        <p>EN</p>
+                        {/* <p>EN</p> */}
+                        <img src={en} alt="" className=" w-6" />
+
                         {LanguageClicked ? (
                             <FaAngleUp className=" text-lg" />
                         ) : (
@@ -46,27 +51,37 @@ function Laptop_Nav_Items({
 
                     {LanguageClicked && (
                         <div
-                            className="w-24 h-fit shadow-sm bg-white rounded-b-lg
-                                    absolute -left-8 -bottom-[120px] 
+                            className=" cursor-pointer w-24 h-fit shadow-sm bg-white rounded-b-lg
+                                    absolute -left-8 -bottom-[129px] 
                                  flex flex-col items-center justify-center "
                         >
                             <Link
                                 to={"/"}
-                                className="border-b w-full text-center py-1 "
+                                className=" text-green border-2 
+                                        flex items-center justify-center gap-1
+                                         w-full text-center py-1 px-6"
                             >
-                                English
+                                <img src={en} alt="" className=" w-4" />
+                                <p className=" underline">English</p>
                             </Link>
                             <Link
                                 to={"/fr"}
-                                className="border-b w-full text-center py-1"
+                                className="border-b w-full text-center py-1.5 px-6
+                                        flex items-center justify-center gap-1"
                             >
-                                Français
+                                <img src={fr} alt="" className=" w-4" />
+                                <p className=" text-base">Français</p>
                             </Link>
                             <Link
                                 to={"/ar"}
-                                className=" w-full text-center  font-sans py-1"
+                                className=" w-full text-center  font-sans py-1 px-6
+                                        flex items-center justify-center gap-3
+                                        "
                             >
-                                العربية
+                                <img src={ar} alt="" className=" w-4" />
+                                <p className=" font-sans font-semibold ">
+                                    العربية
+                                </p>
                             </Link>
                         </div>
                     )}

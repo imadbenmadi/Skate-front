@@ -16,12 +16,19 @@ import Logo from "../public/Logo.png";
 import Logo2 from "../public/skate_circle.png";
 import Default_image from "../public/Default.jpg";
 import NotFound from "../public/NotFound.png";
+import en from "../public/en.png";
+import ar from "../public/ar.png";
+import fr from "../public/fr.png";
 import { useAppContext } from "./Context/AppContext";
+
 function App() {
     const [loading, setLoading] = useState(true);
     const { set_Auth, store_login, isAuth, IsEmailVerified, Notifications } =
         useAppContext();
     const [Active_nav, setActive_nav] = useState("Home");
+    useEffect(() => {
+        console.log(document.head);
+    }, [document.head]);
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -119,6 +126,9 @@ function App() {
                     Logo2,
                     Default_image,
                     NotFound,
+                    en,
+                    ar,
+                    fr,
                 ];
                 let loadedCount = 0;
                 if (images.length === 0) resolve();
