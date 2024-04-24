@@ -1,7 +1,6 @@
 import { createBrowserRouter } from "react-router-dom";
 import Home from "./Components/Home/Home";
 import App from "./App";
-import Fetcher from "./Fetcher";
 import Not_Finished from "./Components/Not_Finished";
 import Blogs from "./Components/Blogs/Blogs";
 import Blogs_item from "./Components/Blogs/Blogs_item";
@@ -27,7 +26,6 @@ import Notification_item from "./Components/Profile/Notification/Notification_it
 import Not_Found from "./Components/Not_Found";
 
 import Ar_Home from "./Languages/Arabic/Components/Home/Home";
-import Ar_App from "./Languages/Arabic/App";
 import Ar_Blogs from "./Languages/Arabic/Components/Blogs/Blogs";
 import Ar_Blogs_item from "./Languages/Arabic/Components/Blogs/Blogs_item";
 import Ar_Login from "./Languages/Arabic/Components/Login";
@@ -50,6 +48,8 @@ import Ar_Profile_Requests from "./Languages/Arabic/Components/Profile/Requests/
 import Ar_Notification_item from "./Languages/Arabic/Components/Profile/Notification/Notification_item";
 
 import En_app from "./Languages/En"
+import Ar_app from "./Languages/Ar";
+import Fr_app from "./Languages/Fr";
 
 const routes = createBrowserRouter([
     {
@@ -145,7 +145,7 @@ const routes = createBrowserRouter([
     },
     {
         path: "/ar",
-        element: <Ar_App />,
+        element: <Ar_app />,
         children: [
             { index: true, element: <Ar_Home /> },
             { path: "/ar/Services", element: <Ar_Services /> },
