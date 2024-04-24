@@ -35,7 +35,7 @@ function CardCours({ img, title, dec, price }) {
               </div>
 
               <Link
-                  to={"Courses"}
+                  to={"/en/Courses"}
                   className="justify-center self-center px-6 py-3 mb-6 md:mb-0 mt-2 md:mt-6 text-base font-medium leading-6 text-center text-white whitespace-nowrap bg-green rounded-lg"
               >
                   View Course

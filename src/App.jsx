@@ -20,15 +20,20 @@ import en from "../public/en.png";
 import ar from "../public/ar.png";
 import fr from "../public/fr.png";
 import { useAppContext } from "./Context/AppContext";
-
+import { useLocation } from "react-router";
+import { useNavigate } from "react-router";
 function App() {
+    const Location = useLocation();
+    const Navigate = useNavigate();
+    // console.log(
+    //     "Location : ",
+    //     Location.pathname.split("/")[1],
+    //     Location.pathname
+    // );
     const [loading, setLoading] = useState(true);
     const { set_Auth, store_login, isAuth, IsEmailVerified, Notifications } =
         useAppContext();
-    const [Active_nav, setActive_nav] = useState("Home");
-    useEffect(() => {
-        console.log(document.head);
-    }, [document.head]);
+
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -174,25 +179,32 @@ function App() {
                 setLoading(false); // Handle error if any of the promises fail
             });
     }, []);
+    if (loading)
+        return (
+            <div className="w-screen h-screen flex items-center justify-center">
+                <span className="loader"></span>
+            </div>
+        );
+    else if (!Location.pathname.split("/")[1]) Navigate("/en");
 
-    return (
-        <div>
-            {loading ? (
-                <div className="w-screen h-screen flex items-center justify-center">
-                    <span className="loader"></span>
-                </div>
-            ) : (
-                <div className="relative h-screen overflow-y-auto custom-overflow overflow-x-hidden">
-                    <NavBar
-                        Active_nav={Active_nav}
-                        setActive_nav={setActive_nav}
-                    />
-                    {isAuth && !IsEmailVerified && <Activate_account />}
-                    <Outlet />
-                </div>
-            )}
-        </div>
-    );
+    // return (
+    //     <div>
+    //         {loading ? (
+    //             <div className="w-screen h-screen flex items-center justify-center">
+    //                 <span className="loader"></span>
+    //             </div>
+    //         ) : (
+    //             <div className="relative h-screen overflow-y-auto custom-overflow overflow-x-hidden">
+    //                 <NavBar
+    //                     Active_nav={Active_nav}
+    //                     setActive_nav={setActive_nav}
+    //                 />
+    //                 {isAuth && !IsEmailVerified && <Activate_account />}
+    //                 <Outlet />
+    //             </div>
+    //         )}
+    //     </div>
+    // );
 }
 
 export default App;

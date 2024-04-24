@@ -18,7 +18,7 @@ function Blog_item() {
         try {
             const response = await axios.get(
                 `https://backend.skate.dz/Blogs/${
-                    location.pathname.split("/")[2]
+                    location.pathname.split("/")[3]
                 }`,
                 {
                     withCredentials: true,

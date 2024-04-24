@@ -18,7 +18,6 @@ function Profile_Notifications() {
             </div>
         );
     const Notifications = user.user.Notifications;
-    // const userId = location.pathname.split("/")[2];
     const userId = user.user._id;
 
     if (!Notifications)

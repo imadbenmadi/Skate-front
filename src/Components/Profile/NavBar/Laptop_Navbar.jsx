@@ -44,7 +44,7 @@ function Navbar({ Active_nav, setActive_nav, userId, user }) {
 
             <div className=" w-[95%]  md:w-[80%] m-auto text-white  text-sm md:text-xl  lg:text-2xl flex flex-col gap-10 mt-8">
                 <Link
-                    to={`/Profile/${userId}`}
+                    to={`/en/Profile/${userId}`}
                     className={` flex items-center cursor-pointer gap-3 ${
                         !location.pathname.split("/")[3] && "text-green "
                     }`}
@@ -53,7 +53,7 @@ function Navbar({ Active_nav, setActive_nav, userId, user }) {
                     <div>Profile</div>
                 </Link>
                 <Link
-                    to={`/Profile/${userId}/Edit`}
+                    to={`/en/Profile/${userId}/Edit`}
                     className={`select-none flex items-center gap-3 cursor-pointer ${
                         Active_nav == "Edit" && "text-green"
                     }`}
@@ -62,7 +62,7 @@ function Navbar({ Active_nav, setActive_nav, userId, user }) {
                     <div>Edit Profile</div>
                 </Link>
                 <Link
-                    to={`/Profile/${userId}/Notifications`}
+                    to={`/en/Profile/${userId}/Notifications`}
                     className={`select-none flex items-center gap-3 cursor-pointer ${
                         Active_nav == "Notifications" && "text-green"
                     }`}
@@ -78,7 +78,7 @@ function Navbar({ Active_nav, setActive_nav, userId, user }) {
                     <div>Notifications</div>
                 </Link>
                 <Link
-                    to={`/Profile/${userId}/Requests`}
+                    to={`/en/Profile/${userId}/Requests`}
                     className={`select-none flex items-center gap-3 cursor-pointer ${
                         Active_nav == "Requests" && "text-green"
                     }`}
@@ -87,7 +87,7 @@ function Navbar({ Active_nav, setActive_nav, userId, user }) {
                     <div>Requests</div>
                 </Link>
                 <Link
-                    to={`/Profile/${userId}/Courses`}
+                    to={`/en/Profile/${userId}/Courses`}
                     className={`select-none flex items-center gap-3 cursor-pointer ${
                         Active_nav == "Courses" && "text-green"
                     }`}
@@ -96,7 +96,7 @@ function Navbar({ Active_nav, setActive_nav, userId, user }) {
                     <div>Courses</div>
                 </Link>
                 <Link
-                    to={`/Profile/${userId}/Services`}
+                    to={`/en/Profile/${userId}/Services`}
                     className={`select-none flex items-center gap-3 cursor-pointer ${
                         Active_nav == "Services" && "text-green"
                     }`}
@@ -108,7 +108,7 @@ function Navbar({ Active_nav, setActive_nav, userId, user }) {
                 <div
                     className={` flex items-center gap-3 cursor-pointer text-xl  text-white pb-5 `}
                     onClick={() => {
-                        Navigate("/");
+                        Navigate("/en");
                     }}
                 >
                     <TbWorld className=" shrink-0" />

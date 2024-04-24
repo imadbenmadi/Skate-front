@@ -24,7 +24,7 @@ function CourseItem() {
 
     useEffect(() => {
         if (Courses) {
-            const CourseId = location.pathname.split("/")[2];
+            const CourseId = location.pathname.split("/")[3];
             const alreadyHaveCourse = Courses.some(
                 (Course) => Course == CourseId
             );
@@ -39,7 +39,7 @@ function CourseItem() {
                 `https://backend.skate.dz/Courses/request`,
                 {
                     userId: _id,
-                    CourseId: location.pathname.split("/")[2],
+                    CourseId: location.pathname.split("/")[3],
                 },
                 {
                     withCredentials: true,
@@ -61,7 +61,7 @@ function CourseItem() {
                     confirmButtonText: "Go to Login Page",
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        navigate("/Login");
+                        navigate("/en/Login");
                     }
                 });
             } else if (response.status === 400) {
@@ -92,7 +92,7 @@ function CourseItem() {
         try {
             const response = await axios.get(
                 `https://backend.skate.dz/Courses/${
-                    location.pathname.split("/")[2]
+                    location.pathname.split("/")[3]
                 }`,
                 {
                     withCredentials: true,
@@ -132,7 +132,7 @@ function CourseItem() {
         <>
             <div className="pt-[80px] min-h-[100vh]">
                 <Link
-                    to={"/Courses"}
+                    to={"/en/Courses"}
                     className="select-none w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 mb-4"
                 >
                     <IoMdArrowRoundBack />
@@ -187,7 +187,7 @@ function CourseItem() {
                                                         "Go to Login Page",
                                                 }).then((result) => {
                                                     if (result.isConfirmed) {
-                                                        navigate("/Login");
+                                                        navigate("/en/Login");
                                                     }
                                                 });
                                             } else {

@@ -1,7 +1,6 @@
 import React from "react";
 import { useOutletContext } from "react-router-dom";
-import { useNavigate } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { IoWarning } from "react-icons/io5";
 import { FaArrowRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -65,7 +64,7 @@ function Profile_Courses() {
                             <Link
                                 className="text-green rounded-md cursor-pointer  text-xl 
                                 flex items-center gap-2 px-3 py-1 w-fit mx-auto underline "
-                                to={"/Services"}
+                                to={"/en/Services"}
                             >
                                 <div>Exprlore Skate Services</div>
                                 <FaArrowRight />
@@ -104,7 +103,7 @@ function Profile_Courses() {
                             <Link
                                 className="text-green rounded-md cursor-pointer  text-xl 
                                 flex items-center gap-2 px-3 py-1 w-fit mx-auto underline "
-                                to={"/Courses"}
+                                to={"/en/Courses"}
                             >
                                 <div>Exprlore Skate Courses</div>
                                 <FaArrowRight />

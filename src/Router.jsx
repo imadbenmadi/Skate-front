@@ -49,26 +49,49 @@ import Ar_Profile_Edit from "./Languages/Arabic/Components/Profile/Profile_Edit"
 import Ar_Profile_Requests from "./Languages/Arabic/Components/Profile/Requests/Profile_Requests";
 import Ar_Notification_item from "./Languages/Arabic/Components/Profile/Notification/Notification_item";
 
+import En_app from "./Languages/En"
+
 const routes = createBrowserRouter([
     {
         path: "/",
         element: <App />,
+        // children: [
+        //     { index: true, element: <Home /> },
+        //     { path: "/Services", element: <Services /> },
+        //     { path: "/Services/:id", element: <Service_item /> },
+        //     { path: "/Courses", element: <Courses /> },
+        //     { path: "/Courses/:id", element: <Course_item /> },
+        //     { path: "/Events", element: <Events /> },
+        //     { path: "/Events/:id", element: <Events_item /> },
+        //     { path: "/Contact", element: <Contact /> },
+        //     { path: "/Blogs", element: <Blogs /> },
+        //     { path: "/Blogs/:id", element: <Blogs_item /> },
+        //     {
+        //         path: "/verifyEmail",
+        //         element: <VerifyEmail />,
+        //     },
+        //     {
+        //         path: "*",
+        //         element: <Not_Found />,
+        //     },
+        // ],
+    },
+    {
+        path: "/en",
+        element: <En_app />,
         children: [
-            // { index: true, element: <Fetcher /> },
-            // { path: "/Home", element: <Home /> },
-
             { index: true, element: <Home /> },
-            { path: "/Services", element: <Services /> },
-            { path: "/Services/:id", element: <Service_item /> },
-            { path: "/Courses", element: <Courses /> },
-            { path: "/Courses/:id", element: <Course_item /> },
-            { path: "/Events", element: <Events /> },
-            { path: "/Events/:id", element: <Events_item /> },
-            { path: "/Contact", element: <Contact /> },
-            { path: "/Blogs", element: <Blogs /> },
-            { path: "/Blogs/:id", element: <Blogs_item /> },
+            { path: "/en/Services", element: <Services /> },
+            { path: "/en/Services/:id", element: <Service_item /> },
+            { path: "/en/Courses", element: <Courses /> },
+            { path: "/en/Courses/:id", element: <Course_item /> },
+            { path: "/en/Events", element: <Events /> },
+            { path: "/en/Events/:id", element: <Events_item /> },
+            { path: "/en/Contact", element: <Contact /> },
+            { path: "/en/Blogs", element: <Blogs /> },
+            { path: "/en/Blogs/:id", element: <Blogs_item /> },
             {
-                path: "/verifyEmail",
+                path: "/en/verifyEmail",
                 element: <VerifyEmail />,
             },
             {
@@ -78,32 +101,32 @@ const routes = createBrowserRouter([
         ],
     },
     {
-        path: "/Profile/:id",
+        path: "/en/Profile/:id",
         element: <Profile />,
         children: [
             { index: true, element: <ProfileInfo /> },
             {
-                path: "/Profile/:id/Edit",
+                path: "/en/Profile/:id/Edit",
                 element: <Profile_Edit />,
             },
             {
-                path: "/Profile/:id/Notifications",
+                path: "/en/Profile/:id/Notifications",
                 element: <Profile_Notifications />,
             },
             {
-                path: "/Profile/:id/Notifications/:id",
+                path: "/en/Profile/:id/Notifications/:id",
                 element: <Notification_item />,
             },
             {
-                path: "/Profile/:id/Courses",
+                path: "/en/Profile/:id/Courses",
                 element: <Profile_Courses />,
             },
             {
-                path: "/Profile/:id/Services",
+                path: "/en/Profile/:id/Services",
                 element: <Profile_Services />,
             },
             {
-                path: "/Profile/:id/Requests",
+                path: "/en/Profile/:id/Requests",
                 element: <Profile_Requests />,
             },
             {
@@ -113,11 +136,11 @@ const routes = createBrowserRouter([
         ],
     },
     {
-        path: "/Login",
+        path: "/en/Login",
         element: <Login />,
     },
     {
-        path: "/Register",
+        path: "/en/Register",
         element: <Register />,
     },
     {

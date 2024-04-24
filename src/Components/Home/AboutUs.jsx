@@ -3,7 +3,6 @@ import AboutImg from "../../../public/Home_AboutUs.png";
 import bxbowl from "../../../public/bx-bowl-hot 1.png";
 import { useInView, motion } from "framer-motion";
 import { useRef } from "react";
-import { Link } from "react-router-dom";
 import { MdOutlineFileDownload } from "react-icons/md";
 
 export function AboutUs() {

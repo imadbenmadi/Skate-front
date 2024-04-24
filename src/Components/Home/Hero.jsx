@@ -30,14 +30,14 @@ export default function Hero() {
                         </div>
                         <div className=" max-md:flex-col max-md:gap-5 self-center mt-5 flex justify-around items-center z-50 md:w-[80%] w-[200px]">
                             <Link
-                                to={"/Courses"}
+                                to={"/en/Courses"}
                                 className="select-none flex items-center text-[16px] bg-white text-black rounded-xl shadow-xl w-fit px-6 py-2 md:text-2xl cursor-pointer font-semibold"
                             >
                                 Owr Courses
                                 <GrFormNextLink />
                             </Link>
                             <Link
-                                to={"/Services"}
+                                to={"/en/Services"}
                                 className="select-none flex items-center text-[16px]  bg-green text-white rounded-xl shadow-xl w-fit px-6 py-2 md:text-2xl cursor-pointer"
                             >
                                 Owr Services

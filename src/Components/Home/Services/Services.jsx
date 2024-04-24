@@ -21,7 +21,7 @@ function Services() {
                 </div>
 
                 <Link
-                    to={"/Services"}
+                    to={"/en/Services"}
                     className="select-none flex  gap-2 items-center w-fit max-md:hidden text-green underline px-5 py-2 rounded-md  text-center  text-base font-medium  leading-normal"
                 >
                     <span className=" text-xl">Veiw All Services</span>{" "}
@@ -56,7 +56,7 @@ function Services() {
             </div>
 
             <Link
-                to={"/Services"}
+                to={"/en/Services"}
                 className=" flex gap-2 items-center select-none w-fit   mx-auto   md:hidden  px-5 py-2 rounded-md  text-center  font-medium  leading-normal underline text-xl text-green "
             >
                 Veiw All Services <FaArrowRight className=" mt-1" />

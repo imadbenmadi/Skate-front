@@ -13,7 +13,7 @@ function Card({ blog }) {
     }, []);
     return (
         <Link
-            to={`/Blogs/${blog._id}`}
+            to={`/en/Blogs/${blog._id}`}
             className="select-none w-full relative px-2 md:px-5  overflow-hidden border-b border-gray py-5 flex shrink-0 justify-start h-fit"
         >
             <img

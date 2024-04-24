@@ -27,7 +27,7 @@ function Profile() {
         try {
             const response = await axios.get(
                 `https://backend.skate.dz/Profile/${
-                    location.pathname.split("/")[2]
+                    location.pathname.split("/")[3]
                 }`,
                 {
                     withCredentials: true,
@@ -37,7 +37,7 @@ function Profile() {
             if (response.status === 200) {
                 setUser(response.data.userData);
             } else {
-                Navigate("/Login");
+                Navigate("/en/Login");
             }
         } catch (error) {
             setError(error);

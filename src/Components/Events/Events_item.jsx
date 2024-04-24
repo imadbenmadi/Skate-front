@@ -19,7 +19,7 @@ function Event_item() {
         try {
             const response = await axios.get(
                 `https://backend.skate.dz/Events/${
-                    location.pathname.split("/")[2]
+                    location.pathname.split("/")[3]
                 }`,
                 {
                     withCredentials: true,
@@ -54,7 +54,7 @@ function Event_item() {
         <>
             <div className=" pt-[80px] flex flex-col items-center w-[90%] m-auto md:items-start justify-center gap-3 ">
                 <Link
-                    to={"/Events"}
+                    to={"/en/Events"}
                     className="select-none w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 mb-4"
                 >
                     <IoMdArrowRoundBack />

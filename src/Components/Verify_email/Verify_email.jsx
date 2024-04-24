@@ -39,20 +39,13 @@ function Verify_email() {
     const [ResendLoading, setResendLoading] = useState(false);
     const [SubmitLoading, setSubmitLoading] = useState(false);
     function startResendTimer() {
-        // Set the initial remaining time to 60 seconds
         setRemainingSeconds(60);
-        // Update the remaining time every second
         const timerInterval = setInterval(() => {
             setRemainingSeconds((prevSeconds) => {
-                // Decrease the remaining seconds by 1
                 const newSeconds = prevSeconds - 1;
-
-                // If the remaining time reaches 0, enable the resend button and clear the interval
                 if (newSeconds == 0) {
                     clearInterval(timerInterval);
                 }
-
-                // Return the new remaining seconds
                 return newSeconds;
             });
         }, 1000); // Update every 1 second
@@ -86,7 +79,7 @@ function Verify_email() {
 
         if (response.status === 200) {
             Swal.fire("Done!", "Email Verified Successfully", "success");
-            Navigate("/");
+            Navigate("/en");
         } else if (response.status === 404) {
             Swal.fire("Error!", "Verification token not found", "error");
         } else if (response.status === 409) {

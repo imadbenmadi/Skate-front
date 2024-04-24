@@ -130,7 +130,7 @@ function Profile_Edit() {
                                     confirmButtonText: "Go to Admin login Page",
                                 }).then((result) => {
                                     if (result.isConfirmed) {
-                                        Navigate("/Dashboard_login");
+                                        Navigate("/en/Login");
                                     }
                                 });
                             } else if (response.status == 409) {

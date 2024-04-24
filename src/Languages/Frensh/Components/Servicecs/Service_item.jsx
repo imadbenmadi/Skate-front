@@ -24,7 +24,7 @@ function ServiceItem() {
 
     useEffect(() => {
         if (Services) {
-            const serviceId = location.pathname.split("/")[2];
+            const serviceId = location.pathname.split("/")[3];
             const alreadyHaveService = Services.some(
                 (service) => service == serviceId
             );
@@ -40,7 +40,7 @@ function ServiceItem() {
                 `https://backend.skate.dz/Services/request`,
                 {
                     userId: _id,
-                    ServiceId: location.pathname.split("/")[2],
+                    ServiceId: location.pathname.split("/")[3],
                 },
                 {
                     withCredentials: true,
@@ -93,7 +93,7 @@ function ServiceItem() {
         try {
             const response = await axios.get(
                 `https://backend.skate.dz/Services/${
-                    location.pathname.split("/")[2]
+                    location.pathname.split("/")[3]
                 }`,
                 {
                     withCredentials: true,

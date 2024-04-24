@@ -25,7 +25,7 @@ function Notification_item() {
         );
     const Notifications = user.user.Notifications;
     const userId = user.user._id;
-    const notification_id = location.pathname.split("/")[4];
+    const notification_id = location.pathname.split("/")[5];
     const notification = Notifications.find(
         (notification) => notification._id === notification_id
     );

@@ -24,7 +24,7 @@ function CourseItem() {
 
     useEffect(() => {
         if (Courses) {
-            const CourseId = location.pathname.split("/")[2];
+            const CourseId = location.pathname.split("/")[3];
             const alreadyHaveCourse = Courses.some(
                 (Course) => Course == CourseId
             );
@@ -39,7 +39,7 @@ function CourseItem() {
                 `https://backend.skate.dz/Courses/request`,
                 {
                     userId: _id,
-                    CourseId: location.pathname.split("/")[2],
+                    CourseId: location.pathname.split("/")[3],
                 },
                 {
                     withCredentials: true,
@@ -92,7 +92,7 @@ function CourseItem() {
         try {
             const response = await axios.get(
                 `https://backend.skate.dz/Courses/${
-                    location.pathname.split("/")[2]
+                    location.pathname.split("/")[3]
                 }`,
                 {
                     withCredentials: true,

@@ -15,9 +15,9 @@ function Verification({
     const [succed_verification, setSucced_verification] = useState(false);
     const [succed_Login, setSucced_Login] = useState(false);
     useEffect(() => {
-        if (succed_Login && succed_verification) Navigate("/");
+        if (succed_Login && succed_verification) Navigate("/en");
         else if (!succed_Login && succed_verification) {
-            Navigate("/Login");
+            Navigate("/en/Login");
         }
     }, [succed_verification, succed_Login]);
 

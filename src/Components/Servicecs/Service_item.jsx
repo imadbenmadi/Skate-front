@@ -24,7 +24,7 @@ function ServiceItem() {
 
     useEffect(() => {
         if (Services) {
-            const serviceId = location.pathname.split("/")[2];
+            const serviceId = location.pathname.split("/")[3];
             const alreadyHaveService = Services.some(
                 (service) => service == serviceId
             );
@@ -40,7 +40,7 @@ function ServiceItem() {
                 `https://backend.skate.dz/Services/request`,
                 {
                     userId: _id,
-                    ServiceId: location.pathname.split("/")[2],
+                    ServiceId: location.pathname.split("/")[3],
                 },
                 {
                     withCredentials: true,
@@ -62,7 +62,7 @@ function ServiceItem() {
                     confirmButtonText: "Go to Login Page",
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        navigate("/Login");
+                        navigate("/en/Login");
                     }
                 });
             } else if (response.status === 400) {
@@ -93,7 +93,7 @@ function ServiceItem() {
         try {
             const response = await axios.get(
                 `https://backend.skate.dz/Services/${
-                    location.pathname.split("/")[2]
+                    location.pathname.split("/")[3]
                 }`,
                 {
                     withCredentials: true,
@@ -133,7 +133,7 @@ function ServiceItem() {
         <>
             <div className="pt-[80px] min-h-[100vh]">
                 <Link
-                    to={"/Services"}
+                    to={"/en/Services"}
                     className="select-none w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 mb-4"
                 >
                     <IoMdArrowRoundBack />
@@ -188,7 +188,7 @@ function ServiceItem() {
                                                         "Go to Login Page",
                                                 }).then((result) => {
                                                     if (result.isConfirmed) {
-                                                        navigate("/Login");
+                                                        navigate("/en/Login");
                                                     }
                                                 });
                                             } else {

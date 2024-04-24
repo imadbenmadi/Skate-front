@@ -19,7 +19,7 @@ function Event_item() {
         try {
             const response = await axios.get(
                 `https://backend.skate.dz/Events/${
-                    location.pathname.split("/")[2]
+                    location.pathname.split("/")[3]
                 }`,
                 {
                     withCredentials: true,

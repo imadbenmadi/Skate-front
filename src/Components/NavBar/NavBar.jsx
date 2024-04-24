@@ -36,7 +36,7 @@ function NavBar({ Active_nav, setActive_nav }) {
         set_User_Open(!user_Open);
     }
     useEffect(() => {
-        setActive_nav(location.pathname.split("/")[1]);
+        setActive_nav(location.pathname.split("/")[2]);
     }, [location.pathname]);
     const [LogoutClicked, setLogoutClicked] = useState(false);
     const Logout = async () => {
@@ -94,7 +94,7 @@ function NavBar({ Active_nav, setActive_nav }) {
         >
             <div className=" h-full  flex shadow-lg bg-white justify-between items-center md:justify-around select-none ">
                 <div className=" p-2 ml-5 md:ml-0">
-                    <Link to={"/"} className="select-none">
+                    <Link to={"/en"} className="select-none">
                         <img
                             loading="lazy"
                             src={Logo}
@@ -127,7 +127,7 @@ function NavBar({ Active_nav, setActive_nav }) {
                                     flex flex-col items-center justify-center "
                                 >
                                     <Link
-                                        to={"/"}
+                                        to={"/en"}
                                         className=" text-green border-2 
                                         flex items-center justify-start gap-1
                                           text-center py-1 pl-2 w-[100px]"
@@ -146,8 +146,7 @@ function NavBar({ Active_nav, setActive_nav }) {
                                     <Link
                                         to={"/ar"}
                                         className=" w-[100px] text-center  font-sans py-1 
-                                        flex items-center justify-start gap-3 pl-2
-                                        "
+                                        flex items-center justify-start gap-3 pl-2"
                                     >
                                         <img src={ar} alt="" className=" w-4" />
                                         <p className=" font-sans font-semibold ">
@@ -163,7 +162,7 @@ function NavBar({ Active_nav, setActive_nav }) {
                                 <div className="relative">
                                     <Link
                                         onClick={Toogle_Menu_Bar}
-                                        to={`/Profile/${_id}/Notifications`}
+                                        to={`/en/Profile/${_id}/Notifications`}
                                         className="select-none flex "
                                     >
                                         <MdNotificationsNone className=" text-2xl  " />
@@ -177,7 +176,7 @@ function NavBar({ Active_nav, setActive_nav }) {
 
                                 <Link
                                     onClick={Toogle_Menu_Bar}
-                                    to={`/Profile/${_id}`}
+                                    to={`/en/Profile/${_id}`}
                                     className="select-none flex  items-center gap-2 "
                                 >
                                     <FaUserTie className="text-xl" />

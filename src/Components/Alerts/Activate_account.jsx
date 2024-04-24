@@ -22,7 +22,7 @@ const WarningNotification = () => {
                                 you should activate your account
                             </div>
                             <Link
-                                to={"/verifyEmail"}
+                                to={"/en/verifyEmail"}
                                 className="select-none  w-fit flex items-end justify-start gap-1"
                                 onClick={() => {
                                     setIsVisible(false);

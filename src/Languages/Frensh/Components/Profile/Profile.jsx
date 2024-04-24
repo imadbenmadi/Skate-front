@@ -27,7 +27,7 @@ function Profile() {
         try {
             const response = await axios.get(
                 `https://backend.skate.dz/Profile/${
-                    location.pathname.split("/")[2]
+                    location.pathname.split("/")[3]
                 }`,
                 {
                     withCredentials: true,
