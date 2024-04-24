@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useAppContext } from "../../../Context/AppContext";
+import { useAppContext } from "../../../../Context/AppContext";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import ErrorPage from "../ErrorPage";
@@ -9,7 +9,7 @@ import { useNavigate } from "react-router";
 import { MdDone } from "react-icons/md";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import Footer from "../Footer";
-import img from "../../../public/Default.jpg";
+import img from "../../../../../public/Default.jpg";
 
 function ServiceItem() {
     const [loading, setLoading] = useState(false);

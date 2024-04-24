@@ -1,6 +1,6 @@
-import img from "../../../public/Default.jpg";
+import img from "../../../../../public/Default.jpg";
 import { Link } from "react-router-dom";
-import { Formate_Date } from "../../Logic/Formate_Date"; // Import your date formatting function
+import { Formate_Date } from "../../../../Logic/Formate_Date"; // Import your date formatting function
 import { useEffect } from "react";
 import { useState } from "react";
 function Card({ blog }) {
