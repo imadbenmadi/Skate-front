@@ -15,7 +15,7 @@ function CardService({ icon, titleService, desServicce }) {
                     {desServicce}
                 </div>
                 <Link
-                    to={"/Services"}
+                    to={"/en/Services"}
                     className="flex items-center gap-1.5 mt-3 md:mt-6 text-sky-900 whitespace-nowrap"
                 >
                     <div className="grow">Explore</div>

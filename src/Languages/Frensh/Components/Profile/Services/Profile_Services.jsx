@@ -1,3 +1,4 @@
+import React from "react";
 import { useOutletContext } from "react-router-dom";
 import { IoWarning } from "react-icons/io5";
 import { FaArrowRight } from "react-icons/fa";
@@ -24,7 +25,7 @@ function Profile_Services() {
                 <Link
                     className="text-green rounded-md cursor-pointer  text-xl 
                     flex items-center gap-2 px-3 py-1 w-fit mx-auto underline "
-                    to={"/Services"}
+                    to={"/en/Services"}
                 >
                     <div>Exprlore Skate Services</div>
                     <FaArrowRight />

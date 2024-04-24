@@ -37,7 +37,7 @@ function Profile() {
             if (response.status === 200) {
                 setUser(response.data.userData);
             } else {
-                Navigate("/Login");
+                Navigate("/en/Login");
             }
         } catch (error) {
             setError(error);

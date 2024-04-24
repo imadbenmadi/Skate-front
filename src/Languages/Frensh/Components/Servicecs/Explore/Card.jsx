@@ -1,4 +1,4 @@
-import img from "../../../../../../public/Default.jpg";
+import img from "../../../../public/Default.jpg";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
@@ -12,7 +12,7 @@ function Card({ service }) {
     }, []);
     return (
         <Link
-            to={`/Services/${service._id}`}
+            to={`/en/Services/${service._id}`}
             className="select-none w-full relative rounded overflow-hidden border-b border-gray py-5 px-1 md:px-5 flex shrink-0 justify-start h-fit"
         >
             <img

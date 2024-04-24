@@ -5,7 +5,7 @@ import { MdEventAvailable } from "react-icons/md";
 import { RiArticleFill } from "react-icons/ri";
 import { IoCall } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import { useAppContext } from "../../../../../Context/AppContext"; // Import your context hook
+import { useAppContext } from "../../../Context/AppContext"; // Import your context hook
 import { AiFillHome } from "react-icons/ai";
 
 
@@ -43,14 +43,14 @@ function Mobile_Nav_Items({
                             <div className="flex gap-2 mb-4 justify-center ">
                                 <Link
                                     onClick={Toogle_Menu_Bar}
-                                    to={"/Login"}
+                                    to={"/en/Login"}
                                     className="select-none bg-green text-[#fff] px-3 py-2 rounded-lg "
                                 >
                                     Login
                                 </Link>
                                 <Link
                                     onClick={Toogle_Menu_Bar}
-                                    to={"/Register"}
+                                    to={"/en/Register"}
                                     className="select-none bg-blue text-white px-3 py-2 rounded-lg"
                                 >
                                     SignUp
@@ -62,7 +62,7 @@ function Mobile_Nav_Items({
 
                     <Link
                         onClick={Toogle_Menu_Bar}
-                        to={"/"}
+                        to={"/en"}
                         className={`select-none flex gap-2 mb-4 w-[120px] m-auto ${
                             Active_nav === ""
                                 ? " text-green hover:text-green"
@@ -74,7 +74,7 @@ function Mobile_Nav_Items({
                     </Link>
                     <Link
                         onClick={Toogle_Menu_Bar}
-                        to={"/Services"}
+                        to={"/en/Services"}
                         className={`select-none flex  gap-2  mb-4 w-[120px] m-auto ${
                             Active_nav === "Services"
                                 ? " text-green hover:text-green"
@@ -86,7 +86,7 @@ function Mobile_Nav_Items({
                     </Link>
                     <Link
                         onClick={Toogle_Menu_Bar}
-                        to={"/Courses"}
+                        to={"/en/Courses"}
                         className={`select-none flex items-center   gap-2  mb-4 w-[120px] m-auto ${
                             Active_nav === "Courses"
                                 ? " text-green hover:text-green"
@@ -99,7 +99,7 @@ function Mobile_Nav_Items({
                     <div className=" w-full rounded-xl m-auto h-[2px]  bg-gray mb-4"></div>
                     <Link
                         onClick={Toogle_Menu_Bar}
-                        to={"/Events"}
+                        to={"/en/Events"}
                         className={`select-none flex  gap-2 mb-4 w-[120px] m-auto ${
                             Active_nav === "Events"
                                 ? " text-green hover:text-green"
@@ -111,7 +111,7 @@ function Mobile_Nav_Items({
                     </Link>
                     <Link
                         onClick={Toogle_Menu_Bar}
-                        to={"/Blogs"}
+                        to={"/en/Blogs"}
                         className={`select-none flex  gap-2 mb-4 w-[120px] m-auto ${
                             Active_nav === "Blogs"
                                 ? " text-green hover:text-green"
@@ -123,7 +123,7 @@ function Mobile_Nav_Items({
                     </Link>
                     <Link
                         onClick={Toogle_Menu_Bar}
-                        to={"/Contact"}
+                        to={"/en/Contact"}
                         className={`select-none flex   gap-2 w-[120px] m-auto
                         ${
                             Active_nav === "Contact"

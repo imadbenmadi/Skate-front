@@ -1,9 +1,9 @@
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { useNavigate } from "react-router-dom";
-import { useState } from "react";
 import Axios from "axios";
 import Swal from "sweetalert2";
 import { useOutletContext } from "react-router-dom";
+
 function Profile_Edit() {
     const { user, fetchData } = useOutletContext();
     if (!user || !fetchData)
@@ -12,10 +12,7 @@ function Profile_Edit() {
                 <span className="loader"></span>
             </div>
         );
-    const [showPassword, setShowPassword] = useState(false);
-    function handleShowPassword() {
-        setShowPassword(!showPassword);
-    }
+
     const userId = user.user._id;
     const Navigate = useNavigate();
     return (
@@ -133,7 +130,7 @@ function Profile_Edit() {
                                     confirmButtonText: "Go to Admin login Page",
                                 }).then((result) => {
                                     if (result.isConfirmed) {
-                                        Navigate("/Dashboard_login");
+                                        Navigate("/en/Login");
                                     }
                                 });
                             } else if (response.status == 409) {

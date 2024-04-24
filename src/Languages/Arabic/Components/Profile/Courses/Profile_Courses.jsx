@@ -25,7 +25,7 @@ function Profile_Courses() {
                 <Link
                     className="text-green rounded-md cursor-pointer  text-xl 
                     flex items-center gap-2 px-3 py-1 w-fit mx-auto underline "
-                    to={"/Courses"}
+                    to={"/en/Courses"}
                 >
                     <div>Exprlore Skate Courses</div>
                     <FaArrowRight />

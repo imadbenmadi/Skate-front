@@ -3,105 +3,117 @@ import { Outlet } from "react-router";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Activate_account from "./Components/Alerts/Activate_account";
-import Course1 from "../../../public/Course1.jpg";
-import Course2 from "../../../public/Course2.jpg";
-import Course3 from "../../../public/Course3.jpg";
-import iconService1 from "../../../public/iconService1.png";
-import iconService2 from "../../../public/iconService2.png";
-import iconService3 from "../../../public/iconService3.png";
-import Founder_image from "../../../public/Founder.png";
-import pg_image from "../../../public/Home_Hero_bg.png";
-import AboutUs_img from "../../../public/Home_AboutUs.png";
-import Logo from "../../../public/Logo.png";
-import Logo2 from "../../../public/skate_circle.png";
-import Default_image from "../../../public/Default.jpg";
-import NotFound from "../../../public/NotFound.png";
-import { useAppContext } from "./../../Context/AppContext";
+import Course1 from "../public/Course1.jpg";
+import Course2 from "../public/Course2.jpg";
+import Course3 from "../public/Course3.jpg";
+import iconService1 from "../public/iconService1.png";
+import iconService2 from "../public/iconService2.png";
+import iconService3 from "../public/iconService3.png";
+import Founder_image from "../public/Founder.png";
+import pg_image from "../public/Home_Hero_bg.png";
+import AboutUs_img from "../public/Home_AboutUs.png";
+import Logo from "../public/Logo.png";
+import Logo2 from "../public/skate_circle.png";
+import Default_image from "../public/Default.jpg";
+import NotFound from "../public/NotFound.png";
+import en from "../public/en.png";
+import ar from "../public/ar.png";
+import fr from "../public/fr.png";
+import { useAppContext } from "./Context/AppContext";
+import { useLocation } from "react-router";
+import { useNavigate } from "react-router";
 function App() {
+    const Location = useLocation();
+    const Navigate = useNavigate();
+    // console.log(
+    //     "Location : ",
+    //     Location.pathname.split("/")[1],
+    //     Location.pathname
+    // );
     const [loading, setLoading] = useState(true);
     const { set_Auth, store_login, isAuth, IsEmailVerified, Notifications } =
         useAppContext();
-    const [Active_nav, setActive_nav] = useState("Home");
+
     useEffect(() => {
-        // const fetchData = async () => {
-        //     try {
-        //         const response = await axios.get(
-        //             "https://backend.skate.dz/check_Auth",
-        //             {
-        //                 withCredentials: true,
-        //                 validateStatus: () => true,
-        //             }
-        //         );
-        //         if (
-        //             response.status == 200 &&
-        //             response.data.userData._id == null
-        //         ) {
-        //             store_login({
-        //                 FirstName: "",
-        //                 LastName: "",
-        //                 Email: "",
-        //                 Gender: null,
-        //                 Courses: [],
-        //                 Services: [],
-        //                 Notifications: [],
-        //                 IsEmailVerified: null,
-        //                 _id: null,
-        //             });
-        //             set_Auth(false);
-        //             setLoading(false);
-        //         } else if (response.status == 200) {
-        //             const _id = response.data.userData._id;
-        //             const Email = response.data.userData.Email;
-        //             const FirstName = response.data.userData.FirstName;
-        //             const LastName = response.data.userData.LastName;
-        //             const Notifications = response.data.userData.Notifications;
-        //             // console.log("app.jsx : ",response.data.userData.Notifications);
-        //             const Courses = response.data.userData.Courses;
-        //             const Services = response.data.userData.Services;
-        //             const Gender = response.data.userData.Gender;
-        //             const IsEmailVerified =
-        //                 response.data.userData.IsEmailVerified;
-        //             store_login(
-        //                 FirstName,
-        //                 LastName,
-        //                 Email,
-        //                 Gender,
-        //                 Courses,
-        //                 Services,
-        //                 Notifications,
-        //                 IsEmailVerified,
-        //                 _id
-        //             );
-        //             set_Auth(true);
-        //         } else {
-        //             store_login({
-        //                 FirstName: "",
-        //                 LastName: "",
-        //                 Email: "",
-        //                 Gender: null,
-        //                 Courses: [],
-        //                 Services: [],
-        //                 Notifications: [],
-        //                 IsEmailVerified: null,
-        //                 _id: null,
-        //             });
-        //             set_Auth(false);
-        //         }
-        //     } catch (error) {
-        //         store_login({
-        //             FirstName: "",
-        //             LastName: "",
-        //             Email: "",
-        //             Gender: null,
-        //             Courses: [],
-        //             Services: [],
-        //             Notifications: [],
-        //             IsEmailVerified: null,
-        //             _id: null,
-        //         });
-        //         set_Auth(false);
-        //     }
-        // };
+        const fetchData = async () => {
+            try {
+                const response = await axios.get(
+                    "https://backend.skate.dz/check_Auth",
+                    {
+                        withCredentials: true,
+                        validateStatus: () => true,
+                    }
+                );
+                if (
+                    response.status == 200 &&
+                    response.data.userData._id == null
+                ) {
+                    store_login({
+                        FirstName: "",
+                        LastName: "",
+                        Email: "",
+                        Gender: null,
+                        Courses: [],
+                        Services: [],
+                        Notifications: [],
+                        IsEmailVerified: null,
+                        _id: null,
+                    });
+                    set_Auth(false);
+                    setLoading(false);
+                } else if (response.status == 200) {
+                    const _id = response.data.userData._id;
+                    const Email = response.data.userData.Email;
+                    const FirstName = response.data.userData.FirstName;
+                    const LastName = response.data.userData.LastName;
+                    const Notifications = response.data.userData.Notifications;
+                    // console.log("app.jsx : ",response.data.userData.Notifications);
+                    const Courses = response.data.userData.Courses;
+                    const Services = response.data.userData.Services;
+                    const Gender = response.data.userData.Gender;
+                    const IsEmailVerified =
+                        response.data.userData.IsEmailVerified;
+                    store_login(
+                        FirstName,
+                        LastName,
+                        Email,
+                        Gender,
+                        Courses,
+                        Services,
+                        Notifications,
+                        IsEmailVerified,
+                        _id
+                    );
+                    set_Auth(true);
+                } else {
+                    store_login({
+                        FirstName: "",
+                        LastName: "",
+                        Email: "",
+                        Gender: null,
+                        Courses: [],
+                        Services: [],
+                        Notifications: [],
+                        IsEmailVerified: null,
+                        _id: null,
+                    });
+                    set_Auth(false);
+                }
+            } catch (error) {
+                store_login({
+                    FirstName: "",
+                    LastName: "",
+                    Email: "",
+                    Gender: null,
+                    Courses: [],
+                    Services: [],
+                    Notifications: [],
+                    IsEmailVerified: null,
+                    _id: null,
+                });
+                set_Auth(false);
+            }
+        };
 
         const fetch_images = () => {
             return new Promise((resolve, reject) => {
@@ -119,6 +131,9 @@ function App() {
                     Logo2,
                     Default_image,
                     NotFound,
+                    en,
+                    ar,
+                    fr,
                 ];
                 let loadedCount = 0;
                 if (images.length === 0) resolve();
@@ -156,7 +171,7 @@ function App() {
             });
         };
 
-        Promise.all([fetch_font(), fetch_images()])
+        Promise.all([fetch_font(), fetch_images(), fetchData()])
             .then(() => {
                 setLoading(false);
             })
@@ -164,25 +179,32 @@ function App() {
                 setLoading(false); // Handle error if any of the promises fail
             });
     }, []);
+    if (loading)
+        return (
+            <div className="w-screen h-screen flex items-center justify-center">
+                <span className="loader"></span>
+            </div>
+        );
+    else if (!Location.pathname.split("/")[1]) Navigate("/en");
 
-    return (
-        <div>
-            {loading ? (
-                <div className="w-screen h-screen flex items-center justify-center">
-                    <span className="loader"></span>
-                </div>
-            ) : (
-                <div className="relative h-screen overflow-y-auto custom-overflow overflow-x-hidden">
-                    <NavBar
-                        Active_nav={Active_nav}
-                        setActive_nav={setActive_nav}
-                    />
-                    {isAuth && !IsEmailVerified && <Activate_account />}
-                    <Outlet />
-                </div>
-            )}
-        </div>
-    );
+    // return (
+    //     <div>
+    //         {loading ? (
+    //             <div className="w-screen h-screen flex items-center justify-center">
+    //                 <span className="loader"></span>
+    //             </div>
+    //         ) : (
+    //             <div className="relative h-screen overflow-y-auto custom-overflow overflow-x-hidden">
+    //                 <NavBar
+    //                     Active_nav={Active_nav}
+    //                     setActive_nav={setActive_nav}
+    //                 />
+    //                 {isAuth && !IsEmailVerified && <Activate_account />}
+    //                 <Outlet />
+    //             </div>
+    //         )}
+    //     </div>
+    // );
 }
 
 export default App;

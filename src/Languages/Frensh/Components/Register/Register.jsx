@@ -1,4 +1,4 @@
-import Logo from "../../../../../public/Logo.png";
+import Logo from "../../../public/Logo.png";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Link } from "react-router-dom";
 import { useState } from "react";
@@ -30,7 +30,7 @@ function Register() {
                 {!open_verify && (
                     <div>
                         <Link
-                            to={"/"}
+                            to={"/en"}
                             className="select-none w-fit flex m-auto"
                         >
                             <img
@@ -370,7 +370,7 @@ function Register() {
                         <div className=" text-center my-4 text-xl text-black_text">
                             Already Have an Account ?{" "}
                             <Link
-                                to={"/Login"}
+                                to={"/en/Login"}
                                 className="select-none text-green font-semibold cursor-pointer"
                             >
                                 Login

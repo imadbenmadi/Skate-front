@@ -1,8 +1,8 @@
 import { useRef } from "react";
 import CardCours from "./CardCours";
-import img1 from "../../../../../../public/Course1.jpg";
-import img2 from "../../../../../../public/Course2.jpg";
-import img3 from "../../../../../../public/Course3.jpg";
+import img1 from "../../../../public/Course1.jpg";
+import img2 from "../../../../public/Course2.jpg";
+import img3 from "../../../../public/Course3.jpg";
 import { useInView } from "framer-motion";
 import { Link } from "react-router-dom";
 import {
@@ -37,7 +37,7 @@ function Courses() {
                 </div>
 
                 <Link
-                    to={"/Courses"}
+                    to={"/en/Courses"}
                     className="select-none flex  gap-2 items-center w-fit max-md:hidden text-green underline px-5 py-2 rounded-md  text-center  text-base font-medium  leading-normal"
                 >
                     <span className=" text-xl">Veiw All Courses</span>{" "}
@@ -135,7 +135,7 @@ function Courses() {
             </div>
             <div className="w-full pb-10 mx-auto h-fit flex justify-center items-center">
                 <Link
-                    to={"/Courses"}
+                    to={"/en/Courses"}
                     className=" flex gap-2 items-center select-none w-fit   mx-auto   md:hidden  px-5 py-2 rounded-md  text-center  font-medium  leading-normal underline text-xl text-green "
                 >
                     Veiw All Courses <FaArrowRight className=" mt-1" />

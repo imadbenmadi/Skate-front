@@ -1,11 +1,11 @@
-import { useAppContext } from "../../../../../Context/AppContext"; // Import your context hook
+import { useAppContext } from "../../../Context/AppContext"; // Import your context hook
 import { PiWarningCircleBold } from "react-icons/pi";
 import { HiOutlineMailOpen } from "react-icons/hi";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { RiCalendarEventLine } from "react-icons/ri";
 import { FaBookOpen } from "react-icons/fa";
 import { FaRegHandshake } from "react-icons/fa6";
-import { Formate_Date } from "../../../../../Logic/Formate_Date"; // Import your date formatting function
+import { Formate_Date } from "../../../Logic/Formate_Date"; // Import your date formatting function
 import { Link } from "react-router-dom";
 
 const Notifications_items = () => {
@@ -44,9 +44,9 @@ const Notifications_items = () => {
                                 <Link
                                     to={
                                         notification.Type == "verify"
-                                            ? "/verifyEmail"
+                                            ? "/en/verifyEmail"
                                             : // : `/Profile/${_id}/Notifications/${notification._id}`
-                                              `/Profile/${_id}/Notifications`
+                                              `/en/Profile/${_id}/Notifications`
                                     }
                                     key={index}
                                     className={`select-none notification flex justify-start gap-2 p-2 pb-4 border-b border-gray
@@ -107,7 +107,7 @@ const Notifications_items = () => {
                             ))}
                         </div>
                         <Link
-                            to={`/Profile/${_id}/Notifications`}
+                            to={`/en/Profile/${_id}/Notifications`}
                             className="select-none flex justify-end mr-6 mt-2"
                         >
                             <div className="border px-2 py-1">See All</div>

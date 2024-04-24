@@ -1,12 +1,10 @@
-import Logo from "../../../../../public/Logo.png";
+import Logo from "../../../public/Logo.png";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useAppContext } from "../../../../Context/AppContext";
-import { useNavigate } from "react-router";
+import { useAppContext } from "../../Context/AppContext";
 import { handleContact } from "./handleContact";
 import Links from "./Links";
 import Footer from "../Footer";
 function Contact() {
-    const Navigate = useNavigate();
     const { isAuth, _id } = useAppContext();
     return (
         <>

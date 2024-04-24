@@ -1,7 +1,7 @@
-import Logo from "../../../../../public/Logo.png";
+import Logo from "../../../public/Logo.png";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useAppContext } from "../../../../Context/AppContext";
+import { useAppContext } from "../../Context/AppContext";
 import { useLocation } from "react-router";
 import axios from "axios";
 import Menu_Toogler from "./Mobile/Menu_Toogler";
@@ -12,6 +12,9 @@ import { FaUserTie } from "react-icons/fa";
 import { MdNotificationsNone } from "react-icons/md";
 import { FaAngleDown } from "react-icons/fa";
 import { FaAngleUp } from "react-icons/fa";
+import en from "../../../public/en.png";
+import ar from "../../../public/ar.png";
+import fr from "../../../public/fr.png";
 function NavBar({ Active_nav, setActive_nav }) {
     const [LanguageClicked, SetLanguageClicked] = useState(false);
     const toogle_LanguageClicked = () => {
@@ -33,7 +36,7 @@ function NavBar({ Active_nav, setActive_nav }) {
         set_User_Open(!user_Open);
     }
     useEffect(() => {
-        setActive_nav(location.pathname.split("/")[1]);
+        setActive_nav(location.pathname.split("/")[2]);
     }, [location.pathname]);
     const [LogoutClicked, setLogoutClicked] = useState(false);
     const Logout = async () => {
@@ -91,7 +94,7 @@ function NavBar({ Active_nav, setActive_nav }) {
         >
             <div className=" h-full  flex shadow-lg bg-white justify-between items-center md:justify-around select-none ">
                 <div className=" p-2 ml-5 md:ml-0">
-                    <Link to={"/"} className="select-none">
+                    <Link to={"/en"} className="select-none">
                         <img
                             loading="lazy"
                             src={Logo}
@@ -102,13 +105,14 @@ function NavBar({ Active_nav, setActive_nav }) {
                 </div>
 
                 <div className=" flex gap-5 items-center md:hidden">
-                    <div className=" flex items-center h-full gap-5 text-gray ">
+                    <div className=" cursor-pointer flex items-center h-full gap-5 text-gray ">
                         <div
                             onClick={toogle_LanguageClicked}
                             className="  relative"
                         >
                             <div className=" flex items-center justify-center gap-1">
-                                <p>EN</p>
+                                <img src={en} alt="" className=" w-6" />
+                                {/* <p>EN</p> */}
                                 {LanguageClicked ? (
                                     <FaAngleUp className=" text-lg" />
                                 ) : (
@@ -118,27 +122,36 @@ function NavBar({ Active_nav, setActive_nav }) {
 
                             {LanguageClicked && (
                                 <div
-                                    className="w-24 h-fit shadow-sm bg-white rounded-b-lg
-                                    absolute -left-8 -bottom-[100px] 
-                                 flex flex-col items-center justify-center "
+                                    className=" h-fit shadow-sm bg-white rounded-b-md
+                                    absolute -left-8 -bottom-[115px] 
+                                    flex flex-col items-center justify-center "
                                 >
                                     <Link
-                                        to={"/"}
-                                        className="border-b w-full text-center py-1 "
+                                        to={"/en"}
+                                        className=" text-green border-2 
+                                        flex items-center justify-start gap-1
+                                          text-center py-1 pl-2 w-[100px]"
                                     >
-                                        English
+                                        <img src={en} alt="" className=" w-4" />
+                                        <p className=" underline">English</p>
                                     </Link>
                                     <Link
                                         to={"/fr"}
-                                        className="border-b w-full text-center py-1"
+                                        className="border-b w-[100px] text-center py-1 
+                                        flex items-center justify-start gap-1 pl-2"
                                     >
-                                        Français
+                                        <img src={fr} alt="" className=" w-4" />
+                                        <p className=" text-base">Français</p>
                                     </Link>
                                     <Link
                                         to={"/ar"}
-                                        className=" w-full text-center  font-sans py-1"
+                                        className=" w-[100px] text-center  font-sans py-1 
+                                        flex items-center justify-start gap-3 pl-2"
                                     >
-                                        العربية
+                                        <img src={ar} alt="" className=" w-4" />
+                                        <p className=" font-sans font-semibold ">
+                                            العربية
+                                        </p>
                                     </Link>
                                 </div>
                             )}
@@ -149,7 +162,7 @@ function NavBar({ Active_nav, setActive_nav }) {
                                 <div className="relative">
                                     <Link
                                         onClick={Toogle_Menu_Bar}
-                                        to={`/Profile/${_id}/Notifications`}
+                                        to={`/en/Profile/${_id}/Notifications`}
                                         className="select-none flex "
                                     >
                                         <MdNotificationsNone className=" text-2xl  " />
@@ -163,7 +176,7 @@ function NavBar({ Active_nav, setActive_nav }) {
 
                                 <Link
                                     onClick={Toogle_Menu_Bar}
-                                    to={`/Profile/${_id}`}
+                                    to={`/en/Profile/${_id}`}
                                     className="select-none flex  items-center gap-2 "
                                 >
                                     <FaUserTie className="text-xl" />

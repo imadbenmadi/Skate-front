@@ -70,14 +70,14 @@ function Footer() {
                 <div className="flex flex-col gap-5 md:flex-row md:justify-between self-center max-w-[1200px] mx-auto">
                     <div className="hidden md:flex flex-col gap-2 items-start">
                         <div className="flex flex-col gap-2 md:flex-row md:gap-5 justify-between text-base font-bold text-neutral-600">
-                            <Link to={"/"}>Home</Link>
-                            <Link to={"Contact"}>Contact Us</Link>
+                            <Link to={"/en"}>Home</Link>
+                            <Link to={"/en/Contact"}>Contact Us</Link>
                         </div>
                         <div className="flex flex-col gap-2 md:flex-row md:gap-5 justify-between text-base font-bold text-neutral-600">
-                            <Link to={"/Services"}>Services</Link>
-                            <Link to={"/Courses"}>Courses</Link>
-                            <Link to={"/Events"}>Events</Link>
-                            <Link to={"/Blogs"}>Blogs</Link>
+                            <Link to={"/en/Services"}>Services</Link>
+                            <Link to={"/en/Courses"}>Courses</Link>
+                            <Link to={"/en/Events"}>Events</Link>
+                            <Link to={"/en/Blogs"}>Blogs</Link>
                         </div>
                     </div>
                     <div className="flex items-center">
@@ -90,16 +90,16 @@ function Footer() {
                 </div>
                 <div className="md:hidden pt-8 flex flex-col  gap-2 text-neutral-600 font-semibold ">
                     <div className="flex flex-col items-center gap-2">
-                        <Link to={"/"}>Home</Link>
-                        <Link to={"/Services"}>Services</Link>
+                        <Link to={"/en"}>Home</Link>
+                        <Link to={"/en/Services"}>Services</Link>
                     </div>
                     <div className="flex flex-col items-center gap-2">
-                        <Link to={"Contact"}>Contact Us</Link>
-                        <Link to={"/Courses"}>Courses</Link>
+                        <Link to={"/en/Contact"}>Contact Us</Link>
+                        <Link to={"/en/Courses"}>Courses</Link>
                     </div>
                     <div className="flex flex-col items-center gap-2">
-                        <Link to={"/Events"}>Events</Link>
-                        <Link to={"/Blogs"}>Blogs</Link>
+                        <Link to={"/en/Events"}>Events</Link>
+                        <Link to={"/en/Blogs"}>Blogs</Link>
                     </div>
                 </div>
             </div>

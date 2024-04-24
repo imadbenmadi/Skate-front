@@ -10,7 +10,7 @@ import { MdOutlineMailOutline } from "react-icons/md";
 import { RiCalendarEventLine } from "react-icons/ri";
 import { FaBook } from "react-icons/fa";
 import { FaRegHandshake } from "react-icons/fa";
-import { Formate_Date } from "../../../../../Logic/Formate_Date";
+import { Formate_Date } from "../../../Logic/Formate_Date";
 import axios from "axios";
 
 function Notification_item() {
@@ -33,7 +33,7 @@ function Notification_item() {
         return (
             <div className="w-full mt-10 flex flex-col gap-10 items-center justify-center">
                 <Link
-                    to={`/Profile/${userId}/Notifications`}
+                    to={`/en/Profile/${userId}/Notifications`}
                     className="select-none w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 mb-4"
                 >
                     <IoMdArrowRoundBack />
@@ -81,7 +81,7 @@ function Notification_item() {
         <div className="w-[90%] m-auto md:w-[70%] mt-6">
             <div className="w-full flex items-center justify-center gap-4">
                 <Link
-                    to={`/Profile/${userId}/Notifications`}
+                    to={`/en/Profile/${userId}/Notifications`}
                     className="select-none w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1"
                 >
                     <IoMdArrowRoundBack />

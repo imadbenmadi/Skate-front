@@ -46,7 +46,7 @@ function Navbar({
                     <div className=" flex flex-col gap-10 ml-4">
                         {/* nav items */}
                         <Link
-                            to={`/Profile/${userId}`}
+                            to={`/en/Profile/${userId}`}
                             onClick={() => SetOpenNav(false)}
                             className={`flex items-center cursor-pointer gap-1 ${
                                 !location.pathname.split("/")[3] &&
@@ -61,7 +61,7 @@ function Navbar({
                             <div>Profile</div>
                         </Link>
                         <Link
-                            to={`/Profile/${userId}/Edit`}
+                            to={`/en/Profile/${userId}/Edit`}
                             onClick={() => SetOpenNav(false)}
                             className={`select-none flex items-center gap-1 cursor-pointer ${
                                 Active_nav == "Edit" && "text-green"
@@ -71,7 +71,7 @@ function Navbar({
                             <div>Edit Profile</div>
                         </Link>
                         <Link
-                            to={`/Profile/${userId}/Notifications`}
+                            to={`/en/Profile/${userId}/Notifications`}
                             onClick={() => SetOpenNav(false)}
                             className={`select-none flex items-center gap-1 cursor-pointer ${
                                 Active_nav == "Notifications" && "text-green"
@@ -93,7 +93,7 @@ function Navbar({
                             <div className=" text-sm">Notifications</div>
                         </Link>
                         <Link
-                            to={`/Profile/${userId}/Requests`}
+                            to={`/en/Profile/${userId}/Requests`}
                             onClick={() => SetOpenNav(false)}
                             className={`select-none flex items-center gap-1 cursor-pointer ${
                                 Active_nav == "Requests" && "text-green"
@@ -103,7 +103,7 @@ function Navbar({
                             <div>Requests</div>
                         </Link>
                         <Link
-                            to={`/Profile/${userId}/Courses`}
+                            to={`/en/Profile/${userId}/Courses`}
                             onClick={() => SetOpenNav(false)}
                             className={`select-none flex items-center gap-1 cursor-pointer ${
                                 Active_nav == "Courses" && "text-green"
@@ -113,7 +113,7 @@ function Navbar({
                             <div>Courses</div>
                         </Link>
                         <Link
-                            to={`/Profile/${userId}/Services`}
+                            to={`/en/Profile/${userId}/Services`}
                             onClick={() => SetOpenNav(false)}
                             className={`select-none flex items-center gap-1 cursor-pointer ${
                                 Active_nav == "Services" && "text-green"
@@ -125,7 +125,7 @@ function Navbar({
                         <div
                             className={` flex items-center gap-1 cursor-pointer text-xl text-white  `}
                             onClick={() => {
-                                Navigate("/");
+                                Navigate("/en");
                             }}
                         >
                             <TbWorld />
@@ -143,7 +143,7 @@ function Navbar({
                     {/* nav items */}
 
                     <Link
-                        to={`/Profile/${userId}`}
+                        to={`/en/Profile/${userId}`}
                         className={`flex items-center cursor-pointer ${
                             !location.pathname.split("/")[3]
                                 ? "text-green"
@@ -153,7 +153,7 @@ function Navbar({
                         <FaUser />
                     </Link>
                     <Link
-                        to={`/Profile/${userId}/Edit`}
+                        to={`/en/Profile/${userId}/Edit`}
                         className={`text-lg select-none flex items-center gap-3 cursor-pointer ${
                             Active_nav === "Edit" ? "text-green" : "text-white"
                         }`}
@@ -161,7 +161,7 @@ function Navbar({
                         <FaPen />
                     </Link>
                     <Link
-                        to={`/Profile/${userId}/Notifications`}
+                        to={`/en/Profile/${userId}/Notifications`}
                         className={`text-2xl select-none flex items-center gap-3 cursor-pointer ${
                             Active_nav === "Notifications"
                                 ? "text-green"
@@ -179,7 +179,7 @@ function Navbar({
                         </div>
                     </Link>
                     <Link
-                        to={`/Profile/${userId}/Requests`}
+                        to={`/en/Profile/${userId}/Requests`}
                         className={`select-none flex items-center gap-3 cursor-pointer ${
                             Active_nav === "Requests"
                                 ? "text-green"
@@ -189,7 +189,7 @@ function Navbar({
                         <IoNewspaper />
                     </Link>
                     <Link
-                        to={`/Profile/${userId}/Courses`}
+                        to={`/en/Profile/${userId}/Courses`}
                         className={`select-none flex items-center gap-3 cursor-pointer ${
                             Active_nav === "Courses"
                                 ? "text-green"
@@ -199,7 +199,7 @@ function Navbar({
                         <FaBook />
                     </Link>
                     <Link
-                        to={`/Profile/${userId}/Services`}
+                        to={`/en/Profile/${userId}/Services`}
                         className={`select-none flex items-center gap-3 cursor-pointer ${
                             Active_nav === "Services"
                                 ? "text-green"
@@ -212,7 +212,7 @@ function Navbar({
                     <div
                         className={` flex items-center gap-3 cursor-pointer text-xl  text-white  `}
                         onClick={() => {
-                            Navigate("/");
+                            Navigate("/en");
                         }}
                     >
                         <TbWorld />

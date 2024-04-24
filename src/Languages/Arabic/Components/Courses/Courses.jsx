@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios"; // Import axios for making HTTP requests
-import { useAppContext } from "../../../../Context/AppContext";
+import { useAppContext } from "../../Context/AppContext";
 import Explore from "./Explore/Explore";
 import ErrorPage from "../ErrorPage";
-import Footer from "../Footer";
 function Courses() {
     const [loading, setLoading] = useState(false);
     const [courses, setCourses] = useState([]);

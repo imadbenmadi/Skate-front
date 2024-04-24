@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import Logo from "../../../../../public/skate_circle.png";
+import Logo from "../../../public/skate_circle.png";
 import Axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import { Formate_Date } from "../../../../Logic/Formate_Date";
+import { Formate_Date } from "../../Logic/Formate_Date";
 
 function Verification({
     Verify_id,
@@ -15,9 +15,9 @@ function Verification({
     const [succed_verification, setSucced_verification] = useState(false);
     const [succed_Login, setSucced_Login] = useState(false);
     useEffect(() => {
-        if (succed_Login && succed_verification) Navigate("/");
+        if (succed_Login && succed_verification) Navigate("/en");
         else if (!succed_Login && succed_verification) {
-            Navigate("/Login");
+            Navigate("/en/Login");
         }
     }, [succed_verification, succed_Login]);
 

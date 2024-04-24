@@ -1,5 +1,5 @@
 import React from "react";
-import { Formate_Date } from "../../../../../Logic/Formate_Date";
+import { Formate_Date } from "../../../Logic/Formate_Date";
 import { PiWarningCircleBold } from "react-icons/pi";
 import { MdOutlineMailOutline } from "react-icons/md";
 import { RiCalendarEventLine } from "react-icons/ri";
@@ -9,10 +9,10 @@ import { useState } from "react";
 import { FaTrashCan } from "react-icons/fa6";
 import axios from "axios";
 import Swal from "sweetalert2";
-import { useNavigate } from "react-router-dom";
 import { Link } from "react-router-dom";
 function Card({ user, notification, index, fetchData }) {
-    const Navigate = useNavigate();
+    // fetchData()
+    // const [fetchData] = useOutletContext();
     const [showDescription, setShowDescription] = useState(false);
     function toggleDescription() {
         setShowDescription(!showDescription);
@@ -89,7 +89,7 @@ function Card({ user, notification, index, fetchData }) {
             }`}
         >
             <Link
-                to={`/Profile/${user.user._id}/Notifications/${notification._id}`}
+                to={`/en/Profile/${user.user._id}/Notifications/${notification._id}`}
                 className=" w-[95%]"
             >
                 <div

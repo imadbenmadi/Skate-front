@@ -9,6 +9,7 @@ function Blogs() {
     const [search, setSearch] = useState("");
     const [blogs, setBlogs] = useState([]);
     const [error, setError] = useState(null);
+    const [page, setPage] = useState(1);
 
     const [filteredBlogs, setFilteredBlogs] = useState([]);
 

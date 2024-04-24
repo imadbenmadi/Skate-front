@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useAppContext } from "../../../../Context/AppContext";
+import { useAppContext } from "../../Context/AppContext";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import ErrorPage from "../ErrorPage";
@@ -9,7 +9,7 @@ import { useNavigate } from "react-router";
 import { MdDone } from "react-icons/md";
 import { IoMdArrowRoundBack } from "react-icons/io";
 import Footer from "../Footer";
-import img from "../../../../../public/Default.jpg";
+import img from "../../../public/Default.jpg";
 
 function ServiceItem() {
     const [loading, setLoading] = useState(false);
@@ -62,7 +62,7 @@ function ServiceItem() {
                     confirmButtonText: "Go to Login Page",
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        navigate("/Login");
+                        navigate("/en/Login");
                     }
                 });
             } else if (response.status === 400) {
@@ -133,7 +133,7 @@ function ServiceItem() {
         <>
             <div className="pt-[80px] min-h-[100vh]">
                 <Link
-                    to={"/Services"}
+                    to={"/en/Services"}
                     className="select-none w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 mb-4"
                 >
                     <IoMdArrowRoundBack />
@@ -188,7 +188,7 @@ function ServiceItem() {
                                                         "Go to Login Page",
                                                 }).then((result) => {
                                                     if (result.isConfirmed) {
-                                                        navigate("/Login");
+                                                        navigate("/en/Login");
                                                     }
                                                 });
                                             } else {

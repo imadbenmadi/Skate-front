@@ -1,4 +1,4 @@
-import Not_Found_image from "../../../../public/NotFound.png";
+import Not_Found_image from "../../public/NotFound.png";
 import { Link } from "react-router-dom";
 function Not_Found() {
     return (
@@ -22,7 +22,7 @@ function Not_Found() {
                 />
                 <p className="text-sm text-gray-600">
                     Double-check the URL or Go back to the{" "}
-                    <Link to={"/"} className=" text-green select-none">
+                    <Link to={"/en"} className=" text-green select-none">
                         home page.
                     </Link>
                 </p>

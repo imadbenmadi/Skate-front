@@ -4,10 +4,13 @@ import { TbLogout } from "react-icons/tb";
 import { FaUserTie } from "react-icons/fa";
 import { MdNotificationsNone } from "react-icons/md";
 import Notifications_items from "./Notifications_items";
-import { useAppContext } from "../../../../../Context/AppContext";
+import { useAppContext } from "../../../Context/AppContext";
 import { useEffect } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import { FaAngleUp } from "react-icons/fa";
+import en from "../../../../public/en.png";
+import ar from "../../../../public/ar.png";
+import fr from "../../../../public/fr.png";
 function Laptop_Nav_Items({
     Active_nav,
     isAuth,
@@ -27,16 +30,21 @@ function Laptop_Nav_Items({
             SetunReaded_Notif(hasUnreadNotification);
         }
     }, [Notifications]);
+    useEffect(() => {
+        console.log(Active_nav);
+    }, [Active_nav]);
     const [LanguageClicked, SetLanguageClicked] = useState(false);
     const toogle_LanguageClicked = () => {
         SetLanguageClicked(!LanguageClicked);
     };
     return (
         <div className="hidden  md:flex  items-center justify-center gap-7 text-lg text-black_text h-full ">
-            <div className="flex gap-5">
-                <div onClick={toogle_LanguageClicked} className="  relative pr-6">
+            <div className="flex gap-3 lg:gap-5">
+                <div onClick={toogle_LanguageClicked} className="  relative ">
                     <div className=" flex items-center justify-center gap-1 cursor-pointer">
-                        <p>EN</p>
+                        {/* <p>EN</p> */}
+                        <img src={en} alt="" className=" w-6" />
+
                         {LanguageClicked ? (
                             <FaAngleUp className=" text-lg" />
                         ) : (
@@ -46,36 +54,46 @@ function Laptop_Nav_Items({
 
                     {LanguageClicked && (
                         <div
-                            className="w-24 h-fit shadow-sm bg-white rounded-b-lg
-                                    absolute -left-8 -bottom-[120px] 
+                            className=" cursor-pointer w-24 h-fit shadow-sm bg-white rounded-b-lg
+                                    absolute -left-8 -bottom-[129px] 
                                  flex flex-col items-center justify-center "
                         >
                             <Link
-                                to={"/"}
-                                className="border-b w-full text-center py-1 "
+                                to={"/en"}
+                                className=" text-green border-2 
+                                        flex items-center justify-center gap-1
+                                         w-full text-center py-1 px-6"
                             >
-                                English
+                                <img src={en} alt="" className=" w-4" />
+                                <p className=" underline">English</p>
                             </Link>
                             <Link
                                 to={"/fr"}
-                                className="border-b w-full text-center py-1"
+                                className="border-b w-full text-center py-1.5 px-6
+                                        flex items-center justify-center gap-1"
                             >
-                                Français
+                                <img src={fr} alt="" className=" w-4" />
+                                <p className=" text-base">Français</p>
                             </Link>
                             <Link
                                 to={"/ar"}
-                                className=" w-full text-center  font-sans py-1"
+                                className=" w-full text-center  font-sans py-1 px-6
+                                        flex items-center justify-center gap-3
+                                        "
                             >
-                                العربية
+                                <img src={ar} alt="" className=" w-4" />
+                                <p className=" font-sans font-semibold ">
+                                    العربية
+                                </p>
                             </Link>
                         </div>
                     )}
                 </div>
                 <div className=" hover:text-green transition-colors cursor-pointer">
                     <Link
-                        to={"/"}
+                        to={"/en"}
                         className={
-                            Active_nav == ""
+                            !Active_nav 
                                 ? "text-green hover:text-green select-none"
                                 : "text-black_text hover:text-green select-none"
                         }
@@ -85,7 +103,7 @@ function Laptop_Nav_Items({
                 </div>
                 <div className=" hover:text-green transition-colors cursor-pointer">
                     <Link
-                        to={"/Services"}
+                        to={"/en/Services"}
                         className={
                             Active_nav == "Services"
                                 ? "text-green hover:text-green select-none"
@@ -97,7 +115,7 @@ function Laptop_Nav_Items({
                 </div>
                 <div className=" hover:text-green transition-colors cursor-pointer">
                     <Link
-                        to={"/Courses"}
+                        to={"/en/Courses"}
                         className={
                             Active_nav == "Courses"
                                 ? "text-green hover:text-green select-none"
@@ -109,7 +127,7 @@ function Laptop_Nav_Items({
                 </div>
                 <div className=" hover:text-green transition-colors cursor-pointer">
                     <Link
-                        to={"/Events"}
+                        to={"/en/Events"}
                         className={
                             Active_nav == "Events"
                                 ? "text-green hover:text-green select-none"
@@ -121,7 +139,7 @@ function Laptop_Nav_Items({
                 </div>
                 <div className=" hover:text-green transition-colors cursor-pointer">
                     <Link
-                        to={"/Blogs"}
+                        to={"/en/Blogs"}
                         className={
                             Active_nav == "Blogs"
                                 ? "text-green hover:text-green select-none"
@@ -133,7 +151,7 @@ function Laptop_Nav_Items({
                 </div>
                 <div className="  transition-colors cursor-pointer">
                     <Link
-                        to={"/Contact"}
+                        to={"/en/Contact"}
                         className={`${
                             Active_nav == "Contact"
                                 ? "text-green hover:text-green select-none"
@@ -160,7 +178,7 @@ function Laptop_Nav_Items({
                         >
                             <div className=" relative flex items-center justify-center select-none">
                                 <Link
-                                    to={`/Profile/${_id}/Notifications`}
+                                    to={`/en/Profile/${_id}/Notifications`}
                                     className=""
                                 >
                                     <MdNotificationsNone className="text-gray text-2xl cursor-pointer" />
@@ -188,7 +206,7 @@ function Laptop_Nav_Items({
                             )}
                         </div>
                         <Link
-                            to={`/Profile/${_id}`}
+                            to={`/en/Profile/${_id}`}
                             className="select-none h-full "
                             onMouseEnter={() => setUser_menu_open(true)}
                             onMouseLeave={() => setUser_menu_open(false)}
@@ -203,7 +221,7 @@ function Laptop_Nav_Items({
                                 onMouseLeave={() => setUser_menu_open(false)}
                             >
                                 <Link
-                                    to={`/Profile/${_id}`}
+                                    to={`/en/Profile/${_id}`}
                                     className="select-none flex items-center gap-3 pl-4 mb-1 "
                                     onClick={() => setUser_menu_open(false)}
                                 >
@@ -244,12 +262,12 @@ function Laptop_Nav_Items({
                 ) : (
                     <>
                         <span className="bg-green text-[#fff] px-3 py-1 text-xl rounded-lg cursor-pointer">
-                            <Link to={"/Login"} className="select-none">
+                            <Link to={"/en/Login"} className="select-none">
                                 Login
                             </Link>
                         </span>
                         <span className="bg-blue text-[#fff] px-3 py-1 text-xl rounded-lg cursor-pointer">
-                            <Link to={"/Register"} className="select-none">
+                            <Link to={"/en/Register"} className="select-none">
                                 SignUp
                             </Link>
                         </span>

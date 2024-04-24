@@ -1,4 +1,4 @@
-import img from "../../../../../../public/Default.jpg";
+import img from "../../../../public/Default.jpg";
 import { useEffect } from "react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
@@ -11,7 +11,7 @@ function Card({ course }) {
     }, []);
     return (
         <Link
-            to={`/Courses/${course._id}`}
+            to={`/en/Courses/${course._id}`}
             className="select-none w-full relative rounded overflow-hidden border-b border-gray py-5 px-1 md:px-5 flex shrink-0 justify-start h-fit"
         >
             <img

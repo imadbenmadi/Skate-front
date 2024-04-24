@@ -1,4 +1,4 @@
-import Logo from "../../../../public/Logo.png";
+import Logo from "../../public/Logo.png";
 import { Formik, Form, Field, ErrorMessage } from "formik";
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
@@ -28,7 +28,7 @@ function Login() {
 
             if (response.status == 200) {
                 Swal.fire("Done!", "Logged in Successfully", "success");
-                Navigate("/");
+                Navigate("/en");
             } else if (response.status == 401) {
                 Swal.fire("Username or Password isn't correct", ``, "error");
             } else if (response.status == 409) {
@@ -55,7 +55,7 @@ function Login() {
         <>
             <div className=" min-h-[60vh]">
                 <div>
-                    <Link to={"/"} className="select-none flex m-auto w-fit ">
+                    <Link to={"/en"} className="select-none flex m-auto w-fit ">
                         <img
                             className=" w-20 m-auto pt-5 "
                             src={Logo}
@@ -102,9 +102,7 @@ function Login() {
                             return errors;
                         }}
                         onSubmit={(values, { setSubmitting }) => {
-                            // Call your registration logic here
                             handleLogin(values, { setSubmitting });
-                            // Succeed_Login ? Navigate("/") : null;
                         }}
                     >
                         {({ isSubmitting }) => (
@@ -191,7 +189,7 @@ function Login() {
                 <div className=" text-center  text-xl my-4 text-black_text">
                     Don't Have an Account ?{" "}
                     <Link
-                        to={"/Register"}
+                        to={"/en/Register"}
                         className=" text-green font-semibold cursor-pointer select-none"
                     >
                         Register

@@ -1,6 +1,5 @@
 
-import Comming_Soon from "../../../../public/Comming_Soon.png";
-
+import Comming_Soon from "../../public/Comming_Soon.png";
 
 function Not_Finished() {
     return (

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import {  useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { IoIosNotifications } from "react-icons/io";
 import { IoNewspaper } from "react-icons/io5";
@@ -33,10 +33,10 @@ function ProfileInfo() {
             );
             if (response.status == 204) {
                 Swal.fire("Logout", ``, "success");
-                Navigate("/");
+                Navigate("/en");
             } else if (response.status == 401) {
                 Swal.fire("Logout", ``, "success");
-                Navigate("/");
+                Navigate("/en");
             } else {
                 Swal.fire("Error!", `Something Went Wrong ,`, "error");
             }
@@ -93,7 +93,7 @@ function ProfileInfo() {
             <div className=" flex items-center justify-center flex-col text-xl md:text-3xl text-gray  gap-10 w-full mt-12 ">
                 <div className=" flex gap-4 md:gap-12">
                     <Link
-                        to={`/Profile/${user.user._id}/Notifications`}
+                        to={`/en/Profile/${user.user._id}/Notifications`}
                         className=" bg-[#7e549e] px-4 py-2 rounded text-white w-[140px] md:w-[200px]"
                     >
                         <div className="flex gap-1 items-center justify-center  ">
@@ -103,7 +103,7 @@ function ProfileInfo() {
                         <div className=" text-center">Notifications</div>
                     </Link>
                     <Link
-                        to={`/Profile/${user.user._id}/Requests`}
+                        to={`/en/Profile/${user.user._id}/Requests`}
                         className=" bg-[#c2549d] px-4 py-2 rounded text-white w-[140px] md:w-[200px]"
                     >
                         <div className="flex gap-1 items-center justify-center ">
@@ -116,7 +116,7 @@ function ProfileInfo() {
                 </div>
                 <div className=" flex gap-4 md:gap-12">
                     <Link
-                        to={`/Profile/${user.user._id}/Courses`}
+                        to={`/en/Profile/${user.user._id}/Courses`}
                         className=" bg-[#213059] px-4 py-2 rounded text-white w-[140px] md:w-[200px]"
                     >
                         <div className="flex gap-1 items-center justify-center ">
@@ -126,7 +126,7 @@ function ProfileInfo() {
                         <div className=" text-center">Courses</div>
                     </Link>
                     <Link
-                        to={`/Profile/${user.user._id}/Services`}
+                        to={`/en/Profile/${user.user._id}/Services`}
                         className=" bg-[#286a69] px-4 py-2 rounded text-white w-[140px] md:w-[200px]"
                     >
                         <div className="flex gap-1 items-center justify-center ">
