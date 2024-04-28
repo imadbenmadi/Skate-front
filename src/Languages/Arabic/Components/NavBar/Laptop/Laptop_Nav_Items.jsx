@@ -18,6 +18,7 @@ function Laptop_Nav_Items({
     Logout,
     LogoutClicked,
 }) {
+    
     const [unReaded_Notif, SetunReaded_Notif] = useState(false);
     const { Notifications, _id } = useAppContext();
     const [User_menu_open, setUser_menu_open] = useState(false);
@@ -30,6 +31,7 @@ function Laptop_Nav_Items({
             SetunReaded_Notif(hasUnreadNotification);
         }
     }, [Notifications]);
+   
     const [LanguageClicked, SetLanguageClicked] = useState(false);
     const toogle_LanguageClicked = () => {
         SetLanguageClicked(!LanguageClicked);

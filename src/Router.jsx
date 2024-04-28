@@ -51,12 +51,13 @@ import En_app from "./Languages/En"
 import Ar_app from "./Languages/Ar";
 import Fr_app from "./Languages/Fr";
 
+import Defualt from "./Defualt";
 const routes = createBrowserRouter([
     {
         path: "/",
         element: <App />,
         children: [
-            // { index: true, element: <Home /> },
+            { index: true, element: <Defualt /> },
             // { path: "/Services", element: <Services /> },
             // { path: "/Services/:id", element: <Service_item /> },
             // { path: "/Courses", element: <Courses /> },
@@ -74,75 +75,76 @@ const routes = createBrowserRouter([
             //     path: "*",
             //     element: <Not_Found />,
             // },
+            {
+                path: "/en",
+                element: <En_app />,
+                children: [
+                    { index: true, element: <Home /> },
+                    { path: "/en/Services", element: <Services /> },
+                    { path: "/en/Services/:id", element: <Service_item /> },
+                    { path: "/en/Courses", element: <Courses /> },
+                    { path: "/en/Courses/:id", element: <Course_item /> },
+                    { path: "/en/Events", element: <Events /> },
+                    { path: "/en/Events/:id", element: <Events_item /> },
+                    { path: "/en/Contact", element: <Contact /> },
+                    { path: "/en/Blogs", element: <Blogs /> },
+                    { path: "/en/Blogs/:id", element: <Blogs_item /> },
+                    {
+                        path: "/en/verifyEmail",
+                        element: <VerifyEmail />,
+                    },
+                    {
+                        path: "*",
+                        element: <Not_Found />,
+                    },
+                ],
+            },
+            {
+                path: "/en/Profile/:id",
+                element: <Profile />,
+                children: [
+                    { index: true, element: <ProfileInfo /> },
+                    {
+                        path: "/en/Profile/:id/Edit",
+                        element: <Profile_Edit />,
+                    },
+                    {
+                        path: "/en/Profile/:id/Notifications",
+                        element: <Profile_Notifications />,
+                    },
+                    {
+                        path: "/en/Profile/:id/Notifications/:id",
+                        element: <Notification_item />,
+                    },
+                    {
+                        path: "/en/Profile/:id/Courses",
+                        element: <Profile_Courses />,
+                    },
+                    {
+                        path: "/en/Profile/:id/Services",
+                        element: <Profile_Services />,
+                    },
+                    {
+                        path: "/en/Profile/:id/Requests",
+                        element: <Profile_Requests />,
+                    },
+                    {
+                        path: "*",
+                        element: <Not_Found />,
+                    },
+                ],
+            },
+            {
+                path: "/en/Login",
+                element: <Login />,
+            },
+            {
+                path: "/en/Register",
+                element: <Register />,
+            },
         ],
     },
-    {
-        path: "/en",
-        element: <En_app />,
-        children: [
-            { index: true, element: <Home /> },
-            { path: "/en/Services", element: <Services /> },
-            { path: "/en/Services/:id", element: <Service_item /> },
-            { path: "/en/Courses", element: <Courses /> },
-            { path: "/en/Courses/:id", element: <Course_item /> },
-            { path: "/en/Events", element: <Events /> },
-            { path: "/en/Events/:id", element: <Events_item /> },
-            { path: "/en/Contact", element: <Contact /> },
-            { path: "/en/Blogs", element: <Blogs /> },
-            { path: "/en/Blogs/:id", element: <Blogs_item /> },
-            {
-                path: "/en/verifyEmail",
-                element: <VerifyEmail />,
-            },
-            {
-                path: "*",
-                element: <Not_Found />,
-            },
-        ],
-    },
-    {
-        path: "/en/Profile/:id",
-        element: <Profile />,
-        children: [
-            { index: true, element: <ProfileInfo /> },
-            {
-                path: "/en/Profile/:id/Edit",
-                element: <Profile_Edit />,
-            },
-            {
-                path: "/en/Profile/:id/Notifications",
-                element: <Profile_Notifications />,
-            },
-            {
-                path: "/en/Profile/:id/Notifications/:id",
-                element: <Notification_item />,
-            },
-            {
-                path: "/en/Profile/:id/Courses",
-                element: <Profile_Courses />,
-            },
-            {
-                path: "/en/Profile/:id/Services",
-                element: <Profile_Services />,
-            },
-            {
-                path: "/en/Profile/:id/Requests",
-                element: <Profile_Requests />,
-            },
-            {
-                path: "*",
-                element: <Not_Found />,
-            },
-        ],
-    },
-    {
-        path: "/en/Login",
-        element: <Login />,
-    },
-    {
-        path: "/en/Register",
-        element: <Register />,
-    },
+
     {
         path: "/ar",
         element: <Ar_app />,

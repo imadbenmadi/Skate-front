@@ -5,7 +5,7 @@ import NavBar from "./Arabic/Components/NavBar/NavBar";
 import { useState } from "react";
 import { useAppContext } from "../Context/AppContext";
 function ar() {
-    const { isAuth } = useAppContext();
+    const { isAuth, IsEmailVerified } = useAppContext();
     const [Active_nav, setActive_nav] = useState("Home");
     return (
         <div>

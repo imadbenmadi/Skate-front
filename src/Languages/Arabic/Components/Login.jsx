@@ -28,7 +28,7 @@ function Login() {
 
             if (response.status == 200) {
                 Swal.fire("Done!", "Logged in Successfully", "success");
-                Navigate("/en");
+                Navigate("/");
             } else if (response.status == 401) {
                 Swal.fire("Username or Password isn't correct", ``, "error");
             } else if (response.status == 409) {

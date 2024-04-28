@@ -25,7 +25,7 @@ import { useNavigate } from "react-router";
 function App() {
     const Location = useLocation();
     const Navigate = useNavigate();
-    
+
     const [loading, setLoading] = useState(true);
     const { set_Auth, store_login, isAuth, IsEmailVerified, Notifications } =
         useAppContext();
@@ -80,6 +80,7 @@ function App() {
                         _id
                     );
                     set_Auth(true);
+                    console.log("Authentificated from App.jsx");
                 } else {
                     store_login({
                         FirstName: "",
@@ -178,8 +179,8 @@ function App() {
                 <span className="loader"></span>
             </div>
         );
-    else if (!Location.pathname.split("/")[1]) Navigate("/en");
-    return null
+    // else if (!Location.pathname.split("/")[1]) Navigate("/en");
+    return <Outlet />;
     // return (
     //     <div>
     //         {loading ? (
@@ -189,8 +190,8 @@ function App() {
     //         ) : (
     //             <div className="relative h-screen overflow-y-auto custom-overflow overflow-x-hidden">
     //                 <NavBar
-    //                     Active_nav={Active_nav}
-    //                     setActive_nav={setActive_nav}
+    //                     Active_nav={Location.pathname.split("/")[1]}
+    //                     setActive_nav={() => {}}
     //                 />
     //                 {isAuth && !IsEmailVerified && <Activate_account />}
     //                 <Outlet />

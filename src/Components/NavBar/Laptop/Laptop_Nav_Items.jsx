@@ -34,6 +34,9 @@ function Laptop_Nav_Items({
     const toogle_LanguageClicked = () => {
         SetLanguageClicked(!LanguageClicked);
     };
+     useEffect(() => {
+         console.log("from Laptop_Nav_Items : isAuth =",isAuth);
+     }, [isAuth]);
     return (
         <div className="hidden  md:flex  items-center justify-center gap-7 text-lg text-black_text h-full ">
             <div className="flex gap-3 lg:gap-5">
