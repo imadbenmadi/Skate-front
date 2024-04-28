@@ -125,7 +125,7 @@ function Navbar({
                         <div
                             className={` flex items-center gap-1 cursor-pointer text-xl text-white  `}
                             onClick={() => {
-                                Navigate("/en");
+                                Navigate("/");
                             }}
                         >
                             <TbWorld />
@@ -212,7 +212,7 @@ function Navbar({
                     <div
                         className={` flex items-center gap-3 cursor-pointer text-xl  text-white  `}
                         onClick={() => {
-                            Navigate("/en");
+                            Navigate("/");
                         }}
                     >
                         <TbWorld />

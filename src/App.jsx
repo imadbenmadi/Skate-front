@@ -179,26 +179,7 @@ function App() {
                 <span className="loader"></span>
             </div>
         );
-    // else if (!Location.pathname.split("/")[1]) Navigate("/en");
     return <Outlet />;
-    // return (
-    //     <div>
-    //         {loading ? (
-    //             <div className="w-screen h-screen flex items-center justify-center">
-    //                 <span className="loader"></span>
-    //             </div>
-    //         ) : (
-    //             <div className="relative h-screen overflow-y-auto custom-overflow overflow-x-hidden">
-    //                 <NavBar
-    //                     Active_nav={Location.pathname.split("/")[1]}
-    //                     setActive_nav={() => {}}
-    //                 />
-    //                 {isAuth && !IsEmailVerified && <Activate_account />}
-    //                 <Outlet />
-    //             </div>
-    //         )}
-    //     </div>
-    // );
 }
 
 export default App;

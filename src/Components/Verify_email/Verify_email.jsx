@@ -79,7 +79,7 @@ function Verify_email() {
 
         if (response.status === 200) {
             Swal.fire("Done!", "Email Verified Successfully", "success");
-            Navigate("/en");
+            Navigate("/");
         } else if (response.status === 404) {
             Swal.fire("Error!", "Verification token not found", "error");
         } else if (response.status === 409) {

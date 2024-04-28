@@ -108,7 +108,7 @@ function Navbar({ Active_nav, setActive_nav, userId, user }) {
                 <div
                     className={` flex items-center gap-3 cursor-pointer text-xl  text-white pb-5 `}
                     onClick={() => {
-                        Navigate("/en");
+                        Navigate("/");
                     }}
                 >
                     <TbWorld className=" shrink-0" />

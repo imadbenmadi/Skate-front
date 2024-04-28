@@ -55,7 +55,7 @@ function Login() {
         <>
             <div className=" min-h-[60vh]">
                 <div>
-                    <Link to={"/en"} className="select-none flex m-auto w-fit ">
+                    <Link to={"/"} className="select-none flex m-auto w-fit ">
                         <img
                             className=" w-20 m-auto pt-5 "
                             src={Logo}

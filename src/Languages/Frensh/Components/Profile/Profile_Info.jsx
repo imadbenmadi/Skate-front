@@ -33,10 +33,10 @@ function ProfileInfo() {
             );
             if (response.status == 204) {
                 Swal.fire("Logout", ``, "success");
-                Navigate("/en");
+                Navigate("/");
             } else if (response.status == 401) {
                 Swal.fire("Logout", ``, "success");
-                Navigate("/en");
+                Navigate("/");
             } else {
                 Swal.fire("Error!", `Something Went Wrong ,`, "error");
             }
