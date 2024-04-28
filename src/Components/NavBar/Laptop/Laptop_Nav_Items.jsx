@@ -30,9 +30,6 @@ function Laptop_Nav_Items({
             SetunReaded_Notif(hasUnreadNotification);
         }
     }, [Notifications]);
-    useEffect(() => {
-        console.log(Active_nav);
-    }, [Active_nav]);
     const [LanguageClicked, SetLanguageClicked] = useState(false);
     const toogle_LanguageClicked = () => {
         SetLanguageClicked(!LanguageClicked);

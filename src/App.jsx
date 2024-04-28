@@ -25,11 +25,7 @@ import { useNavigate } from "react-router";
 function App() {
     const Location = useLocation();
     const Navigate = useNavigate();
-    // console.log(
-    //     "Location : ",
-    //     Location.pathname.split("/")[1],
-    //     Location.pathname
-    // );
+    
     const [loading, setLoading] = useState(true);
     const { set_Auth, store_login, isAuth, IsEmailVerified, Notifications } =
         useAppContext();
@@ -67,7 +63,6 @@ function App() {
                     const FirstName = response.data.userData.FirstName;
                     const LastName = response.data.userData.LastName;
                     const Notifications = response.data.userData.Notifications;
-                    // console.log("app.jsx : ",response.data.userData.Notifications);
                     const Courses = response.data.userData.Courses;
                     const Services = response.data.userData.Services;
                     const Gender = response.data.userData.Gender;
@@ -146,7 +141,6 @@ function App() {
                         }
                     };
                     img.onerror = () => {
-                        // console.log("Error loading images");
                         resolve(); // Reject if any image fails to load
                     };
                     img.src = imageSrc;
@@ -164,7 +158,6 @@ function App() {
                     resolve(); // Resolve promise when font is loaded
                 };
                 link.onerror = () => {
-                    console.log("Error loading font");
                     resolve(); // Reject if font fails to load
                 };
                 document.head.appendChild(link);
@@ -186,7 +179,7 @@ function App() {
             </div>
         );
     else if (!Location.pathname.split("/")[1]) Navigate("/en");
-
+    return null
     // return (
     //     <div>
     //         {loading ? (

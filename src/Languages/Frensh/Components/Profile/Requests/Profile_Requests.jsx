@@ -18,7 +18,6 @@ function Profile_Courses() {
                 <span className="loader"></span>
             </div>
         );
-    // console.log(user);
     const Courses_Requests = user.Courses_requests.filter((course) => {
         return course.Course;
     });

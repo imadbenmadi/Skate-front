@@ -55,26 +55,26 @@ const routes = createBrowserRouter([
     {
         path: "/",
         element: <App />,
-        // children: [
-        //     { index: true, element: <Home /> },
-        //     { path: "/Services", element: <Services /> },
-        //     { path: "/Services/:id", element: <Service_item /> },
-        //     { path: "/Courses", element: <Courses /> },
-        //     { path: "/Courses/:id", element: <Course_item /> },
-        //     { path: "/Events", element: <Events /> },
-        //     { path: "/Events/:id", element: <Events_item /> },
-        //     { path: "/Contact", element: <Contact /> },
-        //     { path: "/Blogs", element: <Blogs /> },
-        //     { path: "/Blogs/:id", element: <Blogs_item /> },
-        //     {
-        //         path: "/verifyEmail",
-        //         element: <VerifyEmail />,
-        //     },
-        //     {
-        //         path: "*",
-        //         element: <Not_Found />,
-        //     },
-        // ],
+        children: [
+            // { index: true, element: <Home /> },
+            // { path: "/Services", element: <Services /> },
+            // { path: "/Services/:id", element: <Service_item /> },
+            // { path: "/Courses", element: <Courses /> },
+            // { path: "/Courses/:id", element: <Course_item /> },
+            // { path: "/Events", element: <Events /> },
+            // { path: "/Events/:id", element: <Events_item /> },
+            // { path: "/Contact", element: <Contact /> },
+            // { path: "/Blogs", element: <Blogs /> },
+            // { path: "/Blogs/:id", element: <Blogs_item /> },
+            // {
+            //     path: "/verifyEmail",
+            //     element: <VerifyEmail />,
+            // },
+            // {
+            //     path: "*",
+            //     element: <Not_Found />,
+            // },
+        ],
     },
     {
         path: "/en",

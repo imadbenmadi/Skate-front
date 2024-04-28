@@ -1,9 +1,7 @@
 import { Formate_Date } from "../../../../../Logic/Formate_Date";
 import img from "../../../../../../public/Default.jpg";
 function Card({ item }) {
-    // console.log("card", item);
     if (!item.Service) return null;
-    // console.log(item.Service.Image);
     return (
         <div className="w-full flex  justify-between border-b-4 border-b-gray_white">
             <div className=" w-full">

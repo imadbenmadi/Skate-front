@@ -3,7 +3,6 @@ import { IoFilterSharp } from "react-icons/io5";
 
 function Filter({ filter, setFilter, Courses_Categories }) {
     const categories = Courses_Categories;
-    console.log(categories);
     const handleToggleCategory = (category) => {
         const currentIndex = filter.indexOf(category);
         const newfilter = [...filter];

@@ -4,9 +4,6 @@ import { IoClose } from "react-icons/io5";
 
 function Mobile_Filter({ filter, setFilter, Courses_Categories }) {
     const categories = Courses_Categories;
-    useEffect(() => {
-        console.log(categories);
-    }, [categories]);
     const [open, setOpen] = useState(false);
     function toogleOpen() {
         setOpen(!open);
