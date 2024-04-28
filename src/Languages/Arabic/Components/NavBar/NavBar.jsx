@@ -1,7 +1,7 @@
-import Logo from "../../../public/Logo.png";
+import Logo from "../../../../../public/Logo.png";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { useAppContext } from "../../Context/AppContext";
+import { useAppContext } from "../../../../Context/AppContext";
 import { useLocation } from "react-router";
 import axios from "axios";
 import Menu_Toogler from "./Mobile/Menu_Toogler";
@@ -12,9 +12,9 @@ import { FaUserTie } from "react-icons/fa";
 import { MdNotificationsNone } from "react-icons/md";
 import { FaAngleDown } from "react-icons/fa";
 import { FaAngleUp } from "react-icons/fa";
-import en from "../../../public/en.png";
-import ar from "../../../public/ar.png";
-import fr from "../../../public/fr.png";
+import en from "../../../../../public/en.png";
+import ar from "../../../../../public/ar.png";
+import fr from "../../../../../public/fr.png";
 function NavBar({ Active_nav, setActive_nav }) {
     const [LanguageClicked, SetLanguageClicked] = useState(false);
     const toogle_LanguageClicked = () => {
