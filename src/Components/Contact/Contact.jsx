@@ -4,7 +4,11 @@ import { useAppContext } from "../../Context/AppContext";
 import { handleContact } from "./handleContact";
 import Links from "./Links";
 import Footer from "../Footer";
+import { useNavigate } from "react-router";
+
 function Contact() {
+    const Navigate = useNavigate();
+
     const { isAuth, _id } = useAppContext();
     return (
         <>
@@ -76,8 +80,8 @@ function Contact() {
                             handleContact(updatedValues, {
                                 setSubmitting,
                                 onSuccess: () => {
-                                    // Navigate("/");
-                                    window.history.back();
+                                    Navigate("/en");
+                                    // window.history.back();
                                 },
                             });
                         }}

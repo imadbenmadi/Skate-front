@@ -18,10 +18,10 @@ function Filter({ filter, setFilter, Courses_Categories }) {
     if (!categories || categories.lengh == 0) return null;
 
     return (
-        <div className="bg-gray-100 md:p-2 lg:p-6 rounded-lg ">
-            <h2 className=" font-semibold mb-6 flex items-center gap-1 text-2xl border-b border-gray w-fit text-gray">
+        <div className=" md:p-2 lg:p-6 rounded-lg ">
+            <h2 className=" font-semibold mb-6 m-auto flex justify-center items-center gap-1 text-2xl border-b border-gray w-fit text-gray ">
                 <IoFilterSharp />
-                Filter
+                تصفية
             </h2>
             <div>
                 {categories.map((category, index) => (
@@ -34,7 +34,7 @@ function Filter({ filter, setFilter, Courses_Categories }) {
                             checked={filter.includes(category.Category)}
                             onChange={() =>
                                 handleToggleCategory(category.Category)
-                            } 
+                            }
                             className="mr-2"
                         />
                         <span className="text-gray">{category.Category}</span>

@@ -4,13 +4,13 @@ import { TbLogout } from "react-icons/tb";
 import { FaUserTie } from "react-icons/fa";
 import { MdNotificationsNone } from "react-icons/md";
 import Notifications_items from "./Notifications_items";
-import { useAppContext } from "../../../Context/AppContext";
+import { useAppContext } from "../../../../../Context/AppContext";
 import { useEffect } from "react";
 import { FaAngleDown } from "react-icons/fa";
 import { FaAngleUp } from "react-icons/fa";
-import en from "../../../../public/en.png";
-import ar from "../../../../public/ar.png";
-import fr from "../../../../public/fr.png";
+import en from "../../../../../../public/en.png";
+import ar from "../../../../../../public/ar.png";
+import fr from "../../../../../../public/fr.png";
 function Laptop_Nav_Items({
     Active_nav,
     isAuth,
@@ -18,6 +18,7 @@ function Laptop_Nav_Items({
     Logout,
     LogoutClicked,
 }) {
+    
     const [unReaded_Notif, SetunReaded_Notif] = useState(false);
     const { Notifications, _id } = useAppContext();
     const [User_menu_open, setUser_menu_open] = useState(false);
@@ -30,6 +31,7 @@ function Laptop_Nav_Items({
             SetunReaded_Notif(hasUnreadNotification);
         }
     }, [Notifications]);
+   
     const [LanguageClicked, SetLanguageClicked] = useState(false);
     const toogle_LanguageClicked = () => {
         SetLanguageClicked(!LanguageClicked);

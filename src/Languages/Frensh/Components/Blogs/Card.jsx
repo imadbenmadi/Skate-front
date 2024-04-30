@@ -1,6 +1,6 @@
-import img from "../../../public/Default.jpg";
+import img from "../../../../../public/Default.jpg";
 import { Link } from "react-router-dom";
-import { Formate_Date } from "../../Logic/Formate_Date"; // Import your date formatting function
+import { Formate_Date } from "../../../../Logic/Formate_Date"; // Import your date formatting function
 import { useEffect } from "react";
 import { useState } from "react";
 function Card({ blog }) {
@@ -13,7 +13,7 @@ function Card({ blog }) {
     }, []);
     return (
         <Link
-            to={`/en/Blogs/${blog._id}`}
+            to={`/ar/Blogs/${blog._id}`}
             className="select-none w-full relative px-2 md:px-5  overflow-hidden border-b border-gray py-5 flex shrink-0 justify-start h-fit"
         >
             <img

@@ -1,5 +1,5 @@
 
-import Comming_Soon from "../../../public/Comming_Soon.png";
+import Comming_Soon from "../../../../public/Comming_Soon.png";
 
 function Not_Finished() {
     return (
@@ -9,11 +9,10 @@ function Not_Finished() {
         >
             <div className="p-8 bg-white rounded-md shadow-lg text-center">
                 <h1 className="text-3xl md:text-5xl mb-4 text-gray-800">
-                    Oops! This Page is Not Finished Yet
+                    عذرًا! هذه الصفحة لم تكتمل بعد
                 </h1>
                 <p className="text-lg mb-8 text-gray">
-                    We're working hard to bring you something awesome. Check
-                    back later!
+                    نحن نعمل بجد لتقديم شيء رائع لكم. تحقق مرة أخرى لاحقًا
                 </p>
                 <img
                     loading="lazy"
@@ -21,9 +20,7 @@ function Not_Finished() {
                     alt="Under Construction"
                     className=" w-32 h-32 md:w-64 md:h-64 mx-auto mb-8"
                 />
-                <p className="text-sm text-gray-600">
-                    Thank you for your patience!
-                </p>
+                <p className="text-sm text-gray-600">شكرًا لكم على صبركم </p>
             </div>
         </div>
     );

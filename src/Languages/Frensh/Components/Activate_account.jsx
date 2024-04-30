@@ -16,26 +16,29 @@ const WarningNotification = () => {
                     <div className="flex justify-between items-start gap-4">
                         <div className=" text-gray ">
                             <div className=" text-xl md:text-3xl text-red-700  underline md:pb-2">
-                                تحذير !
+                                Warning! .
                             </div>
                             <div className=" md:text-xl">
-                                يجب عليك تفعيل حسابك
+                                you should activate your account
                             </div>
                             <Link
-                                to={"/ar/verifyEmail"}
+                                to={"/en/verifyEmail"}
                                 className="select-none  w-fit flex items-end justify-start gap-1"
                                 onClick={() => {
                                     setIsVisible(false);
                                 }}
                             >
                                 <span className=" underline md:text-xl">
-                                    انتقل إلى صفحة تنشيط الحساب
+                                    Go to the activation page
                                 </span>
                                 <FaArrowRight />
                             </Link>
                         </div>
 
-                        <button className="text-red-700" onClick={handleClose}>
+                        <button
+                            className="text-red-700"
+                            onClick={handleClose}
+                        >
                             <IoClose className=" text-2xl" />
                         </button>
                     </div>

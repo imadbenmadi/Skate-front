@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import Logo from "../../../public/skate_circle.png";
+import Logo from "../../../../../public/skate_circle.png";
 import Axios from "axios";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
-import { useAppContext } from "../../Context/AppContext";
+import { useAppContext } from "../../../../Context/AppContext";
 import Confirm_to_send from "./Confirm_to_send";
 import { fetchEmailVerificationStatus } from "./is_email_verified";
 import ForbiddenRoute from "../ForbiddenRoute";

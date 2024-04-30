@@ -87,7 +87,7 @@ function Event() {
                             {events.length == 0 ? (
                                 <div className="w-[80%] m-auto h-fit text-center py-6 flex gap-1 text-2xl justify-center items-center text-gray">
                                     <IoWarning />
-                                    No Events Found
+                                    لا توجد أحداث متاحة{" "}
                                 </div>
                             ) : search == "" ? (
                                 events.map((event) => (
@@ -97,7 +97,7 @@ function Event() {
                                 ))
                             ) : filteredEvents.length == 0 ? (
                                 <div className="text-center text-gray  py-4">
-                                    No events match the selected filter.
+                                    تتطابق مع الفلتر المحدد 
                                 </div>
                             ) : (
                                 filteredEvents.map((event) => (

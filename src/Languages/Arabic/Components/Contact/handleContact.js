@@ -14,30 +14,27 @@ export async function handleContact(values, { setSubmitting, onSuccess }) {
 
         if (response.status == 200) {
             onSuccess();
-            Swal.fire(
-                "Done!",
-                "Your Message has been Sended Successfully",
-                "success"
-            );
+            Swal.fire("تم", " تم إرسال رسالتك بنجاح", "success");
         } else if (response.status == 500) {
-            Swal.fire("Error!", `Internal server error. `, "error");
+            Swal.fire("خطأ", `خطأ داخلي في الخادم `, "error");
         } else if (response.status == 409) {
-            Swal.fire("Error!", `Missing Data  `);
+            Swal.fire("خطأ", `بيانات مفقودة `);
         } else if (response.status == 429) {
             Swal.fire(
-                "Error!",
-                `Too many requests ,try again latter\n  `,
+                "خطأ",
+                ` الكثير من الطلبات، يرجى المحاولة مرة أخرى  `,
                 "error"
             );
         } else {
             Swal.fire(
-                "Error!",
-                `Something Went Wrong. Please try again , `,
+                "خطأ",
+                `حدث خطأ ما. يرجى المحاولة مرة أخرى  `,
                 "error"
             );
         }
     } catch (error) {
-        Swal.fire("Error!", `Something Went Wrong. Please try again `, "error");
+        console.log(error);
+        Swal.fire("خطأ", `حدث خطأ ما. يرجى المحاولة مرة أخرى `, "error");
     }
 
     setSubmitting(false);

@@ -12,7 +12,7 @@ function Card({ event }) {
     }, []);
     return (
         <Link
-            to={`/en/Events/${event._id}`}
+            to={`/ar/Events/${event._id}`}
             className="select-none w-full relative  overflow-hidden border-b border-gray py-5 px-1 md:px-5 flex shrink-0 justify-start h-fit"
         >
             <img

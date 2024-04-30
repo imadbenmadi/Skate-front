@@ -10,7 +10,7 @@ import { MdOutlineMailOutline } from "react-icons/md";
 import { RiCalendarEventLine } from "react-icons/ri";
 import { FaBook } from "react-icons/fa";
 import { FaRegHandshake } from "react-icons/fa";
-import { Formate_Date } from "../../../Logic/Formate_Date";
+import { Formate_Date } from "../../../../../Logic/Formate_Date";
 import axios from "axios";
 
 function Notification_item() {

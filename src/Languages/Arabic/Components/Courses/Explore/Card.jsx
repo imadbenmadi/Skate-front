@@ -11,7 +11,7 @@ function Card({ course }) {
     }, []);
     return (
         <Link
-            to={`/en/Courses/${course._id}`}
+            to={`/ar/Courses/${course._id}`}
             className="select-none w-full relative rounded overflow-hidden border-b border-gray py-5 px-1 md:px-5 flex shrink-0 justify-start h-fit"
         >
             <img

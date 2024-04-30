@@ -54,11 +54,11 @@ function Event_item() {
         <>
             <div className=" pt-[80px] flex flex-col items-center w-[90%] m-auto md:items-start justify-center gap-3 ">
                 <Link
-                    to={"/en/Events"}
+                    to={"/ar/Events"}
                     className="select-none w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 mb-4"
                 >
                     <IoMdArrowRoundBack />
-                    <div>Back to Events</div>
+                    <div>العودة إلى الأحداث</div>
                 </Link>
                 <h2 className="text-2xl font-bold mb-2 m-auto">
                     {event.Title}

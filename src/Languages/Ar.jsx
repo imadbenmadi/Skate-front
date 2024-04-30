@@ -1,5 +1,5 @@
 import React from "react";
-import Activate_account from "../Components/Alerts/Activate_account";
+import Activate_account from "./Arabic/Components/Alerts/Activate_account";
 import { Outlet } from "react-router";
 import NavBar from "./Arabic/Components/NavBar/NavBar";
 import { useState } from "react";

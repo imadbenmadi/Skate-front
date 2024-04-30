@@ -11,7 +11,7 @@ function Explorecourses({ search, filter, courses }) {
                     <div className=" flex items-center gap-4 ">
                         <IoWarning className=" " />
                         <div className="text-center text-gray py-2">
-                            No Courses for the moment
+                            لم يتم العثور على أي دورات
                         </div>
                     </div>
                 </div>
@@ -45,7 +45,7 @@ function Explorecourses({ search, filter, courses }) {
             <div>
                 {filteredcourses.length == 0 ? (
                     <div className="text-center text-lg text-gray py-6 min-h-[60vh]">
-                        No Course match the Query.
+                        لا توجد دورات تتطابق مع البحث.
                     </div>
                 ) : (
                     <div className="md:h-[80vh]">
@@ -63,7 +63,7 @@ function Explorecourses({ search, filter, courses }) {
         <div className=" flex text-gray items-center gap-2 p-3">
             <IoWarning className=" text-2xl" />
             <div className="text-center text-gray py-2">
-                No Courses for the moment
+                لم يتم العثور على أي دورات
             </div>
         </div>
     );

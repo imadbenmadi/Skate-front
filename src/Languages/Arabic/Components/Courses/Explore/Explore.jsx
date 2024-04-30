@@ -46,7 +46,7 @@ function Explore({ courses, Courses_Categories }) {
                 {courses.length == 0 ? (
                     <div className=" w-[80%] h-fit text-center pt-6 flex gap-1 text-2xl justify-center items-center text-gray">
                         <IoWarning />
-                        No courses Founded
+                        لم يتم العثور على أي دورات
                     </div>
                 ) : (
                     <div className=" w-[80%]  ">
@@ -62,7 +62,7 @@ function Explore({ courses, Courses_Categories }) {
                 {courses.length == 0 ? (
                     <div className=" w-[80%] m-auto h-fit text-center pt-6 flex gap-1 text-2xl justify-center items-center text-gray">
                         <IoWarning />
-                        No courses Founded
+                        لم يتم العثور على أي دورات
                     </div>
                 ) : (
                     <Explorecourses

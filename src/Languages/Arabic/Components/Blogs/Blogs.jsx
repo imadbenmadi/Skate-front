@@ -93,12 +93,11 @@ function Blogs() {
                                         <div key={blog._id} className="">
                                             <Card blog={blog} />
                                         </div>
-                                        <div></div>
                                     </>
                                 ))
                             ) : filteredBlogs.length == 0 ? (
                                 <div className="text-center text-gray py-4">
-                                    No blogs match the Search Query.
+                                    No blog match the Search Query.
                                 </div>
                             ) : (
                                 filteredBlogs.map((blog) => (

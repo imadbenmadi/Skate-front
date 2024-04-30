@@ -1,6 +1,6 @@
-import Logo from "../../../public/Logo.png";
+import Logo from "../../../../../public/Logo.png";
 import { Formik, Form, Field, ErrorMessage } from "formik";
-import { useAppContext } from "../../Context/AppContext";
+import { useAppContext } from "../../../../Context/AppContext";
 import { handleContact } from "./handleContact";
 import Links from "./Links";
 import Footer from "../Footer";
@@ -18,14 +18,14 @@ function Contact() {
                     />
                 </div>
                 <div className=" m-auto text-center pt-5 text-2xl font-semibold text-blue ">
-                    Contact The Help Center
+                    اتصل بمركز المساعدة
                 </div>
                 <Links />
 
                 {/* input fields */}
                 <div className="  border border-gray_white text-black_text shadow-md w-[80%] md:w-[50%] m-auto mt-3 p-5 rounded-lg   ">
                     <div className=" text-lg font-semibold mb-4 ">
-                        Send a message
+                        أرسل رسالة
                     </div>
 
                     <Formik
@@ -87,7 +87,9 @@ function Contact() {
                                 <div className="flex flex-col space-y-4 ">
                                     {!isAuth && (
                                         <div>
-                                            <label htmlFor="email">Email</label>
+                                            <label htmlFor="email">
+                                                البريد الإلكتروني
+                                            </label>
                                             <Field
                                                 type="email"
                                                 name="Email"
@@ -101,7 +103,7 @@ function Contact() {
                                         </div>
                                     )}
                                     <div>
-                                        <label htmlFor="title">Title</label>
+                                        <label htmlFor="title" >العنوان</label>
                                         <Field
                                             type="text"
                                             name="title"
@@ -114,7 +116,7 @@ function Contact() {
                                         />
                                     </div>
                                     <div>
-                                        <label htmlFor="message">Message</label>
+                                        <label htmlFor="message">الرسالة</label>
                                         <Field
                                             as="textarea"
                                             name="message"
@@ -131,15 +133,15 @@ function Contact() {
                                         type="submit"
                                         className={`${
                                             isSubmitting
-                                                ? "bg-gray_white text-gray"
+                                                ? "bg-white text-gray"
                                                 : " bg-green text-white"
                                         } w-fit m-auto px-4 py-2 rounded font-semibold`}
                                         disabled={isSubmitting}
                                     >
                                         {isSubmitting ? (
-                                            <div>loading</div>
+                                            <span className="small-loader  w-full m-auto"></span>
                                         ) : (
-                                            "Submit"
+                                            "ارسال"
                                         )}
                                     </button>
                                 </div>

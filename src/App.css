@@ -5,18 +5,18 @@
 @import url("https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;500;700;800&display=swap");
 
 body {
-    font-family: "Outfit", sans-serif;
+    /* font-family: "Outfit", sans-serif; */
 }
 #root {
-    font-family: "Outfit", sans-serif;
+    /* font-family: "Outfit", sans-serif; */
     box-sizing: border-box;
     padding: 0;
     margin: 0;
     overflow-wrap: normal;
 }
-* {
+/* * {
     font-family: "Outfit", sans-serif;
-}
+} */
 .cardHover {
     transition: transform 0.3s ease-in-out;
 }
@@ -60,9 +60,9 @@ body {
 }
 
 .small-loader {
-    width: 30px;
-    height: 30px;
-    border: 3px solid #353535; /* Adjust border size as needed */
+    width: 20px;
+    height: 20px;
+    border: 2px solid #464646; /* Adjust border size as needed */
     border-bottom-color: transparent;
     border-radius: 50%;
     display: inline-block;

@@ -1,4 +1,4 @@
-import Not_Found_image from "../../../public/NotFound.png";
+import Not_Found_image from "../../../../public/NotFound.png";
 import { Link } from "react-router-dom";
 function Not_Found() {
     return (
@@ -8,11 +8,10 @@ function Not_Found() {
         >
             <div className="p-8 bg-white rounded-md shadow-lg text-center">
                 <h1 className="text-3xl md:text-5xl mb-4 text-gray-800">
-                    Oops! This Page Not Found
+                    هذه الصفحة غير موجودة
                 </h1>
                 <p className="text-lg mb-8 text-gray">
-                    The page you're looking for might be under construction or
-                    has been moved.
+                    قد تكون الصفحة تبحث عنها قيد الإنشاء أو تم نقلها
                 </p>
                 <img
                     loading="lazy"
@@ -21,9 +20,9 @@ function Not_Found() {
                     className=" w-32 h-32 md:w-64 md:h-64 mx-auto mb-8"
                 />
                 <p className="text-sm text-gray-600">
-                    Double-check the URL or Go back to the{" "}
+                    قم بالتحقق مرة أخرى من عنوان الصفحة أو ارجع إلى
                     <Link to={"/"} className=" text-green select-none">
-                        home page.
+                        الصفحة الرئيسية
                     </Link>
                 </p>
             </div>

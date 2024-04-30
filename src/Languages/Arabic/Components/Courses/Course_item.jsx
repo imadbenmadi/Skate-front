@@ -47,40 +47,36 @@ function CourseItem() {
                 }
             );
             if (response.status === 200) {
-                swal.fire("success", "Request sent successfully", "success");
+                swal.fire("نجاح", "تم إرسال الطلب بنجاح", "success");
                 setSuccess(true);
             } else if (response.status === 409) {
-                swal.fire("Missing Data", "Request could not be sent", "error");
+                swal.fire("بيانات مفقودة", "لم يتم إرسال الطلب", "error");
             } else if (response.status === 401) {
                 swal.fire({
-                    title: "You should login to do that",
-                    text: "You are not authenticated!",
+                    title: "يجب عليك تسجيل الدخول للقيام بذلك",
+                    text: "لم تتم المصادقة عليك!",
                     icon: "warning",
                     confirmButtonColor: "#3085d6",
                     cancelButtonColor: "#078343",
-                    confirmButtonText: "Go to Login Page",
+                    confirmButtonText: "انتقل إلى صفحة تسجيل الدخول",
                 }).then((result) => {
                     if (result.isConfirmed) {
-                        navigate("/en/Login");
+                        navigate("/ar/Login");
                     }
                 });
             } else if (response.status === 400) {
                 swal.fire(
-                    "You cannot request the Course",
+                    "لا يمكنك طلب الدورة.",
                     `${response.data.message}`,
                     "warning"
                 );
             } else if (response.status === 404) {
-                swal.fire(
-                    "Not found",
-                    "Something went wrong. Please try again later",
-                    "warning"
-                );
+                swal.fire("الدورة غير موجودة", " حدث خطأ ما. يرجى المحاولة", "warning");
             } else {
-                swal.fire("Error", "Internal server error", "error");
+                swal.fire("خطأ", "خطأ داخلي في الخادم", "error");
             }
         } catch (error) {
-            swal.fire("Error", "Internal server error", "error");
+            swal.fire("خطأ", "خطأ داخلي في الخادم", "error");
         } finally {
             setRequestLoading(false);
         }
@@ -132,11 +128,11 @@ function CourseItem() {
         <>
             <div className="pt-[80px] min-h-[100vh]">
                 <Link
-                    to={"/en/Courses"}
+                    to={"/ar/Courses"}
                     className="select-none w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 mb-4"
                 >
                     <IoMdArrowRoundBack />
-                    <div>Back to Courses</div>
+                    <div>العودة إلى الدورات</div>
                 </Link>
                 <h2 className="text-xl font-bold mb-4 pl-2 md:pl-6 w-fit m-auto max-w-[80vw]  break-all ">
                     {Course.Title && Course.Title}
@@ -156,7 +152,7 @@ function CourseItem() {
                         <div className="pt-4 flex justify-center md:justify-end gap-8 items-center">
                             {success ? (
                                 <div className="flex items-center text-green gap-1 text-xl">
-                                    Course requested
+                                    تم طلب الدورة
                                     <MdDone className="text-2xl" />
                                 </div>
                             ) : !alreadyHaveCourse ? (
@@ -177,17 +173,17 @@ function CourseItem() {
                                         onClick={() => {
                                             if (!isAuth) {
                                                 swal.fire({
-                                                    title: "You should login to do that",
-                                                    text: "You are not authenticated!",
+                                                    title: "يجب عليك تسجيل الدخول للقيام بذلك",
+                                                    text: "لم تتم المصادقة عليك!",
                                                     icon: "warning",
                                                     confirmButtonColor:
                                                         "#3085d6",
                                                     cancelButtonColor: "green",
                                                     confirmButtonText:
-                                                        "Go to Login Page",
+                                                        "الانتقال إلى صفحة تسجيل الدخول",
                                                 }).then((result) => {
                                                     if (result.isConfirmed) {
-                                                        navigate("/en/Login");
+                                                        navigate("/ar/Login");
                                                     }
                                                 });
                                             } else {
@@ -195,9 +191,11 @@ function CourseItem() {
                                             }
                                         }}
                                     >
-                                        {requestLoading
-                                            ? "Requesting..."
-                                            : "Request the Course"}
+                                        {requestLoading ? (
+                                            <span className="small-loader  w-full m-auto"></span>
+                                        ) : (
+                                            "طلب الدورة"
+                                        )}
                                     </div>
                                 </>
                             ) : (
@@ -206,7 +204,7 @@ function CourseItem() {
                                     className="flex items-center gap-2 select-none text-green w-fit  rounded cursor-pointer"
                                 >
                                     <MdDone className="text-2xl" />
-                                    You own this Course
+                                    أنت تمتلك هذه الدورة
                                 </div>
                             )}
                         </div>
@@ -216,7 +214,7 @@ function CourseItem() {
                             {Course.Text && Course.Text}
                         </p>
                         <p className="text-gray  text-[16px] ">
-                            Category :{" "}
+                            Category :
                             <span className="font-semibold">
                                 {Course.Category && Course.Category}
                             </span>

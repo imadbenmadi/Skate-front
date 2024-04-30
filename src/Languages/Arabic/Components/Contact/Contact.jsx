@@ -4,7 +4,9 @@ import { useAppContext } from "../../../../Context/AppContext";
 import { handleContact } from "./handleContact";
 import Links from "./Links";
 import Footer from "../Footer";
+import { useNavigate } from "react-router";
 function Contact() {
+    const Navigate = useNavigate();
     const { isAuth, _id } = useAppContext();
     return (
         <>
@@ -18,15 +20,15 @@ function Contact() {
                     />
                 </div>
                 <div className=" m-auto text-center pt-5 text-2xl font-semibold text-blue ">
-                    Contact The Help Center
+                    اتصل بمركز المساعدة
                 </div>
                 <Links />
 
                 {/* input fields */}
                 <div className="  border border-gray_white text-black_text shadow-md w-[80%] md:w-[50%] m-auto mt-3 p-5 rounded-lg   ">
-                    <div className=" text-lg font-semibold mb-4 ">
-                        Send a message
-                    </div>
+                    {/* <div className=" text-lg font-semibold mb-4 ">
+                        أرسل رسالة
+                    </div> */}
 
                     <Formik
                         initialValues={{
@@ -38,27 +40,28 @@ function Contact() {
                         validate={(values) => {
                             const errors = {};
                             if (!isAuth && !values.Email) {
-                                errors.Email = "Email is Required ";
+                                errors.Email = "البريد الإلكتروني مطلوب ";
                             } else if (
                                 !isAuth &&
                                 !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
                                     values.Email
                                 )
                             ) {
-                                errors.Email = "Invalid Email address";
+                                errors.Email =
+                                    "عنوان البريد الإلكتروني غير صالح";
                             }
 
                             if (!values.title) {
-                                errors.title = "title is Required";
+                                errors.title = "عنوان الرسالة مطلوب";
                             } else if (values.title.length < 5) {
                                 errors.title =
-                                    "title must be at least 5 characters";
+                                    "يجب أن يكون عنوان الرسالة على الأقل 5 أحرف";
                             }
                             if (!values.message) {
-                                errors.message = "message is Required";
+                                errors.message = "الرسالة مطلوبة";
                             } else if (values.message.length < 10) {
                                 errors.message =
-                                    "message must be at least 10 characters";
+                                    "يجب أن تحتوي الرسالة على الأقل 10 أحرف";
                             }
                             return errors;
                         }}
@@ -76,18 +79,20 @@ function Contact() {
                             handleContact(updatedValues, {
                                 setSubmitting,
                                 onSuccess: () => {
-                                    // Navigate("/");
-                                    window.history.back();
+                                    Navigate("/ar");
+                                    // window.history.back();
                                 },
                             });
                         }}
                     >
                         {({ isSubmitting }) => (
                             <Form>
-                                <div className="flex flex-col space-y-4 ">
+                                <div className="flex flex-col text-end space-y-4 ">
                                     {!isAuth && (
                                         <div>
-                                            <label htmlFor="email">Email</label>
+                                            <label htmlFor="email">
+                                                البريد الإلكتروني
+                                            </label>
                                             <Field
                                                 type="email"
                                                 name="Email"
@@ -101,7 +106,7 @@ function Contact() {
                                         </div>
                                     )}
                                     <div>
-                                        <label htmlFor="title">Title</label>
+                                        <label htmlFor="title" >العنوان</label>
                                         <Field
                                             type="text"
                                             name="title"
@@ -114,7 +119,7 @@ function Contact() {
                                         />
                                     </div>
                                     <div>
-                                        <label htmlFor="message">Message</label>
+                                        <label htmlFor="message">الرسالة</label>
                                         <Field
                                             as="textarea"
                                             name="message"
@@ -131,15 +136,15 @@ function Contact() {
                                         type="submit"
                                         className={`${
                                             isSubmitting
-                                                ? "bg-gray_white text-gray"
+                                                ? "bg-white text-gray"
                                                 : " bg-green text-white"
                                         } w-fit m-auto px-4 py-2 rounded font-semibold`}
                                         disabled={isSubmitting}
                                     >
                                         {isSubmitting ? (
-                                            <div>loading</div>
+                                            <span className="small-loader  w-full m-auto"></span>
                                         ) : (
-                                            "Submit"
+                                            "ارسال"
                                         )}
                                     </button>
                                 </div>

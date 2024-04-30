@@ -52,6 +52,10 @@ import Ar_app from "./Languages/Ar";
 import Fr_app from "./Languages/Fr";
 
 import Defualt from "./Defualt";
+
+import Ar_Notfound from "./Languages/Arabic/Components/Not_Found";
+import Ar_Not_Finished from "./Languages/Arabic/Components/Not_Finished";
+
 const routes = createBrowserRouter([
     {
         path: "/",
@@ -142,77 +146,77 @@ const routes = createBrowserRouter([
                 path: "/en/Register",
                 element: <Register />,
             },
+            {
+                path: "/ar",
+                element: <Ar_app />,
+                children: [
+                    { index: true, element: <Ar_Home /> },
+                    { path: "/ar/Services", element: <Ar_Services /> },
+                    { path: "/ar/Services/:id", element: <Ar_Service_item /> },
+                    { path: "/ar/Courses", element: <Ar_Courses /> },
+                    { path: "/ar/Courses/:id", element: <Ar_Course_item /> },
+                    { path: "/ar/Events", element: <Ar_Events /> },
+                    { path: "/ar/Events/:id", element: <Ar_Events_item /> },
+                    { path: "/ar/Contact", element: <Ar_Contact /> },
+                    { path: "/ar/Blogs", element: <Ar_Blogs /> },
+                    { path: "/ar/Blogs/:id", element: <Ar_Blogs_item /> },
+                    {
+                        path: "/ar/verifyEmail",
+                        element: <Ar_VerifyEmail />,
+                    },
+                    {
+                        path: "*",
+                        element: <Ar_Notfound />,
+                    },
+                ],
+            },
+            {
+                path: "/ar/Profile/:id",
+                element: <Ar_Profile />,
+                children: [
+                    { index: true, element: <Ar_ProfileInfo /> },
+                    {
+                        path: "/ar/Profile/:id/Edit",
+                        element: <Ar_Profile_Edit />,
+                    },
+                    {
+                        path: "/ar/Profile/:id/Notifications",
+                        element: <Ar_Profile_Notifications />,
+                    },
+                    {
+                        path: "/ar/Profile/:id/Notifications/:id",
+                        element: <Ar_Notification_item />,
+                    },
+                    {
+                        path: "/ar/Profile/:id/Courses",
+                        element: <Ar_Profile_Courses />,
+                    },
+                    {
+                        path: "/ar/Profile/:id/Services",
+                        element: <Ar_Profile_Services />,
+                    },
+                    {
+                        path: "/ar/Profile/:id/Requests",
+                        element: <Ar_Profile_Requests />,
+                    },
+                    {
+                        path: "*",
+                        element: <Ar_Notfound />,
+                    },
+                ],
+            },
+
+            {
+                path: "/ar/Login",
+                element: <Ar_Login />,
+            },
+            {
+                path: "/ar/Register",
+                element: <Ar_Register />,
+            },
         ],
     },
 
-    {
-        path: "/ar",
-        element: <Ar_app />,
-        children: [
-            { index: true, element: <Ar_Home /> },
-            { path: "/ar/Services", element: <Ar_Services /> },
-            { path: "/ar/Services/:id", element: <Ar_Service_item /> },
-            { path: "/ar/Courses", element: <Ar_Courses /> },
-            { path: "/ar/Courses/:id", element: <Ar_Course_item /> },
-            { path: "/ar/Events", element: <Ar_Events /> },
-            { path: "/ar/Events/:id", element: <Ar_Events_item /> },
-            { path: "/ar/Contact", element: <Ar_Contact /> },
-            { path: "/ar/Blogs", element: <Ar_Blogs /> },
-            { path: "/ar/Blogs/:id", element: <Ar_Blogs_item /> },
-            {
-                path: "/ar/verifyEmail",
-                element: <Ar_VerifyEmail />,
-            },
-            {
-                path: "*",
-                element: <Not_Found />,
-            },
-        ],
-    },
-    {
-        path: "/ar/Profile/:id",
-        element: <Ar_Profile />,
-        children: [
-            { index: true, element: <Ar_ProfileInfo /> },
-            {
-                path: "/ar/Profile/:id/Edit",
-                element: <Ar_Profile_Edit />,
-            },
-            {
-                path: "/ar/Profile/:id/Notifications",
-                element: <Ar_Profile_Notifications />,
-            },
-            {
-                path: "/ar/Profile/:id/Notifications/:id",
-                element: <Ar_Notification_item />,
-            },
-            {
-                path: "/ar/Profile/:id/Courses",
-                element: <Ar_Profile_Courses />,
-            },
-            {
-                path: "/ar/Profile/:id/Services",
-                element: <Ar_Profile_Services />,
-            },
-            {
-                path: "/ar/Profile/:id/Requests",
-                element: <Ar_Profile_Requests />,
-            },
-            {
-                path: "*",
-                element: <Not_Found />,
-            },
-        ],
-    },
-
-    {
-        path: "/ar/Login",
-        element: <Ar_Login />,
-    },
-    {
-        path: "/ar/Register",
-        element: <Ar_Register />,
-    },
     {
         path: "/fr",
         element: <App />,
