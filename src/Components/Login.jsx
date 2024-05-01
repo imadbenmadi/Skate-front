@@ -27,8 +27,14 @@ function Login() {
             );
 
             if (response.status == 200) {
-                Swal.fire("Done!", "Logged in Successfully", "success");
-                Navigate("/");
+                // Swal.fire("Done!", "Logged in Successfully", "success");
+                // console.log("Logged in Successfully");
+
+                // setTimeout(() => {
+                // console.log("Navigating to /");
+                window.location.href = "/";
+                    // Navigate("/");
+                // }, 2000);
             } else if (response.status == 401) {
                 Swal.fire("Username or Password isn't correct", ``, "error");
             } else if (response.status == 409) {
@@ -55,7 +61,7 @@ function Login() {
         <>
             <div className=" min-h-[60vh]">
                 <div>
-                    <Link to={"/"} className="select-none flex m-auto w-fit ">
+                    <Link to={"/en"} className="select-none flex m-auto w-fit ">
                         <img
                             className=" w-20 m-auto pt-5 "
                             src={Logo}
@@ -171,13 +177,13 @@ function Login() {
                                     type="submit"
                                     className={` ${
                                         isSubmitting
-                                            ? "bg-gray_white text-gray"
+                                            ? " text-gray"
                                             : " bg-green text-white"
                                     } w-fit m-auto px-4 py-2 rounded font-semibold `}
                                     disabled={isSubmitting}
                                 >
                                     {isSubmitting ? (
-                                        <div>loading</div>
+                                        <span className="small-loader  w-full m-auto"></span>
                                     ) : (
                                         "Submit"
                                     )}

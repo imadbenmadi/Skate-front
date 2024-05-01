@@ -27,8 +27,9 @@ function Login() {
             );
 
             if (response.status == 200) {
-                Swal.fire("Done!", "Logged in Successfully", "success");
-                Navigate("/");
+                // Swal.fire("Done!", "Logged in Successfully", "success");
+                // Navigate("/");
+                window.location.href = "/";
             } else if (response.status == 401) {
                 Swal.fire("Username or Password isn't correct", ``, "error");
             } else if (response.status == 409) {
@@ -171,13 +172,13 @@ function Login() {
                                     type="submit"
                                     className={` ${
                                         isSubmitting
-                                            ? "bg-gray_white text-gray"
+                                            ? " text-gray"
                                             : " bg-green text-white"
                                     } w-fit m-auto px-4 py-2 rounded font-semibold `}
                                     disabled={isSubmitting}
                                 >
                                     {isSubmitting ? (
-                                        <div>loading</div>
+                                        <span className="small-loader  w-full m-auto"></span>
                                     ) : (
                                         "Submit"
                                     )}

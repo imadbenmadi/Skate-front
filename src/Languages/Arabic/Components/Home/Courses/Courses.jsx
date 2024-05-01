@@ -31,16 +31,16 @@ function Courses() {
             <div className="max-w-[1100px]   py-8 mx-auto h-12 flex justify-between px-10 items-center ">
                 <div className="w-fit max-md:text-center max-mad:text-center max-md:mx-auto max-md:w-full  max-mad:w-full   max-mad:w-full   ">
                     <span className="text-emerald-500 text-4xl font-bold ">
-                        OUR{" "}
+                        دوراتنا{" "}
                     </span>
-                    <span className=" text-4xl  text-gray">COURSES </span>
+                    <span className=" text-4xl  text-gray">التعليمية </span>
                 </div>
 
                 <Link
-                    to={"/en/Courses"}
+                    to={"/ar/Courses"}
                     className="select-none flex  gap-2 items-center w-fit max-md:hidden text-green underline px-5 py-2 rounded-md  text-center  text-base font-medium  leading-normal"
                 >
-                    <span className=" text-xl">Veiw All Courses</span>{" "}
+                    <span className=" text-xl">عرض جميع الدورات</span>{" "}
                     <FaArrowRight className=" mt-1" />
                 </Link>
             </div>
@@ -57,21 +57,21 @@ function Courses() {
                 <div className=" max-w-[1200px] max-md:hidden flex flex-col w-screen  gap-4 md:flex-row md:justify-between ">
                     <CardCours
                         img={img3}
-                        title="Hygiene, Security, Environnement “HSE”"
-                        dec="Training programs in Health, Safety, and Environment (HSE) are designed to meet the needs of both the general public and professionals who want to improve their skills or acquire new knowledge in the field of health, safety, and environmental protection."
+                        title="النظافة، الأمان، البيئة"
+                        dec="تم تصميم برامج التدريب في الصحة والسلامة والبيئة لتلبية احتياجات الجمهور العام والمحترفين الذين يرغبون في تحسين مهاراتهم أو اكتساب معرفة جديدة في مجال الصحة والسلامة وحماية البيئة."
                         // price="0.0"
                     />
                     <CardCours
                         img={img2}
-                        title="Communication, Commerce & marketing "
-                        dec="Training in communication, commerce, and marketing is for all professionals, aiming to enhance their skills for better internal communication and smoother interactions with customers and external partners."
+                        title="الاتصال، التجارة والتسويق"
+                        dec="التدريب في مجال الاتصال والتجارة والتسويق موجه لجميع المحترفين، بهدف تعزيز مهاراتهم لتحسين التواصل الداخلي وتفاعلهم بشكل أسهل مع العملاء والشركاء الخارجيين."
                         // price="0.0"
                     />
                     <CardCours
                         img={img1}
-                        title="Management"
-                        dec="The management training enhances the skills of executives and develops the ability to manage the collective procedures of the company."
-                        // price="0.0"
+                        title="الإدارة"
+                        dec="يعزز التدريب في مجال الإدارة مهارات القادة ويطور القدرة على إدارة الإجراءات الجماعية للشركة."
+                        price="5.000"
                     />{" "}
                 </div>
 
@@ -104,30 +104,30 @@ function Courses() {
                             {" "}
                             <CardCours
                                 img={img3}
-                                title="Hygiene, Security, Environnement “HSE”"
+                                title="النظافة، الأمان، البيئة"
                                 cat=""
-                                dec="Training programs in Health, Safety, and Environment (HSE) are designed to meet the needs of both the general public and professionals who want to improve their skills or acquire new knowledge in the field of health, safety, and environmental protection."
-                                price="5.000"
+                                dec="تم تصميم برامج التدريب في الصحة والسلامة والبيئة لتلبية احتياجات الجمهور العام والمحترفين الذين يرغبون في تحسين مهاراتهم أو اكتساب معرفة جديدة في مجال الصحة والسلامة وحماية البيئة."
+                                // price="5.000"
                             />{" "}
                         </SwiperSlide>
                         <SwiperSlide>
                             {" "}
                             <CardCours
                                 img={img2}
-                                title="Communication, Commerce & marketing"
+                                title="الاتصال، التجارة والتسويق"
+                                dec="التدريب في مجال الاتصال والتجارة والتسويق موجه لجميع المحترفين، بهدف تعزيز مهاراتهم لتحسين التواصل الداخلي وتفاعلهم بشكل أسهل مع العملاء والشركاء الخارجيين."
+                                // price="0.0"
                                 cat=""
-                                dec="Training in communication, commerce, and marketing is for all professionals, aiming to enhance their skills for better internal communication and smoother interactions with customers and external partners."
-                                price="5.000"
-                            />{" "}
+                            />
                         </SwiperSlide>
                         <SwiperSlide>
                             {" "}
                             <CardCours
                                 img={img1}
-                                title="Management"
+                                title="الإدارة"
                                 cat=""
-                                dec="The management training enhances the skills of executives and develops the ability to manage the collective procedures of the company."
-                                price="5.000"
+                                dec="يعزز التدريب في مجال الإدارة مهارات القادة ويطور القدرة على إدارة الإجراءات الجماعية للشركة."
+                                // price="5.000"
                             />{" "}
                         </SwiperSlide>
                     </Swiper>
@@ -135,10 +135,13 @@ function Courses() {
             </div>
             <div className="w-full pb-10 mx-auto h-fit flex justify-center items-center">
                 <Link
-                    to={"/en/Courses"}
-                    className=" flex gap-2 items-center select-none w-fit   mx-auto   md:hidden  px-5 py-2 rounded-md  text-center  font-medium  leading-normal underline text-xl text-green "
+                    to={"/ar/Courses"}
+                    className=" flex gap-2 items-center select-none w-fit   mx-auto 
+                      md:hidden  px-5 py-2 rounded-md  text-center 
+                     font-medium  leading-normal  text-xl text-green "
                 >
-                    Veiw All Courses <FaArrowRight className=" mt-1" />
+                    عرض جميع الدورات
+                    <FaArrowRight className=" mt-1" />
                 </Link>
             </div>
         </div>

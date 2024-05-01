@@ -27,8 +27,9 @@ function Login() {
             );
 
             if (response.status == 200) {
-                Swal.fire("تم!", "تم تسجيل الدخول بنجاح", "success");
-                Navigate("/");
+                // Swal.fire("تم!", "تم تسجيل الدخول بنجاح", "success");
+                // Navigate("/");
+                window.location.href = "/";
             } else if (response.status == 401) {
                 Swal.fire("اسم المستخدم أو كلمة المرور غير صحيحة", ``, "error");
             } else if (response.status == 409) {
@@ -173,7 +174,7 @@ function Login() {
                                     type="submit"
                                     className={` ${
                                         isSubmitting
-                                            ? " text-gray"
+                                            ? " "
                                             : " bg-green text-white"
                                     } w-fit m-auto px-4 py-2 rounded font-semibold `}
                                     disabled={isSubmitting}

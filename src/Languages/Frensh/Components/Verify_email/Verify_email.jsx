@@ -78,22 +78,22 @@ function Verify_email() {
         );
 
         if (response.status === 200) {
-            Swal.fire("Done!", "Email Verified Successfully", "success");
+            Swal.fire("تم!", "تم التحقق من البريد الإلكتروني بنجاح", "success");
             Navigate("/");
         } else if (response.status === 404) {
-            Swal.fire("Error!", "Verification token not found", "error");
+            Swal.fire("خطأ!", "رمز التحقق غير موجود", "error");
         } else if (response.status === 409) {
-            Swal.fire("Error!", response.data.message, "error");
+            Swal.fire("خطأ!", response.data.message, "error");
         } else if (response.status === 500) {
-            Swal.fire("Error!", "Internal Server Error", "error");
+            Swal.fire("خطأ!", "خطأ في الخادم الداخلي", "error");
         } else if (response.status === 429) {
             Swal.fire(
-                "Error!",
-                `Too many requests, try again later\n${response.data.message}`,
+                "خطأ!",
+                `الكثير من الطلبات، حاول مرة أخرى لاحقًا\n${response.data.message}`,
                 "error"
             );
         } else {
-            Swal.fire("Error!", "Something Went Wrong", "error");
+            Swal.fire("خطأ!", "حدث خطأ ما", "error");
         }
 
         setSubmitLoading(false);
@@ -114,24 +114,25 @@ function Verify_email() {
 
         if (response.status == 200) {
             Swal.fire(
-                "Email Sendeed Successfully",
-                "Check Out Your Email , we resend a new verification Code to you",
+                "تم إرسال البريد الإلكتروني بنجاح",
+                "تحقق من بريدك الإلكتروني، لقد أعدنا إرسال رمز التحقق الجديد إليك",
                 "success"
             );
             startResendTimer();
         } else if (response.status == 401) {
-            Swal.fire("Error!", "Unauthorized", "error");
+            Swal.fire("خطأ!", "غير مصرح به", "error");
         } else if (response.status == 400) {
-            Swal.fire("Error!", "Internal Server Error", "error");
+            Swal.fire("خطأ!", "خطأ في الخادم الداخلي", "error");
         } else if (response.status == 429) {
             Swal.fire(
-                "Error!",
-                `Too many requests ,try again latter\n  ${response.data.message}`,
+                "خطأ!",
+                `الكثير من الطلبات، حاول مرة أخرى لاحقًا\n${response.data.message}`,
                 "error"
             );
         } else {
-            Swal.fire("Error!", "Something Went Wrong", "error");
+            Swal.fire("خطأ!", "حدث خطأ ما", "error");
         }
+
         setResendLoading(false);
         setCode("");
     };
@@ -161,12 +162,13 @@ function Verify_email() {
                     <>
                         <div className=" mb-8">
                             <div className="mb-4">
-                                Enter the 6-digit code we sent to you in email
+                                أدخل الرمز المكون من 6 أرقام الذي أرسلناه لك في
+                                البريد الإلكتروني
                             </div>
 
                             <div className=" text-gray text-sm">
                                 {" "}
-                                your Email : {Email}{" "}
+                                بريدك الإلكتروني: {Email}{" "}
                             </div>
                         </div>
 
@@ -185,7 +187,11 @@ function Verify_email() {
                             }  text-white px-4 py-2 rounded-md cursor-pointer`}
                             disabled={SubmitLoading}
                         >
-                            {SubmitLoading ? "Sending..." : "Send Email"}
+                            {SubmitLoading ? (
+                                <span className="small-loader  w-full m-auto"></span>
+                            ) : (
+                                "Resend"
+                            )}
                         </button>
 
                         <div className="mt-8 color-gray text-xl">
@@ -199,14 +205,17 @@ function Verify_email() {
                                         className={` underline cursor-pointer`}
                                         disabled={ResendLoading}
                                     >
-                                        {ResendLoading
-                                            ? "Sending..."
-                                            : "Resend"}
+                                        {ResendLoading ? (
+                                            <span className="small-loader  w-full m-auto"></span>
+                                        ) : (
+                                            "إعادة الإرسال"
+                                        )}
                                     </button>
                                 </>
                             ) : (
                                 <span>
-                                    {RemainingSeconds} seconds left to resend
+                                    ثواني متبقية لإعادة الإرسال
+                                    {RemainingSeconds}
                                 </span>
                             )}
                         </div>

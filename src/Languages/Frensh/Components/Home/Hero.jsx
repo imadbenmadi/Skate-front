@@ -20,7 +20,7 @@ export default function Hero() {
                     <div className=" absolute  font-semibold text-6xl top-24 text-gray font-serif"></div>
                     <div className="flex z-50  flex-col md:items-center w-screen md:w-[600px]">
                         <div className="block max-md:text-4xl   z-50 md:text-5xl  text-center self-center  mb-16 font-semibold text-white">
-                            Skate School
+                            Skate 
                         </div>
                         <div className="block max-md:px-5   text-center z-50 md:text-2xl mb-3 font-semibold text-white">
                             Center of Study Support Consultation

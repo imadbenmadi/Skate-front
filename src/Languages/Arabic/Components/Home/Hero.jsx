@@ -20,28 +20,27 @@ export default function Hero() {
                     <div className=" absolute  font-semibold text-6xl top-24 text-gray font-serif"></div>
                     <div className="flex z-50  flex-col md:items-center w-screen md:w-[600px]">
                         <div className="block max-md:text-4xl   z-50 md:text-5xl  text-center self-center  mb-16 font-semibold text-white">
-                            Skate School
+                            Skate
                         </div>
-                        <div className="block max-md:px-5   text-center z-50 md:text-2xl mb-3 font-semibold text-white">
-                            Center of Study Support Consultation
+                        <div className="block max-md:px-5   text-center z-50 text-xl md:text-2xl mb-3 font-semibold text-white">
+                            مركز للدراسة والدعم والاستشارة{" "}
                         </div>
-                        <div className="block max-md:px-5   text-center z-50 md:text-2xl mb-3 font-semibold text-white ">
-                            Training and Assistance
+                        <div className="block max-md:px-5   text-center z-50 text-xl md:text-2xl mb-3 font-semibold text-white ">
+                            التدريب والمساعدة{" "}
                         </div>
                         <div className=" max-md:flex-col max-md:gap-5 self-center mt-5 flex justify-around items-center z-50 md:w-[80%] w-[200px]">
                             <Link
                                 to={"/en/Courses"}
                                 className="select-none flex items-center text-[16px] bg-white text-black rounded-xl shadow-xl w-fit px-6 py-2 md:text-2xl cursor-pointer font-semibold"
                             >
-                                Owr Courses
+                                دوراتنا
                                 <GrFormNextLink />
                             </Link>
                             <Link
                                 to={"/en/Services"}
                                 className="select-none flex items-center text-[16px]  bg-green text-white rounded-xl shadow-xl w-fit px-6 py-2 md:text-2xl cursor-pointer"
                             >
-                                Owr Services
-                                <GrFormNextLink />
+                                خدماتنا <GrFormNextLink />
                             </Link>
                         </div>
                     </div>

@@ -70,41 +70,42 @@ function Footer() {
                 <div className="flex flex-col gap-5 md:flex-row md:justify-between self-center max-w-[1200px] mx-auto">
                     <div className="hidden md:flex flex-col gap-2 items-start">
                         <div className="flex flex-col gap-2 md:flex-row md:gap-5 justify-between text-base font-bold text-neutral-600">
-                            <Link to={"/en"}>Home</Link>
-                            <Link to={"/en/Contact"}>Contact Us</Link>
+                            <Link to={"/ar"}>الصفحة الرئيسية</Link>
+                            <Link to={"/ar/Contact"}>اتصل بنا</Link>
                         </div>
                         <div className="flex flex-col gap-2 md:flex-row md:gap-5 justify-between text-base font-bold text-neutral-600">
-                            <Link to={"/en/Services"}>Services</Link>
-                            <Link to={"/en/Courses"}>Courses</Link>
-                            <Link to={"/en/Events"}>Events</Link>
-                            <Link to={"/en/Blogs"}>Blogs</Link>
+                            <Link to={"/ar/Services"}>الخدمات</Link>
+                            <Link to={"/ar/Courses"}>الدورات</Link>
+                            <Link to={"/ar/Events"}>الأحداث</Link>
+                            <Link to={"/ar/Blogs"}>المقالات</Link>
                         </div>
                     </div>
                     <div className="flex items-center">
                         <FaPhoneAlt className="text-green text-2xl" />
                         <div className="flex flex-col gap-1 ml-2 text-gray">
                             <a href="tel:+213657653349">+213 657653349</a>
-                            <a href="tel:+213657653349">+213 657653349</a>
+                            <a href="tel:+213657653349">+213 779268945</a>
                         </div>
                     </div>
                 </div>
                 <div className="md:hidden pt-8 flex flex-col  gap-2 text-neutral-600 font-semibold ">
                     <div className="flex flex-col items-center gap-2">
-                        <Link to={"/en"}>Home</Link>
-                        <Link to={"/en/Services"}>Services</Link>
+                        <Link to={"/ar"}>الصفحة الرئيسية</Link>
+                        <Link to={"/ar/Services"}>الخدمات</Link>
                     </div>
                     <div className="flex flex-col items-center gap-2">
-                        <Link to={"/en/Contact"}>Contact Us</Link>
-                        <Link to={"/en/Courses"}>Courses</Link>
+                        <Link to={"/ar/Contact"}>اتصل بنا</Link>
+                        <Link to={"/ar/Courses"}>الدورات</Link>
                     </div>
                     <div className="flex flex-col items-center gap-2">
-                        <Link to={"/en/Events"}>Events</Link>
-                        <Link to={"/en/Blogs"}>Blogs</Link>
+                        <Link to={"/ar/Events"}>الأحداث</Link>
+                        <Link to={"/ar/Blogs"}>المقالات</Link>
                     </div>
                 </div>
             </div>
             <div className="self-center py-6 text-xl font-medium leading-6 whitespace-nowrap text-neutral-500 max-md:ml-2.5">
-                © 2024 Skate. All Rights Reserved.
+                © 2024 Skate. <br />
+                جميع الحقوق محفوظة
             </div>
         </footer>
     );

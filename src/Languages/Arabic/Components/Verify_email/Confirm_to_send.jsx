@@ -26,33 +26,33 @@ function Confirm_to_send({ setConfirm_to_send_state, startResendTimer }) {
                 setConfirm_to_send_state(true);
             } else if (response.status == 429) {
                 Swal.fire(
-                    "Error!",
-                    "Error sending email , Too many Requests",
+                    "خطأ!",
+                    "خطأ في إرسال البريد الإلكتروني، الكثير من الطلبات",
                     "error"
                 );
                 setloading_toSend(false);
             } else if (response.status == 401) {
                 Swal.fire(
-                    "Error!",
-                    "Error sending email , Unauthorized action",
+                    "خطأ!",
+                    "خطأ في إرسال البريد الإلكتروني، إجراء غير مصرح به",
                     "error"
                 );
                 setloading_toSend(false);
             } else if (response.status == 409) {
-                Swal.fire("Error!", `${response.data.message}`, "error");
+                Swal.fire("خطأ!", `${response.data.message}`, "error");
                 setloading_toSend(false);
             } else if (response.status == 404) {
-                Swal.fire("Error!", "User not found", "error");
+                Swal.fire("خطأ!", "المستخدم غير موجود", "error");
                 setloading_toSend(false);
             } else if (response.status == 400) {
-                Swal.fire("Error!", `${response.data.message}`, "error");
+                Swal.fire("خطأ!", `${response.data.message}`, "error");
                 setloading_toSend(false);
             } else if (response.status == 500) {
-                Swal.fire("Error!", "Internal Server Error", "error");
+                Swal.fire("خطأ!", "خطأ في الخادم الداخلي", "error");
                 setloading_toSend(false);
             }
         } catch (error) {
-            Swal.fire("Error!", "Error sending email", "error");
+            Swal.fire("خطأ!", "خطأ في إرسال البريد الإلكتروني", "error");
             setloading_toSend(false);
         }
     };
@@ -60,27 +60,31 @@ function Confirm_to_send({ setConfirm_to_send_state, startResendTimer }) {
         <div className="flex flex-col items-center justify-center text-black_text">
             <div className=" ml-5">
                 <div className="text-lg font-bold mb-4 text-green">
-                    Welcome to the Verification Page
+                    مرحبًا بك في صفحة التحقق{" "}
                 </div>
                 <div className="mb-2 text-gray">Your Name: {FirstName}</div>
                 <div className="mb-2 text-gray">Your Email: {Email}</div>
                 <div className="mb-4">
-                    Confirming your email will allow you to use the website
-                    freely.
+                    تأكيد بريدك الإلكتروني سيسمح لك باستخدام الموقع بحرية
                 </div>
                 <div>
-                    We will send you a code to your email. Please type it below.
+                    سنرسل لك رمزًا عبر البريد الإلكتروني الخاص بك. يرجى كتابته
+                    أدناه.
                 </div>
             </div>
 
             <button
                 className={`mt-4 ${
-                    loading_toSend ? "bg-gray" : "bg-green"
+                    loading_toSend ? "" : "bg-green"
                 }  text-white px-4 py-2 rounded-md cursor-pointer`}
                 onClick={() => handle_send_email(_id)}
                 disabled={loading_toSend}
             >
-                {loading_toSend ? "Loading..." : "Send Email"}
+                {loading_toSend ? (
+                    <span className="small-loader  w-full m-auto"></span>
+                ) : (
+                    "Send Email"
+                )}
             </button>
         </div>
     );

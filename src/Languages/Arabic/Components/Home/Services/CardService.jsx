@@ -11,16 +11,16 @@ function CardService({ icon, titleService, desServicce }) {
                 <div className=" mt-1 md:mt-5 text-lg  md:text-xl  lg:text-2xl font-semibold   text-emerald-500 whitespace-nowrap">
                     {titleService}
                 </div>
-                <div className="self-stretch md:h-[80%] mt-2 md:mt-4  text-sm md:text-base leading-6  text-opacity-70">
+                <div className="self-stretch text-center md:h-[80%] mt-2 md:mt-4  text-sm md:text-base leading-6  text-opacity-70">
                     {desServicce}
                 </div>
-                <Link
+                {/* <Link
                     to={"/en/Services"}
                     className="flex items-center gap-1.5 mt-3 md:mt-6 text-sky-900 whitespace-nowrap"
                 >
-                    <div className="grow">Explore</div>
+                    <div className="grow">Explore</div> 
                     <FaArrowRight />
-                </Link>
+                </Link> */}
             </div>
         </div>
     );

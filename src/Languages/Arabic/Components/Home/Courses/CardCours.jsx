@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function CardCours({ img, title, dec, price }) {
   return (
       // <div className="flex flex-col max-w-sm mx-auto bg-white  w-[98%] h-[90%] rounded-xl overflow-hidden border border-solid shadow-lg border-[color:var(--Neutral-Light-Grey-50,#E9F0F8)]">
-      <div className="flex flex-col max-w-sm mx-auto bg-white  w-[98%] h-full rounded-xl overflow-hidden border border-solid shadow-lg border-[color:var(--Neutral-Light-Grey-50,#E9F0F8)]">
+      <div className="flex flex-col items-center text-center max-w-sm mx-auto bg-white  w-[98%] h-full rounded-xl overflow-hidden border border-solid shadow-lg border-[color:var(--Neutral-Light-Grey-50,#E9F0F8)]">
           {/* <div className="flex overflow-hidden relative flex-col items-start pt-12 pr-16 pb-6 pl-4 w-full text-sm leading-5  whitespace-nowrap aspect-[1.23]">
               <img
                   // loading="lazy"
@@ -20,9 +20,9 @@ function CardCours({ img, title, dec, price }) {
               />
           </div>
           <div className="flex flex-col justify-between px-4 py-2.5 w-full h-full bg-white rounded-none">
-              <div className=" flex flex-col items-start">
-                  <div className="flex gap-5 justify-between font-semibold">
-                      <div className="flex-auto text-md leading-6 text-black">
+              <div className=" flex flex-col items-start justify-center">
+                  <div className="flex gap-5 justify-between font-semibold m-auto">
+                      <div className="flex-auto text-2xl  text-md leading-6  text-gray m-auto">
                           {title}
                       </div>
                       {/* <div className="flex-auto text-xl leading-7 text-right text-orange-500">
@@ -35,10 +35,10 @@ function CardCours({ img, title, dec, price }) {
               </div>
 
               <Link
-                  to={"/en/Courses"}
+                  to={"/ar/Courses"}
                   className="justify-center self-center px-6 py-3 mb-6 md:mb-0 mt-2 md:mt-6 text-base font-medium leading-6 text-center text-white whitespace-nowrap bg-green rounded-lg"
               >
-                  View Course
+                  تفاصيل الدورة
               </Link>
           </div>
       </div>

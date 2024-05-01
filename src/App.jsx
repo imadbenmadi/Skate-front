@@ -40,6 +40,7 @@ function App() {
                         validateStatus: () => true,
                     }
                 );
+                console.log("response from app.jsx", response.data);
                 if (
                     response.status == 200 &&
                     response.data.userData._id == null
@@ -151,7 +152,7 @@ function App() {
 
         const fetch_fonts = () => {
             return new Promise((resolve, reject) => {
-                // localStorage.setItem("font", "ar");
+                localStorage.setItem("font", "ar");
                 const fontURLs = [
                     "https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;500;700;800&display=swap",
                     "https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap",
@@ -169,7 +170,10 @@ function App() {
                             resolve(); // Resolve even if font fails to load
                         };
                         document.head.appendChild(link);
-                        if (!localStorage.getItem("font") || localStorage.getItem("font") == "en" )
+                        if (
+                            !localStorage.getItem("font") ||
+                            localStorage.getItem("font") == "en"
+                        )
                             document.getElementById("root").style.fontFamily =
                                 "Outfit";
                         else if (localStorage.getItem("font") == "ar")
@@ -178,7 +182,9 @@ function App() {
                         else if (localStorage.getItem("font") == "fr")
                             document.getElementById("root").style.fontFamily =
                                 "Outfit";
-                        else document.getElementById("root").style.fontFamily = "Outfit";
+                        else
+                            document.getElementById("root").style.fontFamily =
+                                "Outfit";
                     });
                 };
 
@@ -193,9 +199,9 @@ function App() {
                 loadAllFonts();
             });
         };
+        // Promise.all([fetch_fonts(), fetch_images()])
 
-        // Promise.all([fetch_font(), fetch_images(), fetchData()])
-        Promise.all([fetch_fonts(), fetch_images()])
+        Promise.all([fetch_fonts(), fetch_images(), fetchData()])
             .then(() => {
                 setLoading(false);
             })

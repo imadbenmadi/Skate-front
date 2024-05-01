@@ -75,12 +75,16 @@ function Confirm_to_send({ setConfirm_to_send_state, startResendTimer }) {
 
             <button
                 className={`mt-4 ${
-                    loading_toSend ? "bg-gray" : "bg-green"
+                    loading_toSend ? "" : "bg-green"
                 }  text-white px-4 py-2 rounded-md cursor-pointer`}
                 onClick={() => handle_send_email(_id)}
                 disabled={loading_toSend}
             >
-                {loading_toSend ? "Loading..." : "Send Email"}
+                {loading_toSend ? (
+                    <span className="small-loader  w-full m-auto"></span>
+                ) : (
+                    "Send Email"
+                )}
             </button>
         </div>
     );

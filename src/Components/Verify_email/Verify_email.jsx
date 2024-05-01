@@ -185,7 +185,11 @@ function Verify_email() {
                             }  text-white px-4 py-2 rounded-md cursor-pointer`}
                             disabled={SubmitLoading}
                         >
-                            {SubmitLoading ? "Sending..." : "Send Email"}
+                            {SubmitLoading ? (
+                                <span className="small-loader  w-full m-auto"></span>
+                            ) : (
+                                "Send Email"
+                            )}
                         </button>
 
                         <div className="mt-8 color-gray text-xl">
@@ -199,9 +203,11 @@ function Verify_email() {
                                         className={` underline cursor-pointer`}
                                         disabled={ResendLoading}
                                     >
-                                        {ResendLoading
-                                            ? "Sending..."
-                                            : "Resend"}
+                                        {ResendLoading ? (
+                                            <span className="small-loader  w-full m-auto"></span>
+                                        ) : (
+                                            "Resend"
+                                        )}
                                     </button>
                                 </>
                             ) : (

@@ -19,8 +19,8 @@ export function AboutUs() {
             className=" mx-auto py-4 "
         >
             <div className="flex  mx-auto justify-center items-center max-w-[1200px] gap-5 max-md:flex-col max-md:gap-0 max-md:">
-                <div className="md:hidden  mt-5 self-center text-4xl text-green whitespace-nowrap">
-                    About <span className="text-gray">Skate</span>
+                <div className="md:hidden  font-bold mt-5 self-center text-4xl text-emerald-500 whitespace-nowrap">
+                    من <span className="text-gray">نحن</span>
                 </div>
 
                 <motion.div className="flex relative flex-col w-[30%] h-[60%] max-md:ml-0 max-md:w-full">
@@ -40,21 +40,19 @@ export function AboutUs() {
                 </motion.div>
                 <motion.div className="flex flex-col duration-300 ml-5 w-6/12 max-md:ml-0 max-md:w-full">
                     <div className="flex flex-col px-5 mt-2 font-bold  max-md:max-w-full">
-                        <div className=" max-md:hidden self-center text-4xl text-green whitespace-nowrap">
-                            About <span className="text-gray">Skate</span>
+                        <div className=" max-md:hidden self-center text-4xl font-bold text-emerald-500 whitespace-nowrap">
+                            من <span className="text-gray">نحن</span>
                         </div>
-                        <div className=" mt-2 md:mt-10 text-xl md:text-3xl text-neutral-600  max-md:max-w-full">
-                            Skills Knowledge Attitude, Training Education.
+                        <div className=" mt-2 text-center md:mt-10 text-xl md:text-3xl text-neutral-600  max-md:max-w-full">
+                            المهارات المعرفة التوجيه، التدريب و التعليم
                         </div>
-                        <div className=" mt-2 md:mt-8 text-base md:text-xl leading-7 md:leading-10 text-black_text text-opacity-70 max-md:max-w-full">
-                            <span className="font-normal ">
-                                Skate is a center of{" "}
-                            </span>
-                            <span className=" font-normal ">
-                                Study, Consultation, Support, Training, and
-                                Assistance for individuals, businesses, and
-                                public and private organizations. Accredited by
-                                the Ministry of Environment.
+                        <div className=" mt-2 md:mt-8 text-center text-base md:text-xl leading-7 md:leading-10 text-black_text text-opacity-70 max-md:max-w-full">
+                            {/* <span className="font-normal ">Skate </span>
+                            <br /> */}
+                            <span className=" font-normal  ">
+                                هو مركز للدراسة والاستشارة والدعم والتدريب
+                                والمساعدة للأفراد والشركات والمنظمات العامة
+                                والخاصة. معتمد من وزارة البيئة
                             </span>
                         </div>
                         {/* <div className="flex gap-5 justify-between pr-7 mt-10 text-2xl text-white whitespace-nowrap max-md:flex-wrap max-md:pr-5 max-md:mt-10 max-md:max-w-full">
@@ -79,7 +77,7 @@ export function AboutUs() {
                                 <div>
                                     <MdOutlineFileDownload className="text-2xl md:text-4xl" />
                                 </div>
-                                <div>Services Catalog</div>
+                                <div> فهرس الخدمات</div>
                             </a>
                             <a
                                 href="./catloug de formation.pdf"
@@ -89,7 +87,7 @@ export function AboutUs() {
                                 <div>
                                     <MdOutlineFileDownload className="text-2xl md:text-4xl" />
                                 </div>
-                                <div>Courses Catalog</div>
+                                <div> فهرس الدورات</div>
                             </a>
                         </div>
                     </div>

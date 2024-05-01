@@ -135,13 +135,13 @@ function Contact() {
                                         type="submit"
                                         className={`${
                                             isSubmitting
-                                                ? "bg-gray_white text-gray"
+                                                ? " text-gray"
                                                 : " bg-green text-white"
                                         } w-fit m-auto px-4 py-2 rounded font-semibold`}
                                         disabled={isSubmitting}
                                     >
                                         {isSubmitting ? (
-                                            <div>loading</div>
+                                            <span className="small-loader  w-full m-auto"></span>
                                         ) : (
                                             "Submit"
                                         )}

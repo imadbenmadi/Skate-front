@@ -15,16 +15,16 @@ function Services() {
             <div className="max-w-[1100px]   py-10 mx-auto h-12 flex justify-between px-10 items-center">
                 <div className="w-fit   max-md:mx-auto max-md:text-center max-mad:text-center max-mad:w-full   max-mad:w-full   ">
                     <span className="text-emerald-500 text-4xl font-bold ">
-                        OUR{" "}
+                        خدماتنا{" "}
                     </span>
-                    <span className=" text-4xl text-gray ">SERVICES </span>
+                    {/* <span className=" text-4xl text-gray ">SERVICES </span> */}
                 </div>
 
                 <Link
                     to={"/en/Services"}
                     className="select-none flex  gap-2 items-center w-fit max-md:hidden text-green underline px-5 py-2 rounded-md  text-center  text-base font-medium  leading-normal"
                 >
-                    <span className=" text-xl">Veiw All Services</span>{" "}
+                    <span className=" text-xl">عرض جميع الخدمات</span>{" "}
                     <FaArrowRight className=" mt-1" />
                 </Link>
             </div>
@@ -40,26 +40,30 @@ function Services() {
             >
                 <CardService
                     icon={icon1}
-                    titleService="Environmental Studies"
-                    desServicce=" We provide comprehensive assessments and solutions for environmental impact, hazard management, fire protection systems, internal emergency intervention, safety planning, and waste management. Our expertise ensures regulatory compliance and minimizes risks, safeguarding both the environment and personnel."
+                    titleService="دراسات البيئة"
+                    desServicce="نقدم تقييمات شاملة وحلولًا للتأثير البيئي، وإدارة المخاطر، وأنظمة الحماية من الحرائق، والتدخل في حالات الطوارئ الداخلية، وتخطيط السلامة، وإدارة النفايات. تضمن خبرتنا الامتثال للتنظيمات وتقليل المخاطر، مما يحمي البيئة والموظفين."
                 />
                 <CardService
                     icon={icon2}
-                    titleService="consultation and support"
-                    desServicce="We specialize in quality certification based on ISO 9001, ISO 14001, and ISO 45001 standards, as well as food safety certification based on HACCP and ISO 22000 standards. Our services also include upgrading businesses, organizing and structuring companies, and implementing management systems and tools."
+                    titleService="الاستشارة والدعم"
+                    desServicce="نختص في شهادات الجودة بناءً على معايير ISO 9001 و ISO 14001 و ISO 45001، بالإضافة إلى شهادة سلامة الغذاء بناءً على معايير HACCP و ISO 22000. تشمل خدماتنا أيضًا تطوير الشركات، وتنظيم وترتيب الشركات، وتنفيذ أنظمة وأدوات الإدارة."
                 />
                 <CardService
                     icon={icon3}
-                    titleService="Enterprise Creation"
-                    desServicce="During the creation of a business or a private company, it faces several different obstacles such as authorizations, approvals, and compliance. Regarding regulations in the law, these steps must be precise and organized to ensure transparent success and compliance with regulations. SKATE offers services based on understanding client needs to meet standards."
+                    titleService="إنشاء المشاريع"
+                    desServicce="خلال إنشاء الأعمال التجارية أو الشركة الخاصة، تواجه العديد من العقبات المختلفة مثل التراخيص والموافقات والامتثال. بالنسبة للتنظيمات في القانون، يجب أن تكون هذه الخطوات دقيقة ومنظمة لضمان النجاح الشفاف والامتثال للتنظيمات. يقدم SKATE خدمات تستند إلى فهم احتياجات العميل لتلبية المعايير."
                 />
             </div>
 
             <Link
                 to={"/en/Services"}
-                className=" flex gap-2 items-center select-none w-fit   mx-auto   md:hidden  px-5 py-2 rounded-md  text-center  font-medium  leading-normal underline text-xl text-green "
+                className=" flex gap-2 items-center select-none w-fit 
+                  mx-auto   md:hidden  px-5 py-2 rounded-md  text-center
+                    font-medium  leading-normal  text-xl
+                     text-green "
             >
-                Veiw All Services <FaArrowRight className=" mt-1" />
+                عرض جميع الخدمات
+                <FaArrowRight className=" mt-1" />
             </Link>
         </div>
     );
