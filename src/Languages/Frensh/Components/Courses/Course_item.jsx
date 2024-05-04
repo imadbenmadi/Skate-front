@@ -195,9 +195,11 @@ function CourseItem() {
                                             }
                                         }}
                                     >
-                                        {requestLoading
-                                            ? "Requesting..."
-                                            : "Request the Course"}
+                                        {requestLoading ? (
+                                            <span className="small-loader  w-full m-auto"></span>
+                                        ) : (
+                                            "Request the Course"
+                                        )}
                                     </div>
                                 </>
                             ) : (

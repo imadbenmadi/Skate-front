@@ -196,9 +196,11 @@ function ServiceItem() {
                                             }
                                         }}
                                     >
-                                        {requestLoading
-                                            ? "Requesting..."
-                                            : "Request the service"}
+                                        {requestLoading ? (
+                                            <span className="small-loader  w-full m-auto"></span>
+                                        ) : (
+                                            "Request the service"
+                                        )}
                                     </div>
                                 </>
                             ) : (
