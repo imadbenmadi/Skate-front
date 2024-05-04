@@ -18,7 +18,6 @@ function Laptop_Nav_Items({
     Logout,
     LogoutClicked,
 }) {
-    
     const [unReaded_Notif, SetunReaded_Notif] = useState(false);
     const { Notifications, _id } = useAppContext();
     const [User_menu_open, setUser_menu_open] = useState(false);
@@ -31,18 +30,18 @@ function Laptop_Nav_Items({
             SetunReaded_Notif(hasUnreadNotification);
         }
     }, [Notifications]);
-   
+
     const [LanguageClicked, SetLanguageClicked] = useState(false);
     const toogle_LanguageClicked = () => {
         SetLanguageClicked(!LanguageClicked);
     };
     return (
-        <div className="hidden  md:flex  items-center justify-center gap-7 text-lg text-black_text h-full ">
-            <div className="flex gap-3 lg:gap-5">
+        <div className="hidden  md:flex  items-center justify-center gap-3 lg:gap-7 text-base lg:text-lg text-black_text h-full ">
+            <div className="flex gap-3 lg:gap-8">
                 <div onClick={toogle_LanguageClicked} className="  relative ">
                     <div className=" flex items-center justify-center gap-1 cursor-pointer">
                         {/* <p>EN</p> */}
-                        <img src={en} alt="" className=" w-6" />
+                        <img src={ar} alt="" className=" w-6" />
 
                         {LanguageClicked ? (
                             <FaAngleUp className=" text-lg" />
@@ -90,78 +89,78 @@ function Laptop_Nav_Items({
                 </div>
                 <div className=" hover:text-green transition-colors cursor-pointer">
                     <Link
-                        to={"/en"}
+                        to={"/ar"}
                         className={
-                            !Active_nav 
+                            !Active_nav
                                 ? "text-green hover:text-green select-none"
                                 : "text-black_text hover:text-green select-none"
                         }
                     >
-                        Home
+                        الرئيسية
                     </Link>
                 </div>
                 <div className=" hover:text-green transition-colors cursor-pointer">
                     <Link
-                        to={"/en/Services"}
+                        to={"/ar/Services"}
                         className={
                             Active_nav == "Services"
                                 ? "text-green hover:text-green select-none"
                                 : "text-black_text hover:text-green select-none"
                         }
                     >
-                        Services
+                        خدماتنا
                     </Link>
                 </div>
                 <div className=" hover:text-green transition-colors cursor-pointer">
                     <Link
-                        to={"/en/Courses"}
+                        to={"/ar/Courses"}
                         className={
                             Active_nav == "Courses"
                                 ? "text-green hover:text-green select-none"
                                 : "text-black_text hover:text-green select-none"
                         }
                     >
-                        Courses
+                        دوراتنا
                     </Link>
                 </div>
                 <div className=" hover:text-green transition-colors cursor-pointer">
                     <Link
-                        to={"/en/Events"}
+                        to={"/ar/Events"}
                         className={
                             Active_nav == "Events"
                                 ? "text-green hover:text-green select-none"
                                 : "text-black_text hover:text-green select-none"
                         }
                     >
-                        Events
+                        الاحداث
                     </Link>
                 </div>
                 <div className=" hover:text-green transition-colors cursor-pointer">
                     <Link
-                        to={"/en/Blogs"}
+                        to={"/ar/Blogs"}
                         className={
                             Active_nav == "Blogs"
                                 ? "text-green hover:text-green select-none"
                                 : "text-black_text hover:text-green select-none"
                         }
                     >
-                        Blogs
+                        المقالات
                     </Link>
                 </div>
                 <div className="  transition-colors cursor-pointer">
                     <Link
-                        to={"/en/Contact"}
+                        to={"/ar/Contact"}
                         className={`${
                             Active_nav == "Contact"
                                 ? "text-green hover:text-green select-none"
                                 : "text-black_text hover:text-green select-none"
                         }`}
                     >
-                        Contact
+                        اتصل بنا
                     </Link>
                 </div>
             </div>
-            <div className="flex gap-4 justify-center items-center h-full">
+            <div className="flex gap-2 justify-center items-center h-full">
                 {/* <div className=" ">
                     <TbSettings
                         onClick={handleSettingsClick}
@@ -177,7 +176,7 @@ function Laptop_Nav_Items({
                         >
                             <div className=" relative flex items-center justify-center select-none">
                                 <Link
-                                    to={`/en/Profile/${_id}/Notifications`}
+                                    to={`/ar/Profile/${_id}/Notifications`}
                                     className=""
                                 >
                                     <MdNotificationsNone className="text-gray text-2xl cursor-pointer" />
@@ -205,7 +204,7 @@ function Laptop_Nav_Items({
                             )}
                         </div>
                         <Link
-                            to={`/en/Profile/${_id}`}
+                            to={`/ar/Profile/${_id}`}
                             className="select-none h-full "
                             onMouseEnter={() => setUser_menu_open(true)}
                             onMouseLeave={() => setUser_menu_open(false)}
@@ -220,14 +219,14 @@ function Laptop_Nav_Items({
                                 onMouseLeave={() => setUser_menu_open(false)}
                             >
                                 <Link
-                                    to={`/en/Profile/${_id}`}
+                                    to={`/ar/Profile/${_id}`}
                                     className="select-none flex items-center gap-3 pl-4 mb-1 "
                                     onClick={() => setUser_menu_open(false)}
                                 >
                                     <FaUserTie className="text-gray text-2xl cursor-pointer" />
                                     <div className="flex flex-col">
-                                        <span className="underline font-semibold text-gray text-xl">
-                                            Profile
+                                        <span className="py-2 font-semibold text-gray text-xl">
+                                            الحساب
                                         </span>
                                         <span className="text-sm break-all">
                                             <span className="text-sm break-all">
@@ -247,7 +246,7 @@ function Laptop_Nav_Items({
                                             }}
                                         >
                                             <TbLogout />
-                                            Logout
+                                            تسحيل الخروج
                                         </div>
                                     ) : (
                                         <div className=" w-full flex items-center justify-center mt-4 mb-2 text-red-600 m-auto">
@@ -260,14 +259,14 @@ function Laptop_Nav_Items({
                     </>
                 ) : (
                     <>
-                        <span className="bg-green text-[#fff] px-3 py-1 text-xl rounded-lg cursor-pointer">
-                            <Link to={"/en/Login"} className="select-none">
-                                Login
+                        <span className="bg-green text-[#fff]  text-center text-[16px] lg:text-xl p-1  lg:px-3 lg:py-1   rounded-lg cursor-pointer">
+                            <Link to={"/ar/Login"} className="select-none">
+                                تسجيل الدخول
                             </Link>
                         </span>
-                        <span className="bg-blue text-[#fff] px-3 py-1 text-xl rounded-lg cursor-pointer">
-                            <Link to={"/en/Register"} className="select-none">
-                                SignUp
+                        <span className="bg-blue text-[#fff] text-center text-[16px] lg:text-xl  p-1 lg:px-3 lg:py-1  rounded-lg cursor-pointer">
+                            <Link to={"/ar/Register"} className="select-none">
+                                حساب جديد
                             </Link>
                         </span>
                     </>

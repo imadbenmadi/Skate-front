@@ -94,7 +94,7 @@ function NavBar({ Active_nav, setActive_nav }) {
         >
             <div className=" h-full  flex shadow-lg bg-white justify-between items-center md:justify-around select-none ">
                 <div className=" p-2 ml-5 md:ml-0">
-                    <Link to={"/en"} className="select-none">
+                    <Link to={"/ar"} className="select-none">
                         <img
                             loading="lazy"
                             src={Logo}
@@ -162,7 +162,7 @@ function NavBar({ Active_nav, setActive_nav }) {
                                 <div className="relative">
                                     <Link
                                         onClick={Toogle_Menu_Bar}
-                                        to={`/en/Profile/${_id}/Notifications`}
+                                        to={`/ar/Profile/${_id}/Notifications`}
                                         className="select-none flex "
                                     >
                                         <MdNotificationsNone className=" text-2xl  " />
@@ -176,7 +176,7 @@ function NavBar({ Active_nav, setActive_nav }) {
 
                                 <Link
                                     onClick={Toogle_Menu_Bar}
-                                    to={`/en/Profile/${_id}`}
+                                    to={`/ar/Profile/${_id}`}
                                     className="select-none flex  items-center gap-2 "
                                 >
                                     <FaUserTie className="text-xl" />

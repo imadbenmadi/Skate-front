@@ -14,24 +14,58 @@ function Verification({
     const Navigate = useNavigate();
     const [succed_verification, setSucced_verification] = useState(false);
     const [succed_Login, setSucced_Login] = useState(false);
+    const [resend_Loading , setResend_Loading] = useState(false);
     useEffect(() => {
         if (succed_Login && succed_verification) window.location.href = "/";
         else if (!succed_Login && succed_verification) {
-            Navigate("/en/Login");
+            Navigate("/ar/Login");
         }
     }, [succed_verification, succed_Login]);
 
-    const [show_not_finished, setShow_not_finished] = useState(false);
-    function open_not_finished() {
-        setShow_not_finished(true);
-    }
     const [code, setCode] = useState("");
     const handleChange = (e) => {
         const { value } = e.target;
-        // Ensure the entered value is only numeric and has a maximum length of 6
+        // التأكد من أن القيمة المُدخلة هي أرقام فقط ولديها طول أقصى 6 أحرف
         if (/^\d{0,6}$/.test(value)) {
             setCode(value);
         }
+    };
+
+    const resend_code = async () => {
+        try {
+            setResend_Loading(true);
+            let response = await Axios.post(
+                "https://backend.skate.dz/ReSend_Verification_Email",
+                {
+                    userId: Verify_id,
+                },
+                {
+                    withCredentials: true,
+                    validateStatus: () => true,
+                }
+            );
+            if (response.status == 200) {
+                Swal.fire("تم!", "تم إعادة إرسال الرمز بنجاح", "success");
+            } else if (response.status == 404) {
+                console.log(response.data);
+                Swal.fire("خطأ!", `${response.data.message}`, "error");
+            } else if (response.status == 500) {
+                Swal.fire("خطأ!", "خطأ في الخادم الداخلي", "error");
+            } else if (response.status == 429) {
+                Swal.fire(
+                    "خطأ!",
+                    `الكثير من الطلبات، جرب مرة أخرى في وقت لاحق\n  ${response.data.message}`,
+                    "error"
+                );
+            } else {
+                Swal.fire("خطأ!", "حدث خطأ ما", "error");
+            }
+        } catch (error) {
+            Swal.fire("خطأ!", "حدث خطأ ما", "error");
+        }finally{
+            setResend_Loading(false);
+        }
+
     };
 
     const handleSubmit = async () => {
@@ -48,7 +82,7 @@ function Verification({
         );
 
         if (response.status == 200) {
-            Swal.fire("Done!", "Email Verified Successfully", "success");
+            Swal.fire("تم!", "تم التحقق من البريد الإلكتروني بنجاح", "success");
             try {
                 let response = await Axios.post(
                     "https://backend.skate.dz/Login",
@@ -72,8 +106,8 @@ function Verification({
                     setSucced_verification(true);
                 } else if (response.status == 429) {
                     Swal.fire(
-                        "Error!",
-                        `Too many requests ,try again latter\n  ${response.data.message}`,
+                        "خطأ!",
+                        `الكثير من الطلبات، جرب مرة أخرى في وقت لاحق\n  ${response.data.message}`,
                         "error"
                     );
                 } else {
@@ -84,48 +118,50 @@ function Verification({
             }
         } else if (response.status == 409) {
             Swal.fire(
-                "Could not Verify Account!",
+                "تعذر التحقق من الحساب!",
                 `${response.data.message}`,
                 "error"
             );
         } else if (response.status == 404) {
-            Swal.fire("Error!", `${response.data.message}`, "error");
+            Swal.fire("خطأ!", `${response.data.message}`, "error");
         } else if (response.status == 500) {
-            Swal.fire("Error!", "Internal Server Error", "error");
+            Swal.fire("خطأ!", "خطأ في الخادم الداخلي", "error");
         } else if (response.status == 429) {
             Swal.fire(
-                "Error!",
-                `Too many requests ,try again latter\n  ${response.data.message}`,
+                "خطأ!",
+                `الكثير من الطلبات، جرب مرة أخرى في وقت لاحق\n  ${response.data.message}`,
                 "error"
             );
         } else {
-            Swal.fire("Error!", "Something Went Wrong", "error");
+            Swal.fire("خطأ!", "حدث خطأ ما", "error");
         }
         setCode("");
     };
     const Sended_Date = Formate_Date(rigester_Date);
     return (
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center mb-6">
             <img
                 src={Logo}
-                alt="Skate Logo"
+                alt="شعار سكيت"
                 className="mt-8 w-[140px]"
                 loading="lazy"
             />
             <div className=" font-bold mb-4 text-xl text-green">
-                Skate Verification
+                التحقق من بريدك الإلكتروني
             </div>
-            <div className=" mb-8">
+            <div className=" mb-8 font-semibold">
                 <div className="mb-4">
-                    Enter the 6-digit code we sent to you in email
+                    أدخل الرمز المكون من 6 أرقام الذي أرسلناه إليك في البريد
+                    الإلكتروني
                 </div>
-                <div className=" text-gray text-sm">
+                <div className=" text-gray text-sm text-center pb-6">
                     {" "}
-                    Message Sended at : {Sended_Date}{" "}
+                    الرسالة أرسلت في: <p>{Sended_Date} </p>{" "}
                 </div>
-                <div className=" text-gray text-sm">
+                <div className=" text-gray text-sm text-center">
                     {" "}
-                    your Email : {Verify_email}{" "}
+                    بريدك الإلكتروني: <br />
+                    {Verify_email}{" "}
                 </div>
             </div>
 
@@ -138,25 +174,28 @@ function Verification({
             />
             <button
                 onClick={handleSubmit}
-                className="bg-blue-500 text-white bg-green px-4 py-2 rounded disabled:opacity-50"
+                className=" text-white bg-green px-4 py-2 rounded disabled:opacity-50"
                 disabled={code.length !== 6}
             >
-                Submit
+                إرسال
             </button>
-            <div className="mt-8 color-gray text-sm">
-                Didn’t receive verification code?
-            </div>
-            <div
-                className=" text-center text-gray underline cursor-pointer text-sm"
-                onClick={open_not_finished}
-            >
-                resend it
-            </div>
-            {show_not_finished && (
-                <div className="mt-4 bg-red-500 opacity-70  p-4 rounded-2xl text-white">
-                    <div>Sorry we did not finished this part yet </div>
-                </div>
-            )}
+            {/* <div className=" py-6">
+                {!resend_Loading ? (
+                    <div>
+                        <div className=" color-gray text-sm">
+                            لم تتلقى رمز التحقق؟
+                        </div>
+                        <div
+                            className=" text-center text-gray underline cursor-pointer text-sm"
+                            onClick={resend_code}
+                        >
+                            إعادة الإرسال
+                        </div>
+                    </div>
+                ) : (
+                    <span className="small-loader pt-2  w-full m-auto"></span>
+                )}
+            </div> */}
         </div>
     );
 }

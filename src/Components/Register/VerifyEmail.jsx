@@ -105,7 +105,7 @@ function Verification({
     };
     const Sended_Date = Formate_Date(rigester_Date);
     return (
-        <div className="flex flex-col items-center justify-center">
+        <div className="flex flex-col items-center justify-center pb-6">
             <img
                 src={Logo}
                 alt="Skate Logo"
@@ -143,20 +143,23 @@ function Verification({
             >
                 Submit
             </button>
-            <div className="mt-8 color-gray text-sm">
-                Didn’t receive verification code?
-            </div>
-            <div
-                className=" text-center text-gray underline cursor-pointer text-sm"
-                onClick={open_not_finished}
-            >
-                resend it
-            </div>
-            {show_not_finished && (
-                <div className="mt-4 bg-red-500 opacity-70  p-4 rounded-2xl text-white">
-                    <div>Sorry we did not finished this part yet </div>
-                </div>
-            )}
+            {/* <div className=" py-6">
+                {!resend_Loading ? (
+                    <div>
+                        <div className=" color-gray text-sm">
+                            لم تتلقى رمز التحقق؟
+                        </div>
+                        <div
+                            className=" text-center text-gray underline cursor-pointer text-sm"
+                            onClick={resend_code}
+                        >
+                            إعادة الإرسال
+                        </div>
+                    </div>
+                ) : (
+                    <span className="small-loader pt-2  w-full m-auto"></span>
+                )}
+            </div> */}
         </div>
     );
 }

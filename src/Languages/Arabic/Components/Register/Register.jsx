@@ -30,7 +30,7 @@ function Register() {
                 {!open_verify && (
                     <div>
                         <Link
-                            to={"/en"}
+                            to={"/ar"}
                             className="select-none w-fit flex m-auto"
                         >
                             <img
@@ -40,13 +40,13 @@ function Register() {
                                 alt=""
                             />
                         </Link>
-                        <div className=" m-auto text-center pt-5 text-2xl font-semibold text-blue ">
+                        {/* <div className=" m-auto text-center pt-5 text-2xl font-semibold text-blue ">
                             Join to Skate Community
-                        </div>
+                        </div> */}
                         {/* input fields */}
                         <div className=" border border-gray_white text-black_text shadow-md w-[80%] md:w-[50%] m-auto mt-3 p-5 rounded-lg  ">
-                            <div className=" text-lg font-semibold mb-4 ">
-                                Create Your Account
+                            <div className=" text-lg text-end text-gray font-semibold mb-4 ">
+                                انشئ حسابك الان
                             </div>
 
                             <Formik
@@ -64,70 +64,66 @@ function Register() {
                                     const errors = {};
                                     // Validate First Name
                                     if (!values.FirstName) {
-                                        errors.FirstName =
-                                            "first name is Required ";
+                                        errors.FirstName = "الاسم  مطلوب";
                                     } else if (values.FirstName.length > 14)
                                         errors.FirstName =
-                                            "first name must be less than 14 chars";
+                                            "يجب أن يكون الاسم  أقل من 14 حرفًا";
                                     else if (values.FirstName.length < 3)
                                         errors.FirstName =
-                                            "first name must be more than 3 chars ";
+                                            "يجب أن يكون الاسم  أكثر من 3 أحرف";
                                     if (!values.LastName) {
-                                        // Validate Last Name
-                                        errors.LastName =
-                                            "last name is Required";
+                                        // التحقق من الاسم الأخير
+                                        errors.LastName = "اسم العائلة مطلوب";
                                     } else if (values.LastName.length > 14) {
-                                        ("Last Name must be less than 14 chars");
+                                        ("يجب أن يكون اسم العائلة أقل من 14 حرفًا");
                                     } else if (values.LastName.length < 3)
                                         errors.LastName =
-                                            "Last Name must be more than 3 chars ";
+                                            "يجب أن يكون اسم العائلة أكثر من 3 أحرف";
                                     if (!values.Telephone) {
-                                        errors.Telephone =
-                                            "Telephone number is required";
+                                        errors.Telephone = "رقم الهاتف مطلوب";
                                     } else if (
                                         !/^(0)(5|6|7)[0-9]{8}$/.test(
                                             values.Telephone
                                         )
                                     ) {
                                         errors.Telephone =
-                                            "Invalid Telephone number";
+                                            "رقم الهاتف غير صالح";
                                     }
-                                    // Validate Email
+                                    // التحقق من البريد الإلكتروني
                                     if (!values.Email) {
-                                        errors.Email = "email is Required";
+                                        errors.Email =
+                                            "البريد الإلكتروني مطلوب";
                                     } else if (
                                         !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i.test(
                                             values.Email
                                         )
                                     ) {
-                                        errors.Email = "Invalid Email address";
+                                        errors.Email =
+                                            "عنوان البريد الإلكتروني غير صالح";
                                     }
 
-                                    // Validate Password
+                                    // التحقق من كلمة المرور
                                     if (!values.Password) {
-                                        errors.Password =
-                                            "Password is Required";
+                                        errors.Password = "كلمة المرور مطلوبة";
                                     } else if (values.Password.length < 8) {
                                         errors.Password =
-                                            "Password must be at least 8 characters long";
+                                            "يجب أن تكون كلمة المرور على الأقل 8 أحرف";
                                     }
                                     if (!values.ReEnter_Password) {
-                                        errors.ReEnter_Password =
-                                            "Field is Required";
+                                        errors.ReEnter_Password = "الحقل مطلوب";
                                     } else if (
                                         values.ReEnter_Password !==
                                         values.Password
                                     ) {
                                         errors.ReEnter_Password =
-                                            "Password does not match";
+                                            "كلمة المرور غير متطابقة";
                                     } else if (
                                         (values.Age &&
                                             !/^\d+$/.test(values.Age)) ||
                                         values.Age <= 0
                                     ) {
-                                        errors.Age = "Invalid Age";
+                                        errors.Age = "عمر غير صالح";
                                     }
-
                                     // Validate Gender
                                     // if (!values.Gender) {
                                     //     errors.Gender = "Required";
@@ -150,14 +146,14 @@ function Register() {
                                 }}
                             >
                                 {({ isSubmitting }) => (
-                                    <Form className=" flex flex-col text-sm md:text-lg md:mx-5 gap-4">
+                                    <Form className=" flex flex-col text-sm md:text-lg md:mx-5 gap-4 text-end">
                                         <div className=" flex justify-center gap-4 flex-wrap ">
                                             <div>
                                                 <div>
-                                                    First Name
                                                     <span className=" text-red-600 font-semibold">
                                                         *
                                                     </span>
+                                                    الاسم
                                                 </div>
                                                 <div>
                                                     <Field
@@ -177,10 +173,10 @@ function Register() {
                                             </div>
                                             <div>
                                                 <div>
-                                                    Last Name
                                                     <span className=" text-red-600 font-semibold">
                                                         *
                                                     </span>
+                                                    اللقب
                                                 </div>
                                                 <div>
                                                     <Field
@@ -201,10 +197,10 @@ function Register() {
                                         </div>
                                         <div>
                                             <div>
-                                                Telephone Number
                                                 <span className=" text-red-600 font-semibold">
                                                     *
                                                 </span>
+                                                الهاتف
                                             </div>
                                             <Field
                                                 type="text"
@@ -220,10 +216,10 @@ function Register() {
                                         </div>
                                         <div>
                                             <div>
-                                                Email{" "}
                                                 <span className=" text-red-600 font-semibold">
                                                     *
                                                 </span>
+                                                البريد الالكتروني{" "}
                                             </div>
                                             <Field
                                                 type="Email"
@@ -239,10 +235,10 @@ function Register() {
                                         </div>
                                         <div>
                                             <div>
-                                                Password{" "}
                                                 <span className=" text-red-600 font-semibold">
                                                     *
                                                 </span>
+                                                كلمة السر{" "}
                                             </div>
                                             <div className=" flex items-center">
                                                 <Field
@@ -283,10 +279,10 @@ function Register() {
                                         </div>
                                         <div>
                                             <div>
-                                                ReEnterr The Password{" "}
                                                 <span className=" text-red-600 font-semibold">
                                                     *
                                                 </span>
+                                                اعد ادخال كلمة السر{" "}
                                             </div>
                                             <Field
                                                 type={
@@ -305,13 +301,13 @@ function Register() {
                                             />
                                         </div>
 
-                                        <div className=" flex gap-10">
+                                        <div className=" flex justify-end w-full gap-10">
                                             <div>
                                                 <div>
-                                                    Gender{" "}
                                                     <span className=" text-red-600 font-semibold">
                                                         *
                                                     </span>
+                                                    الجنس{" "}
                                                 </div>
                                                 <Field
                                                     as="select"
@@ -333,7 +329,7 @@ function Register() {
                                                 />
                                             </div>
                                             <div>
-                                                <div>Age </div>
+                                                <div>العمر </div>
                                                 <Field
                                                     type="number"
                                                     name="Age"
@@ -368,12 +364,12 @@ function Register() {
                             </Formik>
                         </div>
                         <div className=" text-center my-4 text-xl text-black_text">
-                            Already Have an Account ?{" "}
+                            هل تمتلك حساب?{" "}
                             <Link
                                 to={"/en/Login"}
                                 className="select-none text-green font-semibold cursor-pointer"
                             >
-                                Login
+                                سجل دخولك{" "}
                             </Link>
                         </div>
                     </div>

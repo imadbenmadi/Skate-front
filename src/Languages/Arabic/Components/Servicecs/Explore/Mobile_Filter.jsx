@@ -34,7 +34,7 @@ function Mobile_Filter({ filter, setFilter, Services_Categories }) {
                 ) : (
                     <div className="flex items-center gap-1  text-2xl">
                         <IoFilterSharp />
-                        <div>Filter</div>
+                        <div>تصفية</div>
                     </div>
                 )}
             </div>

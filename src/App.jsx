@@ -199,9 +199,9 @@ function App() {
                 loadAllFonts();
             });
         };
-        // Promise.all([fetch_fonts(), fetch_images()])
 
-        Promise.all([fetch_fonts(), fetch_images(), fetchData()])
+        // Promise.all([fetch_fonts(), fetch_images(), fetchData()]);
+        Promise.all([fetch_fonts(), fetch_images()])
             .then(() => {
                 setLoading(false);
             })

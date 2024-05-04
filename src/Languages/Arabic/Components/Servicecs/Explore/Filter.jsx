@@ -18,9 +18,9 @@ function Filter({ filter, setFilter, Services_Categories }) {
     if(!categories || categories.lengh == 0) return null
     return (
         <div className="bg-gray-100 md:p-2 lg:p-6 rounded-lg ">
-            <h2 className=" font-semibold mb-6 flex items-center gap-1 text-2xl border-b border-gray w-fit text-gray">
+            <h2 className=" font-semibold mx-auto mb-6 flex items-center gap-1 text-2xl border-b border-gray w-fit text-gray">
                 <IoFilterSharp />
-                Filter
+                تصفية
             </h2>
             <div>
                 {categories.map((category, index) => (

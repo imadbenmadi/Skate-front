@@ -11,7 +11,7 @@ function ExploreServices({ search, filter, services }) {
                     <div className=" flex items-center gap-4 ">
                         <IoWarning className=" " />
                         <div className="text-center text-gray py-2">
-                            No services for the moment
+                            لا توجد خدمات حاليا{" "}
                         </div>
                     </div>
                 </div>
@@ -44,7 +44,7 @@ function ExploreServices({ search, filter, services }) {
             <div>
                 {filteredservices.length == 0 ? (
                     <div className=" text-center text-lg text-gray py-8 min-h-[60vh]">
-                        No Service match the Query.
+                        لم يتم العثور على أي خدمات
                     </div>
                 ) : (
                     <div className="md:h-[80vh]">
@@ -62,7 +62,7 @@ function ExploreServices({ search, filter, services }) {
         <div className=" flex text-gray items-center gap-2 p-3">
             <IoWarning className=" text-2xl" />
             <div className="text-center text-gray py-2">
-                No services for the moment
+                لا توجد خدمات حاليا{" "}
             </div>
         </div>
     );

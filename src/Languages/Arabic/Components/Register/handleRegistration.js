@@ -16,8 +16,8 @@ export async function handleRegistration(
 
         if (response.status == 401) {
             Swal.fire(
-                "Email already exists",
-                `Please try to use another Email , ${response.data.message}`,
+                "البريد الإلكتروني مستعمل من قبل!",
+                `يرجى محاولة استخدام بريد إلكتروني آخر. ${response.data.message}`,
                 "error"
             );
         } else if (response.status == 200) {
@@ -35,18 +35,14 @@ export async function handleRegistration(
                 "error"
             );
         } else if (response.status == 500) {
-            Swal.fire("Error!", `Internal server error.`, "error");
+            Swal.fire("خطأ!", `خطأ داخلي في الخادم".`, "error");
         } else {
-            Swal.fire(
-                "Error!",
-                `Something Went Wrong. Please try again `,
-                "error"
-            );
+            Swal.fire("خطأ!", `حدث خطأ ما. يرجى المحاولة" `, "error");
         }
     } catch (error) {
         Swal.fire(
-            "Error!",
-            `Something Went Wrong. Please try again , ${error.message}`,
+            "خطأ!",
+            `حدث خطأ ما. يرجى المحاولة" , ${error.message}`,
             "error"
         );
     }

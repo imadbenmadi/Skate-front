@@ -17,10 +17,6 @@ function Explore({ courses, Courses_Categories }) {
     return (
         <div className=" pt-[30px]">
             <div className=" flex flex-col md:flex-row justify-between items-center mx-16 mb-2 font-semibold text-gray w-300px">
-                <div className=" text-2xl w-screen md:w-fit text-center lg:text-3xl mb-2 ">
-                    <span className=" text-green2">Explore </span>
-                    Skate courses
-                </div>
                 <div className="   flex gap-2">
                     {Courses_Categories && Courses_Categories.length > 0 && (
                         <div className=" md:hidden">
@@ -32,6 +28,10 @@ function Explore({ courses, Courses_Categories }) {
                         </div>
                     )}
                     <Search setSearch={setSearch} />
+                </div>
+                <div className=" text-2xl w-screen md:w-fit text-center lg:text-3xl mb-2 ">
+                    <span className=" text-green2">دوراتنا </span>
+                    التدريبية{" "}
                 </div>
             </div>
 

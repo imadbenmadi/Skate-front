@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 import { useAppContext } from "../../../../../Context/AppContext"; // Import your context hook
 import { AiFillHome } from "react-icons/ai";
 
-
 import { TbLogout } from "react-icons/tb";
 
 function Mobile_Nav_Items({
@@ -40,20 +39,20 @@ function Mobile_Nav_Items({
                 <div className=" w-[80%] m-auto h-screen text-xl  mt-8 ">
                     {!isAuth && (
                         <>
-                            <div className="flex gap-2 mb-4 justify-center ">
+                            <div className="flex flex-col  gap-2 mb-4 text-center text-[16px]  justify-center ">
                                 <Link
                                     onClick={Toogle_Menu_Bar}
-                                    to={"/en/Login"}
-                                    className="select-none bg-green text-[#fff] px-3 py-2 rounded-lg "
+                                    to={"/ar/Login"}
+                                    className="select-none bg-green text-[#fff] py-1  rounded-lg "
                                 >
-                                    Login
+                                    تسجيل الدخول
                                 </Link>
                                 <Link
                                     onClick={Toogle_Menu_Bar}
-                                    to={"/en/Register"}
-                                    className="select-none bg-blue text-white px-3 py-2 rounded-lg"
+                                    to={"/ar/Register"}
+                                    className="select-none bg-blue text-white py-1  rounded-lg"
                                 >
-                                    SignUp
+                                    حساب جديد
                                 </Link>
                             </div>
                             <div className=" w-full rounded-xl m-auto h-[2px]  bg-gray mb-4"></div>
@@ -62,7 +61,7 @@ function Mobile_Nav_Items({
 
                     <Link
                         onClick={Toogle_Menu_Bar}
-                        to={"/en"}
+                        to={"/ar"}
                         className={`select-none flex gap-2 mb-4 w-[120px] m-auto ${
                             Active_nav === ""
                                 ? " text-green hover:text-green"
@@ -70,11 +69,11 @@ function Mobile_Nav_Items({
                         }`}
                     >
                         <AiFillHome className=" text-2xl" />
-                        Home
+                        الرئيسية
                     </Link>
                     <Link
                         onClick={Toogle_Menu_Bar}
-                        to={"/en/Services"}
+                        to={"/ar/Services"}
                         className={`select-none flex  gap-2  mb-4 w-[120px] m-auto ${
                             Active_nav === "Services"
                                 ? " text-green hover:text-green"
@@ -82,11 +81,11 @@ function Mobile_Nav_Items({
                         }`}
                     >
                         <FaRegHandshake className=" text-3xl" />
-                        Services
+                        خدماتنا
                     </Link>
                     <Link
                         onClick={Toogle_Menu_Bar}
-                        to={"/en/Courses"}
+                        to={"/ar/Courses"}
                         className={`select-none flex items-center   gap-2  mb-4 w-[120px] m-auto ${
                             Active_nav === "Courses"
                                 ? " text-green hover:text-green"
@@ -94,12 +93,12 @@ function Mobile_Nav_Items({
                         }`}
                     >
                         <FaBook className=" text-2xl" />
-                        Courses
+                        دوراتنا
                     </Link>
                     <div className=" w-full rounded-xl m-auto h-[2px]  bg-gray mb-4"></div>
                     <Link
                         onClick={Toogle_Menu_Bar}
-                        to={"/en/Events"}
+                        to={"/ar/Events"}
                         className={`select-none flex  gap-2 mb-4 w-[120px] m-auto ${
                             Active_nav === "Events"
                                 ? " text-green hover:text-green"
@@ -107,11 +106,11 @@ function Mobile_Nav_Items({
                         }`}
                     >
                         <MdEventAvailable className=" text-3xl" />
-                        Events
+                        الاحداث
                     </Link>
                     <Link
                         onClick={Toogle_Menu_Bar}
-                        to={"/en/Blogs"}
+                        to={"/ar/Blogs"}
                         className={`select-none flex  gap-2 mb-4 w-[120px] m-auto ${
                             Active_nav === "Blogs"
                                 ? " text-green hover:text-green"
@@ -119,11 +118,11 @@ function Mobile_Nav_Items({
                         }`}
                     >
                         <RiArticleFill className=" text-3xl" />
-                        Blogs
+                        المقالات
                     </Link>
                     <Link
                         onClick={Toogle_Menu_Bar}
-                        to={"/en/Contact"}
+                        to={"/ar/Contact"}
                         className={`select-none flex   gap-2 w-[120px] m-auto
                         ${
                             Active_nav === "Contact"
@@ -132,7 +131,7 @@ function Mobile_Nav_Items({
                         }`}
                     >
                         <IoCall className=" text-3xl" />
-                        Contact
+                        اتصل بنا
                     </Link>
                     {isAuth ? (
                         <>
@@ -144,7 +143,7 @@ function Mobile_Nav_Items({
                                     }}
                                 >
                                     <TbLogout />
-                                    Logout
+                                    تسجيل الخروج
                                 </div>
                             ) : (
                                 <div className=" w-full flex items-center justify-center mt-10  text-red-600">

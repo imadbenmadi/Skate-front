@@ -21,14 +21,14 @@ const Notifications_items = () => {
     return (
         <div className=" w-full bg-white">
             <div className=" flex items-center justify-between px-3 pb-2 border-b border-gray">
-                <h2 className="text-lg font-bold">Notifications</h2>
+                <h2 className="text-lg font-bold">الاشعارات</h2>
             </div>
             <div>
                 {Notifications.length == 0 ? (
                     <div className=" flex  justify-center py-6 gap-3">
                         <HiOutlineMailOpen className=" text-2xl" />
                         <div className=" text-sm text-center  flex items-center">
-                            No notifications for the moment .
+                            لاتوجد اية اشعارات حاليا
                         </div>
                     </div>
                 ) : (
@@ -44,9 +44,9 @@ const Notifications_items = () => {
                                 <Link
                                     to={
                                         notification.Type == "verify"
-                                            ? "/en/verifyEmail"
+                                            ? "/ar/verifyEmail"
                                             : // : `/Profile/${_id}/Notifications/${notification._id}`
-                                              `/en/Profile/${_id}/Notifications`
+                                              `/ar/Profile/${_id}/Notifications`
                                     }
                                     key={index}
                                     className={`select-none notification flex justify-start gap-2 p-2 pb-4 border-b border-gray
@@ -107,10 +107,10 @@ const Notifications_items = () => {
                             ))}
                         </div>
                         <Link
-                            to={`/en/Profile/${_id}/Notifications`}
+                            to={`/ar/Profile/${_id}/Notifications`}
                             className="select-none flex justify-end mr-6 mt-2"
                         >
-                            <div className="border px-2 py-1">See All</div>
+                            <div className="border px-2 py-1">المزيد</div>
                         </Link>
                     </>
                 )}
