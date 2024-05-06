@@ -29,6 +29,19 @@ function App() {
     const [loading, setLoading] = useState(true);
     const { set_Auth, store_login, isAuth, IsEmailVerified, Notifications } =
         useAppContext();
+    // useEffect(() => {
+    //     const currentLanguage = location.pathname.split("/")[1];
+    //     const preferredLanguage = localStorage.getItem("language");
+    //     if(!preferredLanguage) localStorage.setItem("language", "en");
+    //     if (preferredLanguage && preferredLanguage !== currentLanguage) {
+    //         const newPath = location.pathname.replace(
+    //             `/${currentLanguage}/`,
+    //             `/${preferredLanguage}/`
+    //         );
+    //         console.log("path changed , new path is : ", newPath);
+    //         Navigate(`/${newPath}`);
+    //     }
+    // }, [location.pathname.split("/")[1]]);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -152,7 +165,7 @@ function App() {
 
         const fetch_fonts = () => {
             return new Promise((resolve, reject) => {
-                localStorage.setItem("font", "ar");
+                // localStorage.setItem("language", "ar");
                 const fontURLs = [
                     "https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;500;700;800&display=swap",
                     "https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap",
@@ -171,15 +184,15 @@ function App() {
                         };
                         document.head.appendChild(link);
                         if (
-                            !localStorage.getItem("font") ||
-                            localStorage.getItem("font") == "en"
+                            !localStorage.getItem("language") ||
+                            localStorage.getItem("language") == "en"
                         )
                             document.getElementById("root").style.fontFamily =
                                 "Outfit";
-                        else if (localStorage.getItem("font") == "ar")
+                        else if (localStorage.getItem("language") == "ar")
                             document.getElementById("root").style.fontFamily =
                                 "Rubik";
-                        else if (localStorage.getItem("font") == "fr")
+                        else if (localStorage.getItem("language") == "fr")
                             document.getElementById("root").style.fontFamily =
                                 "Outfit";
                         else
@@ -199,7 +212,8 @@ function App() {
                 loadAllFonts();
             });
         };
-
+        if (!localStorage.getItem("language"))
+            localStorage.setItem("language", "en");
         // Promise.all([fetch_fonts(), fetch_images(), fetchData()]);
         Promise.all([fetch_fonts(), fetch_images()])
             .then(() => {
