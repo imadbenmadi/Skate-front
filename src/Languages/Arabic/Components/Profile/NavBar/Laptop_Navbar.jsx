@@ -15,13 +15,18 @@ function Navbar({ Active_nav, setActive_nav, userId, user }) {
     const Navigate = useNavigate();
     const location = useLocation();
     useEffect(() => {
-        setActive_nav(location.pathname.split("/")[3]);
+        setActive_nav(location.pathname.split("/")[4]);
     }, [location.pathname]);
     const [unReaded_Notif, SetunReaded_Notif] = useState(false);
     useEffect(() => {
         if (user) {
             const hasUnreadNotification = user.user.Notifications.some(
-                (notification) => !notification.Readed
+                (notification) => {
+                    if (notification.Readed == false ) {
+                        return true;
+                    }
+                    return false;
+                }
             );
             SetunReaded_Notif(hasUnreadNotification);
         }
@@ -46,7 +51,7 @@ function Navbar({ Active_nav, setActive_nav, userId, user }) {
                 <Link
                     to={`/en/Profile/${userId}`}
                     className={` flex items-center cursor-pointer gap-3 ${
-                        !location.pathname.split("/")[3] && "text-green "
+                        !location.pathname.split("/")[4] && "text-green "
                     }`}
                 >
                     <FaUser />

@@ -24,7 +24,7 @@ function Navbar({
     const Navigate = useNavigate();
     const location = useLocation();
     useEffect(() => {
-        setActive_nav(location.pathname.split("/")[3]);
+        setActive_nav(location.pathname.split("/")[4]);
     }, [location.pathname]);
     const [unReaded_Notif, SetunReaded_Notif] = useState(false);
     useEffect(() => {
@@ -49,10 +49,10 @@ function Navbar({
                             to={`/en/Profile/${userId}`}
                             onClick={() => SetOpenNav(false)}
                             className={`flex items-center cursor-pointer gap-1 ${
-                                !location.pathname.split("/")[3] &&
+                                !location.pathname.split("/")[4] &&
                                 "text-green "
                             } ${
-                                location.pathname.split("/")[3]
+                                location.pathname.split("/")[4]
                                     ? "text-white"
                                     : ""
                             }`}
@@ -145,7 +145,7 @@ function Navbar({
                     <Link
                         to={`/en/Profile/${userId}`}
                         className={`flex items-center cursor-pointer ${
-                            !location.pathname.split("/")[3]
+                            !location.pathname.split("/")[4]
                                 ? "text-green"
                                 : "text-white"
                         }`}
