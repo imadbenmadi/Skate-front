@@ -23,11 +23,70 @@ import { useAppContext } from "./Context/AppContext";
 import { useLocation } from "react-router";
 import { useNavigate } from "react-router";
 function App() {
-    
+    const fetch_fonts = () => {
+        return new Promise((resolve, reject) => {
+            // localStorage.setItem("language", "ar");
+            const fontURLs = [
+                "https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;500;700;800&display=swap",
+                "https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap",
+            ];
+
+            const loadFont = (url) => {
+                return new Promise((resolve, reject) => {
+                    const link = document.createElement("link");
+                    link.href = url;
+                    link.rel = "stylesheet";
+                    link.onload = () => {
+                        resolve(); // Resolve promise when font is loaded
+                    };
+                    link.onerror = () => {
+                        resolve(); // Resolve even if font fails to load
+                    };
+                    document.head.appendChild(link);
+                });
+            };
+
+            // Load all fonts sequentially
+            const loadAllFonts = async () => {
+                for (const url of fontURLs) {
+                    await loadFont(url);
+                }
+                resolve(); // Resolve promise once all fonts are loaded or failed to load
+            };
+
+            loadAllFonts();
+            if (!localStorage.getItem("language"))
+                localStorage.setItem("language", "en");
+            if (
+                !localStorage.getItem("language") ||
+                localStorage.getItem("language") == "en"
+            )
+                document.getElementById("root").style.fontFamily = "Outfit";
+            else if (localStorage.getItem("language") == "ar")
+                document.getElementById("root").style.fontFamily = "Rubik";
+            else if (localStorage.getItem("language") == "fr")
+                document.getElementById("root").style.fontFamily = "Outfit";
+            else document.getElementById("root").style.fontFamily = "Outfit";
+        });
+    };
     const [loading, setLoading] = useState(true);
     const { set_Auth, store_login, isAuth, IsEmailVerified, Notifications } =
         useAppContext();
-
+    const location = useLocation();
+    useEffect(() => {
+        if (!localStorage.getItem("language"))
+            localStorage.setItem("language", "en");
+        if (
+            !localStorage.getItem("language") ||
+            localStorage.getItem("language") == "en"
+        )
+            document.getElementById("root").style.fontFamily = "Outfit";
+        else if (localStorage.getItem("language") == "ar")
+            document.getElementById("root").style.fontFamily = "Rubik";
+        else if (localStorage.getItem("language") == "fr")
+            document.getElementById("root").style.fontFamily = "Outfit";
+        else document.getElementById("root").style.fontFamily = "Outfit";
+    }, [location.pathname]);
     useEffect(() => {
         const fetchData = async () => {
             try {
@@ -146,57 +205,6 @@ function App() {
             });
         };
 
-        const fetch_fonts = () => {
-            return new Promise((resolve, reject) => {
-                // localStorage.setItem("language", "ar");
-                const fontURLs = [
-                    "https://fonts.googleapis.com/css2?family=Outfit:wght@100;300;500;700;800&display=swap",
-                    "https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap",
-                ];
-
-                const loadFont = (url) => {
-                    return new Promise((resolve, reject) => {
-                        const link = document.createElement("link");
-                        link.href = url;
-                        link.rel = "stylesheet";
-                        link.onload = () => {
-                            resolve(); // Resolve promise when font is loaded
-                        };
-                        link.onerror = () => {
-                            resolve(); // Resolve even if font fails to load
-                        };
-                        document.head.appendChild(link);
-                        if (
-                            !localStorage.getItem("language") ||
-                            localStorage.getItem("language") == "en"
-                        )
-                            document.getElementById("root").style.fontFamily =
-                                "Outfit";
-                        else if (localStorage.getItem("language") == "ar")
-                            document.getElementById("root").style.fontFamily =
-                                "Rubik";
-                        else if (localStorage.getItem("language") == "fr")
-                            document.getElementById("root").style.fontFamily =
-                                "Outfit";
-                        else
-                            document.getElementById("root").style.fontFamily =
-                                "Outfit";
-                    });
-                };
-
-                // Load all fonts sequentially
-                const loadAllFonts = async () => {
-                    for (const url of fontURLs) {
-                        await loadFont(url);
-                    }
-                    resolve(); // Resolve promise once all fonts are loaded or failed to load
-                };
-
-                loadAllFonts();
-            });
-        };
-        if (!localStorage.getItem("language"))
-            localStorage.setItem("language", "en");
         // Promise.all([fetch_fonts(), fetch_images()]);
 
         Promise.all([fetch_fonts(), fetch_images(), fetchData()])
@@ -206,8 +214,8 @@ function App() {
             .catch(() => {
                 setLoading(false); // Handle error if any of the promises fail
             });
-    }, [window.location.pathname]);
-   
+    }, []);
+
     if (loading)
         return (
             <div className="w-screen h-screen flex items-center justify-center">
