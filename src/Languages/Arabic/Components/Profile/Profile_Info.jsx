@@ -1,4 +1,4 @@
-import {  useState } from "react";
+import { useState } from "react";
 import { useOutletContext } from "react-router-dom";
 import { IoIosNotifications } from "react-icons/io";
 import { IoNewspaper } from "react-icons/io5";
@@ -33,10 +33,10 @@ function ProfileInfo() {
             );
             if (response.status == 204) {
                 Swal.fire("Logout", ``, "success");
-                Navigate("/");
+                window.location.href = "/";
             } else if (response.status == 401) {
                 Swal.fire("Logout", ``, "success");
-                Navigate("/");
+                window.location.href = "/";
             } else {
                 Swal.fire("Error!", `Something Went Wrong ,`, "error");
             }

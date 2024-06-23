@@ -93,7 +93,7 @@ function Laptop_Nav_Items({
                                     SetLanguageClicked(false);
                                 }}
                                 className=" w-[100px]  text-center  font-sans py-1 
-                                        flex items-center justify-start gap-3 pl-2"
+                                        flex items-center justify-start gap-3 pl-2 border rounded-b-md"
                             >
                                 <img src={ar} alt="" className=" w-4" />
                                 <p className=" font-sans font-semibold ">

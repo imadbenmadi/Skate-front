@@ -69,7 +69,7 @@ function Laptop_Nav_Items({
                                 }}
                                 className="  
                                         flex items-center justify-start gap-1
-                                          text-center py-1 pl-2 w-[100px] border-t"
+                                          text-center py-1 pl-2 w-[100px] border"
                             >
                                 <img src={en} alt="" className=" w-4" />
                                 <p className=" underline">English</p>
