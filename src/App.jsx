@@ -23,15 +23,10 @@ import { useAppContext } from "./Context/AppContext";
 import { useLocation } from "react-router";
 import { useNavigate } from "react-router";
 function App() {
-    const Location = useLocation();
-    const Navigate = useNavigate();
-    const [Language, setLanguage] = useState(
-        window.localStorage.getItem("language") || "en"
-    );
+    
     const [loading, setLoading] = useState(true);
     const { set_Auth, store_login, isAuth, IsEmailVerified, Notifications } =
         useAppContext();
-    
 
     useEffect(() => {
         const fetchData = async () => {
@@ -211,7 +206,8 @@ function App() {
             .catch(() => {
                 setLoading(false); // Handle error if any of the promises fail
             });
-    }, [Language]);
+    }, [window.location.pathname]);
+   
     if (loading)
         return (
             <div className="w-screen h-screen flex items-center justify-center">
