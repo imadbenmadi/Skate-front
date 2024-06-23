@@ -31,19 +31,7 @@ function App() {
     const [loading, setLoading] = useState(true);
     const { set_Auth, store_login, isAuth, IsEmailVerified, Notifications } =
         useAppContext();
-    // useEffect(() => {
-    //     const currentLanguage = location.pathname.split("/")[1];
-    //     const preferredLanguage = localStorage.getItem("language");
-    //     if(!preferredLanguage) localStorage.setItem("language", "en");
-    //     if (preferredLanguage && preferredLanguage !== currentLanguage) {
-    //         const newPath = location.pathname.replace(
-    //             `/${currentLanguage}/`,
-    //             `/${preferredLanguage}/`
-    //         );
-    //         console.log("path changed , new path is : ", newPath);
-    //         Navigate(`/${newPath}`);
-    //     }
-    // }, [location.pathname.split("/")[1]]);
+    
 
     useEffect(() => {
         const fetchData = async () => {
@@ -55,7 +43,6 @@ function App() {
                         validateStatus: () => true,
                     }
                 );
-                console.log("response from app.jsx", response.data);
                 if (
                     response.status == 200 &&
                     response.data.userData._id == null
@@ -96,7 +83,6 @@ function App() {
                         _id
                     );
                     set_Auth(true);
-                    console.log("Authentificated from App.jsx");
                 } else {
                     store_login({
                         FirstName: "",

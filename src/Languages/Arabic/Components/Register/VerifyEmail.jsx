@@ -47,7 +47,6 @@ function Verification({
             if (response.status == 200) {
                 Swal.fire("تم!", "تم إعادة إرسال الرمز بنجاح", "success");
             } else if (response.status == 404) {
-                console.log(response.data);
                 Swal.fire("خطأ!", `${response.data.message}`, "error");
             } else if (response.status == 500) {
                 Swal.fire("خطأ!", "خطأ في الخادم الداخلي", "error");

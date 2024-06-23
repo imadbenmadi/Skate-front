@@ -33,7 +33,6 @@ export async function handleContact(values, { setSubmitting, onSuccess }) {
             );
         }
     } catch (error) {
-        console.log(error);
         Swal.fire("خطأ", `حدث خطأ ما. يرجى المحاولة مرة أخرى `, "error");
     }
 

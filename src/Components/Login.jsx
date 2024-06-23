@@ -27,10 +27,8 @@ function Login() {
 
             if (response.status == 200) {
                 // Swal.fire("Done!", "Logged in Successfully", "success");
-                // console.log("Logged in Successfully");
 
                 // setTimeout(() => {
-                // console.log("Navigating to /");
                 window.location.href = "/";
                     // Navigate("/");
                 // }, 2000);
