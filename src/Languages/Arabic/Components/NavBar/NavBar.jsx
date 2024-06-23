@@ -15,11 +15,13 @@ import { FaAngleUp } from "react-icons/fa";
 import en from "../../../../../public/en.png";
 import ar from "../../../../../public/ar.png";
 import fr from "../../../../../public/fr.png";
+import { useNavigate } from "react-router";
 function NavBar({ Active_nav, setActive_nav }) {
     const [LanguageClicked, SetLanguageClicked] = useState(false);
     const toogle_LanguageClicked = () => {
         SetLanguageClicked(!LanguageClicked);
     };
+    const Navigate = useNavigate();
 
     const { isAuth, FirstName, LastName, _id, Notifications } = useAppContext();
     const [unReaded_Notif, SetunReaded_Notif] = useState(false);
@@ -111,7 +113,7 @@ function NavBar({ Active_nav, setActive_nav }) {
                             className="  relative"
                         >
                             <div className=" flex items-center justify-center gap-1">
-                                <img src={en} alt="" className=" w-6" />
+                                <img src={ar} alt="" className=" w-6" />
                                 {/* <p>EN</p> */}
                                 {LanguageClicked ? (
                                     <FaAngleUp className=" text-lg" />
@@ -122,37 +124,51 @@ function NavBar({ Active_nav, setActive_nav }) {
 
                             {LanguageClicked && (
                                 <div
-                                    className=" h-fit shadow-sm bg-white rounded-b-md
-                                    absolute -left-8 -bottom-[115px] 
+                                    className=" h-fit shadow-sm border bg-white rounded-b-md
+                                    absolute -left-8 -bottom-[82px] 
                                     flex flex-col items-center justify-center "
                                 >
-                                    <Link
-                                        to={"/en"}
-                                        className=" text-green border-2 
+                                    <div
+                                        onClick={() => {
+                                            window.localStorage.setItem(
+                                                "language",
+                                                "en"
+                                            );
+                                            Navigate("/en");
+                                            SetLanguageClicked(false);
+                                        }}
+                                        className="  
                                         flex items-center justify-start gap-1
                                           text-center py-1 pl-2 w-[100px]"
                                     >
                                         <img src={en} alt="" className=" w-4" />
                                         <p className=" underline">English</p>
-                                    </Link>
-                                    <Link
+                                    </div>
+                                    {/* <Link
                                         to={"/fr"}
                                         className="border-b w-[100px] text-center py-1 
                                         flex items-center justify-start gap-1 pl-2"
                                     >
                                         <img src={fr} alt="" className=" w-4" />
                                         <p className=" text-base">Français</p>
-                                    </Link>
-                                    <Link
-                                        to={"/ar"}
-                                        className=" w-[100px] text-center  font-sans py-1 
+                                    </Link> */}
+                                    <div
+                                        onClick={() => {
+                                            window.localStorage.setItem(
+                                                "language",
+                                                "ar"
+                                            );
+                                            Navigate("/ar");
+                                            SetLanguageClicked(false);
+                                        }}
+                                        className=" w-[100px] text-green border-2 text-center  font-sans py-1 
                                         flex items-center justify-start gap-3 pl-2"
                                     >
                                         <img src={ar} alt="" className=" w-4" />
                                         <p className=" font-sans font-semibold ">
                                             العربية
                                         </p>
-                                    </Link>
+                                    </div>
                                 </div>
                             )}
                         </div>

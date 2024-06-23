@@ -25,7 +25,9 @@ import { useNavigate } from "react-router";
 function App() {
     const Location = useLocation();
     const Navigate = useNavigate();
-
+    const [Language, setLanguage] = useState(
+        window.localStorage.getItem("language") || "en"
+    );
     const [loading, setLoading] = useState(true);
     const { set_Auth, store_login, isAuth, IsEmailVerified, Notifications } =
         useAppContext();
@@ -214,15 +216,16 @@ function App() {
         };
         if (!localStorage.getItem("language"))
             localStorage.setItem("language", "en");
-        // Promise.all([fetch_fonts(), fetch_images(), fetchData()]);
-        Promise.all([fetch_fonts(), fetch_images()])
+        // Promise.all([fetch_fonts(), fetch_images()]);
+
+        Promise.all([fetch_fonts(), fetch_images(), fetchData()])
             .then(() => {
                 setLoading(false);
             })
             .catch(() => {
                 setLoading(false); // Handle error if any of the promises fail
             });
-    }, []);
+    }, [Language]);
     if (loading)
         return (
             <div className="w-screen h-screen flex items-center justify-center">

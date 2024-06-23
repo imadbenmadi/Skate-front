@@ -85,7 +85,7 @@ function Blogs() {
                             {blogs.length == 0 ? (
                                 <div className="w-[80%] m-auto h-fit text-center py-6 flex gap-1 text-2xl justify-center items-center text-gray">
                                     <IoWarning />
-                                    No Blogs Found
+                                    لا توجد احداث متاحة
                                 </div>
                             ) : search == "" ? (
                                 blogs.map((blog) => (
@@ -97,7 +97,7 @@ function Blogs() {
                                 ))
                             ) : filteredBlogs.length == 0 ? (
                                 <div className="text-center text-gray py-4">
-                                    No blog match the Search Query.
+                                    لا توجد احداث توافق البحث
                                 </div>
                             ) : (
                                 filteredBlogs.map((blog) => (

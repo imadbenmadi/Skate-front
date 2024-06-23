@@ -57,7 +57,7 @@ function Blog_item() {
                     className="select-none w-fit m-auto bg-green rounded cursor-pointer text-white text-xl flex items-center gap-2 px-3 py-1 mb-4"
                 >
                     <IoMdArrowRoundBack />
-                    <div>Back to blogs</div>
+                    <div>الرجوع</div>
                 </Link>
                 <h2 className="text-2xl font-bold mb-2 m-auto">{blog.Title}</h2>
                 <img

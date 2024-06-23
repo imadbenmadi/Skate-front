@@ -21,7 +21,6 @@ function Login() {
                 values,
                 {
                     withCredentials: true,
-
                     validateStatus: () => true,
                 }
             );

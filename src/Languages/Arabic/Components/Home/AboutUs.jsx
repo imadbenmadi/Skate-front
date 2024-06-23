@@ -68,7 +68,7 @@ export function AboutUs() {
                               className="self-end mt-12 aspect-[1.2] fill-emerald-500 w-[29px] max-md:mt-10"
                           />
                       </div> */}
-                        <div className=" flex gap-6 my-6">
+                        <div className=" flex gap-6 my-6 justify-center">
                             <a
                                 href="./catloug de service.pdf"
                                 download

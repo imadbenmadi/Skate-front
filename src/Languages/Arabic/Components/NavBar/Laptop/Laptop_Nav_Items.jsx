@@ -11,6 +11,7 @@ import { FaAngleUp } from "react-icons/fa";
 import en from "../../../../../../public/en.png";
 import ar from "../../../../../../public/ar.png";
 import fr from "../../../../../../public/fr.png";
+import { useNavigate } from "react-router-dom";
 function Laptop_Nav_Items({
     Active_nav,
     isAuth,
@@ -18,6 +19,7 @@ function Laptop_Nav_Items({
     Logout,
     LogoutClicked,
 }) {
+    const Navigate = useNavigate();
     const [unReaded_Notif, SetunReaded_Notif] = useState(false);
     const { Notifications, _id } = useAppContext();
     const [User_menu_open, setUser_menu_open] = useState(false);
@@ -53,37 +55,50 @@ function Laptop_Nav_Items({
                     {LanguageClicked && (
                         <div
                             className=" cursor-pointer w-24 h-fit shadow-sm bg-white rounded-b-lg
-                                    absolute -left-8 -bottom-[129px] 
+                                    absolute -left-8 -bottom-[92px] 
                                  flex flex-col items-center justify-center "
                         >
-                            <Link
-                                to={"/en"}
-                                className=" text-green border-2 
-                                        flex items-center justify-center gap-1
-                                         w-full text-center py-1 px-6"
+                            <div
+                                onClick={() => {
+                                    window.localStorage.setItem(
+                                        "language",
+                                        "en"
+                                    );
+                                    Navigate("/en");
+                                    SetLanguageClicked(false);
+                                }}
+                                className="  
+                                        flex items-center justify-start gap-1
+                                          text-center py-1 pl-2 w-[100px] border-t"
                             >
                                 <img src={en} alt="" className=" w-4" />
                                 <p className=" underline">English</p>
-                            </Link>
-                            <Link
-                                to={"/fr"}
-                                className="border-b w-full text-center py-1.5 px-6
-                                        flex items-center justify-center gap-1"
-                            >
-                                <img src={fr} alt="" className=" w-4" />
-                                <p className=" text-base">Français</p>
-                            </Link>
-                            <Link
-                                to={"/ar"}
-                                className=" w-full text-center  font-sans py-1 px-6
-                                        flex items-center justify-center gap-3
-                                        "
+                            </div>
+                            {/* <Link
+                                        to={"/fr"}
+                                        className="border-b w-[100px] text-center py-1 
+                                        flex items-center justify-start gap-1 pl-2"
+                                    >
+                                        <img src={fr} alt="" className=" w-4" />
+                                        <p className=" text-base">Français</p>
+                                    </Link> */}
+                            <div
+                                onClick={() => {
+                                    window.localStorage.setItem(
+                                        "language",
+                                        "ar"
+                                    );
+                                    Navigate("/ar");
+                                    SetLanguageClicked(false);
+                                }}
+                                className=" w-[100px] text-green border-2 rounded-b-md text-center  font-sans py-1 
+                                        flex items-center justify-start gap-3 pl-2"
                             >
                                 <img src={ar} alt="" className=" w-4" />
                                 <p className=" font-sans font-semibold ">
                                     العربية
                                 </p>
-                            </Link>
+                            </div>
                         </div>
                     )}
                 </div>

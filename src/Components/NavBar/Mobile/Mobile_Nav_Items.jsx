@@ -27,7 +27,8 @@ function Mobile_Nav_Items({
                 onClick={Toogle_Menu_Bar}
                 className={` md:hidden ${
                     MobileNav_Open ? "block  " : "hidden"
-                } absolute  transition-all  select-none w-[30vw]  z-50 h-screen  opacity-[0.6] `}
+                    } absolute  transition-all  select-none w-[30vw] 
+                 z-50 h-screen  opacity-[0.6] `}
             ></div>
 
             <div
@@ -35,7 +36,8 @@ function Mobile_Nav_Items({
                     MobileNav_Open
                         ? " translate-x-[30vw]"
                         : " translate-x-[200vh] "
-                } absolute  transition-all duration-300 select-none w-[70vw]  z-50 bg-zinc-100 border-l-4  text-gray font-semibold `}
+                    } absolute  transition-all duration-300 select-none w-[70vw]
+                  z-50 bg-zinc-100 border-l-4  text-gray font-semibold `}
             >
                 <div className=" w-[80%] m-auto h-screen text-xl  mt-8 ">
                     {!isAuth && (

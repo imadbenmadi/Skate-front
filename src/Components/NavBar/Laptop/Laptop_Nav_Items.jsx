@@ -11,6 +11,8 @@ import { FaAngleUp } from "react-icons/fa";
 import en from "../../../../public/en.png";
 import ar from "../../../../public/ar.png";
 import fr from "../../../../public/fr.png";
+import { useNavigate } from "react-router";
+
 function Laptop_Nav_Items({
     Active_nav,
     isAuth,
@@ -18,6 +20,7 @@ function Laptop_Nav_Items({
     Logout,
     LogoutClicked,
 }) {
+    const Navigate = useNavigate();
     const [unReaded_Notif, SetunReaded_Notif] = useState(false);
     const { Notifications, _id } = useAppContext();
     const [User_menu_open, setUser_menu_open] = useState(false);
@@ -34,9 +37,9 @@ function Laptop_Nav_Items({
     const toogle_LanguageClicked = () => {
         SetLanguageClicked(!LanguageClicked);
     };
-     useEffect(() => {
-         console.log("from Laptop_Nav_Items : isAuth =",isAuth);
-     }, [isAuth]);
+    useEffect(() => {
+        console.log("from Laptop_Nav_Items : isAuth =", isAuth);
+    }, [isAuth]);
     return (
         <div className="hidden  md:flex  items-center justify-center gap-7 text-lg text-black_text h-full ">
             <div className="flex gap-3 lg:gap-5">
@@ -55,37 +58,50 @@ function Laptop_Nav_Items({
                     {LanguageClicked && (
                         <div
                             className=" cursor-pointer w-24 h-fit shadow-sm bg-white rounded-b-lg
-                                    absolute -left-8 -bottom-[129px] 
+                                    absolute -left-8 -bottom-[92px]
                                  flex flex-col items-center justify-center "
                         >
-                            <Link
-                                to={"/en"}
-                                className=" text-green border-2 
-                                        flex items-center justify-center gap-1
-                                         w-full text-center py-1 px-6"
+                            <div
+                                onClick={() => {
+                                    window.localStorage.setItem(
+                                        "language",
+                                        "en"
+                                    );
+                                    Navigate("/en");
+                                    SetLanguageClicked(false);
+                                }}
+                                className="  
+                                        flex items-center justify-start gap-1 text-green border-2
+                                          text-center py-1 pl-2 w-[100px]"
                             >
                                 <img src={en} alt="" className=" w-4" />
                                 <p className=" underline">English</p>
-                            </Link>
-                            <Link
-                                to={"/fr"}
-                                className="border-b w-full text-center py-1.5 px-6
-                                        flex items-center justify-center gap-1"
-                            >
-                                <img src={fr} alt="" className=" w-4" />
-                                <p className=" text-base">Français</p>
-                            </Link>
-                            <Link
-                                to={"/ar"}
-                                className=" w-full text-center  font-sans py-1 px-6
-                                        flex items-center justify-center gap-3
-                                        "
+                            </div>
+                            {/* <Link
+                                        to={"/fr"}
+                                        className="border-b w-[100px] text-center py-1 
+                                        flex items-center justify-start gap-1 pl-2"
+                                    >
+                                        <img src={fr} alt="" className=" w-4" />
+                                        <p className=" text-base">Français</p>
+                                    </Link> */}
+                            <div
+                                onClick={() => {
+                                    window.localStorage.setItem(
+                                        "language",
+                                        "ar"
+                                    );
+                                    Navigate("/ar");
+                                    SetLanguageClicked(false);
+                                }}
+                                className=" w-[100px]  text-center  font-sans py-1 
+                                        flex items-center justify-start gap-3 pl-2"
                             >
                                 <img src={ar} alt="" className=" w-4" />
                                 <p className=" font-sans font-semibold ">
                                     العربية
                                 </p>
-                            </Link>
+                            </div>
                         </div>
                     )}
                 </div>
@@ -93,7 +109,7 @@ function Laptop_Nav_Items({
                     <Link
                         to={"/en"}
                         className={
-                            !Active_nav 
+                            !Active_nav
                                 ? "text-green hover:text-green select-none"
                                 : "text-black_text hover:text-green select-none"
                         }
