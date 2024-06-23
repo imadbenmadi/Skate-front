@@ -1,5 +1,5 @@
 import { useInView } from "framer-motion";
-import  { useRef } from "react";
+import { useRef } from "react";
 import { IoMdMail } from "react-icons/io";
 import { Link } from "react-router-dom";
 import { IoLogoWhatsapp } from "react-icons/io";
@@ -83,8 +83,8 @@ function Footer() {
                     <div className="flex items-center">
                         <FaPhoneAlt className="text-green text-2xl" />
                         <div className="flex flex-col gap-1 ml-2 text-gray">
-                            <a href="tel:+213657653349">+213 657653349</a>
-                            <a href="tel:+213657653349">+213 779268945</a>
+                            <a href="tel:+213658335232">+213 658335232</a>
+                            {/* <a href="tel:+213658335232">+213 779268945</a> */}
                         </div>
                     </div>
                 </div>
